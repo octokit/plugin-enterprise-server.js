@@ -27,7 +27,9 @@ There can be differences in REST API between `api.github.com` and the different 
 ```js
 const Octokit = require('@octokit/rest')
   .plugin(require('@octokit/enterprise-rest/v2.15/all'))
-const octokit = new Octokit()
+const octokit = new Octokit({
+  baseUrl: 'https://github.acme-inc.com/api/v3'
+})
 
 octokit.issues.addLabels({
   owner,
