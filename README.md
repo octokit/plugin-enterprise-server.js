@@ -2,7 +2,7 @@
 
 > Octokit plugin for GitHub Enterprise REST APIs
 
-[![Build Status](https://travis-ci.org/octokit/plugin-enterprise-rest.js.svg?branch=master)](https://travis-ci.org/octokit/plugin-enterprise-rest.js)
+[![Build Status](https://travis-ci.com/octokit/plugin-enterprise-rest.js.svg?branch=master)](https://travis-ci.com/octokit/plugin-enterprise-rest.js)
 [![Coverage Status](https://coveralls.io/repos/octokit/plugin-enterprise-rest.js/badge.svg?branch=master)](https://coveralls.io/github/octokit/plugin-enterprise-rest.js?branch=master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/octokit/plugin-enterprise-rest.js.svg)](https://greenkeeper.io/)
 
