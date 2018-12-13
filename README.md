@@ -1,0 +1,49 @@
+# 🚧 THIS IS WORK IN PROGRESS 🚧
+
+[#1](https://github.com/octokit/plugin-enterprise-rest.js)
+
+# plugin-enterprise-rest.js
+
+> Octokit plugin for GitHub Enterprise REST APIs
+
+`@octokit/rest` does not include methods for Enterprise Administration as they are not usable against https://api.github.com. This plugin adds these endpoints based on the GitHub Enterprise version you need.
+
+## Usage
+
+```js
+const Octokit = require('@octokit/rest')
+  .plugin(require('@octokit/enterprise-rest/v2.15'))
+const octokit = new Octokit()
+
+octokit.enterpriseAdmin.promoteOrdinaryUserToSiteAdministrator({
+  username: 'userName eq "Octocat"'
+})
+```
+
+There can be differences in REST API between `api.github.com` and the different GitHub Enterprise versions. Some of the endpoint methods from `@octokit/rest` might not work. For these cases you can load the endpoint methods for all scopes for a certain GitHub Enterprise version, not only the `.enterprise` scope. This will override existing endpoint methods.
+
+```js
+const Octokit = require('@octokit/rest')
+  .plugin(require('@octokit/enterprise-rest/v2.15/all'))
+const octokit = new Octokit()
+
+octokit.issues.addLabels({
+  owner,
+  repo,
+  number,
+  labels: ['foo', 'bar']
+})
+// now sends `["foo", "bar"]` in the request body, instead of `{"labels": ["foo", "bar"]}`
+```
+
+## API docs
+
+See the `README.md` files in the `ghe-*` folders for a list of available endpoint methods for the respective GitHub Enterprise version.
+
+## How it works
+
+The route definitions for the currently supported GitHub Enterprise versions are build automatically from [`@octokit/routes`](https://github.com/octokit/routes). Each time there is a new `@octokit/routes` release, [Greenkeeper](https://greenkeeper.io/) will send a pull request which updates the dependency in `package.json` and `package-lock.json`. That kicks of a build on Travis CI where the `greenkeeper-routes-update` script is run. If there is a change, the script updates the `*.json` definition files in the pull request.
+
+## LICENSE
+
+[MIT](LICENSE)
