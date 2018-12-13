@@ -13,10 +13,12 @@
 ```js
 const Octokit = require('@octokit/rest')
   .plugin(require('@octokit/enterprise-rest/v2.15'))
-const octokit = new Octokit()
+const octokit = new Octokit({
+  baseUrl: 'https://github.acme-inc.com/api/v3'
+})
 
 octokit.enterpriseAdmin.promoteOrdinaryUserToSiteAdministrator({
-  username: 'userName eq "Octocat"'
+  username: 'octocat'
 })
 ```
 
