@@ -34,6 +34,7 @@ jobs:
       script: npm ci
     - node_js: lts/*
       script: npm run coverage:upload
+      env: coverage upload
     - stage: release
       env: semantic-release
       node_js: lts/*
