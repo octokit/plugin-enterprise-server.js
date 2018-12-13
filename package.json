@@ -14,8 +14,7 @@
     "coverage:upload": "npm run test && tap --coverage-report=text-lcov | coveralls",
     "generate-routes": "node scripts/generate-routes",
     "pretest": "standard && standard-markdown *.md",
-    "test": "tap --coverage test.js",
-    "semantic-release": "semantic-release"
+    "test": "tap --coverage test.js"
   },
   "repository": {
     "type": "git",

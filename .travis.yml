@@ -37,7 +37,7 @@ jobs:
     - stage: release
       env: semantic-release
       node_js: lts/*
-      script: npm run semantic-release
+      script: npx semantic-release
 
 
 stages:
