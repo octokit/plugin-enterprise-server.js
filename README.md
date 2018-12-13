@@ -1,10 +1,10 @@
-# 🚧 THIS IS WORK IN PROGRESS 🚧
-
-[#1](https://github.com/octokit/plugin-enterprise-rest.js)
-
 # plugin-enterprise-rest.js
 
 > Octokit plugin for GitHub Enterprise REST APIs
+
+[![Build Status](https://travis-ci.org/octokit/plugin-enterprise-rest.js.svg?branch=master)](https://travis-ci.org/octokit/plugin-enterprise-rest.js)
+[![Coverage Status](https://coveralls.io/repos/octokit/plugin-enterprise-rest.js/badge.svg?branch=master)](https://coveralls.io/github/octokit/plugin-enterprise-rest.js?branch=master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/octokit/plugin-enterprise-rest.js.svg)](https://greenkeeper.io/)
 
 `@octokit/rest` does not include methods for Enterprise Administration as they are not usable against https://api.github.com. This plugin adds these endpoints based on the GitHub Enterprise version you need.
 
