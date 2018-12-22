@@ -113,26 +113,6 @@
       "params": {},
       "url": "/feeds"
     },
-    "listIssueEventsForRepo": {
-      "method": "GET",
-      "params": {
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/issues/events"
-    },
     "listNotifications": {
       "method": "GET",
       "params": {
@@ -1260,23 +1240,6 @@
         }
       },
       "url": "/codes_of_conduct/:key"
-    },
-    "getConductRepoCode": {
-      "headers": {
-        "accept": "application/vnd.github.scarlet-witch-preview+json"
-      },
-      "method": "GET",
-      "params": {
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo"
     },
     "getForRepo": {
       "headers": {
@@ -2489,26 +2452,6 @@
       },
       "url": "/repos/:owner/:repo/git/refs/:ref"
     },
-    "getRefs": {
-      "method": "GET",
-      "params": {
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/git/refs"
-    },
     "getTag": {
       "method": "GET",
       "params": {
@@ -2534,6 +2477,12 @@
           "required": true,
           "type": "string"
         },
+        "recursive": {
+          "enum": [
+            1
+          ],
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -2545,23 +2494,28 @@
       },
       "url": "/repos/:owner/:repo/git/trees/:tree_sha"
     },
-    "getTreeRecursively": {
+    "listRefs": {
       "method": "GET",
       "params": {
+        "namespace": {
+          "type": "string"
+        },
         "owner": {
           "required": true,
           "type": "string"
         },
-        "repo": {
-          "required": true,
-          "type": "string"
+        "page": {
+          "type": "integer"
         },
-        "tree_sha": {
+        "per_page": {
+          "type": "integer"
+        },
+        "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/git/trees/:tree_sha?recursive=1"
+      "url": "/repos/:owner/:repo/git/refs/:namespace"
     },
     "updateRef": {
       "method": "PATCH",
@@ -8939,9 +8893,18 @@
     "uploadReleaseAsset": {
       "method": "POST",
       "params": {
+        "file": {
+          "mapTo": "data",
+          "required": true,
+          "type": "string | object"
+        },
         "headers": {
           "required": true,
           "type": "object"
+        },
+        "headers.content-length": {
+          "required": true,
+          "type": "integer"
         },
         "headers.content-type": {
           "required": true,
@@ -8954,20 +8917,12 @@
           "required": true,
           "type": "string"
         },
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "release_id": {
-          "required": true,
-          "type": "integer"
-        },
-        "repo": {
+        "url": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "https://<upload_url>/repos/:owner/:repo/releases/:release_id/assets?name=foo.zip"
+      "url": ":url"
     }
   },
   "search": {
