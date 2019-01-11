@@ -3246,6 +3246,33 @@
       },
       "url": "/authorizations/clients/:client_id"
     },
+    "getOrCreateAuthorizationForAppAndFingerprint": {
+      "method": "PUT",
+      "params": {
+        "client_id": {
+          "required": true,
+          "type": "string"
+        },
+        "client_secret": {
+          "required": true,
+          "type": "string"
+        },
+        "fingerprint": {
+          "required": true,
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "note_url": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "string[]"
+        }
+      },
+      "url": "/authorizations/clients/:client_id/:fingerprint"
+    },
     "getOrCreateAuthorizationForAppFingerprint": {
       "method": "PUT",
       "params": {
@@ -8151,8 +8178,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -8183,8 +8210,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -8208,13 +8235,13 @@
       },
       "url": "/search/commits"
     },
-    "issues": {
+    "issuesAndPullRequests": {
       "method": "GET",
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -8231,6 +8258,14 @@
         "sort": {
           "enum": [
             "comments",
+            "reactions",
+            "reactions-+1",
+            "reactions--1",
+            "reactions-smile",
+            "reactions-thinking_face",
+            "reactions-heart",
+            "reactions-tada",
+            "interactions",
             "created",
             "updated"
           ],
@@ -8244,8 +8279,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -8272,8 +8307,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -8291,12 +8326,52 @@
           "enum": [
             "stars",
             "forks",
+            "help-wanted-issues",
             "updated"
           ],
           "type": "string"
         }
       },
       "url": "/search/repositories"
+    },
+    "searchIssues": {
+      "method": "GET",
+      "params": {
+        "order": {
+          "enum": [
+            "desc",
+            "asc"
+          ],
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "q": {
+          "required": true,
+          "type": "string"
+        },
+        "sort": {
+          "enum": [
+            "comments",
+            "reactions",
+            "reactions-+1",
+            "reactions--1",
+            "reactions-smile",
+            "reactions-thinking_face",
+            "reactions-heart",
+            "reactions-tada",
+            "interactions",
+            "created",
+            "updated"
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/search/issues"
     },
     "topics": {
       "method": "GET",
@@ -8313,8 +8388,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
