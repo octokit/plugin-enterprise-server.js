@@ -267,6 +267,30 @@
   "getPreReceiveHook": {
     "method": "GET",
     "params": {
+      "pre_receive_hook_id": {
+        "required": true,
+        "type": "integer"
+      }
+    },
+    "url": "/admin/pre-receive-hooks/:pre_receive_hook_id"
+  },
+  "getPreReceiveHookForOrg": {
+    "method": "GET",
+    "params": {
+      "org": {
+        "required": true,
+        "type": "string"
+      },
+      "pre_receive_hook_id": {
+        "required": true,
+        "type": "integer"
+      }
+    },
+    "url": "/orgs/:org/pre-receive-hooks/:pre_receive_hook_id"
+  },
+  "getPreReceiveHookForRepo": {
+    "method": "GET",
+    "params": {
       "owner": {
         "required": true,
         "type": "string"
@@ -320,6 +344,34 @@
     "url": "/admin/pre-receive-environments"
   },
   "listPreReceiveHooks": {
+    "method": "GET",
+    "params": {
+      "page": {
+        "type": "integer"
+      },
+      "per_page": {
+        "type": "integer"
+      }
+    },
+    "url": "/admin/pre-receive-hooks"
+  },
+  "listPreReceiveHooksForOrg": {
+    "method": "GET",
+    "params": {
+      "org": {
+        "required": true,
+        "type": "string"
+      },
+      "page": {
+        "type": "integer"
+      },
+      "per_page": {
+        "type": "integer"
+      }
+    },
+    "url": "/orgs/:org/pre-receive-hooks"
+  },
+  "listPreReceiveHooksForRepo": {
     "method": "GET",
     "params": {
       "owner": {
@@ -392,7 +444,21 @@
     },
     "url": "/setup/api/settings/authorized-keys"
   },
-  "removeEnforcementOverridesForPreReceiveHook": {
+  "removeEnforcementOverridesForPreReceiveHookForOrg": {
+    "method": "DELETE",
+    "params": {
+      "org": {
+        "required": true,
+        "type": "string"
+      },
+      "pre_receive_hook_id": {
+        "required": true,
+        "type": "integer"
+      }
+    },
+    "url": "/orgs/:org/pre-receive-hooks/:pre_receive_hook_id"
+  },
+  "removeEnforcementOverridesForPreReceiveHookForRepo": {
     "method": "DELETE",
     "params": {
       "owner": {
@@ -600,7 +666,21 @@
     },
     "url": "/admin/pre_receive_hooks/:pre_receive_hook_id"
   },
-  "updatePreReceiveHookEnforcement": {
+  "updatePreReceiveHookEnforcementForOrg": {
+    "method": "PATCH",
+    "params": {
+      "org": {
+        "required": true,
+        "type": "string"
+      },
+      "pre_receive_hook_id": {
+        "required": true,
+        "type": "integer"
+      }
+    },
+    "url": "/orgs/:org/pre-receive-hooks/:pre_receive_hook_id"
+  },
+  "updatePreReceiveHookEnforcementForRepo": {
     "method": "PATCH",
     "params": {
       "owner": {

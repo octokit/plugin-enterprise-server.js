@@ -1007,6 +1007,30 @@
     "getPreReceiveHook": {
       "method": "GET",
       "params": {
+        "pre_receive_hook_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/admin/pre-receive-hooks/:pre_receive_hook_id"
+    },
+    "getPreReceiveHookForOrg": {
+      "method": "GET",
+      "params": {
+        "org": {
+          "required": true,
+          "type": "string"
+        },
+        "pre_receive_hook_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/orgs/:org/pre-receive-hooks/:pre_receive_hook_id"
+    },
+    "getPreReceiveHookForRepo": {
+      "method": "GET",
+      "params": {
         "owner": {
           "required": true,
           "type": "string"
@@ -1060,6 +1084,34 @@
       "url": "/admin/pre-receive-environments"
     },
     "listPreReceiveHooks": {
+      "method": "GET",
+      "params": {
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        }
+      },
+      "url": "/admin/pre-receive-hooks"
+    },
+    "listPreReceiveHooksForOrg": {
+      "method": "GET",
+      "params": {
+        "org": {
+          "required": true,
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        }
+      },
+      "url": "/orgs/:org/pre-receive-hooks"
+    },
+    "listPreReceiveHooksForRepo": {
       "method": "GET",
       "params": {
         "owner": {
@@ -1132,7 +1184,21 @@
       },
       "url": "/setup/api/settings/authorized-keys"
     },
-    "removeEnforcementOverridesForPreReceiveHook": {
+    "removeEnforcementOverridesForPreReceiveHookForOrg": {
+      "method": "DELETE",
+      "params": {
+        "org": {
+          "required": true,
+          "type": "string"
+        },
+        "pre_receive_hook_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/orgs/:org/pre-receive-hooks/:pre_receive_hook_id"
+    },
+    "removeEnforcementOverridesForPreReceiveHookForRepo": {
       "method": "DELETE",
       "params": {
         "owner": {
@@ -1334,7 +1400,21 @@
       },
       "url": "/admin/pre_receive_hooks/:pre_receive_hook_id"
     },
-    "updatePreReceiveHookEnforcement": {
+    "updatePreReceiveHookEnforcementForOrg": {
+      "method": "PATCH",
+      "params": {
+        "org": {
+          "required": true,
+          "type": "string"
+        },
+        "pre_receive_hook_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/orgs/:org/pre-receive-hooks/:pre_receive_hook_id"
+    },
+    "updatePreReceiveHookEnforcementForRepo": {
       "method": "PATCH",
       "params": {
         "owner": {
@@ -3245,6 +3325,33 @@
         }
       },
       "url": "/authorizations/clients/:client_id"
+    },
+    "getOrCreateAuthorizationForAppAndFingerprint": {
+      "method": "PUT",
+      "params": {
+        "client_id": {
+          "required": true,
+          "type": "string"
+        },
+        "client_secret": {
+          "required": true,
+          "type": "string"
+        },
+        "fingerprint": {
+          "required": true,
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "note_url": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "string[]"
+        }
+      },
+      "url": "/authorizations/clients/:client_id/:fingerprint"
     },
     "getOrCreateAuthorizationForAppFingerprint": {
       "method": "PUT",
@@ -8151,8 +8258,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -8183,8 +8290,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -8208,13 +8315,13 @@
       },
       "url": "/search/commits"
     },
-    "issues": {
+    "issuesAndPullRequests": {
       "method": "GET",
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -8231,6 +8338,14 @@
         "sort": {
           "enum": [
             "comments",
+            "reactions",
+            "reactions-+1",
+            "reactions--1",
+            "reactions-smile",
+            "reactions-thinking_face",
+            "reactions-heart",
+            "reactions-tada",
+            "interactions",
             "created",
             "updated"
           ],
@@ -8244,8 +8359,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -8272,8 +8387,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -8291,12 +8406,52 @@
           "enum": [
             "stars",
             "forks",
+            "help-wanted-issues",
             "updated"
           ],
           "type": "string"
         }
       },
       "url": "/search/repositories"
+    },
+    "searchIssues": {
+      "method": "GET",
+      "params": {
+        "order": {
+          "enum": [
+            "desc",
+            "asc"
+          ],
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "q": {
+          "required": true,
+          "type": "string"
+        },
+        "sort": {
+          "enum": [
+            "comments",
+            "reactions",
+            "reactions-+1",
+            "reactions--1",
+            "reactions-smile",
+            "reactions-thinking_face",
+            "reactions-heart",
+            "reactions-tada",
+            "interactions",
+            "created",
+            "updated"
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/search/issues"
     },
     "topics": {
       "method": "GET",
@@ -8313,8 +8468,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
