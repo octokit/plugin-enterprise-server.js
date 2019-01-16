@@ -2665,6 +2665,11 @@
     "addLabels": {
       "method": "POST",
       "params": {
+        "labels": {
+          "mapTo": "data",
+          "required": true,
+          "type": "string"
+        },
         "number": {
           "required": true,
           "type": "integer"
@@ -9194,7 +9199,7 @@
       },
       "url": "/search/repositories"
     },
-    "searchIssues": {
+    "search": {
       "method": "GET",
       "params": {
         "order": {
