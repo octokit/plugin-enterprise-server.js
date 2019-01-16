@@ -2123,6 +2123,11 @@
     "addLabels": {
       "method": "POST",
       "params": {
+        "labels": {
+          "mapTo": "data",
+          "required": true,
+          "type": "string"
+        },
         "number": {
           "required": true,
           "type": "integer"
@@ -8315,6 +8320,45 @@
       },
       "url": "/search/commits"
     },
+    "issues": {
+      "method": "GET",
+      "params": {
+        "order": {
+          "enum": [
+            "desc",
+            "asc"
+          ],
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "q": {
+          "required": true,
+          "type": "string"
+        },
+        "sort": {
+          "enum": [
+            "comments",
+            "reactions",
+            "reactions-+1",
+            "reactions--1",
+            "reactions-smile",
+            "reactions-thinking_face",
+            "reactions-heart",
+            "reactions-tada",
+            "interactions",
+            "created",
+            "updated"
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/search/issues"
+    },
     "issuesAndPullRequests": {
       "method": "GET",
       "params": {
@@ -8413,45 +8457,6 @@
         }
       },
       "url": "/search/repositories"
-    },
-    "searchIssues": {
-      "method": "GET",
-      "params": {
-        "order": {
-          "enum": [
-            "desc",
-            "asc"
-          ],
-          "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        },
-        "q": {
-          "required": true,
-          "type": "string"
-        },
-        "sort": {
-          "enum": [
-            "comments",
-            "reactions",
-            "reactions-+1",
-            "reactions--1",
-            "reactions-smile",
-            "reactions-thinking_face",
-            "reactions-heart",
-            "reactions-tada",
-            "interactions",
-            "created",
-            "updated"
-          ],
-          "type": "string"
-        }
-      },
-      "url": "/search/issues"
     },
     "topics": {
       "method": "GET",
