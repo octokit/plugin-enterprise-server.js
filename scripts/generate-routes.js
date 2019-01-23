@@ -7,7 +7,8 @@ const sortKeys = require('sort-keys')
 const GHE_VERSIONS = [
   '2.13',
   '2.14',
-  '2.15'
+  '2.15',
+  '2.16'
 ]
 
 function normalize (endpoint) {
