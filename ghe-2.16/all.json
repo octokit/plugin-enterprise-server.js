@@ -6696,7 +6696,6 @@
           "type": "string[]"
         },
         "name": {
-          "required": true,
           "type": "string"
         },
         "owner": {

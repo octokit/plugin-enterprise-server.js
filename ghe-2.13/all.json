@@ -2990,6 +2990,11 @@
     "replaceLabels": {
       "method": "PUT",
       "params": {
+        "labels": {
+          "mapTo": "data",
+          "required": true,
+          "type": "string"
+        },
         "number": {
           "required": true,
           "type": "integer"
