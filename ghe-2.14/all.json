@@ -7527,11 +7527,6 @@
       "method": "GET",
       "params": {
         "affiliation": {
-          "enum": [
-            "owner",
-            "collaborator",
-            "organization_member"
-          ],
           "type": "string"
         },
         "direction": {
