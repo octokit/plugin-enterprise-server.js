@@ -3185,6 +3185,11 @@
       "method": "GET",
       "params": {},
       "url": "/licenses"
+    },
+    "listCommonlyUsed": {
+      "method": "GET",
+      "params": {},
+      "url": "/licenses"
     }
   },
   "markdown": {

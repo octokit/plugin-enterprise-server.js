@@ -199,6 +199,7 @@ octokit.issues.updateMilestone(description, due_on, number, owner, repo, state, 
 octokit.licenses.get(license)
 octokit.licenses.getForRepo(owner, repo)
 octokit.licenses.list()
+octokit.licenses.listCommonlyUsed()
 octokit.markdown.render(context, mode, text)
 octokit.markdown.renderRaw(data)
 octokit.meta.get()
