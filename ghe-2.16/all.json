@@ -611,6 +611,9 @@
       "url": "/app"
     },
     "getBySlug": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "app_slug": {
@@ -683,6 +686,9 @@
       "url": "/user/installations"
     },
     "listRepos": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "page": {
