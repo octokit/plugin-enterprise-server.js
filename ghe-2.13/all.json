@@ -6540,9 +6540,6 @@
       "url": "/repos/:owner/:repo/releases/latest"
     },
     "getPages": {
-      "headers": {
-        "accept": "application/vnd.github.mister-fantastic-preview+json"
-      },
       "method": "GET",
       "params": {
         "owner": {
