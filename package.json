@@ -38,7 +38,7 @@
     "@octokit/routes": "19.1.0",
     "coveralls": "^3.0.2",
     "lodash.camelcase": "^4.3.0",
-    "make-dir": "^2.1.0",
+    "make-dir": "^3.0.0",
     "semantic-release": "^15.10.7",
     "simple-mock": "^0.8.0",
     "sort-keys": "^2.0.0",
