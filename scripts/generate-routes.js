@@ -11,7 +11,7 @@ const GHE_VERSIONS = [
 ]
 
 function normalize (endpoint) {
-  endpoint.idName = camelCase(endpoint.idName.replace(/^edit/, 'update'))
+  endpoint.idName = camelCase(endpoint.idName)
 }
 
 GHE_VERSIONS.forEach(version => {
@@ -35,48 +35,6 @@ function getRoutes (routes) {
 
     // normalize idName
     endpoints.forEach(normalize)
-
-    // handle some exceptions. TODO: move this into @octokit/routes
-    endpoints.forEach(endpoint => {
-      // exception for uploadReleaseAssets which passes parameters as header values
-      // see https://github.com/octokit/rest.js/pull/1043
-      if (endpoint.idName === 'uploadReleaseAsset') {
-        const contentLengthParam = endpoint.params.find(param => param.name === 'Content-Length')
-        const contentTypeParam = endpoint.params.find(param => param.name === 'Content-Type')
-        const indexes = endpoint.params.reduce((result, param, i) => {
-          if (['Content-Length', 'Content-Type'].includes(param.name)) {
-            result.unshift(i)
-          }
-
-          return result
-        }, [])
-        indexes.forEach(i => endpoint.params.splice(i, 1))
-
-        if (contentLengthParam) {
-          endpoint.params.unshift(
-            Object.assign(contentLengthParam, { name: 'headers.content-length' })
-          )
-        }
-        endpoint.params.unshift(
-          Object.assign(contentTypeParam, { name: 'headers.content-type' }),
-          {
-            name: 'headers',
-            location: 'headers',
-            required: true,
-            type: 'object',
-            description: 'Request headers containing `content-type` and `content-length`'
-          }
-        )
-      }
-
-      // exception for markdown.renderRaw which requires a content-type header
-      // see https://github.com/octokit/rest.js/pull/1043
-      if (endpoint.idName === 'renderRaw') {
-        endpoint.headers = {
-          'content-type': 'text/plain; charset=utf-8'
-        }
-      }
-    })
   })
 
   return routes
@@ -129,6 +87,10 @@ function writeRoutesFiles (version, routes) {
         if (param.regex) {
           result[param.name].validation = param.regex
         }
+        if (param.deprecated) {
+          result[param.name].deprecated = true
+          result[param.name].alias = param.deprecated.after.name
+        }
         return result
       }, {}),
       url: endpoint.path
@@ -143,6 +105,10 @@ function writeRoutesFiles (version, routes) {
       newRoutes[scope][idName].headers = {
         accept: previewHeaders
       }
+    }
+
+    if (endpoint.deprecated) {
+      newRoutes[scope][idName].deprecated = `octokit.${scope}.${camelCase(endpoint.deprecated.before.idName)}() has been renamed to octokit.${scope}.${camelCase(endpoint.deprecated.after.idName)}() (${endpoint.deprecated.date})`
     }
   })
 
@@ -170,5 +136,5 @@ ${Object.keys(newRoutesSorted).filter(scope => scope !== 'enterpriseAdmin').map(
 }
 
 function endpointToMethod (scope, methodName, meta) {
-  return `octokit.${scope}.${methodName}(${Object.keys(meta.params).filter(param => !/\./.test(param)).join(', ')})`
+  return `octokit.${scope}.${methodName}(${Object.keys(meta.params).filter(param => !/\./.test(param) && !meta.params[param].deprecated).join(', ')})`
 }
