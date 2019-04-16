@@ -2699,8 +2699,13 @@
         "assignees": {
           "type": "string[]"
         },
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2712,17 +2717,22 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/assignees"
+      "url": "/repos/:owner/:repo/issues/:issue_number/assignees"
     },
     "addLabels": {
       "method": "POST",
       "params": {
+        "issue_number": {
+          "required": true,
+          "type": "integer"
+        },
         "labels": {
           "required": true,
           "type": "string[]"
         },
         "number": {
-          "required": true,
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2734,7 +2744,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/labels"
+      "url": "/repos/:owner/:repo/issues/:issue_number/labels"
     },
     "checkAssignee": {
       "method": "GET",
@@ -2794,8 +2804,13 @@
           "required": true,
           "type": "string"
         },
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2807,7 +2822,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/comments"
+      "url": "/repos/:owner/:repo/issues/:issue_number/comments"
     },
     "createLabel": {
       "method": "POST",
@@ -2904,8 +2919,13 @@
     "deleteMilestone": {
       "method": "DELETE",
       "params": {
-        "number": {
+        "milestone_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "milestone_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2917,13 +2937,18 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/milestones/:number"
+      "url": "/repos/:owner/:repo/milestones/:milestone_number"
     },
     "get": {
       "method": "GET",
       "params": {
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2935,7 +2960,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number"
+      "url": "/repos/:owner/:repo/issues/:issue_number"
     },
     "getComment": {
       "method": "GET",
@@ -3000,8 +3025,13 @@
     "getMilestone": {
       "method": "GET",
       "params": {
-        "number": {
+        "milestone_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "milestone_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3013,7 +3043,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/milestones/:number"
+      "url": "/repos/:owner/:repo/milestones/:milestone_number"
     },
     "list": {
       "method": "GET",
@@ -3089,8 +3119,13 @@
     "listComments": {
       "method": "GET",
       "params": {
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3111,7 +3146,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/comments"
+      "url": "/repos/:owner/:repo/issues/:issue_number/comments"
     },
     "listCommentsForRepo": {
       "method": "GET",
@@ -3147,8 +3182,13 @@
     "listEvents": {
       "method": "GET",
       "params": {
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3166,7 +3206,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/events"
+      "url": "/repos/:owner/:repo/issues/:issue_number/events"
     },
     "listEventsForRepo": {
       "method": "GET",
@@ -3194,8 +3234,13 @@
       },
       "method": "GET",
       "params": {
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3213,7 +3258,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/timeline"
+      "url": "/repos/:owner/:repo/issues/:issue_number/timeline"
     },
     "listForAuthenticatedUser": {
       "method": "GET",
@@ -3385,8 +3430,13 @@
     "listLabelsForMilestone": {
       "method": "GET",
       "params": {
-        "number": {
+        "milestone_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "milestone_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3404,7 +3454,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/milestones/:number/labels"
+      "url": "/repos/:owner/:repo/milestones/:milestone_number/labels"
     },
     "listLabelsForRepo": {
       "method": "GET",
@@ -3429,8 +3479,13 @@
     "listLabelsOnIssue": {
       "method": "GET",
       "params": {
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3448,7 +3503,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/labels"
+      "url": "/repos/:owner/:repo/issues/:issue_number/labels"
     },
     "listMilestonesForRepo": {
       "method": "GET",
@@ -3495,6 +3550,10 @@
     "lock": {
       "method": "PUT",
       "params": {
+        "issue_number": {
+          "required": true,
+          "type": "integer"
+        },
         "lock_reason": {
           "enum": [
             "off-topic",
@@ -3505,7 +3564,8 @@
           "type": "string"
         },
         "number": {
-          "required": true,
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3517,7 +3577,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/lock"
+      "url": "/repos/:owner/:repo/issues/:issue_number/lock"
     },
     "removeAssignees": {
       "method": "DELETE",
@@ -3525,8 +3585,13 @@
         "assignees": {
           "type": "string[]"
         },
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3538,17 +3603,22 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/assignees"
+      "url": "/repos/:owner/:repo/issues/:issue_number/assignees"
     },
     "removeLabel": {
       "method": "DELETE",
       "params": {
+        "issue_number": {
+          "required": true,
+          "type": "integer"
+        },
         "name": {
           "required": true,
           "type": "string"
         },
         "number": {
-          "required": true,
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3560,13 +3630,18 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/labels/:name"
+      "url": "/repos/:owner/:repo/issues/:issue_number/labels/:name"
     },
     "removeLabels": {
       "method": "DELETE",
       "params": {
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3578,16 +3653,21 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/labels"
+      "url": "/repos/:owner/:repo/issues/:issue_number/labels"
     },
     "replaceLabels": {
       "method": "PUT",
       "params": {
+        "issue_number": {
+          "required": true,
+          "type": "integer"
+        },
         "labels": {
           "type": "string[]"
         },
         "number": {
-          "required": true,
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3599,13 +3679,18 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/labels"
+      "url": "/repos/:owner/:repo/issues/:issue_number/labels"
     },
     "unlock": {
       "method": "DELETE",
       "params": {
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3617,7 +3702,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/lock"
+      "url": "/repos/:owner/:repo/issues/:issue_number/lock"
     },
     "update": {
       "method": "PATCH",
@@ -3631,6 +3716,10 @@
         "body": {
           "type": "string"
         },
+        "issue_number": {
+          "required": true,
+          "type": "integer"
+        },
         "labels": {
           "type": "string[]"
         },
@@ -3639,7 +3728,8 @@
           "type": "integer"
         },
         "number": {
-          "required": true,
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3661,7 +3751,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number"
+      "url": "/repos/:owner/:repo/issues/:issue_number"
     },
     "updateComment": {
       "method": "PATCH",
@@ -3721,8 +3811,13 @@
         "due_on": {
           "type": "string"
         },
-        "number": {
+        "milestone_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "milestone_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3744,7 +3839,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/milestones/:number"
+      "url": "/repos/:owner/:repo/milestones/:milestone_number"
     }
   },
   "licenses": {
@@ -3773,6 +3868,7 @@
       "url": "/repos/:owner/:repo/license"
     },
     "list": {
+      "deprecated": "octokit.licenses.list() has been renamed to octokit.licenses.listCommonlyUsed() (2019-03-05)",
       "method": "GET",
       "params": {},
       "url": "/licenses"
@@ -3960,6 +4056,7 @@
       "url": "/authorizations/clients/:client_id/:fingerprint"
     },
     "getOrCreateAuthorizationForAppFingerprint": {
+      "deprecated": "octokit.oauthAuthorizations.getOrCreateAuthorizationForAppFingerprint() has been renamed to octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint() (2018-12-27)",
       "method": "PUT",
       "params": {
         "client_id": {
@@ -5073,19 +5170,24 @@
       "method": "GET",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/merge"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/merge"
     },
     "create": {
       "method": "POST",
@@ -5131,7 +5233,8 @@
           "type": "string"
         },
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5146,12 +5249,16 @@
           "required": true,
           "type": "integer"
         },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/comments"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
     },
     "createCommentReply": {
       "method": "POST",
@@ -5165,19 +5272,24 @@
           "type": "integer"
         },
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/comments"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
     },
     "createFromIssue": {
       "method": "POST",
@@ -5241,30 +5353,40 @@
           "type": "string"
         },
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
         },
         "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/reviews"
     },
     "createReviewRequest": {
       "method": "POST",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5277,7 +5399,7 @@
           "type": "string[]"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/requested_reviewers"
     },
     "deleteComment": {
       "method": "DELETE",
@@ -5301,12 +5423,17 @@
       "method": "DELETE",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5317,18 +5444,23 @@
           "type": "integer"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/reviews/:review_id"
     },
     "deleteReviewRequest": {
       "method": "DELETE",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5341,7 +5473,7 @@
           "type": "string[]"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/requested_reviewers"
     },
     "dismissReview": {
       "method": "PUT",
@@ -5351,12 +5483,17 @@
           "type": "string"
         },
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5367,25 +5504,30 @@
           "type": "integer"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/dismissals"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/dismissals"
     },
     "get": {
       "method": "GET",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number"
+      "url": "/repos/:owner/:repo/pulls/:pull_number"
     },
     "getComment": {
       "method": "GET",
@@ -5409,7 +5551,8 @@
       "method": "GET",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5422,6 +5565,10 @@
         "per_page": {
           "type": "integer"
         },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -5431,19 +5578,24 @@
           "type": "integer"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/comments"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/comments"
     },
     "getReview": {
       "method": "GET",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -5453,7 +5605,7 @@
           "type": "integer"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/reviews/:review_id"
     },
     "list": {
       "method": "GET",
@@ -5516,7 +5668,8 @@
           "type": "string"
         },
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5527,6 +5680,10 @@
           "type": "integer"
         },
         "per_page": {
+          "type": "integer"
+        },
+        "pull_number": {
+          "required": true,
           "type": "integer"
         },
         "repo": {
@@ -5544,7 +5701,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/comments"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
     },
     "listCommentsForRepo": {
       "method": "GET",
@@ -5587,7 +5744,8 @@
       "method": "GET",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5600,18 +5758,23 @@
         "per_page": {
           "type": "integer"
         },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/commits"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/commits"
     },
     "listFiles": {
       "method": "GET",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5624,18 +5787,23 @@
         "per_page": {
           "type": "integer"
         },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/files"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/files"
     },
     "listReviewRequests": {
       "method": "GET",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5648,18 +5816,23 @@
         "per_page": {
           "type": "integer"
         },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/requested_reviewers"
     },
     "listReviews": {
       "method": "GET",
       "params": {
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5672,12 +5845,16 @@
         "per_page": {
           "type": "integer"
         },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/reviews"
     },
     "merge": {
       "method": "PUT",
@@ -5697,12 +5874,17 @@
           "type": "string"
         },
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5712,7 +5894,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/merge"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/merge"
     },
     "submitReview": {
       "method": "POST",
@@ -5730,12 +5912,17 @@
           "type": "string"
         },
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5746,7 +5933,7 @@
           "type": "integer"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/events"
+      "url": "/repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/events"
     },
     "update": {
       "method": "PATCH",
@@ -5761,12 +5948,17 @@
           "type": "boolean"
         },
         "number": {
-          "required": true,
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5783,7 +5975,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number"
+      "url": "/repos/:owner/:repo/pulls/:pull_number"
     },
     "updateComment": {
       "method": "PATCH",
@@ -5867,8 +6059,13 @@
           "required": true,
           "type": "string"
         },
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5880,7 +6077,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/reactions"
+      "url": "/repos/:owner/:repo/issues/:issue_number/reactions"
     },
     "createForIssueComment": {
       "headers": {
@@ -6078,8 +6275,13 @@
           ],
           "type": "string"
         },
-        "number": {
+        "issue_number": {
           "required": true,
+          "type": "integer"
+        },
+        "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -6097,7 +6299,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/:number/reactions"
+      "url": "/repos/:owner/:repo/issues/:issue_number/reactions"
     },
     "listForIssueComment": {
       "headers": {
@@ -7156,6 +7358,10 @@
     "getCommit": {
       "method": "GET",
       "params": {
+        "commit_sha": {
+          "required": true,
+          "type": "string"
+        },
         "owner": {
           "required": true,
           "type": "string"
@@ -7165,11 +7371,12 @@
           "type": "string"
         },
         "sha": {
-          "required": true,
+          "alias": "commit_sha",
+          "deprecated": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/commits/:sha"
+      "url": "/repos/:owner/:repo/commits/:commit_sha"
     },
     "getCommitActivityStats": {
       "method": "GET",
@@ -9202,6 +9409,7 @@
       "url": "/search/commits"
     },
     "issues": {
+      "deprecated": "octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)",
       "method": "GET",
       "params": {
         "order": {
