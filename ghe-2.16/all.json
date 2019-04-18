@@ -560,6 +560,7 @@
       "url": "/app/installations/:installation_id/access_tokens"
     },
     "findOrgInstallation": {
+      "deprecated": "octokit.apps.findOrgInstallation() has been renamed to octokit.apps.getOrgInstallation() (2019-04-10)",
       "headers": {
         "accept": "application/vnd.github.machine-man-preview+json"
       },
@@ -573,6 +574,7 @@
       "url": "/orgs/:org/installation"
     },
     "findRepoInstallation": {
+      "deprecated": "octokit.apps.findRepoInstallation() has been renamed to octokit.apps.getRepoInstallation() (2019-04-10)",
       "headers": {
         "accept": "application/vnd.github.machine-man-preview+json"
       },
@@ -588,19 +590,6 @@
         }
       },
       "url": "/repos/:owner/:repo/installation"
-    },
-    "findUserInstallation": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview+json"
-      },
-      "method": "GET",
-      "params": {
-        "username": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/users/:username/installation"
     },
     "getAuthenticated": {
       "headers": {
@@ -635,6 +624,49 @@
         }
       },
       "url": "/app/installations/:installation_id"
+    },
+    "getOrgInstallation": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "org": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/orgs/:org/installation"
+    },
+    "getRepoInstallation": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/installation"
+    },
+    "getUserInstallation": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/users/:username/installation"
     },
     "listInstallationReposForAuthenticatedUser": {
       "headers": {
