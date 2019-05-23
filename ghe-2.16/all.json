@@ -1540,6 +1540,16 @@
       },
       "url": "/admin/pre_receive_hooks/:pre_receive_hook_id"
     },
+    "deletePublicKey": {
+      "method": "DELETE",
+      "params": {
+        "key_ids": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/admin/keys/:key_ids"
+    },
     "deleteUser": {
       "method": "DELETE",
       "params": {
