@@ -7138,11 +7138,23 @@
         "author": {
           "type": "object"
         },
+        "author.email": {
+          "type": "string"
+        },
+        "author.name": {
+          "type": "string"
+        },
         "branch": {
           "type": "string"
         },
         "committer": {
           "type": "object"
+        },
+        "committer.email": {
+          "type": "string"
+        },
+        "committer.name": {
+          "type": "string"
         },
         "message": {
           "required": true,
