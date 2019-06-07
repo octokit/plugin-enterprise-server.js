@@ -6862,6 +6862,10 @@
           "required": true,
           "type": "string"
         },
+        "commit_sha": {
+          "required": true,
+          "type": "string"
+        },
         "line": {
           "type": "integer"
         },
@@ -6880,11 +6884,12 @@
           "type": "string"
         },
         "sha": {
-          "required": true,
+          "alias": "commit_sha",
+          "deprecated": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/commits/:sha/comments"
+      "url": "/repos/:owner/:repo/commits/:commit_sha/comments"
     },
     "createDeployment": {
       "method": "POST",
@@ -6983,6 +6988,7 @@
       "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses"
     },
     "createFile": {
+      "deprecated": "octokit.repos.createFile() has been renamed to octokit.repos.createOrUpdateFile() (2019-06-07)",
       "method": "PUT",
       "params": {
         "author": {
@@ -7028,6 +7034,9 @@
         },
         "repo": {
           "required": true,
+          "type": "string"
+        },
+        "sha": {
           "type": "string"
         }
       },
@@ -7191,6 +7200,60 @@
         }
       },
       "url": "/orgs/:org/repos"
+    },
+    "createOrUpdateFile": {
+      "method": "PUT",
+      "params": {
+        "author": {
+          "type": "object"
+        },
+        "author.email": {
+          "required": true,
+          "type": "string"
+        },
+        "author.name": {
+          "required": true,
+          "type": "string"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "committer": {
+          "type": "object"
+        },
+        "committer.email": {
+          "required": true,
+          "type": "string"
+        },
+        "committer.name": {
+          "required": true,
+          "type": "string"
+        },
+        "content": {
+          "required": true,
+          "type": "string"
+        },
+        "message": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "path": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "sha": {
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/contents/:path"
     },
     "createRelease": {
       "method": "POST",
@@ -8213,6 +8276,10 @@
     "listCommentsForCommit": {
       "method": "GET",
       "params": {
+        "commit_sha": {
+          "required": true,
+          "type": "string"
+        },
         "owner": {
           "required": true,
           "type": "string"
@@ -8224,7 +8291,8 @@
           "type": "integer"
         },
         "ref": {
-          "required": true,
+          "alias": "commit_sha",
+          "deprecated": true,
           "type": "string"
         },
         "repo": {
@@ -8232,7 +8300,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/commits/:ref/comments"
+      "url": "/repos/:owner/:repo/commits/:commit_sha/comments"
     },
     "listCommitComments": {
       "method": "GET",
@@ -9362,6 +9430,7 @@
       "url": "/repos/:owner/:repo/comments/:comment_id"
     },
     "updateFile": {
+      "deprecated": "octokit.repos.updateFile() has been renamed to octokit.repos.createOrUpdateFile() (2019-06-07)",
       "method": "PUT",
       "params": {
         "author": {
@@ -9410,7 +9479,6 @@
           "type": "string"
         },
         "sha": {
-          "required": true,
           "type": "string"
         }
       },
