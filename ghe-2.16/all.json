@@ -546,6 +546,16 @@
       },
       "url": "/content_references/:content_reference_id/attachments"
     },
+    "createFromManifest": {
+      "method": "POST",
+      "params": {
+        "code": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/app-manifests/:code/conversions"
+    },
     "createInstallationToken": {
       "headers": {
         "accept": "application/vnd.github.machine-man-preview+json"

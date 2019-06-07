@@ -568,6 +568,12 @@
         "installation_id": {
           "required": true,
           "type": "integer"
+        },
+        "permissions": {
+          "type": "object"
+        },
+        "repository_ids": {
+          "type": "integer[]"
         }
       },
       "url": "/app/installations/:installation_id/access_tokens"
