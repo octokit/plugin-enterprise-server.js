@@ -6221,7 +6221,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "required": true,
           "type": "string"
@@ -6250,7 +6252,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "required": true,
           "type": "string"
@@ -6292,7 +6296,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "required": true,
           "type": "string"
@@ -6325,7 +6331,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "required": true,
           "type": "string"
@@ -6354,7 +6362,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "required": true,
           "type": "string"
@@ -6387,7 +6397,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "required": true,
           "type": "string"
@@ -6433,7 +6445,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "type": "string"
         },
@@ -6467,7 +6481,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "type": "string"
         },
@@ -6514,7 +6530,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "type": "string"
         },
@@ -6552,7 +6570,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "type": "string"
         },
@@ -6586,7 +6606,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "type": "string"
         },
@@ -6624,7 +6646,9 @@
             "laugh",
             "confused",
             "heart",
-            "hooray"
+            "hooray",
+            "rocket",
+            "eyes"
           ],
           "type": "string"
         },
