@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/octokit/plugin-enterprise-rest.js#readme",
   "devDependencies": {
-    "@octokit/routes": "20.7.1",
+    "@octokit/routes": "20.8.0",
     "coveralls": "^3.0.2",
     "lodash.camelcase": "^4.3.0",
     "make-dir": "^3.0.0",
