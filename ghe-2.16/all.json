@@ -1409,11 +1409,7 @@
           "type": "string"
         },
         "events": {
-          "enum": [
-            "user",
-            "organization"
-          ],
-          "type": "string"
+          "type": "string[]"
         },
         "name": {
           "required": true,
@@ -1974,11 +1970,7 @@
           "type": "string"
         },
         "events": {
-          "enum": [
-            "user",
-            "organization"
-          ],
-          "type": "string"
+          "type": "string[]"
         },
         "hook_id": {
           "required": true,
@@ -7524,10 +7516,15 @@
       "method": "GET",
       "params": {
         "commit_sha": {
-          "required": true,
+          "alias": "ref",
+          "deprecated": true,
           "type": "string"
         },
         "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "ref": {
           "required": true,
           "type": "string"
         },
@@ -7541,7 +7538,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/commits/:commit_sha"
+      "url": "/repos/:owner/:repo/commits/:ref"
     },
     "getCommitActivityStats": {
       "method": "GET",
