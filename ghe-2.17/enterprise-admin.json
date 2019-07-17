@@ -46,11 +46,7 @@
         "type": "string"
       },
       "events": {
-        "enum": [
-          "user",
-          "organization"
-        ],
-        "type": "string"
+        "type": "string[]"
       },
       "name": {
         "required": true,
@@ -633,11 +629,7 @@
         "type": "string"
       },
       "events": {
-        "enum": [
-          "user",
-          "organization"
-        ],
-        "type": "string"
+        "type": "string[]"
       },
       "hook_id": {
         "required": true,
