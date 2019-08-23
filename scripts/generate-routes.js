@@ -121,8 +121,8 @@ function writeRoutesFiles (version, routes) {
   makeDir.sync(`ghe-${version}`)
   writeFileSync(`ghe-${version}/all.json`, JSON.stringify(newRoutesSorted, null, 2) + '\n')
   writeFileSync(`ghe-${version}/enterprise-admin.json`, JSON.stringify(newRoutesSorted.enterpriseAdmin, null, 2) + '\n')
-  writeFileSync(`ghe-${version}/index.js`, `module.exports = (octokit) => octokit.registerEndpoints({ enterpriseAdmin: require('./enterprise-admin.json') })\n`)
-  writeFileSync(`ghe-${version}/all.js`, `module.exports = (octokit) => octokit.registerEndpoints(require('./all.json'))\n`)
+  writeFileSync(`ghe-${version}/index.js`, 'module.exports = (octokit) => octokit.registerEndpoints({ enterpriseAdmin: require(\'./enterprise-admin.json\') })\n')
+  writeFileSync(`ghe-${version}/all.js`, 'module.exports = (octokit) => octokit.registerEndpoints(require(\'./all.json\'))\n')
 
   writeFileSync(`ghe-${version}/README.md`, `# @octokit/plugin-enterprise-rest/ghe-${version}
 
