@@ -1401,7 +1401,7 @@
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
-        "recursive": { "enum": [1], "type": "integer" },
+        "recursive": { "enum": ["1"], "type": "integer" },
         "repo": { "required": true, "type": "string" },
         "tree_sha": { "required": true, "type": "string" }
       },
@@ -2461,9 +2461,7 @@
       "params": {
         "body": { "type": "string" },
         "name": { "required": true, "type": "string" },
-        "org": { "required": true, "type": "string" },
-        "page": { "type": "integer" },
-        "per_page": { "type": "integer" }
+        "org": { "required": true, "type": "string" }
       },
       "url": "/orgs/:org/projects"
     },
@@ -2474,8 +2472,6 @@
         "body": { "type": "string" },
         "name": { "required": true, "type": "string" },
         "owner": { "required": true, "type": "string" },
-        "page": { "type": "integer" },
-        "per_page": { "type": "integer" },
         "repo": { "required": true, "type": "string" }
       },
       "url": "/repos/:owner/:repo/projects"
@@ -2633,8 +2629,6 @@
         "body": { "type": "string" },
         "name": { "type": "string" },
         "organization_permission": { "type": "string" },
-        "page": { "type": "integer" },
-        "per_page": { "type": "integer" },
         "private": { "type": "boolean" },
         "project_id": { "required": true, "type": "integer" },
         "state": { "enum": ["open", "closed"], "type": "string" }
@@ -2689,24 +2683,6 @@
       },
       "url": "/repos/:owner/:repo/pulls"
     },
-    "createComment": {
-      "method": "POST",
-      "params": {
-        "body": { "required": true, "type": "string" },
-        "commit_id": { "required": true, "type": "string" },
-        "number": {
-          "alias": "pull_number",
-          "deprecated": true,
-          "type": "integer"
-        },
-        "owner": { "required": true, "type": "string" },
-        "path": { "required": true, "type": "string" },
-        "position": { "required": true, "type": "integer" },
-        "pull_number": { "required": true, "type": "integer" },
-        "repo": { "required": true, "type": "string" }
-      },
-      "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
-    },
     "createCommentReply": {
       "method": "POST",
       "params": {
@@ -2724,6 +2700,7 @@
       "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
     },
     "createFromIssue": {
+      "deprecated": "octokit.pulls.createFromIssue() is deprecated, see https://developer.github.com/v3/pulls/#create-a-pull-request",
       "method": "POST",
       "params": {
         "base": { "required": true, "type": "string" },
@@ -3858,7 +3835,7 @@
         "owner": { "required": true, "type": "string" },
         "ref": { "required": true, "type": "string" },
         "repo": { "required": true, "type": "string" },
-        "sha": { "alias": "commit_sha", "deprecated": true, "type": "string" }
+        "sha": { "alias": "ref", "deprecated": true, "type": "string" }
       },
       "url": "/repos/:owner/:repo/commits/:ref"
     },
@@ -3880,7 +3857,8 @@
       "url": "/repos/:owner/:repo/comments/:comment_id"
     },
     "getCommitRefSha": {
-      "deprecated": "\"Get the SHA-1 of a commit reference\" will be removed. Use \"Get a single commit\" instead with media type format set to \"sha\" instead.",
+      "deprecated": "octokit.repos.getCommitRefSha() is deprecated, see https://developer.github.com/v3/repos/commits/#get-a-single-commit",
+      "headers": { "accept": "application/vnd.github.v3.sha" },
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -4083,6 +4061,24 @@
         "tag": { "required": true, "type": "string" }
       },
       "url": "/repos/:owner/:repo/releases/tags/:tag"
+    },
+    "getTeamsWithAccessToProtectedBranch": {
+      "method": "GET",
+      "params": {
+        "branch": { "required": true, "type": "string" },
+        "owner": { "required": true, "type": "string" },
+        "repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams"
+    },
+    "getUsersWithAccessToProtectedBranch": {
+      "method": "GET",
+      "params": {
+        "branch": { "required": true, "type": "string" },
+        "owner": { "required": true, "type": "string" },
+        "repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
     },
     "list": {
       "method": "GET",
@@ -4327,17 +4323,17 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts"
     },
     "listProtectedBranchTeamRestrictions": {
+      "deprecated": "octokit.repos.listProtectedBranchTeamRestrictions() has been renamed to octokit.repos.getTeamsWithAccessToProtectedBranch() (2019-09-09)",
       "method": "GET",
       "params": {
         "branch": { "required": true, "type": "string" },
         "owner": { "required": true, "type": "string" },
-        "page": { "type": "integer" },
-        "per_page": { "type": "integer" },
         "repo": { "required": true, "type": "string" }
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams"
     },
     "listProtectedBranchUserRestrictions": {
+      "deprecated": "octokit.repos.listProtectedBranchUserRestrictions() has been renamed to octokit.repos.getUsersWithAccessToProtectedBranch() (2019-09-09)",
       "method": "GET",
       "params": {
         "branch": { "required": true, "type": "string" },
@@ -4397,6 +4393,16 @@
       },
       "url": "/repos/:owner/:repo/teams"
     },
+    "listTeamsWithAccessToProtectedBranch": {
+      "deprecated": "octokit.repos.listTeamsWithAccessToProtectedBranch() has been renamed to octokit.repos.getTeamsWithAccessToProtectedBranch() (2019-09-13)",
+      "method": "GET",
+      "params": {
+        "branch": { "required": true, "type": "string" },
+        "owner": { "required": true, "type": "string" },
+        "repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams"
+    },
     "listTopics": {
       "method": "GET",
       "params": {
@@ -4404,6 +4410,16 @@
         "repo": { "required": true, "type": "string" }
       },
       "url": "/repos/:owner/:repo/topics"
+    },
+    "listUsersWithAccessToProtectedBranch": {
+      "deprecated": "octokit.repos.listUsersWithAccessToProtectedBranch() has been renamed to octokit.repos.getUsersWithAccessToProtectedBranch() (2019-09-13)",
+      "method": "GET",
+      "params": {
+        "branch": { "required": true, "type": "string" },
+        "owner": { "required": true, "type": "string" },
+        "repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
     },
     "merge": {
       "method": "POST",
@@ -4672,8 +4688,8 @@
           "required": true,
           "type": "object"
         },
-        "restrictions.teams": { "type": "string[]" },
-        "restrictions.users": { "type": "string[]" }
+        "restrictions.teams": { "required": true, "type": "string[]" },
+        "restrictions.users": { "required": true, "type": "string[]" }
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection"
     },
@@ -4940,6 +4956,7 @@
   },
   "teams": {
     "addMember": {
+      "deprecated": "octokit.teams.addMember() is deprecated, see https://developer.github.com/enterprise/2.16/v3/teams/members/#add-team-member",
       "method": "PUT",
       "params": {
         "team_id": { "required": true, "type": "integer" },
@@ -5070,6 +5087,7 @@
       "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
     },
     "getMember": {
+      "deprecated": "octokit.teams.getMember() is deprecated, see https://developer.github.com/enterprise/2.16/v3/teams/members/#get-team-member",
       "method": "GET",
       "params": {
         "team_id": { "required": true, "type": "integer" },
@@ -5165,6 +5183,7 @@
       "url": "/teams/:team_id/repos"
     },
     "removeMember": {
+      "deprecated": "octokit.teams.removeMember() is deprecated, see https://developer.github.com/enterprise/2.16/v3/teams/members/#remove-team-member",
       "method": "DELETE",
       "params": {
         "team_id": { "required": true, "type": "integer" },
@@ -5213,7 +5232,7 @@
         "name": { "required": true, "type": "string" },
         "parent_team_id": { "type": "integer" },
         "permission": { "enum": ["pull", "push", "admin"], "type": "string" },
-        "privacy": { "type": "string" },
+        "privacy": { "enum": ["secret", "closed"], "type": "string" },
         "team_id": { "required": true, "type": "integer" }
       },
       "url": "/teams/:team_id"

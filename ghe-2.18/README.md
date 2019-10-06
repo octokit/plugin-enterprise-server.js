@@ -1,4 +1,4 @@
-# @octokit/plugin-enterprise-rest/ghe-2.15
+# @octokit/plugin-enterprise-rest/ghe-2.18
 
 ## Enterprise Administration
 
@@ -21,6 +21,7 @@ octokit.enterpriseAdmin.createPreReceiveHook(
 octokit.enterpriseAdmin.createUser(email, login);
 octokit.enterpriseAdmin.deleteGlobalHook(hook_id);
 octokit.enterpriseAdmin.deleteImpersonationOAuthToken(username);
+octokit.enterpriseAdmin.deletePersonalAccessToken(token_id);
 octokit.enterpriseAdmin.deletePreReceiveEnvironment(pre_receive_environment_id);
 octokit.enterpriseAdmin.deletePreReceiveHook(pre_receive_hook_id);
 octokit.enterpriseAdmin.deletePublicKey(key_ids);
@@ -45,6 +46,7 @@ octokit.enterpriseAdmin.getPreReceiveHookForRepo(
 );
 octokit.enterpriseAdmin.getTypeStats(type);
 octokit.enterpriseAdmin.listGlobalHooks(page, per_page);
+octokit.enterpriseAdmin.listPersonalAccessTokens(page, per_page);
 octokit.enterpriseAdmin.listPreReceiveEnvironments(page, per_page);
 octokit.enterpriseAdmin.listPreReceiveHooks(page, per_page);
 octokit.enterpriseAdmin.listPreReceiveHooksForOrg(org, page, per_page);
@@ -159,7 +161,14 @@ octokit.activity.setThreadSubscription(ignored, thread_id);
 octokit.activity.starRepo(owner, repo);
 octokit.activity.unstarRepo(owner, repo);
 octokit.apps.addRepoToInstallation(installation_id, repository_id);
-octokit.apps.createInstallationToken(installation_id);
+octokit.apps.createContentAttachment(body, content_reference_id, title);
+octokit.apps.createFromManifest(code);
+octokit.apps.createInstallationToken(
+  installation_id,
+  permissions,
+  repository_ids
+);
+octokit.apps.deleteInstallation(installation_id);
 octokit.apps.findOrgInstallation(org);
 octokit.apps.findRepoInstallation(owner, repo);
 octokit.apps.findUserInstallation(username);
@@ -506,6 +515,7 @@ octokit.orgs.update(
   has_organization_projects,
   has_repository_projects,
   location,
+  members_allowed_repository_creation_type,
   members_can_create_repositories,
   name,
   org
@@ -515,6 +525,7 @@ octokit.orgs.updateMembership(org, state);
 octokit.projects.addCollaborator(permission, project_id, username);
 octokit.projects.createCard(column_id, content_id, content_type, note);
 octokit.projects.createColumn(name, project_id);
+octokit.projects.createForAuthenticatedUser(body, name);
 octokit.projects.createForOrg(body, name, org);
 octokit.projects.createForRepo(body, name, owner, repo);
 octokit.projects.delete(project_id);
@@ -528,6 +539,7 @@ octokit.projects.listCollaborators(affiliation, page, per_page, project_id);
 octokit.projects.listColumns(page, per_page, project_id);
 octokit.projects.listForOrg(org, page, per_page, state);
 octokit.projects.listForRepo(owner, page, per_page, repo, state);
+octokit.projects.listForUser(page, per_page, state, username);
 octokit.projects.moveCard(card_id, column_id, position);
 octokit.projects.moveColumn(column_id, position);
 octokit.projects.removeCollaborator(project_id, username);
@@ -546,13 +558,31 @@ octokit.pulls.checkIfMerged(owner, pull_number, repo);
 octokit.pulls.create(
   base,
   body,
+  draft,
   head,
   maintainer_can_modify,
   owner,
   repo,
   title
 );
-octokit.pulls.createCommentReply(body, in_reply_to, owner, pull_number, repo);
+octokit.pulls.createComment(
+  body,
+  commit_id,
+  owner,
+  path,
+  position,
+  pull_number,
+  repo
+);
+octokit.pulls.createCommentReply(
+  body,
+  commit_id,
+  owner,
+  path,
+  position,
+  pull_number,
+  repo
+);
 octokit.pulls.createFromIssue(
   base,
   head,
@@ -566,6 +596,13 @@ octokit.pulls.createReview(
   comments,
   commit_id,
   event,
+  owner,
+  pull_number,
+  repo
+);
+octokit.pulls.createReviewCommentReply(
+  body,
+  comment_id,
   owner,
   pull_number,
   repo
@@ -652,7 +689,9 @@ octokit.pulls.update(
   state,
   title
 );
+octokit.pulls.updateBranch(expected_head_sha, owner, pull_number, repo);
 octokit.pulls.updateComment(body, comment_id, owner, repo);
+octokit.pulls.updateReview(body, owner, pull_number, repo, review_id);
 octokit.rateLimit.get();
 octokit.reactions.createForCommitComment(comment_id, content, owner, repo);
 octokit.reactions.createForIssue(content, issue_number, owner, repo);
@@ -759,6 +798,7 @@ octokit.repos.createDeploymentStatus(
   auto_inactive,
   deployment_id,
   description,
+  environment,
   environment_url,
   log_url,
   owner,
@@ -788,6 +828,7 @@ octokit.repos.createForAuthenticatedUser(
   has_projects,
   has_wiki,
   homepage,
+  is_template,
   license_template,
   name,
   private,
@@ -806,6 +847,7 @@ octokit.repos.createInOrg(
   has_projects,
   has_wiki,
   homepage,
+  is_template,
   license_template,
   name,
   org,
@@ -842,6 +884,14 @@ octokit.repos.createStatus(
   state,
   target_url
 );
+octokit.repos.createUsingTemplate(
+  description,
+  name,
+  owner,
+  private,
+  template_owner,
+  template_repo
+);
 octokit.repos.declineInvitation(invitation_id);
 octokit.repos.delete(owner, repo);
 octokit.repos.deleteCommitComment(comment_id, owner, repo);
@@ -860,6 +910,10 @@ octokit.repos.deleteHook(hook_id, owner, repo);
 octokit.repos.deleteInvitation(invitation_id, owner, repo);
 octokit.repos.deleteRelease(owner, release_id, repo);
 octokit.repos.deleteReleaseAsset(asset_id, owner, repo);
+octokit.repos.disablePagesSite(owner, repo);
+octokit.repos.disableVulnerabilityAlerts(owner, repo);
+octokit.repos.enablePagesSite(owner, repo, source);
+octokit.repos.enableVulnerabilityAlerts(owner, repo);
 octokit.repos.get(owner, repo);
 octokit.repos.getArchiveLink(archive_format, owner, ref, repo);
 octokit.repos.getBranch(branch, owner, repo);
@@ -910,6 +964,7 @@ octokit.repos.list(
 );
 octokit.repos.listAssetsForRelease(owner, page, per_page, release_id, repo);
 octokit.repos.listBranches(owner, page, per_page, protected, repo);
+octokit.repos.listBranchesForHeadCommit(commit_sha, owner, repo);
 octokit.repos.listCollaborators(affiliation, owner, page, per_page, repo);
 octokit.repos.listCommentsForCommit(commit_sha, owner, page, per_page, repo);
 octokit.repos.listCommitComments(owner, page, per_page, repo);
@@ -944,7 +999,7 @@ octokit.repos.listDeployments(
   task
 );
 octokit.repos.listDownloads(owner, page, per_page, repo);
-octokit.repos.listForOrg(org, page, per_page, type);
+octokit.repos.listForOrg(direction, org, page, per_page, sort, type);
 octokit.repos.listForUser(direction, page, per_page, sort, type, username);
 octokit.repos.listForks(owner, page, per_page, repo, sort);
 octokit.repos.listHooks(owner, page, per_page, repo);
@@ -960,6 +1015,13 @@ octokit.repos.listProtectedBranchRequiredStatusChecksContexts(
 octokit.repos.listProtectedBranchTeamRestrictions(branch, owner, repo);
 octokit.repos.listProtectedBranchUserRestrictions(branch, owner, repo);
 octokit.repos.listPublic(page, per_page, since, visibility);
+octokit.repos.listPullRequestsAssociatedWithCommit(
+  commit_sha,
+  owner,
+  page,
+  per_page,
+  repo
+);
 octokit.repos.listReleases(owner, page, per_page, repo);
 octokit.repos.listStatusesForRef(owner, page, per_page, ref, repo);
 octokit.repos.listTags(owner, page, per_page, repo);
@@ -1023,6 +1085,7 @@ octokit.repos.update(
   has_projects,
   has_wiki,
   homepage,
+  is_template,
   name,
   owner,
   private,
@@ -1124,6 +1187,7 @@ octokit.teams.deleteDiscussionComment(
   team_id
 );
 octokit.teams.get(team_id);
+octokit.teams.getByName(org, team_slug);
 octokit.teams.getDiscussion(discussion_number, team_id);
 octokit.teams.getDiscussionComment(comment_number, discussion_number, team_id);
 octokit.teams.getMember(team_id, username);

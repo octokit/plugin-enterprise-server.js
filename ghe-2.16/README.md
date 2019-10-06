@@ -518,8 +518,8 @@ octokit.orgs.updateMembership(org, state);
 octokit.projects.addCollaborator(permission, project_id, username);
 octokit.projects.createCard(column_id, content_id, content_type, note);
 octokit.projects.createColumn(name, project_id);
-octokit.projects.createForOrg(body, name, org, page, per_page);
-octokit.projects.createForRepo(body, name, owner, page, per_page, repo);
+octokit.projects.createForOrg(body, name, org);
+octokit.projects.createForRepo(body, name, owner, repo);
 octokit.projects.delete(project_id);
 octokit.projects.deleteCard(card_id);
 octokit.projects.deleteColumn(column_id);
@@ -539,8 +539,6 @@ octokit.projects.update(
   body,
   name,
   organization_permission,
-  page,
-  per_page,
   private,
   project_id,
   state
@@ -556,15 +554,6 @@ octokit.pulls.create(
   owner,
   repo,
   title
-);
-octokit.pulls.createComment(
-  body,
-  commit_id,
-  owner,
-  path,
-  position,
-  pull_number,
-  repo
 );
 octokit.pulls.createCommentReply(body, in_reply_to, owner, pull_number, repo);
 octokit.pulls.createFromIssue(
@@ -912,6 +901,8 @@ octokit.repos.getReadme(owner, ref, repo);
 octokit.repos.getRelease(owner, release_id, repo);
 octokit.repos.getReleaseAsset(asset_id, owner, repo);
 octokit.repos.getReleaseByTag(owner, repo, tag);
+octokit.repos.getTeamsWithAccessToProtectedBranch(branch, owner, repo);
+octokit.repos.getUsersWithAccessToProtectedBranch(branch, owner, repo);
 octokit.repos.list(
   affiliation,
   direction,
@@ -970,20 +961,16 @@ octokit.repos.listProtectedBranchRequiredStatusChecksContexts(
   owner,
   repo
 );
-octokit.repos.listProtectedBranchTeamRestrictions(
-  branch,
-  owner,
-  page,
-  per_page,
-  repo
-);
+octokit.repos.listProtectedBranchTeamRestrictions(branch, owner, repo);
 octokit.repos.listProtectedBranchUserRestrictions(branch, owner, repo);
 octokit.repos.listPublic(page, per_page, since, visibility);
 octokit.repos.listReleases(owner, page, per_page, repo);
 octokit.repos.listStatusesForRef(owner, page, per_page, ref, repo);
 octokit.repos.listTags(owner, page, per_page, repo);
 octokit.repos.listTeams(owner, page, per_page, repo);
+octokit.repos.listTeamsWithAccessToProtectedBranch(branch, owner, repo);
 octokit.repos.listTopics(owner, repo);
+octokit.repos.listUsersWithAccessToProtectedBranch(branch, owner, repo);
 octokit.repos.merge(base, commit_message, head, owner, repo);
 octokit.repos.pingHook(hook_id, owner, repo);
 octokit.repos.removeBranchProtection(branch, owner, repo);
