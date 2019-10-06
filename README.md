@@ -12,7 +12,7 @@
 
 ```js
 const Octokit = require("@octokit/rest").plugin(
-  require("@octokit/plugin-enterprise-rest/ghe-2.15")
+  require("@octokit/plugin-enterprise-rest/ghe-2.18")
 );
 const octokit = new Octokit({
   baseUrl: "https://github.acme-inc.com/api/v3"
@@ -27,7 +27,7 @@ There can be differences in REST API between `api.github.com` and the different 
 
 ```js
 const Octokit = require("@octokit/rest").plugin(
-  require("@octokit/plugin-enterprise-rest/ghe-2.15/all")
+  require("@octokit/plugin-enterprise-rest/ghe-2.18/all")
 );
 const octokit = new Octokit({
   baseUrl: "https://github.acme-inc.com/api/v3"
