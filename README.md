@@ -10,32 +10,34 @@
 ## Usage
 
 ```js
-const Octokit = require('@octokit/rest')
-  .plugin(require('@octokit/plugin-enterprise-rest/ghe-2.15'))
+const Octokit = require("@octokit/rest").plugin(
+  require("@octokit/plugin-enterprise-rest/ghe-2.15")
+);
 const octokit = new Octokit({
-  baseUrl: 'https://github.acme-inc.com/api/v3'
-})
+  baseUrl: "https://github.acme-inc.com/api/v3"
+});
 
 octokit.enterpriseAdmin.promoteOrdinaryUserToSiteAdministrator({
-  username: 'octocat'
-})
+  username: "octocat"
+});
 ```
 
 There can be differences in REST API between `api.github.com` and the different GitHub Enterprise versions. Some of the endpoint methods from `@octokit/rest` might not work. For these cases you can load the endpoint methods for all scopes for a certain GitHub Enterprise version, not only the `.enterprise` scope. This will override existing endpoint methods.
 
 ```js
-const Octokit = require('@octokit/rest')
-  .plugin(require('@octokit/plugin-enterprise-rest/ghe-2.15/all'))
+const Octokit = require("@octokit/rest").plugin(
+  require("@octokit/plugin-enterprise-rest/ghe-2.15/all")
+);
 const octokit = new Octokit({
-  baseUrl: 'https://github.acme-inc.com/api/v3'
-})
+  baseUrl: "https://github.acme-inc.com/api/v3"
+});
 
 octokit.issues.addLabels({
   owner,
   repo,
   number,
-  labels: ['foo', 'bar']
-})
+  labels: ["foo", "bar"]
+});
 // now sends `["foo", "bar"]` in the request body, instead of `{"labels": ["foo", "bar"]}`
 ```
 
