@@ -2730,17 +2730,48 @@
       },
       "url": "/repos/:owner/:repo/pulls"
     },
-    "createCommentReply": {
+    "createComment": {
       "method": "POST",
       "params": {
         "body": { "required": true, "type": "string" },
-        "in_reply_to": { "required": true, "type": "integer" },
+        "commit_id": { "required": true, "type": "string" },
+        "in_reply_to": {
+          "deprecated": true,
+          "description": "The comment ID to reply to. **Note**: This must be the ID of a top-level comment, not a reply to that comment. Replies to replies are not supported.",
+          "type": "integer"
+        },
         "number": {
           "alias": "pull_number",
           "deprecated": true,
           "type": "integer"
         },
         "owner": { "required": true, "type": "string" },
+        "path": { "required": true, "type": "string" },
+        "position": { "required": true, "type": "integer" },
+        "pull_number": { "required": true, "type": "integer" },
+        "repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
+    },
+    "createCommentReply": {
+      "deprecated": "octokit.pulls.createCommentReply() has been renamed to octokit.pulls.createComment() (2019-09-09)",
+      "method": "POST",
+      "params": {
+        "body": { "required": true, "type": "string" },
+        "commit_id": { "required": true, "type": "string" },
+        "in_reply_to": {
+          "deprecated": true,
+          "description": "The comment ID to reply to. **Note**: This must be the ID of a top-level comment, not a reply to that comment. Replies to replies are not supported.",
+          "type": "integer"
+        },
+        "number": {
+          "alias": "pull_number",
+          "deprecated": true,
+          "type": "integer"
+        },
+        "owner": { "required": true, "type": "string" },
+        "path": { "required": true, "type": "string" },
+        "position": { "required": true, "type": "integer" },
         "pull_number": { "required": true, "type": "integer" },
         "repo": { "required": true, "type": "string" }
       },
@@ -2782,6 +2813,17 @@
         "repo": { "required": true, "type": "string" }
       },
       "url": "/repos/:owner/:repo/pulls/:pull_number/reviews"
+    },
+    "createReviewCommentReply": {
+      "method": "POST",
+      "params": {
+        "body": { "required": true, "type": "string" },
+        "comment_id": { "required": true, "type": "integer" },
+        "owner": { "required": true, "type": "string" },
+        "pull_number": { "required": true, "type": "integer" },
+        "repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:owner/:repo/pulls/:pull_number/comments/:comment_id/replies"
     },
     "createReviewRequest": {
       "method": "POST",
@@ -3084,6 +3126,17 @@
         "title": { "type": "string" }
       },
       "url": "/repos/:owner/:repo/pulls/:pull_number"
+    },
+    "updateBranch": {
+      "headers": { "accept": "application/vnd.github.lydian-preview+json" },
+      "method": "PUT",
+      "params": {
+        "expected_head_sha": { "type": "string" },
+        "owner": { "required": true, "type": "string" },
+        "pull_number": { "required": true, "type": "integer" },
+        "repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:owner/:repo/pulls/:pull_number/update-branch"
     },
     "updateComment": {
       "method": "PATCH",
@@ -3641,6 +3694,7 @@
         "has_projects": { "type": "boolean" },
         "has_wiki": { "type": "boolean" },
         "homepage": { "type": "string" },
+        "is_template": { "type": "boolean" },
         "license_template": { "type": "string" },
         "name": { "required": true, "type": "string" },
         "private": { "type": "boolean" },
@@ -3686,6 +3740,7 @@
         "has_projects": { "type": "boolean" },
         "has_wiki": { "type": "boolean" },
         "homepage": { "type": "string" },
+        "is_template": { "type": "boolean" },
         "license_template": { "type": "string" },
         "name": { "required": true, "type": "string" },
         "org": { "required": true, "type": "string" },
@@ -3743,6 +3798,19 @@
         "target_url": { "type": "string" }
       },
       "url": "/repos/:owner/:repo/statuses/:sha"
+    },
+    "createUsingTemplate": {
+      "headers": { "accept": "application/vnd.github.baptiste-preview+json" },
+      "method": "POST",
+      "params": {
+        "description": { "type": "string" },
+        "name": { "required": true, "type": "string" },
+        "owner": { "type": "string" },
+        "private": { "type": "boolean" },
+        "template_owner": { "required": true, "type": "string" },
+        "template_repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:template_owner/:template_repo/generate"
     },
     "declineInvitation": {
       "method": "DELETE",
@@ -3838,6 +3906,15 @@
       },
       "url": "/repos/:owner/:repo/pages"
     },
+    "disableVulnerabilityAlerts": {
+      "headers": { "accept": "application/vnd.github.dorian-preview+json" },
+      "method": "DELETE",
+      "params": {
+        "owner": { "required": true, "type": "string" },
+        "repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:owner/:repo/vulnerability-alerts"
+    },
     "enablePagesSite": {
       "headers": { "accept": "application/vnd.github.switcheroo-preview+json" },
       "method": "POST",
@@ -3849,6 +3926,15 @@
         "source.path": { "type": "string" }
       },
       "url": "/repos/:owner/:repo/pages"
+    },
+    "enableVulnerabilityAlerts": {
+      "headers": { "accept": "application/vnd.github.dorian-preview+json" },
+      "method": "PUT",
+      "params": {
+        "owner": { "required": true, "type": "string" },
+        "repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:owner/:repo/vulnerability-alerts"
     },
     "get": {
       "method": "GET",
@@ -4740,6 +4826,7 @@
         "has_projects": { "type": "boolean" },
         "has_wiki": { "type": "boolean" },
         "homepage": { "type": "string" },
+        "is_template": { "type": "boolean" },
         "name": { "type": "string" },
         "owner": { "required": true, "type": "string" },
         "private": { "type": "boolean" },
@@ -5067,7 +5154,7 @@
   },
   "teams": {
     "addMember": {
-      "deprecated": "octokit.teams.addMember() is deprecated, see https://developer.github.com/enterprise/2.17/v3/teams/members/#add-team-member",
+      "deprecated": "octokit.teams.addMember() is deprecated, see https://developer.github.com/enterprise/2.18/v3/teams/members/#add-team-member",
       "method": "PUT",
       "params": {
         "team_id": { "required": true, "type": "integer" },
@@ -5206,7 +5293,7 @@
       "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
     },
     "getMember": {
-      "deprecated": "octokit.teams.getMember() is deprecated, see https://developer.github.com/enterprise/2.17/v3/teams/members/#get-team-member",
+      "deprecated": "octokit.teams.getMember() is deprecated, see https://developer.github.com/enterprise/2.18/v3/teams/members/#get-team-member",
       "method": "GET",
       "params": {
         "team_id": { "required": true, "type": "integer" },
@@ -5302,7 +5389,7 @@
       "url": "/teams/:team_id/repos"
     },
     "removeMember": {
-      "deprecated": "octokit.teams.removeMember() is deprecated, see https://developer.github.com/enterprise/2.17/v3/teams/members/#remove-team-member",
+      "deprecated": "octokit.teams.removeMember() is deprecated, see https://developer.github.com/enterprise/2.18/v3/teams/members/#remove-team-member",
       "method": "DELETE",
       "params": {
         "team_id": { "required": true, "type": "integer" },
