@@ -39,7 +39,7 @@
     "coveralls": "^3.0.2",
     "lodash.camelcase": "^4.3.0",
     "make-dir": "^3.0.0",
-    "semantic-release": "^15.13.12",
+    "semantic-release": "^15.13.25",
     "simple-mock": "^0.8.0",
     "sort-keys": "^4.0.0",
     "standard": "^14.0.2",
