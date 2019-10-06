@@ -1,28 +1,28 @@
-const simple = require('simple-mock')
-const { test } = require('tap')
+const simple = require("simple-mock");
+const { test } = require("tap");
 
-test('require("@octokit/enterprise-rest/v2.15")', t => {
+test('require("@octokit/enterprise-rest/v2.18")', t => {
   const octokitMock = {
     registerEndpoints: simple.mock()
-  }
+  };
 
-  const plugin = require('./ghe-2.15')
+  const plugin = require("./ghe-2.18");
 
-  plugin(octokitMock)
+  plugin(octokitMock);
 
-  t.equals(octokitMock.registerEndpoints.callCount, 1)
-  t.end()
-})
+  t.equals(octokitMock.registerEndpoints.callCount, 1);
+  t.end();
+});
 
-test('require("@octokit/enterprise-rest/v2.15/all")', t => {
+test('require("@octokit/enterprise-rest/v2.18/all")', t => {
   const octokitMock = {
     registerEndpoints: simple.mock()
-  }
+  };
 
-  const plugin = require('./ghe-2.15/all')
+  const plugin = require("./ghe-2.18/all");
 
-  plugin(octokitMock)
+  plugin(octokitMock);
 
-  t.equals(octokitMock.registerEndpoints.callCount, 1)
-  t.end()
-})
+  t.equals(octokitMock.registerEndpoints.callCount, 1);
+  t.end();
+});
