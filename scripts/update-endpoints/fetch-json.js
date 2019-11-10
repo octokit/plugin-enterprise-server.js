@@ -4,6 +4,10 @@ const path = require("path");
 const { graphql } = require("@octokit/graphql");
 const prettier = require("prettier");
 
+if (!process.env.VERSION) {
+  throw new Error(`VERSION environment variable must be set`);
+}
+
 const QUERY = `
   fragment endpointFields on Endpoint {
     name
@@ -49,17 +53,17 @@ const QUERY = `
     }
   }
 
-  {
-    ghe218: endpoints(ghe: GHE_218, filter: { isLegacy: false, isGithubCloudOnly: false }) {
+  query ($version: String) {
+    ghe218: endpoints(version: $version, ghe: GHE_218, filter: { isLegacy: false, isGithubCloudOnly: false }) {
       ...endpointFields
     }
-    ghe217: endpoints(ghe: GHE_217, filter: { isLegacy: false, isGithubCloudOnly: false }) {
+    ghe217: endpoints(version: $version, ghe: GHE_217, filter: { isLegacy: false, isGithubCloudOnly: false }) {
       ...endpointFields
     }
-    ghe216: endpoints(ghe: GHE_216, filter: { isLegacy: false, isGithubCloudOnly: false }) {
+    ghe216: endpoints(version: $version, ghe: GHE_216, filter: { isLegacy: false, isGithubCloudOnly: false }) {
       ...endpointFields
     }
-    ghe215: endpoints(ghe: GHE_215, filter: { isLegacy: false, isGithubCloudOnly: false }) {
+    ghe215: endpoints(version: $version, ghe: GHE_215, filter: { isLegacy: false, isGithubCloudOnly: false }) {
       ...endpointFields
     }
   }
@@ -69,7 +73,8 @@ main();
 
 async function main() {
   const results = await graphql(QUERY, {
-    url: "https://octokit-routes-graphql-server.now.sh/"
+    url: "https://octokit-routes-graphql-server.now.sh/",
+    version: process.env.VERSION
   });
 
   for (const [key, endpoints] of Object.entries(results)) {
