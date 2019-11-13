@@ -9,6 +9,9 @@ if (process.env.GITHUB_EVENT_PATH) {
   const payload = JSON.parse(
     readFileSync(process.env.GITHUB_EVENT_PATH, "utf8")
   );
+  console.log(`process.env.VERSION`);
+  console.log(process.env.VERSION);
+
   console.log(`payload`);
   console.log(payload);
   process.env.VERSION = payload.client_payload.version;
