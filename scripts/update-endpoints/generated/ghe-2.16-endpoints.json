@@ -2677,8 +2677,14 @@
       }
     ],
     "renamed": {
-      "before": "getOrCreateAuthorizationForAppFingerprint",
-      "after": "getOrCreateAuthorizationForAppAndFingerprint",
+      "before": {
+        "scope": "oauthAuthorizations",
+        "id": "getOrCreateAuthorizationForAppFingerprint"
+      },
+      "after": {
+        "scope": "oauthAuthorizations",
+        "id": "getOrCreateAuthorizationForAppAndFingerprint"
+      },
       "date": "2018-12-27",
       "note": "`idName` changed for \"Get-or-create an authorization for a specific app and fingerprint\". It now includes `-and-`"
     }
@@ -4474,8 +4480,8 @@
       }
     ],
     "renamed": {
-      "before": "list",
-      "after": "listCommonlyUsed",
+      "before": { "scope": "licenses", "id": "list" },
+      "after": { "scope": "licenses", "id": "listCommonlyUsed" },
       "date": "2019-03-05",
       "note": "\"List all licenses\" renamed to \"List commonly used licenses\""
     }
@@ -5934,8 +5940,8 @@
       }
     ],
     "renamed": {
-      "before": "findOrgInstallation",
-      "after": "getOrgInstallation",
+      "before": { "scope": "apps", "id": "findOrgInstallation" },
+      "after": { "scope": "apps", "id": "getOrgInstallation" },
       "date": "2019-04-10",
       "note": "\"Find organization installation\" renamed to \"Get an organization installation\""
     }
@@ -11254,8 +11260,14 @@
       }
     ],
     "renamed": {
-      "before": "listProtectedBranchTeamRestrictions",
-      "after": "getTeamsWithAccessToProtectedBranch",
+      "before": {
+        "scope": "repos",
+        "id": "listProtectedBranchTeamRestrictions"
+      },
+      "after": {
+        "scope": "repos",
+        "id": "getTeamsWithAccessToProtectedBranch"
+      },
       "date": "2019-09-09",
       "note": "\"List team restrictions of protected branch\" is now \"Get teams with access to protected branch\""
     }
@@ -11324,8 +11336,14 @@
       }
     ],
     "renamed": {
-      "before": "listTeamsWithAccessToProtectedBranch",
-      "after": "getTeamsWithAccessToProtectedBranch",
+      "before": {
+        "scope": "repos",
+        "id": "listTeamsWithAccessToProtectedBranch"
+      },
+      "after": {
+        "scope": "repos",
+        "id": "getTeamsWithAccessToProtectedBranch"
+      },
       "date": "2019-09-13",
       "note": "\"List teams with access to protected branch\" is now \"Get teams with access to protected branch\""
     }
@@ -11693,8 +11711,14 @@
       }
     ],
     "renamed": {
-      "before": "listProtectedBranchUserRestrictions",
-      "after": "getUsersWithAccessToProtectedBranch",
+      "before": {
+        "scope": "repos",
+        "id": "listProtectedBranchUserRestrictions"
+      },
+      "after": {
+        "scope": "repos",
+        "id": "getUsersWithAccessToProtectedBranch"
+      },
       "date": "2019-09-09",
       "note": "\"List user restrictions of protected branch\" is now \"Get users with access to protected branch\""
     }
@@ -11763,8 +11787,14 @@
       }
     ],
     "renamed": {
-      "before": "listUsersWithAccessToProtectedBranch",
-      "after": "getUsersWithAccessToProtectedBranch",
+      "before": {
+        "scope": "repos",
+        "id": "listUsersWithAccessToProtectedBranch"
+      },
+      "after": {
+        "scope": "repos",
+        "id": "getUsersWithAccessToProtectedBranch"
+      },
       "date": "2019-09-13",
       "note": "\"List users with access to protected branch\" is now \"Get users with access to protected branch\""
     }
@@ -15565,7 +15595,7 @@
       },
       {
         "name": "committer.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -15604,7 +15634,7 @@
       },
       {
         "name": "author.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -15769,7 +15799,7 @@
       },
       {
         "name": "committer.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -15808,7 +15838,7 @@
       },
       {
         "name": "author.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -15841,8 +15871,8 @@
       }
     ],
     "renamed": {
-      "before": "createFile",
-      "after": "createOrUpdateFile",
+      "before": { "scope": "repos", "id": "createFile" },
+      "after": { "scope": "repos", "id": "createOrUpdateFile" },
       "date": "2019-06-07",
       "note": "\"Create a file\" replaced by \"Create or update a file\""
     }
@@ -15978,7 +16008,7 @@
       },
       {
         "name": "committer.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -16017,7 +16047,7 @@
       },
       {
         "name": "author.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -16050,8 +16080,8 @@
       }
     ],
     "renamed": {
-      "before": "updateFile",
-      "after": "createOrUpdateFile",
+      "before": { "scope": "repos", "id": "updateFile" },
+      "after": { "scope": "repos", "id": "createOrUpdateFile" },
       "date": "2019-06-07",
       "note": "\"Update a file\" replaced by \"Create or update a file\""
     }
@@ -18395,7 +18425,7 @@
     "method": "POST",
     "url": "/repos/{owner}/{repo}/git/trees",
     "isDeprecated": false,
-    "description": "The tree creation API will take nested entries as well. If both a tree and a nested path modifying that tree are specified, it will overwrite the contents of that tree with the new path contents and write a new tree out.",
+    "description": "The tree creation API accepts nested entries. If you specify both a tree and a nested path modifying that tree, this endpoint will overwrite the contents of the tree with the new path contents, and create a new tree structure.",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/git/trees/#create-a-tree",
     "previews": [],
     "headers": [],
@@ -19364,8 +19394,8 @@
       }
     ],
     "renamed": {
-      "before": "findRepoInstallation",
-      "after": "getRepoInstallation",
+      "before": { "scope": "apps", "id": "findRepoInstallation" },
+      "after": { "scope": "apps", "id": "getRepoInstallation" },
       "date": "2019-04-10",
       "note": "\"Find repository installation\" renamed to \"Get a repository installation\""
     }
@@ -29335,8 +29365,10 @@
     "isDeprecated": false,
     "description": "",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/repos/#list-all-topics-for-a-repository",
-    "previews": [],
-    "headers": [],
+    "previews": [{ "name": "mercy" }],
+    "headers": [
+      { "name": "accept", "value": "application/vnd.github.mercy-preview+json" }
+    ],
     "parameters": [
       {
         "name": "owner",
@@ -29385,8 +29417,10 @@
     "isDeprecated": false,
     "description": "",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/repos/#replace-all-topics-for-a-repository",
-    "previews": [],
-    "headers": [],
+    "previews": [{ "name": "mercy" }],
+    "headers": [
+      { "name": "accept", "value": "application/vnd.github.mercy-preview+json" }
+    ],
     "parameters": [
       {
         "name": "owner",
@@ -30057,8 +30091,8 @@
       }
     ],
     "renamed": {
-      "before": "issues",
-      "after": "issuesAndPullRequests",
+      "before": { "scope": "search", "id": "issues" },
+      "after": { "scope": "search", "id": "issuesAndPullRequests" },
       "date": "2018-12-27",
       "note": "\"Search issues\" has been renamed to \"Search issues and pull requests\""
     }
@@ -35861,8 +35895,8 @@
       }
     ],
     "renamed": {
-      "before": "findUserInstallation",
-      "after": "getUserInstallation",
+      "before": { "scope": "apps", "id": "findUserInstallation" },
+      "after": { "scope": "apps", "id": "getUserInstallation" },
       "date": "2019-04-10",
       "note": "\"Find repository installation\" renamed to \"Get a repository installation\""
     }

@@ -46,8 +46,14 @@ const QUERY = `
       }
     }
     renamed {
-      before(format: CAMELCASE)
-      after(format: CAMELCASE)
+      before {
+        scope(format: CAMELCASE)
+        id(format: CAMELCASE)
+      }
+      after {
+        scope(format: CAMELCASE)
+        id(format: CAMELCASE)
+      }
       date
       note
     }
