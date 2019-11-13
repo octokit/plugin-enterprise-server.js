@@ -1,8 +1,16 @@
-const { writeFileSync } = require("fs");
+const { readFileSync, writeFileSync } = require("fs");
 const path = require("path");
 
 const { graphql } = require("@octokit/graphql");
 const prettier = require("prettier");
+
+// workaround because VERSION is not set for some reason
+if (process.env.GITHUB_EVENT_PATH) {
+  const payload = JSON.parse(writeFileSync(process.env.GITHUB_EVENT_PATH));
+  console.log(`payload`);
+  console.log(payload);
+  process.env.VERSION = payload.client_payload.version;
+}
 
 if (!process.env.VERSION) {
   throw new Error(`VERSION environment variable must be set`);
