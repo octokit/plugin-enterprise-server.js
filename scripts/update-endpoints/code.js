@@ -6,7 +6,7 @@ const sortKeys = require("sort-keys");
 
 const WORKAROUNDS = require("./workarounds");
 
-const GHE_VERSIONS = ["2.15", "2.16", "2.17", "2.18"];
+const GHE_VERSIONS = ["2.16", "2.17", "2.18"];
 const newRoutes = {};
 
 generateRoutes();
