@@ -83,7 +83,7 @@ async function generateRoutes() {
       if (endpoint.renamed) {
         newRoutes[scope][
           idName
-        ].deprecated = `octokit.${scope}.${endpoint.renamed.before}() has been renamed to octokit.${scope}.${endpoint.renamed.after}() (${endpoint.renamed.date})`;
+        ].deprecated = `octokit.${endpoint.renamed.before.scope}.${endpoint.renamed.before.id}() has been renamed to octokit.${endpoint.renamed.after.scope}.${endpoint.renamed.after.id}() (${endpoint.renamed.date})`;
       }
 
       if (endpoint.isDeprecated) {
