@@ -4404,6 +4404,7 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams"
     },
     "listTopics": {
+      "headers": { "accept": "application/vnd.github.mercy-preview+json" },
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -4575,6 +4576,7 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
     },
     "replaceTopics": {
+      "headers": { "accept": "application/vnd.github.mercy-preview+json" },
       "method": "PUT",
       "params": {
         "names": { "required": true, "type": "string[]" },
