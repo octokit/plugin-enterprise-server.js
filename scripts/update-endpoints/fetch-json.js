@@ -6,7 +6,9 @@ const prettier = require("prettier");
 
 // workaround because VERSION is not set for some reason
 if (process.env.GITHUB_EVENT_PATH) {
-  const payload = JSON.parse(writeFileSync(process.env.GITHUB_EVENT_PATH));
+  const payload = JSON.parse(
+    readFileSync(process.env.GITHUB_EVENT_PATH, "utf8")
+  );
   console.log(`payload`);
   console.log(payload);
   process.env.VERSION = payload.client_payload.version;
