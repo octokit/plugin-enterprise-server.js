@@ -2,23 +2,18 @@
   "name": "@octokit/plugin-enterprise-server",
   "version": "0.0.0-development",
   "publishConfig": {
-    "access": "public",
-    "tag": "latest"
+    "access": "public"
   },
-  "description": "Octokit plugin for GitHub Enterprise REST APIs",
-  "directories": {
-    "test": "test"
-  },
+  "description": "Octokit plugin for GitHub Enterprise Server REST APIs",
   "scripts": {
-    "coverage": "tap --coverage-report=html",
+    "build": "pika build",
+    "lint": "prettier --check '{src,test,scripts}/*' README.md package.json",
+    "lint:fix": "prettier --write '{src,test,scripts}/*' README.md package.json",
+    "pretest": "npm run -s lint",
+    "test": "jest --coverage",
     "update-endpoints": "npm-run-all update-endpoints:*",
     "update-endpoints:fetch-json": "node scripts/update-endpoints/fetch-json",
-    "update-endpoints:code": "node scripts/update-endpoints/code",
-    "generate-routes": "node scripts/generate-routes",
-    "pretest": "npm run lint",
-    "test": "tap --coverage test.js",
-    "lint": "prettier --check '{ghe-*,scripts,src}/**/*' README.md package.json test.js",
-    "lint:fix": "prettier --write '{ghe-*,scripts,src}/**/*' README.md package.json test.js"
+    "update-endpoints:code": "node scripts/update-endpoints/code"
   },
   "repository": {
     "type": "git",
@@ -38,16 +33,66 @@
     "url": "https://github.com/octokit/plugin-enterprise-server.js/issues"
   },
   "homepage": "https://github.com/octokit/plugin-enterprise-server.js#readme",
-  "devDependencies": {
-    "@octokit/graphql": "^4.2.0",
-    "lodash.camelcase": "^4.3.0",
-    "make-dir": "^3.0.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^1.18.2",
-    "semantic-release": "^16.0.0",
-    "simple-mock": "^0.8.0",
-    "sort-keys": "^4.0.0",
-    "tap": "^14.0.0"
+  "dependencies": {
+    "@octokit/types": "^2.0.2"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "@octokit/core": "^2.2.0",
+    "@octokit/graphql": "^4.2.0",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.8.1",
+    "@pika/plugin-build-web": "^0.8.1",
+    "@pika/plugin-ts-standard-pkg": "^0.8.1",
+    "@types/fetch-mock": "^7.3.2",
+    "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.6",
+    "fetch-mock": "^8.3.1",
+    "jest": "^24.9.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "semantic-release": "^16.0.1",
+    "semantic-release-plugin-update-version-in-files": "^1.0.0",
+    "sort-keys": "^3.0.0",
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.7.4"
+  },
+  "jest": {
+    "preset": "ts-jest"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./pkg"
+        }
+      ],
+      [
+        "semantic-release-plugin-update-version-in-files",
+        {
+          "files": [
+            "pkg/dist-web/*",
+            "pkg/dist-node/*",
+            "pkg/*/version.*"
+          ]
+        }
+      ]
+    ]
+  }
 }
