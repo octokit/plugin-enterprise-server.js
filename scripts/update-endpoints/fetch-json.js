@@ -82,9 +82,6 @@ const QUERY = `
     ghe217: endpoints(version: $version, ghe: GHE_217, filter: { isLegacy: false, isGithubCloudOnly: false }) {
       ...endpointFields
     }
-    ghe216: endpoints(version: $version, ghe: GHE_216, filter: { isLegacy: false, isGithubCloudOnly: false }) {
-      ...endpointFields
-    }
   }
 `;
 
