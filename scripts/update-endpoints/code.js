@@ -69,51 +69,85 @@ async function generateRoutes() {
 
     const newRoutesSorted = sortKeys(newRoutes, { deep: true });
 
-    const allResultsPath = pathResolve(
+    const ALL_ENDPOINTS_PATH = pathResolve(
       process.cwd(),
-      `ghe-${version}/all.json`
+      `src/generated/ghe-${version}-endpoints.ts`
     );
-    writeFileSync(
-      allResultsPath,
-      prettier.format(JSON.stringify(newRoutesSorted), {
-        parser: "json"
-      })
-    );
-    console.log(`${allResultsPath} written.`);
 
-    const enterpriseAdminResultsPath = pathResolve(
+    writeFileSync(
+      ALL_ENDPOINTS_PATH,
+      prettier.format(
+        `import { EndpointsDefaultsAndDecorations } from "../types";
+    const Endpoints: EndpointsDefaultsAndDecorations = ${JSON.stringify(
+      sortKeys(newRoutes, { deep: true })
+    )}
+    
+    export default Endpoints`,
+        { parser: "typescript" }
+      )
+    );
+    console.log(`${ALL_ENDPOINTS_PATH} written.`);
+
+    const ADMIN_ENDPOINTS_PATH = pathResolve(
       process.cwd(),
-      `ghe-${version}/enterprise-admin.json`
+      `src/generated/ghe-${version}-admin-endpoints.ts`
     );
     writeFileSync(
-      enterpriseAdminResultsPath,
-      prettier.format(JSON.stringify(newRoutesSorted.enterpriseAdmin), {
-        parser: "json"
-      })
+      ADMIN_ENDPOINTS_PATH,
+      prettier.format(
+        `import { EndpointsDefaultsAndDecorations } from "../types";
+    const Endpoints: EndpointsDefaultsAndDecorations = ${JSON.stringify(
+      sortKeys({ enterpriseAdmin: newRoutes.enterpriseAdmin }, { deep: true })
+    )}
+    
+    export default Endpoints`,
+        { parser: "typescript" }
+      )
     );
-    console.log(`${enterpriseAdminResultsPath} written.`);
+    console.log(`${ADMIN_ENDPOINTS_PATH} written.`);
 
-    const indexPath = pathResolve(process.cwd(), `ghe-${version}/index.js`);
+    const INDEX_PATH = pathResolve(process.cwd(), `src/index.ts`);
+    const imports = GHE_VERSIONS.map(
+      version => `
+        import ENDPOINTS_${version} from "./generated/ghe-${version}-endpoints";
+        import ADMIN_ENDPOINTS_${version} from "./generated/ghe-${version}-admin-endpoints";
+      `
+    ).join("\n");
+    const methods = GHE_VERSIONS.map(
+      version => `
+        export function enterpriseServer${version}Admin(octokit: Octokit) {
+          return endpointsToMethods(octokit, ADMIN_ENDPOINTS_${version});
+        }
+        enterpriseServer${version}Admin.VERSION = VERSION;
+
+        export function enterpriseServer${version}(octokit: Octokit) {
+          return endpointsToMethods(octokit, ENDPOINTS_${version});
+        }
+        enterpriseServer${version}.VERSION = VERSION;
+      `
+    ).join("\n");
     writeFileSync(
-      indexPath,
-      `module.exports = octokit =>
-  octokit.registerEndpoints({
-    enterpriseAdmin: require("./enterprise-admin.json")
-  });
-`
+      INDEX_PATH,
+      prettier.format(
+        `// THIS FILE IS GENERATED. PLEASE OPEN AN ISSUE IF YOU FIND A PROBLEM
+
+        import { Octokit } from "@octokit/core";
+
+        import { VERSION } from "./version";
+        import { endpointsToMethods } from "./endpoints-to-methods";
+
+        ${imports}
+
+        ${methods}`,
+        { parser: "typescript" }
+      )
     );
-    console.log(`${indexPath} written.`);
+    console.log(`${INDEX_PATH} written.`);
 
-    const allPath = pathResolve(process.cwd(), `ghe-${version}/all.js`);
-    writeFileSync(
-      allPath,
-      'module.exports = octokit => octokit.registerEndpoints(require("./all.json"));\n'
-    );
-    console.log(`${allPath} written.`);
+    const README_PATH = pathResolve(process.cwd(), `docs/ghe-${version}.md`);
+    const content = `# enterpriseServer${version}
 
-    const readmePath = pathResolve(process.cwd(), `ghe-${version}/README.md`);
-    const content = `# @octokit/plugin-enterprise-server/ghe-${version}
-
+<a name="admin"></a>
 ## Enterprise Administration
 
 \`\`\`js
@@ -128,6 +162,7 @@ ${Object.keys(newRoutesSorted.enterpriseAdmin)
   .join("\n")}
 \`\`\`
 
+<a name="others"></a>
 ## Others
 
 \`\`\`js
@@ -143,8 +178,11 @@ ${Object.keys(newRoutesSorted)
   .join("\n")}
 \`\`\`
 `;
-    writeFileSync(readmePath, prettier.format(content, { parser: "markdown" }));
-    console.log(`${readmePath} written.`);
+    writeFileSync(
+      README_PATH,
+      prettier.format(content, { parser: "markdown" })
+    );
+    console.log(`${README_PATH} written.`);
   }
 }
 
