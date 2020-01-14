@@ -1,5 +1,5 @@
 {
-  "name": "@octokit/plugin-enterprise-rest",
+  "name": "@octokit/plugin-enterprise-server",
   "version": "0.0.0-development",
   "publishConfig": {
     "access": "public",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/octokit/plugin-enterprise-rest.js.git"
+    "url": "https://github.com/octokit/plugin-enterprise-server.js.git"
   },
   "keywords": [
     "octokit",
@@ -35,9 +35,9 @@
   "author": "Gregor Martynus (https://github.com/gr2m)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/octokit/plugin-enterprise-rest.js/issues"
+    "url": "https://github.com/octokit/plugin-enterprise-server.js/issues"
   },
-  "homepage": "https://github.com/octokit/plugin-enterprise-rest.js#readme",
+  "homepage": "https://github.com/octokit/plugin-enterprise-server.js#readme",
   "devDependencies": {
     "@octokit/graphql": "^4.2.0",
     "lodash.camelcase": "^4.3.0",

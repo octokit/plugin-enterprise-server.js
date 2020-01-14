@@ -138,7 +138,7 @@ async function generateRoutes() {
     console.log(`${allPath} written.`);
 
     const readmePath = pathResolve(process.cwd(), `ghe-${version}/README.md`);
-    const content = `# @octokit/plugin-enterprise-rest/ghe-${version}
+    const content = `# @octokit/plugin-enterprise-server/ghe-${version}
 
 ## Enterprise Administration
 

@@ -1,4 +1,4 @@
-# @octokit/plugin-enterprise-rest/ghe-2.16
+# @octokit/plugin-enterprise-server/ghe-2.16
 
 ## Enterprise Administration
 
