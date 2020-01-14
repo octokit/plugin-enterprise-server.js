@@ -1,54 +1,75 @@
 # plugin-enterprise-server.js
 
-> Octokit plugin for GitHub Enterprise REST APIs
+> Octokit plugin for GitHub Enterprise Server REST APIs
 
 [![@latest](https://img.shields.io/npm/v/@octokit/plugin-enterprise-server.svg)](https://www.npmjs.com/package/@octokit/plugin-enterprise-server)
-![Build Status](https://github.com/octokit/plugin-enterprise-server.js/workflows/Test/badge.svg)
-[![Greenkeeper badge](https://badges.greenkeeper.io/octokit/plugin-enterprise-server.js.svg)](https://greenkeeper.io/)
+[![Build Status](https://github.com/octokit/plugin-enterprise-server.js/workflows/Test/badge.svg)](https://github.com/octokit/plugin-enterprise-server.js/actions?workflow=Test)
+[![Greenkeeper](https://badges.greenkeeper.io/octokit/plugin-enterprise-server.js.svg)](https://greenkeeper.io/)
 
-`@octokit/rest` does not include methods for Enterprise Administration as they are not usable against https://api.github.com. This plugin adds these endpoints based on the GitHub Enterprise version you need.
+[`@octokit/rest`](https://github.com/octokit/rest.js/) and the [`@octokit/plugin-rest-endpoint-methods`](https://github.com/octokit/plugin-rest-endpoint-methods.js/) plugin it's using internally do not include methods for Enterprise Administration as they do not exist on https://api.github.com. This plugin adds endpoint methods for very GitHub Enterprise Server version that is currently supported.
+
+Besides the admin-specific endpoints, there are differences between `api.github.com` and each GitHub Enterprise Server version. Instead of loading [`@octokit/plugin-rest-endpoint-methods`](https://github.com/octokit/plugin-rest-endpoint-methods.js/) you can optionally add all endpoint methods for each GitHub Enterprise Server version, including the admin endpoints.
 
 ## Usage
 
+<table>
+<tbody valign=top align=left>
+<tr><th>
+Browsers
+</th><td width=100%>
+
+Load `@octokit/plugin-enterprise-server` and [`@octokit/core`](https://github.com/octokit/core.js) (or core-compatible module) directly from [cdn.pika.dev](https://cdn.pika.dev)
+
+```html
+<script type="module">
+  import { Octokit } from "https://cdn.pika.dev/@octokit/core";
+  import { enterpriseServer219Admin } from "https://cdn.pika.dev/@octokit/plugin-enterprise-server";
+</script>
+```
+
+</td></tr>
+<tr><th>
+Node
+</th><td>
+
+Install with `npm install @octokit/core @octokit/plugin-enterprise-server`. Optionally replace `@octokit/core` with a core-compatible module
+
 ```js
-const Octokit = require("@octokit/rest").plugin(
-  require("@octokit/plugin-enterprise-server/ghe-2.18")
-);
-const octokit = new Octokit({
+const { Octokit } = require("@octokit/core");
+const {
+  enterpriseServer219Admin
+} = require("@octokit/plugin-enterprise-server");
+```
+
+</td></tr>
+</tbody>
+</table>
+
+```js
+const OctokitEnterprise219 = Octokit.plugin(enterpriseServer219Admin);
+const octokit = new OctokitEnterprise219({
+  auth: "secret123",
   baseUrl: "https://github.acme-inc.com/api/v3"
 });
 
-octokit.enterpriseAdmin.promoteOrdinaryUserToSiteAdministrator({
-  username: "octocat"
+octokit.enterpriseAdmin.createUser({
+  username: "octocat",
+  email: "octocat@acme-inc.com"
 });
 ```
 
-There can be differences in REST API between `api.github.com` and the different GitHub Enterprise versions. Some of the endpoint methods from `@octokit/rest` might not work. For these cases you can load the endpoint methods for all scopes for a certain GitHub Enterprise version, not only the `.enterprise` scope. This will override existing endpoint methods.
+The list of currently exported plugins are
 
-```js
-const Octokit = require("@octokit/rest").plugin(
-  require("@octokit/plugin-enterprise-server/ghe-2.18/all")
-);
-const octokit = new Octokit({
-  baseUrl: "https://github.acme-inc.com/api/v3"
-});
-
-octokit.issues.addLabels({
-  owner,
-  repo,
-  number,
-  labels: ["foo", "bar"]
-});
-// now sends `["foo", "bar"]` in the request body, instead of `{"labels": ["foo", "bar"]}`
-```
-
-## API docs
-
-See the `README.md` files in the `ghe-*` folders for a list of available endpoint methods for the respective GitHub Enterprise version.
+- [`enterpriseServer219Admin`](docs/ghe-219.md#admin)
+- [`enterpriseServer219`](docs/ghe-219.md#others)
+- [`enterpriseServer218Admin`](docs/ghe-218.md#admin)
+- [`enterpriseServer218`](docs/ghe-218.md#others)
+- [`enterpriseServer217Admin`](docs/ghe-217.md#admin)
+- [`enterpriseServer217`](docs/ghe-217.md#others)
 
 ## How it works
 
-The route definitions for the currently supported GitHub Enterprise versions are build automatically from [`@octokit/routes`](https://github.com/octokit/routes). Each time there is a new `@octokit/routes` release, [Greenkeeper](https://greenkeeper.io/) will send a pull request which updates the dependency in `package.json` and `package-lock.json`. That kicks of a build on Travis CI where the `greenkeeper-routes-update` script is run. If there is a change, the script updates the `*.json` definition files in the pull request.
+The route definitions for the currently supported GitHub Enterprise versions are build automatically from [`@octokit/routes`](https://github.com/octokit/routes). Each time there is a new `@octokit/routes` release, the [`.github/workflows/routes-update.yml`](.github/workflows/routes-update.yml) workflow is triggered. If an update to [`routes.json`](routes.json) is found, a pull request is created.
 
 ## LICENSE
 
