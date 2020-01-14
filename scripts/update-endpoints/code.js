@@ -8,6 +8,7 @@ const WORKAROUNDS = require("./workarounds");
 
 const GHE_VERSIONS = ["217", "218", "219"];
 const newRoutes = {};
+const params = {};
 
 generateRoutes();
 
@@ -26,6 +27,7 @@ async function generateRoutes() {
 
       if (!newRoutes[scope]) {
         newRoutes[scope] = {};
+        params[scope] = {};
       }
 
       if (endpoint.headers.length) {
@@ -55,15 +57,13 @@ async function generateRoutes() {
         endpointDecorations.deprecated = `octokit.scim.${idName}() is deprecated, see ${endpoint.documentationUrl}`;
       }
 
-      newRoutes[endpoint.scope][idName] = [route];
+      newRoutes[scope][idName] = [route];
+      params[scope][idName] = endpoint.parameters;
 
       if (Object.keys(endpointDecorations).length) {
-        newRoutes[endpoint.scope][idName].push(
-          endpointDefaults,
-          endpointDecorations
-        );
+        newRoutes[scope][idName].push(endpointDefaults, endpointDecorations);
       } else if (Object.keys(endpointDefaults).length) {
-        newRoutes[endpoint.scope][idName].push(endpointDefaults);
+        newRoutes[scope][idName].push(endpointDefaults);
       }
     });
 
@@ -122,7 +122,7 @@ ${Object.keys(newRoutesSorted.enterpriseAdmin)
     endpointToMethod(
       "enterpriseAdmin",
       methodName,
-      newRoutesSorted.enterpriseAdmin[methodName]
+      params.enterpriseAdmin[methodName]
     )
   )
   .join("\n")}
@@ -136,7 +136,7 @@ ${Object.keys(newRoutesSorted)
   .map(scope =>
     Object.keys(newRoutesSorted[scope])
       .map(methodName =>
-        endpointToMethod(scope, methodName, newRoutesSorted[scope][methodName])
+        endpointToMethod(scope, methodName, params[scope][methodName])
       )
       .join("\n")
   )
@@ -148,8 +148,9 @@ ${Object.keys(newRoutesSorted)
   }
 }
 
-function endpointToMethod(scope, methodName, meta) {
-  return `octokit.${scope}.${methodName}(${Object.keys(meta.params)
-    .filter(param => !/\./.test(param) && !meta.params[param].deprecated)
+function endpointToMethod(scope, methodName, params) {
+  return `octokit.${scope}.${methodName}(${params
+    .filter(param => !/\./.test(param.name) && !param.deprecated)
+    .map(param => param.name)
     .join(", ")});`;
 }

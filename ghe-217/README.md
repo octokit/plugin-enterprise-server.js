@@ -1,4 +1,4 @@
-# @octokit/plugin-enterprise-server/ghe-2.17
+# @octokit/plugin-enterprise-server/ghe-217
 
 ## Enterprise Administration
 
@@ -6,19 +6,19 @@
 octokit.enterpriseAdmin.addAuthorizedSshKey(authorized_key);
 octokit.enterpriseAdmin.checkConfigurationStatus();
 octokit.enterpriseAdmin.checkMaintenanceStatus();
-octokit.enterpriseAdmin.createGlobalHook(active, config, events, name);
-octokit.enterpriseAdmin.createImpersonationOAuthToken(scopes, username);
-octokit.enterpriseAdmin.createOrg(admin, login, profile_name);
-octokit.enterpriseAdmin.createPreReceiveEnvironment(image_url, name);
+octokit.enterpriseAdmin.createGlobalHook(name, config, events, active);
+octokit.enterpriseAdmin.createImpersonationOAuthToken(username, scopes);
+octokit.enterpriseAdmin.createOrg(login, admin, profile_name);
+octokit.enterpriseAdmin.createPreReceiveEnvironment(name, image_url);
 octokit.enterpriseAdmin.createPreReceiveHook(
-  allow_downstream_configuration,
-  enforcement,
-  environment,
   name,
   script,
-  script_repository
+  script_repository,
+  environment,
+  enforcement,
+  allow_downstream_configuration
 );
-octokit.enterpriseAdmin.createUser(email, login);
+octokit.enterpriseAdmin.createUser(login, email);
 octokit.enterpriseAdmin.deleteGlobalHook(hook_id);
 octokit.enterpriseAdmin.deleteImpersonationOAuthToken(username);
 octokit.enterpriseAdmin.deletePersonalAccessToken(token_id);
@@ -32,25 +32,25 @@ octokit.enterpriseAdmin.getGlobalHook(hook_id);
 octokit.enterpriseAdmin.getLicenseInformation();
 octokit.enterpriseAdmin.getPreReceiveEnvironment(pre_receive_environment_id);
 octokit.enterpriseAdmin.getPreReceiveEnvironmentDownloadStatus(
-  downloaded_at,
-  message,
   pre_receive_environment_id,
-  state
+  state,
+  downloaded_at,
+  message
 );
 octokit.enterpriseAdmin.getPreReceiveHook(pre_receive_hook_id);
 octokit.enterpriseAdmin.getPreReceiveHookForOrg(org, pre_receive_hook_id);
 octokit.enterpriseAdmin.getPreReceiveHookForRepo(
   owner,
-  pre_receive_hook_id,
-  repo
+  repo,
+  pre_receive_hook_id
 );
 octokit.enterpriseAdmin.getTypeStats(type);
-octokit.enterpriseAdmin.listGlobalHooks(page, per_page);
-octokit.enterpriseAdmin.listPersonalAccessTokens(page, per_page);
-octokit.enterpriseAdmin.listPreReceiveEnvironments(page, per_page);
-octokit.enterpriseAdmin.listPreReceiveHooks(page, per_page);
-octokit.enterpriseAdmin.listPreReceiveHooksForOrg(org, page, per_page);
-octokit.enterpriseAdmin.listPreReceiveHooksForRepo(owner, page, per_page, repo);
+octokit.enterpriseAdmin.listGlobalHooks(per_page, page);
+octokit.enterpriseAdmin.listPersonalAccessTokens(per_page, page);
+octokit.enterpriseAdmin.listPreReceiveEnvironments(per_page, page);
+octokit.enterpriseAdmin.listPreReceiveHooks(per_page, page);
+octokit.enterpriseAdmin.listPreReceiveHooksForOrg(org, per_page, page);
+octokit.enterpriseAdmin.listPreReceiveHooksForRepo(owner, repo, per_page, page);
 octokit.enterpriseAdmin.modifySettings(settings);
 octokit.enterpriseAdmin.pingGlobalHook(hook_id);
 octokit.enterpriseAdmin.promoteOrdinaryUserToSiteAdministrator(username);
@@ -62,28 +62,28 @@ octokit.enterpriseAdmin.removeEnforcementOverridesForPreReceiveHookForOrg(
 );
 octokit.enterpriseAdmin.removeEnforcementOverridesForPreReceiveHookForRepo(
   owner,
-  pre_receive_hook_id,
-  repo
+  repo,
+  pre_receive_hook_id
 );
-octokit.enterpriseAdmin.renameOrg(login, org);
-octokit.enterpriseAdmin.renameUser(login, username);
+octokit.enterpriseAdmin.renameOrg(org, login);
+octokit.enterpriseAdmin.renameUser(username, login);
 octokit.enterpriseAdmin.retrieveAuthorizedSshKeys();
 octokit.enterpriseAdmin.retrieveSettings();
 octokit.enterpriseAdmin.startConfigurationProcess();
-octokit.enterpriseAdmin.suspendUser(reason, username);
+octokit.enterpriseAdmin.suspendUser(username, reason);
 octokit.enterpriseAdmin.syncLdapMappingForTeam(team_id);
 octokit.enterpriseAdmin.syncLdapMappingForUser(username);
 octokit.enterpriseAdmin.triggerPreReceiveEnvironmentDownload(
   pre_receive_environment_id
 );
-octokit.enterpriseAdmin.unsuspendUser(reason, username);
-octokit.enterpriseAdmin.updateGlobalHook(active, config, events, hook_id);
-octokit.enterpriseAdmin.updateLdapMappingForTeam(ldap_dn, team_id);
-octokit.enterpriseAdmin.updateLdapMappingForUser(ldap_dn, username);
+octokit.enterpriseAdmin.unsuspendUser(username, reason);
+octokit.enterpriseAdmin.updateGlobalHook(hook_id, config, events, active);
+octokit.enterpriseAdmin.updateLdapMappingForTeam(team_id, ldap_dn);
+octokit.enterpriseAdmin.updateLdapMappingForUser(username, ldap_dn);
 octokit.enterpriseAdmin.updatePreReceiveEnvironment(
-  image_url,
+  pre_receive_environment_id,
   name,
-  pre_receive_environment_id
+  image_url
 );
 octokit.enterpriseAdmin.updatePreReceiveHook(pre_receive_hook_id);
 octokit.enterpriseAdmin.updatePreReceiveHookEnforcementForOrg(
@@ -92,8 +92,8 @@ octokit.enterpriseAdmin.updatePreReceiveHookEnforcementForOrg(
 );
 octokit.enterpriseAdmin.updatePreReceiveHookEnforcementForRepo(
   owner,
-  pre_receive_hook_id,
-  repo
+  repo,
+  pre_receive_hook_id
 );
 octokit.enterpriseAdmin.upgradeLicense(license);
 octokit.enterpriseAdmin.uploadLicenseForFirstTime(license, password, settings);
@@ -108,65 +108,65 @@ octokit.activity.deleteThreadSubscription(thread_id);
 octokit.activity.getRepoSubscription(owner, repo);
 octokit.activity.getThread(thread_id);
 octokit.activity.getThreadSubscription(thread_id);
-octokit.activity.listEventsForOrg(org, page, per_page, username);
-octokit.activity.listEventsForUser(page, per_page, username);
+octokit.activity.listEventsForOrg(username, org, per_page, page);
+octokit.activity.listEventsForUser(username, per_page, page);
 octokit.activity.listFeeds();
 octokit.activity.listNotifications(
   all,
-  before,
-  page,
   participating,
+  since,
+  before,
   per_page,
-  since
+  page
 );
 octokit.activity.listNotificationsForRepo(
-  all,
-  before,
   owner,
-  page,
-  participating,
-  per_page,
   repo,
-  since
-);
-octokit.activity.listPublicEvents(page, per_page);
-octokit.activity.listPublicEventsForOrg(org, page, per_page);
-octokit.activity.listPublicEventsForRepoNetwork(owner, page, per_page, repo);
-octokit.activity.listPublicEventsForUser(page, per_page, username);
-octokit.activity.listReceivedEventsForUser(page, per_page, username);
-octokit.activity.listReceivedPublicEventsForUser(page, per_page, username);
-octokit.activity.listRepoEvents(owner, page, per_page, repo);
-octokit.activity.listReposStarredByAuthenticatedUser(
-  direction,
-  page,
+  all,
+  participating,
+  since,
+  before,
   per_page,
-  sort
+  page
+);
+octokit.activity.listPublicEvents(per_page, page);
+octokit.activity.listPublicEventsForOrg(org, per_page, page);
+octokit.activity.listPublicEventsForRepoNetwork(owner, repo, per_page, page);
+octokit.activity.listPublicEventsForUser(username, per_page, page);
+octokit.activity.listReceivedEventsForUser(username, per_page, page);
+octokit.activity.listReceivedPublicEventsForUser(username, per_page, page);
+octokit.activity.listRepoEvents(owner, repo, per_page, page);
+octokit.activity.listReposStarredByAuthenticatedUser(
+  sort,
+  direction,
+  per_page,
+  page
 );
 octokit.activity.listReposStarredByUser(
-  direction,
-  page,
-  per_page,
+  username,
   sort,
-  username
+  direction,
+  per_page,
+  page
 );
-octokit.activity.listReposWatchedByUser(page, per_page, username);
-octokit.activity.listStargazersForRepo(owner, page, per_page, repo);
-octokit.activity.listWatchedReposForAuthenticatedUser(page, per_page);
-octokit.activity.listWatchersForRepo(owner, page, per_page, repo);
+octokit.activity.listReposWatchedByUser(username, per_page, page);
+octokit.activity.listStargazersForRepo(owner, repo, per_page, page);
+octokit.activity.listWatchedReposForAuthenticatedUser(per_page, page);
+octokit.activity.listWatchersForRepo(owner, repo, per_page, page);
 octokit.activity.markAsRead(last_read_at);
-octokit.activity.markNotificationsAsReadForRepo(last_read_at, owner, repo);
+octokit.activity.markNotificationsAsReadForRepo(owner, repo, last_read_at);
 octokit.activity.markThreadAsRead(thread_id);
-octokit.activity.setRepoSubscription(ignored, owner, repo, subscribed);
-octokit.activity.setThreadSubscription(ignored, thread_id);
+octokit.activity.setRepoSubscription(owner, repo, subscribed, ignored);
+octokit.activity.setThreadSubscription(thread_id, ignored);
 octokit.activity.starRepo(owner, repo);
 octokit.activity.unstarRepo(owner, repo);
 octokit.apps.addRepoToInstallation(installation_id, repository_id);
-octokit.apps.createContentAttachment(body, content_reference_id, title);
+octokit.apps.createContentAttachment(content_reference_id, title, body);
 octokit.apps.createFromManifest(code);
 octokit.apps.createInstallationToken(
   installation_id,
-  permissions,
-  repository_ids
+  repository_ids,
+  permissions
 );
 octokit.apps.deleteInstallation(installation_id);
 octokit.apps.findOrgInstallation(org);
@@ -180,262 +180,262 @@ octokit.apps.getRepoInstallation(owner, repo);
 octokit.apps.getUserInstallation(username);
 octokit.apps.listInstallationReposForAuthenticatedUser(
   installation_id,
-  page,
-  per_page
+  per_page,
+  page
 );
-octokit.apps.listInstallations(page, per_page);
-octokit.apps.listInstallationsForAuthenticatedUser(page, per_page);
-octokit.apps.listRepos(page, per_page);
+octokit.apps.listInstallations(per_page, page);
+octokit.apps.listInstallationsForAuthenticatedUser(per_page, page);
+octokit.apps.listRepos(per_page, page);
 octokit.apps.removeRepoFromInstallation(installation_id, repository_id);
 octokit.checks.create(
-  actions,
-  completed_at,
-  conclusion,
+  owner,
+  repo,
+  name,
+  head_sha,
   details_url,
   external_id,
-  head_sha,
-  name,
-  output,
-  owner,
-  repo,
+  status,
   started_at,
-  status
+  conclusion,
+  completed_at,
+  output,
+  actions
 );
-octokit.checks.createSuite(head_sha, owner, repo);
-octokit.checks.get(check_run_id, owner, repo);
-octokit.checks.getSuite(check_suite_id, owner, repo);
-octokit.checks.listAnnotations(check_run_id, owner, page, per_page, repo);
+octokit.checks.createSuite(owner, repo, head_sha);
+octokit.checks.get(owner, repo, check_run_id);
+octokit.checks.getSuite(owner, repo, check_suite_id);
+octokit.checks.listAnnotations(owner, repo, check_run_id, per_page, page);
 octokit.checks.listForRef(
-  check_name,
-  filter,
   owner,
-  page,
-  per_page,
-  ref,
   repo,
-  status
+  ref,
+  check_name,
+  status,
+  filter,
+  per_page,
+  page
 );
 octokit.checks.listForSuite(
-  check_name,
-  check_suite_id,
-  filter,
   owner,
-  page,
-  per_page,
   repo,
-  status
+  check_suite_id,
+  check_name,
+  status,
+  filter,
+  per_page,
+  page
 );
 octokit.checks.listSuitesForRef(
-  app_id,
-  check_name,
-  owner,
-  page,
-  per_page,
-  ref,
-  repo
-);
-octokit.checks.rerequestSuite(check_suite_id, owner, repo);
-octokit.checks.setSuitesPreferences(auto_trigger_checks, owner, repo);
-octokit.checks.update(
-  actions,
-  check_run_id,
-  completed_at,
-  conclusion,
-  details_url,
-  external_id,
-  name,
-  output,
   owner,
   repo,
+  ref,
+  app_id,
+  check_name,
+  per_page,
+  page
+);
+octokit.checks.rerequestSuite(owner, repo, check_suite_id);
+octokit.checks.setSuitesPreferences(owner, repo, auto_trigger_checks);
+octokit.checks.update(
+  owner,
+  repo,
+  check_run_id,
+  name,
+  details_url,
+  external_id,
   started_at,
-  status
+  status,
+  conclusion,
+  completed_at,
+  output,
+  actions
 );
 octokit.codesOfConduct.getConductCode(key);
 octokit.codesOfConduct.getForRepo(owner, repo);
 octokit.codesOfConduct.listConductCodes();
 octokit.emojis.get();
 octokit.gists.checkIsStarred(gist_id);
-octokit.gists.create(description, files, public);
-octokit.gists.createComment(body, gist_id);
+octokit.gists.create(files, description, public);
+octokit.gists.createComment(gist_id, body);
 octokit.gists.delete(gist_id);
-octokit.gists.deleteComment(comment_id, gist_id);
+octokit.gists.deleteComment(gist_id, comment_id);
 octokit.gists.fork(gist_id);
 octokit.gists.get(gist_id);
-octokit.gists.getComment(comment_id, gist_id);
+octokit.gists.getComment(gist_id, comment_id);
 octokit.gists.getRevision(gist_id, sha);
-octokit.gists.list(page, per_page, since);
-octokit.gists.listComments(gist_id, page, per_page);
-octokit.gists.listCommits(gist_id, page, per_page);
-octokit.gists.listForks(gist_id, page, per_page);
-octokit.gists.listPublic(page, per_page, since);
-octokit.gists.listPublicForUser(page, per_page, since, username);
-octokit.gists.listStarred(page, per_page, since);
+octokit.gists.list(since, per_page, page);
+octokit.gists.listComments(gist_id, per_page, page);
+octokit.gists.listCommits(gist_id, per_page, page);
+octokit.gists.listForks(gist_id, per_page, page);
+octokit.gists.listPublic(since, per_page, page);
+octokit.gists.listPublicForUser(username, since, per_page, page);
+octokit.gists.listStarred(since, per_page, page);
 octokit.gists.star(gist_id);
 octokit.gists.unstar(gist_id);
-octokit.gists.update(description, files, gist_id);
-octokit.gists.updateComment(body, comment_id, gist_id);
-octokit.git.createBlob(content, encoding, owner, repo);
+octokit.gists.update(gist_id, description, files);
+octokit.gists.updateComment(gist_id, comment_id, body);
+octokit.git.createBlob(owner, repo, content, encoding);
 octokit.git.createCommit(
+  owner,
+  repo,
+  message,
+  tree,
+  parents,
   author,
   committer,
-  message,
-  owner,
-  parents,
-  repo,
-  signature,
-  tree
+  signature
 );
-octokit.git.createRef(owner, ref, repo, sha);
-octokit.git.createTag(message, object, owner, repo, tag, tagger, type);
-octokit.git.createTree(base_tree, owner, repo, tree);
-octokit.git.deleteRef(owner, ref, repo);
-octokit.git.getBlob(file_sha, owner, repo);
-octokit.git.getCommit(commit_sha, owner, repo);
-octokit.git.getRef(owner, ref, repo);
+octokit.git.createRef(owner, repo, ref, sha);
+octokit.git.createTag(owner, repo, tag, message, object, type, tagger);
+octokit.git.createTree(owner, repo, tree, base_tree);
+octokit.git.deleteRef(owner, repo, ref);
+octokit.git.getBlob(owner, repo, file_sha);
+octokit.git.getCommit(owner, repo, commit_sha);
+octokit.git.getRef(owner, repo, ref);
 octokit.git.getTag(owner, repo, tag_sha);
-octokit.git.getTree(owner, recursive, repo, tree_sha);
-octokit.git.listRefs(namespace, owner, page, per_page, repo);
-octokit.git.updateRef(force, owner, ref, repo, sha);
+octokit.git.getTree(owner, repo, tree_sha, recursive);
+octokit.git.listRefs(owner, repo, namespace, per_page, page);
+octokit.git.updateRef(owner, repo, ref, sha, force);
 octokit.gitignore.getTemplate(name);
 octokit.gitignore.listTemplates();
-octokit.issues.addAssignees(assignees, issue_number, owner, repo);
-octokit.issues.addLabels(issue_number, labels, owner, repo);
-octokit.issues.checkAssignee(assignee, owner, repo);
+octokit.issues.addAssignees(owner, repo, issue_number, assignees);
+octokit.issues.addLabels(owner, repo, issue_number, labels);
+octokit.issues.checkAssignee(owner, repo, assignee);
 octokit.issues.create(
-  assignee,
-  assignees,
-  body,
-  labels,
-  milestone,
   owner,
   repo,
-  title
+  title,
+  body,
+  assignee,
+  milestone,
+  labels,
+  assignees
 );
-octokit.issues.createComment(body, issue_number, owner, repo);
-octokit.issues.createLabel(color, description, name, owner, repo);
-octokit.issues.createMilestone(description, due_on, owner, repo, state, title);
-octokit.issues.deleteComment(comment_id, owner, repo);
-octokit.issues.deleteLabel(name, owner, repo);
-octokit.issues.deleteMilestone(milestone_number, owner, repo);
-octokit.issues.get(issue_number, owner, repo);
-octokit.issues.getComment(comment_id, owner, page, per_page, repo);
-octokit.issues.getEvent(event_id, owner, repo);
-octokit.issues.getLabel(name, owner, repo);
-octokit.issues.getMilestone(milestone_number, owner, repo);
+octokit.issues.createComment(owner, repo, issue_number, body);
+octokit.issues.createLabel(owner, repo, name, color, description);
+octokit.issues.createMilestone(owner, repo, title, state, description, due_on);
+octokit.issues.deleteComment(owner, repo, comment_id);
+octokit.issues.deleteLabel(owner, repo, name);
+octokit.issues.deleteMilestone(owner, repo, milestone_number);
+octokit.issues.get(owner, repo, issue_number);
+octokit.issues.getComment(owner, repo, comment_id, per_page, page);
+octokit.issues.getEvent(owner, repo, event_id);
+octokit.issues.getLabel(owner, repo, name);
+octokit.issues.getMilestone(owner, repo, milestone_number);
 octokit.issues.list(
-  direction,
   filter,
+  state,
   labels,
-  page,
-  per_page,
-  since,
   sort,
-  state
+  direction,
+  since,
+  per_page,
+  page
 );
-octokit.issues.listAssignees(owner, page, per_page, repo);
-octokit.issues.listComments(issue_number, owner, page, per_page, repo, since);
-octokit.issues.listCommentsForRepo(direction, owner, repo, since, sort);
-octokit.issues.listEvents(issue_number, owner, page, per_page, repo);
-octokit.issues.listEventsForRepo(owner, page, per_page, repo);
-octokit.issues.listEventsForTimeline(issue_number, owner, page, per_page, repo);
+octokit.issues.listAssignees(owner, repo, per_page, page);
+octokit.issues.listComments(owner, repo, issue_number, since, per_page, page);
+octokit.issues.listCommentsForRepo(owner, repo, sort, direction, since);
+octokit.issues.listEvents(owner, repo, issue_number, per_page, page);
+octokit.issues.listEventsForRepo(owner, repo, per_page, page);
+octokit.issues.listEventsForTimeline(owner, repo, issue_number, per_page, page);
 octokit.issues.listForAuthenticatedUser(
-  direction,
   filter,
+  state,
   labels,
-  page,
-  per_page,
-  since,
   sort,
-  state
+  direction,
+  since,
+  per_page,
+  page
 );
 octokit.issues.listForOrg(
-  direction,
-  filter,
-  labels,
   org,
-  page,
-  per_page,
-  since,
+  filter,
+  state,
+  labels,
   sort,
-  state
+  direction,
+  since,
+  per_page,
+  page
 );
 octokit.issues.listForRepo(
+  owner,
+  repo,
+  milestone,
+  state,
   assignee,
   creator,
-  direction,
-  labels,
   mentioned,
-  milestone,
-  owner,
-  page,
-  per_page,
-  repo,
-  since,
+  labels,
   sort,
-  state
+  direction,
+  since,
+  per_page,
+  page
 );
 octokit.issues.listLabelsForMilestone(
-  milestone_number,
   owner,
-  page,
+  repo,
+  milestone_number,
   per_page,
-  repo
+  page
 );
-octokit.issues.listLabelsForRepo(owner, page, per_page, repo);
-octokit.issues.listLabelsOnIssue(issue_number, owner, page, per_page, repo);
+octokit.issues.listLabelsForRepo(owner, repo, per_page, page);
+octokit.issues.listLabelsOnIssue(owner, repo, issue_number, per_page, page);
 octokit.issues.listMilestonesForRepo(
-  direction,
   owner,
-  page,
-  per_page,
   repo,
+  state,
   sort,
-  state
+  direction,
+  per_page,
+  page
 );
-octokit.issues.lock(issue_number, lock_reason, owner, repo);
-octokit.issues.removeAssignees(assignees, issue_number, owner, repo);
-octokit.issues.removeLabel(issue_number, name, owner, repo);
-octokit.issues.removeLabels(issue_number, owner, repo);
-octokit.issues.replaceLabels(issue_number, labels, owner, repo);
-octokit.issues.unlock(issue_number, owner, repo);
+octokit.issues.lock(owner, repo, issue_number, lock_reason);
+octokit.issues.removeAssignees(owner, repo, issue_number, assignees);
+octokit.issues.removeLabel(owner, repo, issue_number, name);
+octokit.issues.removeLabels(owner, repo, issue_number);
+octokit.issues.replaceLabels(owner, repo, issue_number, labels);
+octokit.issues.unlock(owner, repo, issue_number);
 octokit.issues.update(
-  assignee,
-  assignees,
-  body,
+  owner,
+  repo,
   issue_number,
-  labels,
+  title,
+  body,
+  assignee,
+  state,
   milestone,
-  owner,
-  repo,
-  state,
-  title
+  labels,
+  assignees
 );
-octokit.issues.updateComment(body, comment_id, owner, repo);
-octokit.issues.updateLabel(color, current_name, description, name, owner, repo);
+octokit.issues.updateComment(owner, repo, comment_id, body);
+octokit.issues.updateLabel(owner, repo, current_name, color, name, description);
 octokit.issues.updateMilestone(
-  description,
-  due_on,
-  milestone_number,
   owner,
   repo,
+  milestone_number,
+  title,
   state,
-  title
+  description,
+  due_on
 );
 octokit.licenses.get(license);
 octokit.licenses.getForRepo(owner, repo);
 octokit.licenses.list();
 octokit.licenses.listCommonlyUsed();
-octokit.markdown.render(context, mode, text);
+octokit.markdown.render(text, mode, context);
 octokit.markdown.renderRaw(data);
 octokit.meta.get();
-octokit.oauthAuthorizations.checkAuthorization(access_token, client_id);
+octokit.oauthAuthorizations.checkAuthorization(client_id, access_token);
 octokit.oauthAuthorizations.createAuthorization(
-  client_id,
-  client_secret,
-  fingerprint,
+  scopes,
   note,
   note_url,
-  scopes
+  client_id,
+  client_secret,
+  fingerprint
 );
 octokit.oauthAuthorizations.deleteAuthorization(authorization_id);
 octokit.oauthAuthorizations.deleteGrant(grant_id);
@@ -444,129 +444,131 @@ octokit.oauthAuthorizations.getGrant(grant_id);
 octokit.oauthAuthorizations.getOrCreateAuthorizationForApp(
   client_id,
   client_secret,
-  fingerprint,
+  scopes,
   note,
   note_url,
-  scopes
+  fingerprint
 );
 octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint(
   client_id,
-  client_secret,
   fingerprint,
+  client_secret,
+  scopes,
   note,
-  note_url,
-  scopes
+  note_url
 );
 octokit.oauthAuthorizations.getOrCreateAuthorizationForAppFingerprint(
   client_id,
+  fingerprint,
   client_secret,
-  fingerprint,
+  scopes,
   note,
-  note_url,
-  scopes
+  note_url
 );
-octokit.oauthAuthorizations.listAuthorizations(page, per_page);
-octokit.oauthAuthorizations.listGrants(page, per_page);
-octokit.oauthAuthorizations.resetAuthorization(access_token, client_id);
+octokit.oauthAuthorizations.listAuthorizations(per_page, page);
+octokit.oauthAuthorizations.listGrants(per_page, page);
+octokit.oauthAuthorizations.resetAuthorization(client_id, access_token);
 octokit.oauthAuthorizations.revokeAuthorizationForApplication(
-  access_token,
-  client_id
+  client_id,
+  access_token
 );
-octokit.oauthAuthorizations.revokeGrantForApplication(access_token, client_id);
+octokit.oauthAuthorizations.revokeGrantForApplication(client_id, access_token);
 octokit.oauthAuthorizations.updateAuthorization(
-  add_scopes,
   authorization_id,
-  fingerprint,
+  scopes,
+  add_scopes,
+  remove_scopes,
   note,
   note_url,
-  remove_scopes,
-  scopes
+  fingerprint
 );
-octokit.orgs.addOrUpdateMembership(org, role, username);
+octokit.orgs.addOrUpdateMembership(org, username, role);
 octokit.orgs.checkMembership(org, username);
 octokit.orgs.checkPublicMembership(org, username);
 octokit.orgs.concealMembership(org, username);
 octokit.orgs.convertMemberToOutsideCollaborator(org, username);
-octokit.orgs.createHook(active, config, events, name, org);
-octokit.orgs.deleteHook(hook_id, org);
+octokit.orgs.createHook(org, name, config, events, active);
+octokit.orgs.deleteHook(org, hook_id);
 octokit.orgs.get(org);
-octokit.orgs.getHook(hook_id, org);
+octokit.orgs.getHook(org, hook_id);
 octokit.orgs.getMembership(org, username);
 octokit.orgs.getMembershipForAuthenticatedUser(org);
-octokit.orgs.list(page, per_page, since);
-octokit.orgs.listForAuthenticatedUser(page, per_page);
-octokit.orgs.listForUser(page, per_page, username);
-octokit.orgs.listHooks(org, page, per_page);
-octokit.orgs.listMembers(filter, org, page, per_page, role);
-octokit.orgs.listMemberships(page, per_page, state);
-octokit.orgs.listOutsideCollaborators(filter, org, page, per_page);
-octokit.orgs.listPublicMembers(org, page, per_page);
-octokit.orgs.pingHook(hook_id, org);
+octokit.orgs.list(since, per_page, page);
+octokit.orgs.listForAuthenticatedUser(per_page, page);
+octokit.orgs.listForUser(username, per_page, page);
+octokit.orgs.listHooks(org, per_page, page);
+octokit.orgs.listMembers(org, filter, role, per_page, page);
+octokit.orgs.listMemberships(state, per_page, page);
+octokit.orgs.listOutsideCollaborators(org, filter, per_page, page);
+octokit.orgs.listPublicMembers(org, per_page, page);
+octokit.orgs.pingHook(org, hook_id);
 octokit.orgs.publicizeMembership(org, username);
 octokit.orgs.removeMember(org, username);
 octokit.orgs.removeMembership(org, username);
 octokit.orgs.removeOutsideCollaborator(org, username);
 octokit.orgs.update(
+  org,
   billing_email,
   company,
-  default_repository_permission,
-  description,
   email,
+  location,
+  name,
+  description,
   has_organization_projects,
   has_repository_projects,
-  location,
-  members_allowed_repository_creation_type,
+  default_repository_permission,
   members_can_create_repositories,
-  name,
-  org
+  members_allowed_repository_creation_type
 );
-octokit.orgs.updateHook(active, config, events, hook_id, org);
+octokit.orgs.updateHook(org, hook_id, config, events, active);
 octokit.orgs.updateMembership(org, state);
-octokit.projects.addCollaborator(permission, project_id, username);
-octokit.projects.createCard(column_id, content_id, content_type, note);
-octokit.projects.createColumn(name, project_id);
-octokit.projects.createForAuthenticatedUser(body, name);
-octokit.projects.createForOrg(body, name, org);
-octokit.projects.createForRepo(body, name, owner, repo);
+octokit.projects.addCollaborator(project_id, username, permission);
+octokit.projects.createCard(column_id, note, content_id, content_type);
+octokit.projects.createColumn(project_id, name);
+octokit.projects.createForAuthenticatedUser(name, body);
+octokit.projects.createForOrg(org, name, body);
+octokit.projects.createForRepo(owner, repo, name, body);
 octokit.projects.delete(project_id);
 octokit.projects.deleteCard(card_id);
 octokit.projects.deleteColumn(column_id);
-octokit.projects.get(page, per_page, project_id);
+octokit.projects.get(project_id, per_page, page);
 octokit.projects.getCard(card_id);
 octokit.projects.getColumn(column_id);
-octokit.projects.listCards(archived_state, column_id, page, per_page);
-octokit.projects.listCollaborators(affiliation, page, per_page, project_id);
-octokit.projects.listColumns(page, per_page, project_id);
-octokit.projects.listForOrg(org, page, per_page, state);
-octokit.projects.listForRepo(owner, page, per_page, repo, state);
-octokit.projects.listForUser(page, per_page, state, username);
-octokit.projects.moveCard(card_id, column_id, position);
+octokit.projects.listCards(column_id, archived_state, per_page, page);
+octokit.projects.listCollaborators(project_id, affiliation, per_page, page);
+octokit.projects.listColumns(project_id, per_page, page);
+octokit.projects.listForOrg(org, state, per_page, page);
+octokit.projects.listForRepo(owner, repo, state, per_page, page);
+octokit.projects.listForUser(username, state, per_page, page);
+octokit.projects.moveCard(card_id, position, column_id);
 octokit.projects.moveColumn(column_id, position);
 octokit.projects.removeCollaborator(project_id, username);
 octokit.projects.reviewUserPermissionLevel(project_id, username);
 octokit.projects.update(
-  body,
-  name,
-  organization_permission,
-  private,
   project_id,
-  state
-);
-octokit.projects.updateCard(archived, card_id, note);
-octokit.projects.updateColumn(column_id, name);
-octokit.pulls.checkIfMerged(owner, pull_number, repo);
-octokit.pulls.create(
-  base,
+  name,
   body,
-  draft,
-  head,
-  maintainer_can_modify,
+  state,
+  organization_permission,
+  private
+);
+octokit.projects.updateCard(card_id, note, archived);
+octokit.projects.updateColumn(column_id, name);
+octokit.pulls.checkIfMerged(owner, repo, pull_number);
+octokit.pulls.create(
   owner,
   repo,
-  title
+  title,
+  head,
+  base,
+  body,
+  maintainer_can_modify,
+  draft
 );
-octokit.pulls.createCommentReply(body, in_reply_to, owner, pull_number, repo);
+octokit.pulls.createCommentReply(owner, repo, pull_number, body, in_reply_to);
 octokit.pulls.createFromIssue(
+  owner,
+  repo,
   base,
   head,
   issue,
@@ -575,652 +577,652 @@ octokit.pulls.createFromIssue(
   repo
 );
 octokit.pulls.createReview(
-  body,
-  comments,
-  commit_id,
-  event,
   owner,
+  repo,
   pull_number,
-  repo
+  commit_id,
+  body,
+  event,
+  comments
 );
 octokit.pulls.createReviewRequest(
   owner,
-  pull_number,
   repo,
+  pull_number,
   reviewers,
   team_reviewers
 );
-octokit.pulls.deleteComment(comment_id, owner, repo);
-octokit.pulls.deletePendingReview(owner, pull_number, repo, review_id);
+octokit.pulls.deleteComment(owner, repo, comment_id);
+octokit.pulls.deletePendingReview(owner, repo, pull_number, review_id);
 octokit.pulls.deleteReviewRequest(
   owner,
-  pull_number,
   repo,
+  pull_number,
   reviewers,
   team_reviewers
 );
-octokit.pulls.dismissReview(message, owner, pull_number, repo, review_id);
-octokit.pulls.get(owner, pull_number, repo);
-octokit.pulls.getComment(comment_id, owner, repo);
+octokit.pulls.dismissReview(owner, repo, pull_number, review_id, message);
+octokit.pulls.get(owner, repo, pull_number);
+octokit.pulls.getComment(owner, repo, comment_id);
 octokit.pulls.getCommentsForReview(
   owner,
-  page,
-  per_page,
-  pull_number,
   repo,
-  review_id
+  pull_number,
+  review_id,
+  per_page,
+  page
 );
-octokit.pulls.getReview(owner, pull_number, repo, review_id);
+octokit.pulls.getReview(owner, repo, pull_number, review_id);
 octokit.pulls.list(
-  base,
-  direction,
-  head,
   owner,
-  page,
-  per_page,
-  repo,
-  sort,
-  state
-);
-octokit.pulls.listComments(
-  direction,
-  owner,
-  page,
-  per_page,
-  pull_number,
-  repo,
-  since,
-  sort
-);
-octokit.pulls.listCommentsForRepo(
-  direction,
-  owner,
-  page,
-  per_page,
-  repo,
-  since,
-  sort
-);
-octokit.pulls.listCommits(owner, page, per_page, pull_number, repo);
-octokit.pulls.listFiles(owner, page, per_page, pull_number, repo);
-octokit.pulls.listReviewRequests(owner, page, per_page, pull_number, repo);
-octokit.pulls.listReviews(owner, page, per_page, pull_number, repo);
-octokit.pulls.merge(
-  commit_message,
-  commit_title,
-  merge_method,
-  owner,
-  pull_number,
-  repo,
-  sha
-);
-octokit.pulls.submitReview(body, event, owner, pull_number, repo, review_id);
-octokit.pulls.update(
-  base,
-  body,
-  maintainer_can_modify,
-  owner,
-  pull_number,
   repo,
   state,
-  title
+  head,
+  base,
+  sort,
+  direction,
+  per_page,
+  page
 );
-octokit.pulls.updateComment(body, comment_id, owner, repo);
-octokit.pulls.updateReview(body, owner, pull_number, repo, review_id);
-octokit.rateLimit.get();
-octokit.reactions.createForCommitComment(comment_id, content, owner, repo);
-octokit.reactions.createForIssue(content, issue_number, owner, repo);
-octokit.reactions.createForIssueComment(comment_id, content, owner, repo);
-octokit.reactions.createForPullRequestReviewComment(
-  comment_id,
-  content,
+octokit.pulls.listComments(
   owner,
-  repo
+  repo,
+  pull_number,
+  sort,
+  direction,
+  since,
+  per_page,
+  page
 );
-octokit.reactions.createForTeamDiscussion(content, discussion_number, team_id);
+octokit.pulls.listCommentsForRepo(
+  owner,
+  repo,
+  sort,
+  direction,
+  since,
+  per_page,
+  page
+);
+octokit.pulls.listCommits(owner, repo, pull_number, per_page, page);
+octokit.pulls.listFiles(owner, repo, pull_number, per_page, page);
+octokit.pulls.listReviewRequests(owner, repo, pull_number, per_page, page);
+octokit.pulls.listReviews(owner, repo, pull_number, per_page, page);
+octokit.pulls.merge(
+  owner,
+  repo,
+  pull_number,
+  commit_title,
+  commit_message,
+  sha,
+  merge_method
+);
+octokit.pulls.submitReview(owner, repo, pull_number, review_id, body, event);
+octokit.pulls.update(
+  owner,
+  repo,
+  pull_number,
+  title,
+  body,
+  state,
+  base,
+  maintainer_can_modify
+);
+octokit.pulls.updateComment(owner, repo, comment_id, body);
+octokit.pulls.updateReview(owner, repo, pull_number, review_id, body);
+octokit.rateLimit.get();
+octokit.reactions.createForCommitComment(owner, repo, comment_id, content);
+octokit.reactions.createForIssue(owner, repo, issue_number, content);
+octokit.reactions.createForIssueComment(owner, repo, comment_id, content);
+octokit.reactions.createForPullRequestReviewComment(
+  owner,
+  repo,
+  comment_id,
+  content
+);
+octokit.reactions.createForTeamDiscussion(team_id, discussion_number, content);
 octokit.reactions.createForTeamDiscussionComment(
-  comment_number,
-  content,
+  team_id,
   discussion_number,
-  team_id
+  comment_number,
+  content
 );
 octokit.reactions.delete(reaction_id);
 octokit.reactions.listForCommitComment(
+  owner,
+  repo,
   comment_id,
   content,
-  owner,
-  page,
   per_page,
-  repo
+  page
 );
 octokit.reactions.listForIssue(
-  content,
-  issue_number,
   owner,
-  page,
+  repo,
+  issue_number,
+  content,
   per_page,
-  repo
+  page
 );
 octokit.reactions.listForIssueComment(
+  owner,
+  repo,
   comment_id,
   content,
-  owner,
-  page,
   per_page,
-  repo
+  page
 );
 octokit.reactions.listForPullRequestReviewComment(
+  owner,
+  repo,
   comment_id,
   content,
-  owner,
-  page,
   per_page,
-  repo
+  page
 );
 octokit.reactions.listForTeamDiscussion(
-  content,
+  team_id,
   discussion_number,
-  page,
+  content,
   per_page,
-  team_id
+  page
 );
 octokit.reactions.listForTeamDiscussionComment(
+  team_id,
+  discussion_number,
   comment_number,
   content,
-  discussion_number,
-  page,
   per_page,
-  team_id
+  page
 );
 octokit.repos.acceptInvitation(invitation_id);
-octokit.repos.addCollaborator(owner, permission, repo, username);
-octokit.repos.addDeployKey(key, owner, read_only, repo, title);
-octokit.repos.addProtectedBranchAdminEnforcement(branch, owner, repo);
-octokit.repos.addProtectedBranchRequiredSignatures(branch, owner, repo);
+octokit.repos.addCollaborator(owner, repo, username, permission);
+octokit.repos.addDeployKey(owner, repo, title, key, read_only);
+octokit.repos.addProtectedBranchAdminEnforcement(owner, repo, branch);
+octokit.repos.addProtectedBranchRequiredSignatures(owner, repo, branch);
 octokit.repos.addProtectedBranchRequiredStatusChecksContexts(
+  owner,
+  repo,
   branch,
-  contexts,
-  owner,
-  repo
+  contexts
 );
-octokit.repos.addProtectedBranchTeamRestrictions(branch, owner, repo, teams);
-octokit.repos.addProtectedBranchUserRestrictions(branch, owner, repo, users);
+octokit.repos.addProtectedBranchTeamRestrictions(owner, repo, branch, teams);
+octokit.repos.addProtectedBranchUserRestrictions(owner, repo, branch, users);
 octokit.repos.checkCollaborator(owner, repo, username);
-octokit.repos.compareCommits(base, head, owner, repo);
+octokit.repos.compareCommits(owner, repo, base, head);
 octokit.repos.createCommitComment(
-  body,
-  commit_sha,
-  line,
   owner,
+  repo,
+  commit_sha,
+  body,
   path,
   position,
-  repo
+  line
 );
 octokit.repos.createDeployment(
-  auto_merge,
-  description,
-  environment,
   owner,
-  payload,
-  production_environment,
-  ref,
   repo,
-  required_contexts,
+  ref,
   task,
-  transient_environment
+  auto_merge,
+  required_contexts,
+  payload,
+  environment,
+  description,
+  transient_environment,
+  production_environment
 );
 octokit.repos.createDeploymentStatus(
-  auto_inactive,
+  owner,
+  repo,
   deployment_id,
+  state,
+  target_url,
+  log_url,
   description,
   environment,
   environment_url,
-  log_url,
-  owner,
-  repo,
-  state,
-  target_url
+  auto_inactive
 );
 octokit.repos.createFile(
-  author,
+  owner,
+  repo,
+  path,
+  message,
+  content,
+  sha,
   branch,
   committer,
-  content,
-  message,
-  owner,
-  path,
-  repo,
-  sha
+  author
 );
 octokit.repos.createForAuthenticatedUser(
-  allow_merge_commit,
-  allow_rebase_merge,
-  allow_squash_merge,
-  auto_init,
+  name,
   description,
-  gitignore_template,
+  homepage,
+  private,
   has_issues,
   has_projects,
   has_wiki,
-  homepage,
+  team_id,
+  auto_init,
+  gitignore_template,
   license_template,
-  name,
-  private,
-  team_id
+  allow_squash_merge,
+  allow_merge_commit,
+  allow_rebase_merge
 );
-octokit.repos.createFork(organization, owner, repo);
-octokit.repos.createHook(active, config, events, name, owner, repo);
+octokit.repos.createFork(owner, repo, organization);
+octokit.repos.createHook(owner, repo, name, config, events, active);
 octokit.repos.createInOrg(
-  allow_merge_commit,
-  allow_rebase_merge,
-  allow_squash_merge,
-  auto_init,
+  org,
+  name,
   description,
-  gitignore_template,
+  homepage,
+  private,
   has_issues,
   has_projects,
   has_wiki,
-  homepage,
+  team_id,
+  auto_init,
+  gitignore_template,
   license_template,
-  name,
-  org,
-  private,
-  team_id
+  allow_squash_merge,
+  allow_merge_commit,
+  allow_rebase_merge
 );
 octokit.repos.createOrUpdateFile(
-  author,
+  owner,
+  repo,
+  path,
+  message,
+  content,
+  sha,
   branch,
   committer,
-  content,
-  message,
-  owner,
-  path,
-  repo,
-  sha
+  author
 );
 octokit.repos.createRelease(
-  body,
-  draft,
-  name,
   owner,
-  prerelease,
   repo,
   tag_name,
-  target_commitish
+  target_commitish,
+  name,
+  body,
+  draft,
+  prerelease
 );
 octokit.repos.createStatus(
-  context,
-  description,
   owner,
   repo,
   sha,
   state,
-  target_url
+  target_url,
+  description,
+  context
 );
 octokit.repos.declineInvitation(invitation_id);
 octokit.repos.delete(owner, repo);
-octokit.repos.deleteCommitComment(comment_id, owner, repo);
-octokit.repos.deleteDownload(download_id, owner, repo);
+octokit.repos.deleteCommitComment(owner, repo, comment_id);
+octokit.repos.deleteDownload(owner, repo, download_id);
 octokit.repos.deleteFile(
-  author,
+  owner,
+  repo,
+  path,
+  message,
+  sha,
   branch,
   committer,
-  message,
-  owner,
-  path,
-  repo,
-  sha
+  author
 );
-octokit.repos.deleteHook(hook_id, owner, repo);
-octokit.repos.deleteInvitation(invitation_id, owner, repo);
-octokit.repos.deleteRelease(owner, release_id, repo);
-octokit.repos.deleteReleaseAsset(asset_id, owner, repo);
+octokit.repos.deleteHook(owner, repo, hook_id);
+octokit.repos.deleteInvitation(owner, repo, invitation_id);
+octokit.repos.deleteRelease(owner, repo, release_id);
+octokit.repos.deleteReleaseAsset(owner, repo, asset_id);
 octokit.repos.disablePagesSite(owner, repo);
 octokit.repos.enablePagesSite(owner, repo, source);
 octokit.repos.get(owner, repo);
-octokit.repos.getArchiveLink(archive_format, owner, ref, repo);
-octokit.repos.getBranch(branch, owner, repo);
-octokit.repos.getBranchProtection(branch, owner, repo);
+octokit.repos.getArchiveLink(owner, repo, archive_format, ref);
+octokit.repos.getBranch(owner, repo, branch);
+octokit.repos.getBranchProtection(owner, repo, branch);
 octokit.repos.getCodeFrequencyStats(owner, repo);
 octokit.repos.getCollaboratorPermissionLevel(owner, repo, username);
-octokit.repos.getCombinedStatusForRef(owner, ref, repo);
-octokit.repos.getCommit(owner, ref, repo);
+octokit.repos.getCombinedStatusForRef(owner, repo, ref);
+octokit.repos.getCommit(owner, repo, ref);
 octokit.repos.getCommitActivityStats(owner, repo);
-octokit.repos.getCommitComment(comment_id, owner, repo);
+octokit.repos.getCommitComment(owner, repo, comment_id);
 octokit.repos.getCommitRefSha(owner, ref, repo);
-octokit.repos.getContents(owner, path, ref, repo);
+octokit.repos.getContents(owner, repo, path, ref);
 octokit.repos.getContributorsStats(owner, repo);
-octokit.repos.getDeployKey(key_id, owner, repo);
-octokit.repos.getDeployment(deployment_id, owner, repo);
-octokit.repos.getDeploymentStatus(deployment_id, owner, repo, status_id);
-octokit.repos.getDownload(download_id, owner, repo);
-octokit.repos.getHook(hook_id, owner, repo);
+octokit.repos.getDeployKey(owner, repo, key_id);
+octokit.repos.getDeployment(owner, repo, deployment_id);
+octokit.repos.getDeploymentStatus(owner, repo, deployment_id, status_id);
+octokit.repos.getDownload(owner, repo, download_id);
+octokit.repos.getHook(owner, repo, hook_id);
 octokit.repos.getLatestPagesBuild(owner, repo);
 octokit.repos.getLatestRelease(owner, repo);
 octokit.repos.getPages(owner, repo);
-octokit.repos.getPagesBuild(build_id, owner, repo);
+octokit.repos.getPagesBuild(owner, repo, build_id);
 octokit.repos.getParticipationStats(owner, repo);
-octokit.repos.getProtectedBranchAdminEnforcement(branch, owner, repo);
+octokit.repos.getProtectedBranchAdminEnforcement(owner, repo, branch);
 octokit.repos.getProtectedBranchPullRequestReviewEnforcement(
-  branch,
   owner,
-  repo
+  repo,
+  branch
 );
-octokit.repos.getProtectedBranchRequiredSignatures(branch, owner, repo);
-octokit.repos.getProtectedBranchRequiredStatusChecks(branch, owner, repo);
-octokit.repos.getProtectedBranchRestrictions(branch, owner, repo);
+octokit.repos.getProtectedBranchRequiredSignatures(owner, repo, branch);
+octokit.repos.getProtectedBranchRequiredStatusChecks(owner, repo, branch);
+octokit.repos.getProtectedBranchRestrictions(owner, repo, branch);
 octokit.repos.getPunchCardStats(owner, repo);
-octokit.repos.getReadme(owner, ref, repo);
-octokit.repos.getRelease(owner, release_id, repo);
-octokit.repos.getReleaseAsset(asset_id, owner, repo);
+octokit.repos.getReadme(owner, repo, ref);
+octokit.repos.getRelease(owner, repo, release_id);
+octokit.repos.getReleaseAsset(owner, repo, asset_id);
 octokit.repos.getReleaseByTag(owner, repo, tag);
-octokit.repos.getTeamsWithAccessToProtectedBranch(branch, owner, repo);
-octokit.repos.getUsersWithAccessToProtectedBranch(branch, owner, repo);
+octokit.repos.getTeamsWithAccessToProtectedBranch(owner, repo, branch);
+octokit.repos.getUsersWithAccessToProtectedBranch(owner, repo, branch);
 octokit.repos.list(
+  visibility,
   affiliation,
-  direction,
-  page,
-  per_page,
-  sort,
   type,
-  visibility
-);
-octokit.repos.listAssetsForRelease(owner, page, per_page, release_id, repo);
-octokit.repos.listBranches(owner, page, per_page, protected, repo);
-octokit.repos.listBranchesForHeadCommit(commit_sha, owner, repo);
-octokit.repos.listCollaborators(affiliation, owner, page, per_page, repo);
-octokit.repos.listCommentsForCommit(commit_sha, owner, page, per_page, repo);
-octokit.repos.listCommitComments(owner, page, per_page, repo);
-octokit.repos.listCommits(
-  author,
-  owner,
-  page,
-  path,
+  sort,
+  direction,
   per_page,
+  page
+);
+octokit.repos.listAssetsForRelease(owner, repo, release_id, per_page, page);
+octokit.repos.listBranches(owner, repo, protected, per_page, page);
+octokit.repos.listBranchesForHeadCommit(owner, repo, commit_sha);
+octokit.repos.listCollaborators(owner, repo, affiliation, per_page, page);
+octokit.repos.listCommentsForCommit(owner, repo, commit_sha, per_page, page);
+octokit.repos.listCommitComments(owner, repo, per_page, page);
+octokit.repos.listCommits(
+  owner,
   repo,
   sha,
+  path,
+  author,
   since,
-  until
-);
-octokit.repos.listContributors(anon, owner, page, per_page, repo);
-octokit.repos.listDeployKeys(owner, page, per_page, repo);
-octokit.repos.listDeploymentStatuses(
-  deployment_id,
-  owner,
-  page,
+  until,
   per_page,
-  repo
+  page
+);
+octokit.repos.listContributors(owner, repo, anon, per_page, page);
+octokit.repos.listDeployKeys(owner, repo, per_page, page);
+octokit.repos.listDeploymentStatuses(
+  owner,
+  repo,
+  deployment_id,
+  per_page,
+  page
 );
 octokit.repos.listDeployments(
-  environment,
   owner,
-  page,
-  per_page,
-  ref,
   repo,
   sha,
-  task
-);
-octokit.repos.listDownloads(owner, page, per_page, repo);
-octokit.repos.listForOrg(direction, org, page, per_page, sort, type);
-octokit.repos.listForUser(direction, page, per_page, sort, type, username);
-octokit.repos.listForks(owner, page, per_page, repo, sort);
-octokit.repos.listHooks(owner, page, per_page, repo);
-octokit.repos.listInvitations(owner, page, per_page, repo);
-octokit.repos.listInvitationsForAuthenticatedUser(page, per_page);
-octokit.repos.listLanguages(owner, repo);
-octokit.repos.listPagesBuilds(owner, page, per_page, repo);
-octokit.repos.listProtectedBranchRequiredStatusChecksContexts(
-  branch,
-  owner,
-  repo
-);
-octokit.repos.listProtectedBranchTeamRestrictions(branch, owner, repo);
-octokit.repos.listProtectedBranchUserRestrictions(branch, owner, repo);
-octokit.repos.listPublic(page, per_page, since, visibility);
-octokit.repos.listPullRequestsAssociatedWithCommit(
-  commit_sha,
-  owner,
-  page,
+  ref,
+  task,
+  environment,
   per_page,
-  repo
+  page
 );
-octokit.repos.listReleases(owner, page, per_page, repo);
-octokit.repos.listStatusesForRef(owner, page, per_page, ref, repo);
-octokit.repos.listTags(owner, page, per_page, repo);
-octokit.repos.listTeams(owner, page, per_page, repo);
-octokit.repos.listTeamsWithAccessToProtectedBranch(branch, owner, repo);
-octokit.repos.listTopics(owner, repo);
-octokit.repos.listUsersWithAccessToProtectedBranch(branch, owner, repo);
-octokit.repos.merge(base, commit_message, head, owner, repo);
-octokit.repos.pingHook(hook_id, owner, repo);
-octokit.repos.removeBranchProtection(branch, owner, repo);
-octokit.repos.removeCollaborator(owner, repo, username);
-octokit.repos.removeDeployKey(key_id, owner, repo);
-octokit.repos.removeProtectedBranchAdminEnforcement(branch, owner, repo);
-octokit.repos.removeProtectedBranchPullRequestReviewEnforcement(
-  branch,
-  owner,
-  repo
-);
-octokit.repos.removeProtectedBranchRequiredSignatures(branch, owner, repo);
-octokit.repos.removeProtectedBranchRequiredStatusChecks(branch, owner, repo);
-octokit.repos.removeProtectedBranchRequiredStatusChecksContexts(
-  branch,
-  contexts,
-  owner,
-  repo
-);
-octokit.repos.removeProtectedBranchRestrictions(branch, owner, repo);
-octokit.repos.removeProtectedBranchTeamRestrictions(branch, owner, repo, teams);
-octokit.repos.removeProtectedBranchUserRestrictions(branch, owner, repo, users);
-octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts(
-  branch,
-  contexts,
-  owner,
-  repo
-);
-octokit.repos.replaceProtectedBranchTeamRestrictions(
-  branch,
+octokit.repos.listDownloads(owner, repo, per_page, page);
+octokit.repos.listForOrg(org, type, sort, direction, per_page, page);
+octokit.repos.listForUser(username, type, sort, direction, per_page, page);
+octokit.repos.listForks(owner, repo, sort, per_page, page);
+octokit.repos.listHooks(owner, repo, per_page, page);
+octokit.repos.listInvitations(owner, repo, per_page, page);
+octokit.repos.listInvitationsForAuthenticatedUser(per_page, page);
+octokit.repos.listLanguages(owner, repo);
+octokit.repos.listPagesBuilds(owner, repo, per_page, page);
+octokit.repos.listProtectedBranchRequiredStatusChecksContexts(
   owner,
   repo,
+  branch
+);
+octokit.repos.listProtectedBranchTeamRestrictions(owner, repo, branch);
+octokit.repos.listProtectedBranchUserRestrictions(owner, repo, branch);
+octokit.repos.listPublic(since, visibility, per_page, page);
+octokit.repos.listPullRequestsAssociatedWithCommit(
+  owner,
+  repo,
+  commit_sha,
+  per_page,
+  page
+);
+octokit.repos.listReleases(owner, repo, per_page, page);
+octokit.repos.listStatusesForRef(owner, repo, ref, per_page, page);
+octokit.repos.listTags(owner, repo, per_page, page);
+octokit.repos.listTeams(owner, repo, per_page, page);
+octokit.repos.listTeamsWithAccessToProtectedBranch(owner, repo, branch);
+octokit.repos.listTopics(owner, repo);
+octokit.repos.listUsersWithAccessToProtectedBranch(owner, repo, branch);
+octokit.repos.merge(owner, repo, base, head, commit_message);
+octokit.repos.pingHook(owner, repo, hook_id);
+octokit.repos.removeBranchProtection(owner, repo, branch);
+octokit.repos.removeCollaborator(owner, repo, username);
+octokit.repos.removeDeployKey(owner, repo, key_id);
+octokit.repos.removeProtectedBranchAdminEnforcement(owner, repo, branch);
+octokit.repos.removeProtectedBranchPullRequestReviewEnforcement(
+  owner,
+  repo,
+  branch
+);
+octokit.repos.removeProtectedBranchRequiredSignatures(owner, repo, branch);
+octokit.repos.removeProtectedBranchRequiredStatusChecks(owner, repo, branch);
+octokit.repos.removeProtectedBranchRequiredStatusChecksContexts(
+  owner,
+  repo,
+  branch,
+  contexts
+);
+octokit.repos.removeProtectedBranchRestrictions(owner, repo, branch);
+octokit.repos.removeProtectedBranchTeamRestrictions(owner, repo, branch, teams);
+octokit.repos.removeProtectedBranchUserRestrictions(owner, repo, branch, users);
+octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts(
+  owner,
+  repo,
+  branch,
+  contexts
+);
+octokit.repos.replaceProtectedBranchTeamRestrictions(
+  owner,
+  repo,
+  branch,
   teams
 );
 octokit.repos.replaceProtectedBranchUserRestrictions(
-  branch,
   owner,
   repo,
+  branch,
   users
 );
-octokit.repos.replaceTopics(names, owner, repo);
+octokit.repos.replaceTopics(owner, repo, names);
 octokit.repos.requestPageBuild(owner, repo);
-octokit.repos.testPushHook(hook_id, owner, repo);
-octokit.repos.transfer(new_owner, owner, repo, team_ids);
+octokit.repos.testPushHook(owner, repo, hook_id);
+octokit.repos.transfer(owner, repo, new_owner, team_ids);
 octokit.repos.update(
-  allow_merge_commit,
-  allow_rebase_merge,
-  allow_squash_merge,
-  anonymous_access_enabled,
-  archived,
-  default_branch,
+  owner,
+  repo,
+  name,
   description,
+  homepage,
+  private,
   has_issues,
   has_projects,
   has_wiki,
-  homepage,
-  name,
-  owner,
-  private,
-  repo
+  default_branch,
+  allow_squash_merge,
+  allow_merge_commit,
+  allow_rebase_merge,
+  archived,
+  anonymous_access_enabled
 );
 octokit.repos.updateBranchProtection(
-  branch,
-  enforce_admins,
   owner,
   repo,
-  required_pull_request_reviews,
+  branch,
   required_status_checks,
+  enforce_admins,
+  required_pull_request_reviews,
   restrictions
 );
-octokit.repos.updateCommitComment(body, comment_id, owner, repo);
+octokit.repos.updateCommitComment(owner, repo, comment_id, body);
 octokit.repos.updateFile(
-  author,
+  owner,
+  repo,
+  path,
+  message,
+  content,
+  sha,
   branch,
   committer,
-  content,
-  message,
-  owner,
-  path,
-  repo,
-  sha
+  author
 );
 octokit.repos.updateHook(
-  active,
-  add_events,
-  config,
-  events,
-  hook_id,
-  owner,
-  remove_events,
-  repo
-);
-octokit.repos.updateInformationAboutPagesSite(owner, repo, source);
-octokit.repos.updateInvitation(invitation_id, owner, permissions, repo);
-octokit.repos.updateProtectedBranchPullRequestReviewEnforcement(
-  branch,
-  dismiss_stale_reviews,
-  dismissal_restrictions,
   owner,
   repo,
+  hook_id,
+  config,
+  events,
+  add_events,
+  remove_events,
+  active
+);
+octokit.repos.updateInformationAboutPagesSite(owner, repo, source);
+octokit.repos.updateInvitation(owner, repo, invitation_id, permissions);
+octokit.repos.updateProtectedBranchPullRequestReviewEnforcement(
+  owner,
+  repo,
+  branch,
+  dismissal_restrictions,
+  dismiss_stale_reviews,
   require_code_owner_reviews,
   required_approving_review_count
 );
 octokit.repos.updateProtectedBranchRequiredStatusChecks(
-  branch,
-  contexts,
   owner,
   repo,
-  strict
+  branch,
+  strict,
+  contexts
 );
 octokit.repos.updateRelease(
+  owner,
+  repo,
+  release_id,
+  tag_name,
+  target_commitish,
+  name,
   body,
   draft,
-  name,
-  owner,
-  prerelease,
-  release_id,
-  repo,
-  tag_name,
-  target_commitish
+  prerelease
 );
-octokit.repos.updateReleaseAsset(asset_id, label, name, owner, repo);
+octokit.repos.updateReleaseAsset(owner, repo, asset_id, name, label);
 octokit.repos.uploadReleaseAsset(file, headers, label, name, url);
-octokit.search.code(order, page, per_page, q, sort);
-octokit.search.commits(order, page, per_page, q, sort);
-octokit.search.issues(order, page, per_page, q, sort);
-octokit.search.issuesAndPullRequests(order, page, per_page, q, sort);
-octokit.search.labels(order, q, repository_id, sort);
-octokit.search.repos(order, page, per_page, q, sort);
+octokit.search.code(q, sort, order, per_page, page);
+octokit.search.commits(q, sort, order, per_page, page);
+octokit.search.issues(q, sort, order, per_page, page);
+octokit.search.issuesAndPullRequests(q, sort, order, per_page, page);
+octokit.search.labels(repository_id, q, sort, order);
+octokit.search.repos(q, sort, order, per_page, page);
 octokit.search.topics(q);
-octokit.search.users(order, page, per_page, q, sort);
+octokit.search.users(q, sort, order, per_page, page);
 octokit.teams.addMember(team_id, username);
-octokit.teams.addOrUpdateMembership(role, team_id, username);
-octokit.teams.addOrUpdateProject(permission, project_id, team_id);
-octokit.teams.addOrUpdateRepo(owner, permission, repo, team_id);
-octokit.teams.checkManagesRepo(owner, repo, team_id);
+octokit.teams.addOrUpdateMembership(team_id, username, role);
+octokit.teams.addOrUpdateProject(team_id, project_id, permission);
+octokit.teams.addOrUpdateRepo(team_id, owner, repo, permission);
+octokit.teams.checkManagesRepo(team_id, owner, repo);
 octokit.teams.create(
-  description,
-  ldap_dn,
-  maintainers,
-  name,
   org,
-  parent_team_id,
-  permission,
+  name,
+  description,
+  maintainers,
+  repo_names,
   privacy,
-  repo_names
+  permission,
+  parent_team_id,
+  ldap_dn
 );
-octokit.teams.createDiscussion(body, private, team_id, title);
-octokit.teams.createDiscussionComment(body, discussion_number, team_id);
+octokit.teams.createDiscussion(team_id, title, body, private);
+octokit.teams.createDiscussionComment(team_id, discussion_number, body);
 octokit.teams.delete(team_id);
-octokit.teams.deleteDiscussion(discussion_number, team_id);
+octokit.teams.deleteDiscussion(team_id, discussion_number);
 octokit.teams.deleteDiscussionComment(
-  comment_number,
+  team_id,
   discussion_number,
-  team_id
+  comment_number
 );
 octokit.teams.get(team_id);
 octokit.teams.getByName(org, team_slug);
-octokit.teams.getDiscussion(discussion_number, team_id);
-octokit.teams.getDiscussionComment(comment_number, discussion_number, team_id);
+octokit.teams.getDiscussion(team_id, discussion_number);
+octokit.teams.getDiscussionComment(team_id, discussion_number, comment_number);
 octokit.teams.getMember(team_id, username);
 octokit.teams.getMembership(team_id, username);
-octokit.teams.list(org, page, per_page);
-octokit.teams.listChild(page, per_page, team_id);
+octokit.teams.list(org, per_page, page);
+octokit.teams.listChild(team_id, per_page, page);
 octokit.teams.listDiscussionComments(
-  direction,
+  team_id,
   discussion_number,
-  page,
+  direction,
   per_page,
-  team_id
+  page
 );
-octokit.teams.listDiscussions(direction, page, per_page, team_id);
-octokit.teams.listForAuthenticatedUser(page, per_page);
-octokit.teams.listMembers(page, per_page, role, team_id);
-octokit.teams.listProjects(page, per_page, team_id);
-octokit.teams.listRepos(page, per_page, team_id);
+octokit.teams.listDiscussions(team_id, direction, per_page, page);
+octokit.teams.listForAuthenticatedUser(per_page, page);
+octokit.teams.listMembers(team_id, role, per_page, page);
+octokit.teams.listProjects(team_id, per_page, page);
+octokit.teams.listRepos(team_id, per_page, page);
 octokit.teams.removeMember(team_id, username);
 octokit.teams.removeMembership(team_id, username);
-octokit.teams.removeProject(project_id, team_id);
-octokit.teams.removeRepo(owner, repo, team_id);
-octokit.teams.reviewProject(project_id, team_id);
+octokit.teams.removeProject(team_id, project_id);
+octokit.teams.removeRepo(team_id, owner, repo);
+octokit.teams.reviewProject(team_id, project_id);
 octokit.teams.update(
-  description,
+  team_id,
   name,
-  parent_team_id,
-  permission,
+  description,
   privacy,
-  team_id
+  permission,
+  parent_team_id
 );
-octokit.teams.updateDiscussion(body, discussion_number, team_id, title);
+octokit.teams.updateDiscussion(team_id, discussion_number, title, body);
 octokit.teams.updateDiscussionComment(
-  body,
-  comment_number,
+  team_id,
   discussion_number,
-  team_id
+  comment_number,
+  body
 );
 octokit.users.addEmails(emails);
 octokit.users.checkFollowing(username);
-octokit.users.checkFollowingForUser(target_user, username);
+octokit.users.checkFollowingForUser(username, target_user);
 octokit.users.createGpgKey(armored_public_key);
-octokit.users.createPublicKey(key, title);
+octokit.users.createPublicKey(title, key);
 octokit.users.deleteEmails(emails);
 octokit.users.deleteGpgKey(gpg_key_id);
 octokit.users.deletePublicKey(key_id);
 octokit.users.follow(username);
 octokit.users.getAuthenticated();
 octokit.users.getByUsername(username);
-octokit.users.getContextForUser(subject_id, subject_type, username);
+octokit.users.getContextForUser(username, subject_type, subject_id);
 octokit.users.getGpgKey(gpg_key_id);
 octokit.users.getPublicKey(key_id);
-octokit.users.list(page, per_page, since);
-octokit.users.listEmails(page, per_page);
-octokit.users.listFollowersForAuthenticatedUser(page, per_page);
-octokit.users.listFollowersForUser(page, per_page, username);
-octokit.users.listFollowingForAuthenticatedUser(page, per_page);
-octokit.users.listFollowingForUser(page, per_page, username);
-octokit.users.listGpgKeys(page, per_page);
-octokit.users.listGpgKeysForUser(page, per_page, username);
-octokit.users.listPublicEmails(page, per_page);
-octokit.users.listPublicKeys(page, per_page);
-octokit.users.listPublicKeysForUser(page, per_page, username);
+octokit.users.list(since, per_page, page);
+octokit.users.listEmails(per_page, page);
+octokit.users.listFollowersForAuthenticatedUser(per_page, page);
+octokit.users.listFollowersForUser(username, per_page, page);
+octokit.users.listFollowingForAuthenticatedUser(per_page, page);
+octokit.users.listFollowingForUser(username, per_page, page);
+octokit.users.listGpgKeys(per_page, page);
+octokit.users.listGpgKeysForUser(username, per_page, page);
+octokit.users.listPublicEmails(per_page, page);
+octokit.users.listPublicKeys(per_page, page);
+octokit.users.listPublicKeysForUser(username, per_page, page);
 octokit.users.unfollow(username);
 octokit.users.updateAuthenticated(
-  bio,
+  name,
+  email,
   blog,
   company,
-  email,
-  hireable,
   location,
-  name
+  hireable,
+  bio
 );
 ```
