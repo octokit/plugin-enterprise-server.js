@@ -6,90 +6,64 @@ const sortKeys = require("sort-keys");
 
 const WORKAROUNDS = require("./workarounds");
 
-const GHE_VERSIONS = ["2.17", "2.18", "2.19"];
+const GHE_VERSIONS = ["217", "218", "219"];
 const newRoutes = {};
 
 generateRoutes();
 
 async function generateRoutes() {
   for (const version of GHE_VERSIONS) {
-    const endpoints = require(`./generated/ghe-${version}-endpoints.json`);
+    const endpoints = require(`./generated/ghe${version}-endpoints.json`);
     endpoints.concat(WORKAROUNDS).forEach(endpoint => {
       const scope = endpoint.scope;
+      const idName = endpoint.id;
+      const route = `${endpoint.method} ${endpoint.url.replace(
+        /\{([^}]+)}/g,
+        ":$1"
+      )}`;
+      const endpointDefaults = {};
+      const endpointDecorations = {};
 
       if (!newRoutes[scope]) {
         newRoutes[scope] = {};
       }
 
-      const idName = endpoint.id;
-      const url = endpoint.url.toLowerCase().replace(/\{(\w+)\}/g, ":$1");
-
-      // new route
-      newRoutes[scope][idName] = {
-        method: endpoint.method,
-        headers: endpoint.headers.reduce((result, header) => {
+      if (endpoint.headers.length) {
+        endpointDefaults.headers = endpoint.headers.reduce((result, header) => {
           if (!result) {
             result = {};
           }
           result[header.name] = header.value;
           return result;
-        }, undefined),
-        params: endpoint.parameters.reduce((result, param) => {
-          result[param.name] = {
-            type: param.type
-          };
-          if (param.allowNull) {
-            result[param.name].allowNull = true;
-          }
-          if (param.required) {
-            result[param.name].required = true;
-          }
-          if (param.mapToData) {
-            result[param.name].mapTo = "data";
-          }
-          if (param.enum) {
-            result[param.name].enum = param.enum;
-          }
-          if (param.validation) {
-            result[param.name].validation = param.validation;
-          }
-          if (param.deprecated) {
-            result[param.name].deprecated = true;
+        }, undefined);
+      }
 
-            if (param.alias) {
-              result[param.name].alias = param.alias;
-              result[param.name].type = result[param.alias].type;
-            } else {
-              result[param.name].type = param.type;
-              result[param.name].description = param.description;
-            }
-          }
-
-          return result;
-        }, {}),
-        url
-      };
-
-      const previewHeaders = endpoint.previews
-        .map(preview => `application/vnd.github.${preview.name}-preview+json`)
-        .join(",");
-
-      if (previewHeaders) {
-        newRoutes[scope][idName].headers = {
-          accept: previewHeaders
+      if (endpoint.previews.length) {
+        endpointDefaults.mediaType = {
+          previews: endpoint.previews.map(preview => preview.name)
         };
       }
 
       if (endpoint.renamed) {
-        newRoutes[scope][
-          idName
-        ].deprecated = `octokit.${endpoint.renamed.before.scope}.${endpoint.renamed.before.id}() has been renamed to octokit.${endpoint.renamed.after.scope}.${endpoint.renamed.after.id}() (${endpoint.renamed.date})`;
+        endpointDecorations.renamed = [
+          endpoint.renamed.after.scope,
+          endpoint.renamed.after.id
+        ];
       }
 
       if (endpoint.isDeprecated) {
-        newRoutes[scope][
-          idName
-        ].deprecated = `octokit.${scope}.${idName}() is deprecated, see ${endpoint.documentationUrl}`;
+        endpointDecorations.deprecated = `octokit.scim.${idName}() is deprecated, see ${endpoint.documentationUrl}`;
+      }
+
+      newRoutes[endpoint.scope][idName] = [route];
+
+      if (Object.keys(endpointDecorations).length) {
+        newRoutes[endpoint.scope][idName].push(
+          endpointDefaults,
+          endpointDecorations
+        );
+      } else if (Object.keys(endpointDefaults).length) {
+        newRoutes[endpoint.scope][idName].push(endpointDefaults);
       }
     });
 
