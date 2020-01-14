@@ -94,9 +94,8 @@ async function main() {
   });
 
   for (const [key, endpoints] of Object.entries(results)) {
-    const filename = key.replace(/ghe2(\d+)/, "ghe-2.$1-endpoints.json");
     writeFileSync(
-      path.resolve(__dirname, "generated", filename),
+      path.resolve(__dirname, "generated", `${key}-endpoints.json`),
       prettier.format(JSON.stringify(endpoints), {
         parser: "json"
       })
