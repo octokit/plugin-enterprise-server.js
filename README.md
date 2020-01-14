@@ -1,10 +1,10 @@
-# plugin-enterprise-rest.js
+# plugin-enterprise-server.js
 
 > Octokit plugin for GitHub Enterprise REST APIs
 
-[![@latest](https://img.shields.io/npm/v/@octokit/plugin-enterprise-rest.svg)](https://www.npmjs.com/package/@octokit/plugin-enterprise-rest)
-![Build Status](https://github.com/octokit/plugin-enterprise-rest.js/workflows/Test/badge.svg)
-[![Greenkeeper badge](https://badges.greenkeeper.io/octokit/plugin-enterprise-rest.js.svg)](https://greenkeeper.io/)
+[![@latest](https://img.shields.io/npm/v/@octokit/plugin-enterprise-server.svg)](https://www.npmjs.com/package/@octokit/plugin-enterprise-server)
+![Build Status](https://github.com/octokit/plugin-enterprise-server.js/workflows/Test/badge.svg)
+[![Greenkeeper badge](https://badges.greenkeeper.io/octokit/plugin-enterprise-server.js.svg)](https://greenkeeper.io/)
 
 `@octokit/rest` does not include methods for Enterprise Administration as they are not usable against https://api.github.com. This plugin adds these endpoints based on the GitHub Enterprise version you need.
 
@@ -12,7 +12,7 @@
 
 ```js
 const Octokit = require("@octokit/rest").plugin(
-  require("@octokit/plugin-enterprise-rest/ghe-2.18")
+  require("@octokit/plugin-enterprise-server/ghe-2.18")
 );
 const octokit = new Octokit({
   baseUrl: "https://github.acme-inc.com/api/v3"
@@ -27,7 +27,7 @@ There can be differences in REST API between `api.github.com` and the different 
 
 ```js
 const Octokit = require("@octokit/rest").plugin(
-  require("@octokit/plugin-enterprise-rest/ghe-2.18/all")
+  require("@octokit/plugin-enterprise-server/ghe-2.18/all")
 );
 const octokit = new Octokit({
   baseUrl: "https://github.acme-inc.com/api/v3"
