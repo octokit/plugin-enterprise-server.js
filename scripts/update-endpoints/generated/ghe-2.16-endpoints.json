@@ -5122,7 +5122,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "{\"login\":\"github\",\"id\":1,\"node_id\":\"MDEyOk9yZ2FuaXphdGlvbjE=\",\"url\":\"https://api.github.com/orgs/github\",\"repos_url\":\"https://api.github.com/orgs/github/repos\",\"events_url\":\"https://api.github.com/orgs/github/events\",\"hooks_url\":\"https://api.github.com/orgs/github/hooks\",\"issues_url\":\"https://api.github.com/orgs/github/issues\",\"members_url\":\"https://api.github.com/orgs/github/members{/member}\",\"public_members_url\":\"https://api.github.com/orgs/github/public_members{/member}\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"description\":\"A great organization\",\"name\":\"github\",\"company\":\"GitHub\",\"blog\":\"https://github.com/blog\",\"location\":\"San Francisco\",\"email\":\"octocat@github.com\",\"has_organization_projects\":true,\"has_repository_projects\":true,\"public_repos\":2,\"public_gists\":1,\"followers\":20,\"following\":0,\"html_url\":\"https://github.com/octocat\",\"created_at\":\"2008-01-14T04:33:35Z\",\"type\":\"Organization\",\"total_private_repos\":100,\"owned_private_repos\":100,\"private_gists\":81,\"disk_usage\":10000,\"collaborators\":8,\"billing_email\":\"support@github.com\",\"plan\":{\"name\":\"Medium\",\"space\":400,\"private_repos\":20},\"default_repository_settings\":\"read\",\"members_can_create_repositories\":true,\"two_factor_requirement_enabled\":true}"
+            "data": "{\"login\":\"github\",\"id\":1,\"node_id\":\"MDEyOk9yZ2FuaXphdGlvbjE=\",\"url\":\"https://api.github.com/orgs/github\",\"repos_url\":\"https://api.github.com/orgs/github/repos\",\"events_url\":\"https://api.github.com/orgs/github/events\",\"hooks_url\":\"https://api.github.com/orgs/github/hooks\",\"issues_url\":\"https://api.github.com/orgs/github/issues\",\"members_url\":\"https://api.github.com/orgs/github/members{/member}\",\"public_members_url\":\"https://api.github.com/orgs/github/public_members{/member}\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"description\":\"A great organization\",\"name\":\"github\",\"company\":\"GitHub\",\"blog\":\"https://github.com/blog\",\"location\":\"San Francisco\",\"email\":\"octocat@github.com\",\"has_organization_projects\":true,\"has_repository_projects\":true,\"public_repos\":2,\"public_gists\":1,\"followers\":20,\"following\":0,\"html_url\":\"https://github.com/octocat\",\"created_at\":\"2008-01-14T04:33:35Z\",\"type\":\"Organization\",\"total_private_repos\":100,\"owned_private_repos\":100,\"private_gists\":81,\"disk_usage\":10000,\"collaborators\":8,\"billing_email\":\"support@github.com\",\"plan\":{\"name\":\"Medium\",\"space\":400,\"private_repos\":20},\"default_repository_settings\":\"read\",\"members_can_create_repositories\":true,\"two_factor_requirement_enabled\":true,\"members_allowed_repository_creation_type\":\"all\"}"
           }
         ]
       }
@@ -5136,7 +5136,7 @@
     "method": "PATCH",
     "url": "/orgs/{org}",
     "isDeprecated": false,
-    "description": "**Note:** The new `members_allowed_repository_creation_type` replaces the functionality of `members_can_create_repositories`.\n\nSetting `members_allowed_repository_creation_type` will override the value of `members_can_create_repositories` in the following ways:\n\n*   Setting `members_allowed_repository_creation_type` to `all` or `private` sets `members_can_create_repositories` to `true`.\n*   Setting `members_allowed_repository_creation_type` to `none` sets `members_can_create_repositories` to `false`.\n*   If you omit `members_allowed_repository_creation_type`, `members_can_create_repositories` is not modified.",
+    "description": "**Note:** The new `members_allowed_repository_creation_type` replaces the functionality of `members_can_create_repositories`.\n\nSetting `members_allowed_repository_creation_type` will override the value of `members_can_create_repositories` in the following ways:\n\n*   Setting `members_allowed_repository_creation_type` to `all` or `private` sets `members_can_create_repositories` to `true`.\n*   Setting `members_allowed_repository_creation_type` to `none` sets `members_can_create_repositories` to `false`.\n*   If you omit `members_allowed_repository_creation_type`, `members_can_create_repositories` is not modified.\n\nEnables an authenticated organization owner with the `admin:org` scope to update the organization's profile and member privileges.",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/orgs/#edit-an-organization",
     "previews": [],
     "headers": [],
@@ -5234,7 +5234,7 @@
       },
       {
         "name": "has_organization_projects",
-        "description": "Toggles whether organization projects are enabled for the organization.",
+        "description": "Toggles whether an organization can use organization projects.",
         "in": "BODY",
         "type": "boolean",
         "required": false,
@@ -5247,7 +5247,7 @@
       },
       {
         "name": "has_repository_projects",
-        "description": "Toggles whether repository projects are enabled for repositories that belong to the organization.",
+        "description": "Toggles whether repositories that belong to the organization can use repository projects.",
         "in": "BODY",
         "type": "boolean",
         "required": false,
@@ -5273,7 +5273,7 @@
       },
       {
         "name": "members_can_create_repositories",
-        "description": "Toggles the ability of non-admin organization members to create repositories. Can be one of:  \n\\* `true` - all organization members can create repositories.  \n\\* `false` - only admin members can create repositories.  \nDefault: `true`  \n**Note:** Another parameter can override the this parameter. See [this note](https://developer.github.com/enterprise/2.16/v3/orgs/#members_can_create_repositories) for details. **Note:** Another parameter can override the this parameter. See [this note](https://developer.github.com/enterprise/2.16/v3/orgs/#members_can_create_repositories) for details.",
+        "description": "Toggles the ability of non-admin organization members to create repositories. Can be one of:  \n\\* `true` - all organization members can create repositories.  \n\\* `false` - only organization owners can create repositories.  \nDefault: `true`  \n**Note:** A parameter can override this parameter. See `members_allowed_repository_creation_type` in this table for details. **Note:** A parameter can override this parameter. See `members_allowed_repository_creation_type` in this table for details.",
         "in": "BODY",
         "type": "boolean",
         "required": false,
@@ -5286,7 +5286,7 @@
       },
       {
         "name": "members_allowed_repository_creation_type",
-        "description": "Specifies which types of repositories non-admin organization members can create. Can be one of:  \n\\* `all` - all organization members can create public and private repositories.  \n\\* `private` - members can create private repositories. This option is only available to repositories that are part of an organization on [GitHub Business Cloud](https://github.com/pricing/business-cloud).  \n\\* `none` - only admin members can create repositories.  \n**Note:** Using this parameter will override values set in `members_can_create_repositories`. See [this note](https://developer.github.com/enterprise/2.16/v3/orgs/#members_can_create_repositories) for details.",
+        "description": "Specifies which types of repositories non-admin organization members can create. Can be one of:  \n\\* `all` - all organization members can create public and private repositories.  \n\\* `private` - members can create private repositories. This option is only available to repositories that are part of an organization on GitHub Enterprise Cloud.  \n\\* `none` - only admin members can create repositories.  \n**Note:** Using this parameter overrides values set in `members_can_create_repositories`. See [this note](https://developer.github.com/enterprise/2.16/v3/orgs/#members_can_create_repositories) for details.",
         "in": "BODY",
         "type": "string",
         "required": false,
@@ -5304,7 +5304,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "{\"login\":\"github\",\"id\":1,\"node_id\":\"MDEyOk9yZ2FuaXphdGlvbjE=\",\"url\":\"https://api.github.com/orgs/github\",\"repos_url\":\"https://api.github.com/orgs/github/repos\",\"events_url\":\"https://api.github.com/orgs/github/events\",\"hooks_url\":\"https://api.github.com/orgs/github/hooks\",\"issues_url\":\"https://api.github.com/orgs/github/issues\",\"members_url\":\"https://api.github.com/orgs/github/members{/member}\",\"public_members_url\":\"https://api.github.com/orgs/github/public_members{/member}\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"description\":\"A great organization\",\"name\":\"github\",\"company\":\"GitHub\",\"blog\":\"https://github.com/blog\",\"location\":\"San Francisco\",\"email\":\"octocat@github.com\",\"has_organization_projects\":true,\"has_repository_projects\":true,\"public_repos\":2,\"public_gists\":1,\"followers\":20,\"following\":0,\"html_url\":\"https://github.com/octocat\",\"created_at\":\"2008-01-14T04:33:35Z\",\"type\":\"Organization\",\"total_private_repos\":100,\"owned_private_repos\":100,\"private_gists\":81,\"disk_usage\":10000,\"collaborators\":8,\"billing_email\":\"support@github.com\",\"plan\":{\"name\":\"Medium\",\"space\":400,\"private_repos\":20},\"default_repository_settings\":\"read\",\"members_can_create_repositories\":true,\"two_factor_requirement_enabled\":true}"
+            "data": "{\"login\":\"github\",\"id\":1,\"node_id\":\"MDEyOk9yZ2FuaXphdGlvbjE=\",\"url\":\"https://api.github.com/orgs/github\",\"repos_url\":\"https://api.github.com/orgs/github/repos\",\"events_url\":\"https://api.github.com/orgs/github/events\",\"hooks_url\":\"https://api.github.com/orgs/github/hooks\",\"issues_url\":\"https://api.github.com/orgs/github/issues\",\"members_url\":\"https://api.github.com/orgs/github/members{/member}\",\"public_members_url\":\"https://api.github.com/orgs/github/public_members{/member}\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"description\":\"A great organization\",\"name\":\"github\",\"company\":\"GitHub\",\"blog\":\"https://github.com/blog\",\"location\":\"San Francisco\",\"email\":\"octocat@github.com\",\"has_organization_projects\":true,\"has_repository_projects\":true,\"public_repos\":2,\"public_gists\":1,\"followers\":20,\"following\":0,\"html_url\":\"https://github.com/octocat\",\"created_at\":\"2008-01-14T04:33:35Z\",\"type\":\"Organization\",\"total_private_repos\":100,\"owned_private_repos\":100,\"private_gists\":81,\"disk_usage\":10000,\"collaborators\":8,\"billing_email\":\"support@github.com\",\"plan\":{\"name\":\"Medium\",\"space\":400,\"private_repos\":20},\"default_repository_settings\":\"read\",\"members_can_create_repositories\":true,\"two_factor_requirement_enabled\":true,\"members_allowed_repository_creation_type\":\"all\"}"
           }
         ]
       }
@@ -7206,7 +7206,7 @@
       },
       {
         "name": "type",
-        "description": "Can be one of `all`, `public`, `private`, `forks`, `sources`, `member`.",
+        "description": "Specifies the types of repositories you want returned. Can be one of `all`, `public`, `private`, `forks`, `sources`, `member`.",
         "in": "QUERY",
         "type": "string",
         "required": false,
@@ -7550,7 +7550,7 @@
     "method": "POST",
     "url": "/orgs/{org}/teams",
     "isDeprecated": false,
-    "description": "To create a team, the authenticated user must be a member or owner of `:org`.",
+    "description": "To create a team, the authenticated user must be a member or owner of `:org`.\n\nWhen you create a new team, you automatically become a team maintainer without explicitly adding yourself to the optional array of `maintainers`. For more information, see \"[About teams](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-teams)\" in the GitHub Help documentation.",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/teams/#create-team",
     "previews": [],
     "headers": [],
@@ -7596,7 +7596,7 @@
       },
       {
         "name": "maintainers",
-        "description": "The logins of organization members to add as maintainers of the team.",
+        "description": "List GitHub Enterprise Server IDs for organization members who will become team maintainers.",
         "in": "BODY",
         "type": "string[]",
         "required": false,
@@ -9768,7 +9768,7 @@
       },
       {
         "name": "restrictions",
-        "description": "Restrict who can push to this branch. User and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.",
+        "description": "Restrict who can push to the protected branch. User and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.",
         "in": "BODY",
         "type": "object",
         "required": true,
@@ -11355,7 +11355,7 @@
     "method": "PUT",
     "url": "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams",
     "isDeprecated": false,
-    "description": "Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the `hellcat-preview` media type, you can include child teams.\n\n| Type    | Description                                                                                                                         |\n| ------- | ----------------------------------------------------------------------------------------------------------------------------------- |\n| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |",
+    "description": "Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the `hellcat-preview` media type, team restrictions include child teams.\n\n| Type    | Description                                                                                                                         |\n| ------- | ----------------------------------------------------------------------------------------------------------------------------------- |\n| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/repos/branches/#replace-team-restrictions-of-protected-branch",
     "previews": [],
     "headers": [],
@@ -11511,7 +11511,7 @@
     "method": "DELETE",
     "url": "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams",
     "isDeprecated": false,
-    "description": "Removes the ability of a team to push to this branch. If you pass the `hellcat-preview` media type, you can include child teams.\n\n| Type    | Description                                                                                                                                  |\n| ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |\n| `array` | Teams that should no longer have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |",
+    "description": "Removes the ability of a team to push to this branch. If you pass the `hellcat-preview` media type, you can also remove push access for child teams.\n\n| Type    | Description                                                                                                                                  |\n| ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |\n| `array` | Teams that should no longer have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/repos/branches/#remove-team-restrictions-of-protected-branch",
     "previews": [],
     "headers": [],
@@ -30826,7 +30826,7 @@
     "method": "PATCH",
     "url": "/teams/{team_id}",
     "isDeprecated": false,
-    "description": "To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team.\n\n**Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.",
+    "description": "To edit a team, the authenticated user must either be an organization owner or a team maintainer.\n\n**Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/teams/#edit-team",
     "previews": [],
     "headers": [],
@@ -30930,7 +30930,7 @@
     "method": "DELETE",
     "url": "/teams/{team_id}",
     "isDeprecated": false,
-    "description": "To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.\n\nIf you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well.",
+    "description": "To delete a team, the authenticated user must be an organization owner or team maintainer.\n\nIf you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well.",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/teams/#delete-team",
     "previews": [],
     "headers": [],
@@ -32175,7 +32175,7 @@
     "method": "PUT",
     "url": "/teams/{team_id}/members/{username}",
     "isDeprecated": true,
-    "description": "The \"Add team member\" API (described below) is deprecated.\n\nWe recommend using the [Add team membership API](https://developer.github.com/enterprise/2.16/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.\n\nTo add someone to a team, the authenticated user must be a team maintainer in the team they're changing or be an owner of the organization that the team is associated with. The person being added to the team must be a member of the team's organization.\n\nNote that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/enterprise/2.16/v3/#http-verbs).\"",
+    "description": "The \"Add team member\" API (described below) is deprecated.\n\nWe recommend using the [Add team membership API](https://developer.github.com/enterprise/2.16/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.\n\nTo add someone to a team, the authenticated user must be an organization owner or a team maintainer in the team they're changing. The person being added to the team must be a member of the team's organization.\n\nNote that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/enterprise/2.16/v3/#http-verbs).\"",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/teams/members/#add-team-member",
     "previews": [],
     "headers": [],
@@ -32330,7 +32330,7 @@
     "method": "PUT",
     "url": "/teams/{team_id}/memberships/{username}",
     "isDeprecated": false,
-    "description": "If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a maintainer of the team.\n\nIf the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the \"pending\" state until the user accepts the invitation, at which point the membership will transition to the \"active\" state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.\n\nIf the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a maintainer of the team.",
+    "description": "If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a team maintainer.\n\nIf the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the \"pending\" state until the user accepts the invitation, at which point the membership will transition to the \"active\" state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.\n\nIf the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a team maintainer.",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/teams/members/#add-or-update-team-membership",
     "previews": [],
     "headers": [],
@@ -32818,7 +32818,7 @@
     "method": "PUT",
     "url": "/teams/{team_id}/repos/{owner}/{repo}",
     "isDeprecated": false,
-    "description": "To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a `422 Unprocessable Entity` status if you attempt to add a repository to a team that is not owned by the organization.\n\nIf you pass the `hellcat-preview` media type, you can modify repository permissions of child teams.\n\nNote that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/enterprise/2.16/v3/#http-verbs).\"",
+    "description": "To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a `422 Unprocessable Entity` status if you attempt to add a repository to a team that is not owned by the organization.\n\nNote that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/enterprise/2.16/v3/#http-verbs).\"",
     "documentationUrl": "https://developer.github.com/enterprise/2.16/v3/teams/#add-or-update-team-repository",
     "previews": [],
     "headers": [],
@@ -32997,7 +32997,7 @@
         "description": "Response if child teams exist",
         "examples": [
           {
-            "data": "[{\"id\":2,\"node_id\":\"MDQ6VGVhbTI=\",\"url\":\"https://api.github.com/teams/2\",\"name\":\"Original Roster\",\"slug\":\"original-roster\",\"description\":\"Started it all.\",\"privacy\":\"closed\",\"permission\":\"admin\",\"members_url\":\"https://api.github.com/teams/2/members{/member}\",\"repositories_url\":\"https://api.github.com/teams/2/repos\",\"parent\":{\"id\":1,\"node_id\":\"MDQ6VGVhbTE=\",\"url\":\"https://api.github.com/teams/1\",\"html_url\":\"https://api.github.com/teams/justice-league\",\"name\":\"Justice League\",\"slug\":\"justice-league\",\"description\":\"A great team.\",\"privacy\":\"closed\",\"permission\":\"admin\",\"members_url\":\"https://api.github.com/teams/1/members{/member}\",\"repositories_url\":\"https://api.github.com/teams/1/repos\",\"parent\":null}}]"
+            "data": "[{\"id\":2,\"node_id\":\"MDQ6VGVhbTI=\",\"url\":\"https://api.github.com/teams/2\",\"name\":\"Original Roster\",\"slug\":\"original-roster\",\"description\":\"Started it all.\",\"privacy\":\"closed\",\"permission\":\"admin\",\"members_url\":\"https://api.github.com/teams/2/members{/member}\",\"repositories_url\":\"https://api.github.com/teams/2/repos\",\"parent\":{\"id\":1,\"node_id\":\"MDQ6VGVhbTE=\",\"url\":\"https://api.github.com/teams/1\",\"html_url\":\"https://api.github.com/teams/justice-league\",\"name\":\"Justice League\",\"slug\":\"justice-league\",\"description\":\"A great team.\",\"privacy\":\"closed\",\"permission\":\"admin\",\"members_url\":\"https://api.github.com/teams/1/members{/member}\",\"repositories_url\":\"https://api.github.com/teams/1/repos\"}}]"
           }
         ]
       }
