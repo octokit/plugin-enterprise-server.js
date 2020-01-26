@@ -4,19 +4,6 @@ const path = require("path");
 const { graphql } = require("@octokit/graphql");
 const prettier = require("prettier");
 
-// workaround because VERSION is not set for some reason
-if (process.env.GITHUB_EVENT_PATH) {
-  const payload = JSON.parse(
-    readFileSync(process.env.GITHUB_EVENT_PATH, "utf8")
-  );
-  console.log(`process.env.VERSION`);
-  console.log(process.env.VERSION);
-
-  console.log(`payload`);
-  console.log(payload);
-  process.env.VERSION = payload.client_payload.version;
-}
-
 if (!process.env.VERSION) {
   throw new Error(`VERSION environment variable must be set`);
 }
@@ -29,6 +16,7 @@ const QUERY = `
     method
     url
     isDeprecated
+    isLegacy
     description
     documentationUrl
     previews(required: true) {
@@ -73,13 +61,13 @@ const QUERY = `
   }
 
   query ($version: String) {
-    ghe219: endpoints(version: $version, ghe: GHE_219, filter: { isLegacy: false, isGithubCloudOnly: false }) {
+    ghe219: endpoints(version: $version, ghe: GHE_219, filter: { isGithubCloudOnly: false }) {
       ...endpointFields
     }
-    ghe218: endpoints(version: $version, ghe: GHE_218, filter: { isLegacy: false, isGithubCloudOnly: false }) {
+    ghe218: endpoints(version: $version, ghe: GHE_218, filter: { isGithubCloudOnly: false }) {
       ...endpointFields
     }
-    ghe217: endpoints(version: $version, ghe: GHE_217, filter: { isLegacy: false, isGithubCloudOnly: false }) {
+    ghe217: endpoints(version: $version, ghe: GHE_217, filter: { isGithubCloudOnly: false }) {
       ...endpointFields
     }
   }
