@@ -1282,9 +1282,14 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     addMember: [
       "PUT /teams/:team_id/members/:username",
       {},
+      { renamed: ["teams", "addMemberLegacy"] }
+    ],
+    addMemberLegacy: [
+      "PUT /teams/:team_id/members/:username",
+      {},
       {
         deprecated:
-          "octokit.scim.addMember() is deprecated, see https://developer.github.com/enterprise/2.17/v3/teams/members/#add-team-member"
+          "octokit.scim.addMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.17/v3/teams/members/#add-team-member-legacy"
       }
     ],
     addOrUpdateMembership: ["PUT /teams/:team_id/memberships/:username"],
@@ -1346,20 +1351,19 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getMember: [
       "GET /teams/:team_id/members/:username",
       {},
+      { renamed: ["teams", "getMemberLegacy"] }
+    ],
+    getMemberLegacy: [
+      "GET /teams/:team_id/members/:username",
+      {},
       {
         deprecated:
-          "octokit.scim.getMember() is deprecated, see https://developer.github.com/enterprise/2.17/v3/teams/members/#get-team-member"
+          "octokit.scim.getMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.17/v3/teams/members/#get-team-member-legacy"
       }
     ],
     getMembership: ["GET /teams/:team_id/memberships/:username"],
     list: ["GET /orgs/:org/teams"],
-    listChild: [
-      "GET /teams/:team_id/teams",
-      {
-        headers: { accept: "application/vnd.github.hellcat-preview+json" },
-        mediaType: { previews: ["hellcat"] }
-      }
-    ],
+    listChild: ["GET /teams/:team_id/teams"],
     listDiscussionComments: [
       "GET /teams/:team_id/discussions/:discussion_number/comments",
       {
@@ -1387,9 +1391,14 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     removeMember: [
       "DELETE /teams/:team_id/members/:username",
       {},
+      { renamed: ["teams", "removeMemberLegacy"] }
+    ],
+    removeMemberLegacy: [
+      "DELETE /teams/:team_id/members/:username",
+      {},
       {
         deprecated:
-          "octokit.scim.removeMember() is deprecated, see https://developer.github.com/enterprise/2.17/v3/teams/members/#remove-team-member"
+          "octokit.scim.removeMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.17/v3/teams/members/#remove-team-member-legacy"
       }
     ],
     removeMembership: ["DELETE /teams/:team_id/memberships/:username"],
