@@ -59,7 +59,7 @@ async function generateRoutes() {
         ];
       }
 
-      if (endpoint.isDeprecated) {
+      if (endpoint.isDeprecated && !endpoint.renamed) {
         endpointDecorations.deprecated = `octokit.scim.${idName}() is deprecated, see ${endpoint.documentationUrl}`;
       }
 
