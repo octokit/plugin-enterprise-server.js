@@ -17,6 +17,12 @@ async function generateRoutes() {
     const endpoints = require(`./generated/ghe${version}-endpoints.json`);
     endpoints.concat(WORKAROUNDS).forEach(endpoint => {
       const scope = endpoint.scope;
+
+      if (endpoint.isLegacy && !/^\/teams\/\{team_id\}/.test(endpoint.url)) {
+        // ignore legacy endpoints with the exception of the new teams legacy methods
+        return;
+      }
+
       const idName = endpoint.id;
       const route = `${endpoint.method} ${endpoint.url.replace(
         /\{([^}]+)}/g,
