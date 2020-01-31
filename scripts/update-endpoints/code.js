@@ -38,6 +38,9 @@ async function generateRoutes() {
 
       if (endpoint.headers.length) {
         endpointDefaults.headers = endpoint.headers.reduce((result, header) => {
+          if (header.value === null) {
+            return result;
+          }
           if (!result) {
             result = {};
           }
