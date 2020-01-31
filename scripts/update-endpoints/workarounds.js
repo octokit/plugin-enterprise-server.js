@@ -317,11 +317,17 @@ module.exports = [
     headers: [],
     parameters: [
       {
-        name: "file",
+        name: "data",
         in: "BODY",
         mapToData: true,
         required: true,
         type: "string | object"
+      },
+      {
+        name: "file",
+        in: "BODY",
+        alias: "data",
+        deprecated: true
       },
       {
         name: "headers",
