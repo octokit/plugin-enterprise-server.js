@@ -451,6 +451,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getBlob: ["GET /repos/:owner/:repo/git/blobs/:file_sha"],
     getCommit: ["GET /repos/:owner/:repo/git/commits/:commit_sha"],
     getRef: ["GET /repos/:owner/:repo/git/ref/:ref"],
+    getRefs: ["GET /repos/:owner/:repo/git/refs/:namespace"],
     getTag: ["GET /repos/:owner/:repo/git/tags/:tag_sha"],
     getTree: ["GET /repos/:owner/:repo/git/trees/:tree_sha"],
     listMatchingRefs: ["GET /repos/:owner/:repo/git/matching-refs/:ref"],
