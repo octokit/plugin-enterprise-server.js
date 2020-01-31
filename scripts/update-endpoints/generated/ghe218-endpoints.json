@@ -30341,7 +30341,7 @@
         "deprecated": null
       },
       {
-        "name": "file",
+        "name": "data",
         "description": "The raw file data",
         "in": "BODY",
         "type": "string",
@@ -30365,6 +30365,19 @@
         "validation": null,
         "alias": null,
         "deprecated": null
+      },
+      {
+        "name": "file",
+        "description": null,
+        "in": null,
+        "type": null,
+        "required": null,
+        "enum": null,
+        "allowNull": null,
+        "mapToData": null,
+        "validation": null,
+        "alias": "data",
+        "deprecated": true
       }
     ],
     "responses": [
