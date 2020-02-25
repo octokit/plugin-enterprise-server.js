@@ -196,8 +196,11 @@ ${Object.keys(newRoutesSorted)
 }
 
 function endpointToMethod(scope, methodName, params) {
-  return `octokit.${scope}.${methodName}(${params
+  const paramsString = params
     .filter(param => !/\./.test(param.name) && !param.deprecated)
     .map(param => param.name)
-    .join(", ")});`;
+    .join(", ");
+  return `octokit.${scope}.${methodName}(${
+    paramsString ? `{${paramsString}}` : ""
+  });`;
 }
