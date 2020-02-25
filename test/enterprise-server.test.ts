@@ -1,7 +1,7 @@
 import fetchMock from "fetch-mock";
 import { Octokit } from "@octokit/core";
 
-import { enterpriseServer219Admin } from "../src";
+import { enterpriseServer219, enterpriseServer219Admin } from "../src";
 
 describe("enterpriseCloud plugin", () => {
   it("README example", async () => {
@@ -30,5 +30,27 @@ describe("enterpriseCloud plugin", () => {
     });
 
     expect(data).toStrictEqual([{ ok: true }]);
+  });
+
+  it("#95", async () => {
+    const mock = fetchMock
+      .sandbox()
+      .get("https://github.companyurl.com/api/v3/orgs/orgname", { id: 1 });
+
+    const MyOctokit = Octokit.plugin(enterpriseServer219);
+    const octokit = new MyOctokit({
+      auth: "secret123",
+      baseUrl: "https://github.companyurl.com/api/v3",
+      request: {
+        fetch: mock
+      }
+    });
+
+    // See https://developer.github.com/enterprise/2.19/v3/enterprise-admin/users/#create-a-new-user
+    const { data } = await octokit.orgs.get({
+      org: "orgname"
+    });
+
+    expect(data).toStrictEqual({ id: 1 });
   });
 });
