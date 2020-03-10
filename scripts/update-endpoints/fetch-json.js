@@ -61,6 +61,9 @@ const QUERY = `
   }
 
   query ($version: String) {
+    ghe220: endpoints(version: $version, ghe: GHE_220, filter: { isGithubCloudOnly: false }) {
+      ...endpointFields
+    }
     ghe219: endpoints(version: $version, ghe: GHE_219, filter: { isGithubCloudOnly: false }) {
       ...endpointFields
     }
