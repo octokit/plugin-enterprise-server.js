@@ -23,7 +23,7 @@ Load `@octokit/plugin-enterprise-server` and [`@octokit/core`](https://github.co
 ```html
 <script type="module">
   import { Octokit } from "https://cdn.pika.dev/@octokit/core";
-  import { enterpriseServer219Admin } from "https://cdn.pika.dev/@octokit/plugin-enterprise-server";
+  import { enterpriseServer220Admin } from "https://cdn.pika.dev/@octokit/plugin-enterprise-server";
 </script>
 ```
 
@@ -37,7 +37,7 @@ Install with `npm install @octokit/core @octokit/plugin-enterprise-server`. Opti
 ```js
 const { Octokit } = require("@octokit/core");
 const {
-  enterpriseServer219Admin
+  enterpriseServer220Admin
 } = require("@octokit/plugin-enterprise-server");
 ```
 
@@ -46,8 +46,8 @@ const {
 </table>
 
 ```js
-const OctokitEnterprise219 = Octokit.plugin(enterpriseServer219Admin);
-const octokit = new OctokitEnterprise219({
+const OctokitEnterprise220 = Octokit.plugin(enterpriseServer220Admin);
+const octokit = new OctokitEnterprise220({
   auth: "secret123",
   baseUrl: "https://github.acme-inc.com/api/v3"
 });
@@ -60,6 +60,8 @@ octokit.enterpriseAdmin.createUser({
 
 The list of currently exported plugins are
 
+- [`enterpriseServer220Admin`](docs/ghe-220.md#admin)
+- [`enterpriseServer220`](docs/ghe-220.md#others)
 - [`enterpriseServer219Admin`](docs/ghe-219.md#admin)
 - [`enterpriseServer219`](docs/ghe-219.md#others)
 - [`enterpriseServer218Admin`](docs/ghe-218.md#admin)
