@@ -262,6 +262,15 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ]
   },
   codesOfConduct: {
+    getAllCodesOfConduct: [
+      "GET /codes_of_conduct",
+      {
+        headers: {
+          accept: "application/vnd.github.scarlet-witch-preview+json"
+        },
+        mediaType: { previews: ["scarlet-witch"] }
+      }
+    ],
     getConductCode: [
       "GET /codes_of_conduct/:key",
       {
@@ -287,7 +296,8 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
           accept: "application/vnd.github.scarlet-witch-preview+json"
         },
         mediaType: { previews: ["scarlet-witch"] }
-      }
+      },
+      { renamed: ["codesOfConduct", "getAllCodesOfConduct"] }
     ]
   },
   emojis: { get: ["GET /emojis"] },
@@ -432,9 +442,14 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     list: ["GET /gists"],
     listComments: ["GET /gists/:gist_id/comments"],
     listCommits: ["GET /gists/:gist_id/commits"],
+    listForUser: ["GET /users/:username/gists"],
     listForks: ["GET /gists/:gist_id/forks"],
     listPublic: ["GET /gists/public"],
-    listPublicForUser: ["GET /users/:username/gists"],
+    listPublicForUser: [
+      "GET /users/:username/gists",
+      {},
+      { renamed: ["gists", "listForUser"] }
+    ],
     listStarred: ["GET /gists/starred"],
     star: ["PUT /gists/:gist_id/star"],
     unstar: ["DELETE /gists/:gist_id/star"],
@@ -448,10 +463,15 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     createTag: ["POST /repos/:owner/:repo/git/tags"],
     createTree: ["POST /repos/:owner/:repo/git/trees"],
     deleteRef: ["DELETE /repos/:owner/:repo/git/refs/:ref"],
+    getAllRefs: ["GET /repos/:owner/:repo/git/refs/:namespace"],
     getBlob: ["GET /repos/:owner/:repo/git/blobs/:file_sha"],
     getCommit: ["GET /repos/:owner/:repo/git/commits/:commit_sha"],
     getRef: ["GET /repos/:owner/:repo/git/refs/:ref"],
-    getRefs: ["GET /repos/:owner/:repo/git/refs/:namespace"],
+    getRefs: [
+      "GET /repos/:owner/:repo/git/refs/:namespace",
+      {},
+      { renamed: ["git", "getAllRefs"] }
+    ],
     getTag: ["GET /repos/:owner/:repo/git/tags/:tag_sha"],
     getTree: ["GET /repos/:owner/:repo/git/trees/:tree_sha"],
     listRefs: ["GET /repos/:owner/:repo/git/refs/:namespace"],
@@ -502,14 +522,24 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listLabelsOnIssue: ["GET /repos/:owner/:repo/issues/:issue_number/labels"],
     listMilestonesForRepo: ["GET /repos/:owner/:repo/milestones"],
     lock: ["PUT /repos/:owner/:repo/issues/:issue_number/lock"],
+    removeAllLabels: ["DELETE /repos/:owner/:repo/issues/:issue_number/labels"],
     removeAssignees: [
       "DELETE /repos/:owner/:repo/issues/:issue_number/assignees"
     ],
     removeLabel: [
       "DELETE /repos/:owner/:repo/issues/:issue_number/labels/:name"
     ],
-    removeLabels: ["DELETE /repos/:owner/:repo/issues/:issue_number/labels"],
-    replaceLabels: ["PUT /repos/:owner/:repo/issues/:issue_number/labels"],
+    removeLabels: [
+      "DELETE /repos/:owner/:repo/issues/:issue_number/labels",
+      {},
+      { renamed: ["issues", "removeAllLabels"] }
+    ],
+    replaceAllLabels: ["PUT /repos/:owner/:repo/issues/:issue_number/labels"],
+    replaceLabels: [
+      "PUT /repos/:owner/:repo/issues/:issue_number/labels",
+      {},
+      { renamed: ["issues", "replaceAllLabels"] }
+    ],
     unlock: ["DELETE /repos/:owner/:repo/issues/:issue_number/lock"],
     update: ["PATCH /repos/:owner/:repo/issues/:issue_number"],
     updateComment: ["PATCH /repos/:owner/:repo/issues/comments/:comment_id"],
@@ -1056,6 +1086,13 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       }
     ],
     get: ["GET /repos/:owner/:repo"],
+    getAllTopics: [
+      "GET /repos/:owner/:repo/topics",
+      {
+        headers: { accept: "application/vnd.github.mercy-preview+json" },
+        mediaType: { previews: ["mercy"] }
+      }
+    ],
     getArchiveLink: ["GET /repos/:owner/:repo/:archive_format/:ref"],
     getBranch: ["GET /repos/:owner/:repo/branches/:branch"],
     getBranchProtection: [
@@ -1121,7 +1158,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getUsersWithAccessToProtectedBranch: [
       "GET /repos/:owner/:repo/branches/:branch/protection/restrictions/users"
     ],
-    list: ["GET /user/repos"],
+    list: [
+      "GET /user/repos",
+      {},
+      { renamed: ["repos", "listForAuthenticatedUser"] }
+    ],
     listAssetsForRelease: [
       "GET /repos/:owner/:repo/releases/:release_id/assets"
     ],
@@ -1146,6 +1187,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     listDeployments: ["GET /repos/:owner/:repo/deployments"],
     listDownloads: ["GET /repos/:owner/:repo/downloads"],
+    listForAuthenticatedUser: ["GET /user/repos"],
     listForOrg: ["GET /orgs/:org/repos"],
     listForUser: ["GET /users/:username/repos"],
     listForks: ["GET /repos/:owner/:repo/forks"],
@@ -1189,7 +1231,8 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {
         headers: { accept: "application/vnd.github.mercy-preview+json" },
         mediaType: { previews: ["mercy"] }
-      }
+      },
+      { renamed: ["repos", "getAllTopics"] }
     ],
     listUsersWithAccessToProtectedBranch: [
       "GET /repos/:owner/:repo/branches/:branch/protection/restrictions/users",
@@ -1231,6 +1274,13 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     removeProtectedBranchUserRestrictions: [
       "DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/users"
     ],
+    replaceAllTopics: [
+      "PUT /repos/:owner/:repo/topics",
+      {
+        headers: { accept: "application/vnd.github.mercy-preview+json" },
+        mediaType: { previews: ["mercy"] }
+      }
+    ],
     replaceProtectedBranchRequiredStatusChecksContexts: [
       "PUT /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts"
     ],
@@ -1245,7 +1295,8 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {
         headers: { accept: "application/vnd.github.mercy-preview+json" },
         mediaType: { previews: ["mercy"] }
-      }
+      },
+      { renamed: ["repos", "replaceAllTopics"] }
     ],
     requestPageBuild: [
       "POST /repos/:owner/:repo/pages/builds",
@@ -1485,9 +1536,14 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getPublicKey: ["GET /user/keys/:key_id"],
     list: ["GET /users"],
     listEmails: ["GET /user/emails"],
+    listFollowedByAuthenticated: ["GET /user/following"],
     listFollowersForAuthenticatedUser: ["GET /user/followers"],
     listFollowersForUser: ["GET /users/:username/followers"],
-    listFollowingForAuthenticatedUser: ["GET /user/following"],
+    listFollowingForAuthenticatedUser: [
+      "GET /user/following",
+      {},
+      { renamed: ["users", "listFollowedByAuthenticated"] }
+    ],
     listFollowingForUser: ["GET /users/:username/following"],
     listGpgKeys: ["GET /user/gpg_keys"],
     listGpgKeysForUser: ["GET /users/:username/gpg_keys"],
