@@ -10,8 +10,8 @@ describe("enterpriseCloud plugin", () => {
       .post("https://github.acme-inc.com/api/v3/admin/users", [{ ok: true }], {
         body: {
           username: "octocat",
-          email: "octocat@acme-inc.com"
-        }
+          email: "octocat@acme-inc.com",
+        },
       });
 
     const MyOctokit = Octokit.plugin(enterpriseServer219Admin);
@@ -19,14 +19,14 @@ describe("enterpriseCloud plugin", () => {
       auth: "secret123",
       baseUrl: "https://github.acme-inc.com/api/v3",
       request: {
-        fetch: mock
-      }
+        fetch: mock,
+      },
     });
 
     // See https://developer.github.com/enterprise/2.19/v3/enterprise-admin/users/#create-a-new-user
     const { data } = await octokit.enterpriseAdmin.createUser({
       username: "octocat",
-      email: "octocat@acme-inc.com"
+      email: "octocat@acme-inc.com",
     });
 
     expect(data).toStrictEqual([{ ok: true }]);

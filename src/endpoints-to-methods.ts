@@ -4,7 +4,7 @@ import {
   RequestParameters,
   RequestMethod,
   Route,
-  Url
+  Url,
 } from "@octokit/types";
 import { EndpointsDefaultsAndDecorations } from "./types";
 

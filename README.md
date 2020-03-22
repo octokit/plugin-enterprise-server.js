@@ -37,7 +37,7 @@ Install with `npm install @octokit/core @octokit/plugin-enterprise-server`. Opti
 ```js
 const { Octokit } = require("@octokit/core");
 const {
-  enterpriseServer220Admin
+  enterpriseServer220Admin,
 } = require("@octokit/plugin-enterprise-server");
 ```
 
@@ -49,12 +49,12 @@ const {
 const OctokitEnterprise220 = Octokit.plugin(enterpriseServer220Admin);
 const octokit = new OctokitEnterprise220({
   auth: "secret123",
-  baseUrl: "https://github.acme-inc.com/api/v3"
+  baseUrl: "https://github.acme-inc.com/api/v3",
 });
 
 octokit.enterpriseAdmin.createUser({
   username: "octocat",
-  email: "octocat@acme-inc.com"
+  email: "octocat@acme-inc.com",
 });
 ```
 
