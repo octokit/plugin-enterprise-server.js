@@ -1139,7 +1139,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
         },
         mediaType: { previews: ["squirrel-girl"] },
       },
-      { renamed: ["reactions", "createForTeamDiscussion"] },
     ],
     createForTeamDiscussionComment: [
       "POST /teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
@@ -1149,7 +1148,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
         },
         mediaType: { previews: ["squirrel-girl"] },
       },
-      { renamed: ["reactions", "createForTeamDiscussionComment"] },
     ],
     delete: [
       "DELETE /reactions/:reaction_id",
@@ -1204,7 +1202,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
         },
         mediaType: { previews: ["squirrel-girl"] },
       },
-      { renamed: ["reactions", "listForTeamDiscussion"] },
     ],
     listForTeamDiscussionComment: [
       "GET /teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
@@ -1214,7 +1211,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
         },
         mediaType: { previews: ["squirrel-girl"] },
       },
-      { renamed: ["reactions", "listForTeamDiscussionComment"] },
     ],
   },
   repos: {
@@ -1603,62 +1599,31 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
           "octokit.scim.addMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.20/v3/teams/members/#add-team-member-legacy",
       },
     ],
-    addOrUpdateMembership: [
-      "PUT /teams/:team_id/memberships/:username",
-      {},
-      { renamed: ["teams", "addOrUpdateMembership"] },
-    ],
+    addOrUpdateMembership: ["PUT /teams/:team_id/memberships/:username"],
     addOrUpdateProject: [
       "PUT /teams/:team_id/projects/:project_id",
       {
         headers: { accept: "application/vnd.github.inertia-preview+json" },
         mediaType: { previews: ["inertia"] },
       },
-      { renamed: ["teams", "addOrUpdateProject"] },
     ],
-    addOrUpdateRepo: [
-      "PUT /teams/:team_id/repos/:owner/:repo",
-      {},
-      { renamed: ["teams", "addOrUpdateRepo"] },
-    ],
-    checkManagesRepo: [
-      "GET /teams/:team_id/repos/:owner/:repo",
-      {},
-      { renamed: ["teams", "checkManagesRepo"] },
-    ],
+    addOrUpdateRepo: ["PUT /teams/:team_id/repos/:owner/:repo"],
+    checkManagesRepo: ["GET /teams/:team_id/repos/:owner/:repo"],
     create: ["POST /orgs/:org/teams"],
-    createDiscussion: [
-      "POST /teams/:team_id/discussions",
-      {},
-      { renamed: ["teams", "createDiscussion"] },
-    ],
+    createDiscussion: ["POST /teams/:team_id/discussions"],
     createDiscussionComment: [
       "POST /teams/:team_id/discussions/:discussion_number/comments",
-      {},
-      { renamed: ["teams", "createDiscussionComment"] },
     ],
-    delete: ["DELETE /teams/:team_id", {}, { renamed: ["teams", "delete"] }],
-    deleteDiscussion: [
-      "DELETE /teams/:team_id/discussions/:discussion_number",
-      {},
-      { renamed: ["teams", "deleteDiscussion"] },
-    ],
+    delete: ["DELETE /teams/:team_id"],
+    deleteDiscussion: ["DELETE /teams/:team_id/discussions/:discussion_number"],
     deleteDiscussionComment: [
       "DELETE /teams/:team_id/discussions/:discussion_number/comments/:comment_number",
-      {},
-      { renamed: ["teams", "deleteDiscussionComment"] },
     ],
-    get: ["GET /teams/:team_id", {}, { renamed: ["teams", "get"] }],
+    get: ["GET /teams/:team_id"],
     getByName: ["GET /orgs/:org/teams/:team_slug"],
-    getDiscussion: [
-      "GET /teams/:team_id/discussions/:discussion_number",
-      {},
-      { renamed: ["teams", "getDiscussion"] },
-    ],
+    getDiscussion: ["GET /teams/:team_id/discussions/:discussion_number"],
     getDiscussionComment: [
       "GET /teams/:team_id/discussions/:discussion_number/comments/:comment_number",
-      {},
-      { renamed: ["teams", "getDiscussionComment"] },
     ],
     getMember: [
       "GET /teams/:team_id/members/:username",
@@ -1673,46 +1638,23 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
           "octokit.scim.getMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.20/v3/teams/members/#get-team-member-legacy",
       },
     ],
-    getMembership: [
-      "GET /teams/:team_id/memberships/:username",
-      {},
-      { renamed: ["teams", "getMembership"] },
-    ],
+    getMembership: ["GET /teams/:team_id/memberships/:username"],
     list: ["GET /orgs/:org/teams"],
-    listChild: [
-      "GET /teams/:team_id/teams",
-      {},
-      { renamed: ["teams", "listChild"] },
-    ],
+    listChild: ["GET /teams/:team_id/teams"],
     listDiscussionComments: [
       "GET /teams/:team_id/discussions/:discussion_number/comments",
-      {},
-      { renamed: ["teams", "listDiscussionComments"] },
     ],
-    listDiscussions: [
-      "GET /teams/:team_id/discussions",
-      {},
-      { renamed: ["teams", "listDiscussions"] },
-    ],
+    listDiscussions: ["GET /teams/:team_id/discussions"],
     listForAuthenticatedUser: ["GET /user/teams"],
-    listMembers: [
-      "GET /teams/:team_id/members",
-      {},
-      { renamed: ["teams", "listMembers"] },
-    ],
+    listMembers: ["GET /teams/:team_id/members"],
     listProjects: [
       "GET /teams/:team_id/projects",
       {
         headers: { accept: "application/vnd.github.inertia-preview+json" },
         mediaType: { previews: ["inertia"] },
       },
-      { renamed: ["teams", "listProjects"] },
     ],
-    listRepos: [
-      "GET /teams/:team_id/repos",
-      {},
-      { renamed: ["teams", "listRepos"] },
-    ],
+    listRepos: ["GET /teams/:team_id/repos"],
     removeMember: [
       "DELETE /teams/:team_id/members/:username",
       {},
@@ -1726,39 +1668,20 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
           "octokit.scim.removeMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.20/v3/teams/members/#remove-team-member-legacy",
       },
     ],
-    removeMembership: [
-      "DELETE /teams/:team_id/memberships/:username",
-      {},
-      { renamed: ["teams", "removeMembership"] },
-    ],
-    removeProject: [
-      "DELETE /teams/:team_id/projects/:project_id",
-      {},
-      { renamed: ["teams", "removeProject"] },
-    ],
-    removeRepo: [
-      "DELETE /teams/:team_id/repos/:owner/:repo",
-      {},
-      { renamed: ["teams", "removeRepo"] },
-    ],
+    removeMembership: ["DELETE /teams/:team_id/memberships/:username"],
+    removeProject: ["DELETE /teams/:team_id/projects/:project_id"],
+    removeRepo: ["DELETE /teams/:team_id/repos/:owner/:repo"],
     reviewProject: [
       "GET /teams/:team_id/projects/:project_id",
       {
         headers: { accept: "application/vnd.github.inertia-preview+json" },
         mediaType: { previews: ["inertia"] },
       },
-      { renamed: ["teams", "reviewProject"] },
     ],
-    update: ["PATCH /teams/:team_id", {}, { renamed: ["teams", "update"] }],
-    updateDiscussion: [
-      "PATCH /teams/:team_id/discussions/:discussion_number",
-      {},
-      { renamed: ["teams", "updateDiscussion"] },
-    ],
+    update: ["PATCH /teams/:team_id"],
+    updateDiscussion: ["PATCH /teams/:team_id/discussions/:discussion_number"],
     updateDiscussionComment: [
       "PATCH /teams/:team_id/discussions/:discussion_number/comments/:comment_number",
-      {},
-      { renamed: ["teams", "updateDiscussionComment"] },
     ],
   },
   users: {
