@@ -129,7 +129,7 @@
       },
       {
         "name": "config.secret",
-        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/#delivery-headers) header.",
+        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/event-payloads/#delivery-headers) header.",
         "in": "BODY",
         "type": "string",
         "required": false,
@@ -155,7 +155,7 @@
       },
       {
         "name": "events",
-        "description": "The [events](https://developer.github.com/enterprise/2.19/v3/activity/events/types/) that trigger this webhook. A global webhook can be triggered by `user` and `organization` events. Default: `user` and `organization`.",
+        "description": "The [events](https://developer.github.com/enterprise/2.19/webhooks/event-payloads) that trigger this webhook. A global webhook can be triggered by `user` and `organization` events. Default: `user` and `organization`.",
         "in": "BODY",
         "type": "string[]",
         "required": false,
@@ -310,7 +310,7 @@
       },
       {
         "name": "config.secret",
-        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/#delivery-headers) header.",
+        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/event-payloads/#delivery-headers) header.",
         "in": "BODY",
         "type": "string",
         "required": false,
@@ -336,7 +336,7 @@
       },
       {
         "name": "events",
-        "description": "The [events](https://developer.github.com/enterprise/2.19/v3/activity/events/types/) that trigger this webhook. A global webhook can be triggered by `user` and `organization` events. Default: `user` and `organization`.",
+        "description": "The [events](https://developer.github.com/enterprise/2.19/webhooks/event-payloads) that trigger this webhook. A global webhook can be triggered by `user` and `organization` events. Default: `user` and `organization`.",
         "in": "BODY",
         "type": "string[]",
         "required": false,
@@ -3191,7 +3191,7 @@
     "url": "/content_references/{content_reference_id}/attachments",
     "isDeprecated": false,
     "isLegacy": false,
-    "description": "Creates an attachment under a content reference URL in the body or comment of an issue or pull request. Use the `id` of the content reference from the [`content_reference` event](https://developer.github.com/enterprise/2.19/v3/activity/events/types/#contentreferenceevent) to create an attachment.\n\nThe app must create a content attachment within six hours of the content reference URL being posted. See \"[Using content attachments](https://developer.github.com/enterprise/2.19/apps/using-content-attachments/)\" for details about content attachments.\n\nYou must use an [installation access token](https://developer.github.com/enterprise/2.19/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.\n\nThis example creates a content attachment for the domain `https://errors.ai/`.",
+    "description": "Creates an attachment under a content reference URL in the body or comment of an issue or pull request. Use the `id` of the content reference from the [`content_reference` event](https://developer.github.com/enterprise/2.19/webhooks/event-payloads/#content_reference) to create an attachment.\n\nThe app must create a content attachment within six hours of the content reference URL being posted. See \"[Using content attachments](https://developer.github.com/enterprise/2.19/apps/using-content-attachments/)\" for details about content attachments.\n\nYou must use an [installation access token](https://developer.github.com/enterprise/2.19/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.\n\nThis example creates a content attachment for the domain `https://errors.ai/`.",
     "documentationUrl": "https://developer.github.com/enterprise/2.19/v3/apps/installations/#create-a-content-attachment",
     "previews": [{ "name": "corsair" }],
     "headers": [
@@ -6072,7 +6072,7 @@
       },
       {
         "name": "config.secret",
-        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/#delivery-headers) header.",
+        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/event-payloads/#delivery-headers) header.",
         "in": "BODY",
         "type": "string",
         "required": false,
@@ -6098,7 +6098,7 @@
       },
       {
         "name": "events",
-        "description": "Determines what [events](https://developer.github.com/enterprise/2.19/v3/activity/events/types/) the hook is triggered for.",
+        "description": "Determines what [events](https://developer.github.com/enterprise/2.19/webhooks/event-payloads) the hook is triggered for.",
         "in": "BODY",
         "type": "string[]",
         "required": false,
@@ -6269,7 +6269,7 @@
       },
       {
         "name": "config.secret",
-        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/#delivery-headers) header.",
+        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/event-payloads/#delivery-headers) header.",
         "in": "BODY",
         "type": "string",
         "required": false,
@@ -6295,7 +6295,7 @@
       },
       {
         "name": "events",
-        "description": "Determines what [events](https://developer.github.com/enterprise/2.19/v3/activity/events/types/) the hook is triggered for.",
+        "description": "Determines what [events](https://developer.github.com/enterprise/2.19/webhooks/event-payloads) the hook is triggered for.",
         "in": "BODY",
         "type": "string[]",
         "required": false,
@@ -13620,7 +13620,7 @@
       },
       {
         "name": "actions",
-        "description": "Displays a button on GitHub that can be clicked to alert your app to do additional tasks. For example, a code linting app can display a button that automatically fixes detected errors. The button created in this object is displayed after the check run completes. When a user clicks the button, GitHub sends the [`check_run.requested_action` webhook](https://developer.github.com/enterprise/2.19/v3/activity/events/types/#checkrunevent) to your app. Each action includes a `label`, `identifier` and `description`. A maximum of three actions are accepted. See the [`actions` object](https://developer.github.com/enterprise/2.19/v3/checks/runs/#actions-object) description. To learn more about check runs and requested actions, see \"[Check runs and requested actions](https://developer.github.com/enterprise/2.19/v3/checks/runs/#check-runs-and-requested-actions).\" To learn more about check runs and requested actions, see \"[Check runs and requested actions](https://developer.github.com/enterprise/2.19/v3/checks/runs/#check-runs-and-requested-actions).\"",
+        "description": "Displays a button on GitHub that can be clicked to alert your app to do additional tasks. For example, a code linting app can display a button that automatically fixes detected errors. The button created in this object is displayed after the check run completes. When a user clicks the button, GitHub sends the [`check_run.requested_action` webhook](https://developer.github.com/enterprise/2.19/webhooks/event-payloads/#check_run) to your app. Each action includes a `label`, `identifier` and `description`. A maximum of three actions are accepted. See the [`actions` object](https://developer.github.com/enterprise/2.19/v3/checks/runs/#actions-object) description. To learn more about check runs and requested actions, see \"[Check runs and requested actions](https://developer.github.com/enterprise/2.19/v3/checks/runs/#check-runs-and-requested-actions).\" To learn more about check runs and requested actions, see \"[Check runs and requested actions](https://developer.github.com/enterprise/2.19/v3/checks/runs/#check-runs-and-requested-actions).\"",
         "in": "BODY",
         "type": "object[]",
         "required": false,
@@ -14389,7 +14389,7 @@
     "url": "/repos/{owner}/{repo}/check-suites/preferences",
     "isDeprecated": false,
     "isLegacy": false,
-    "description": "Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/enterprise/2.19/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites.",
+    "description": "Changes the default automatic flow when creating check suites. By default, a check suite is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/enterprise/2.19/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites.",
     "documentationUrl": "https://developer.github.com/enterprise/2.19/v3/checks/suites/#update-repository-preferences-for-check-suites",
     "previews": [{ "name": "antiope" }],
     "headers": [
@@ -14693,7 +14693,7 @@
     "url": "/repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest",
     "isDeprecated": false,
     "isLegacy": false,
-    "description": "Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the [`check_suite` webhook](https://developer.github.com/enterprise/2.19/v3/activity/events/types/#checksuiteevent) event with the action `rerequested`. When a check suite is `rerequested`, its `status` is reset to `queued` and the `conclusion` is cleared.\n\nTo rerequest a check suite, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
+    "description": "Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the [`check_suite` webhook](https://developer.github.com/enterprise/2.19/webhooks/event-payloads/#check_suite) event with the action `rerequested`. When a check suite is `rerequested`, its `status` is reset to `queued` and the `conclusion` is cleared.\n\nTo rerequest a check suite, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
     "documentationUrl": "https://developer.github.com/enterprise/2.19/v3/checks/suites/#rerequest-a-check-suite",
     "previews": [{ "name": "antiope" }],
     "headers": [
@@ -20331,7 +20331,7 @@
       },
       {
         "name": "config.secret",
-        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/#delivery-headers) header.",
+        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/event-payloads/#delivery-headers) header.",
         "in": "BODY",
         "type": "string",
         "required": false,
@@ -20357,7 +20357,7 @@
       },
       {
         "name": "events",
-        "description": "Determines what [events](https://developer.github.com/enterprise/2.19/v3/activity/events/types/) the hook is triggered for.",
+        "description": "Determines what [events](https://developer.github.com/enterprise/2.19/webhooks/event-payloads) the hook is triggered for.",
         "in": "BODY",
         "type": "string[]",
         "required": false,
@@ -20554,7 +20554,7 @@
       },
       {
         "name": "config.secret",
-        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/#delivery-headers) header.",
+        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://developer.github.com/enterprise/2.19/webhooks/event-payloads/#delivery-headers) header.",
         "in": "BODY",
         "type": "string",
         "required": false,
@@ -20580,7 +20580,7 @@
       },
       {
         "name": "events",
-        "description": "Determines what [events](https://developer.github.com/enterprise/2.19/v3/activity/events/types/) the hook is triggered for. This replaces the entire array of events.",
+        "description": "Determines what [events](https://developer.github.com/enterprise/2.19/webhooks/event-payloads) the hook is triggered for. This replaces the entire array of events.",
         "in": "BODY",
         "type": "string[]",
         "required": false,
@@ -22158,7 +22158,7 @@
     "url": "/repos/{owner}/{repo}/issues/{issue_number}",
     "isDeprecated": false,
     "isLegacy": false,
-    "description": "The API returns a [`301 Moved Permanently` status](https://developer.github.com/enterprise/2.19/v3/#http-redirects) if the issue was [transferred](https://help.github.com/articles/transferring-an-issue-to-another-repository/) to another repository. If the issue was transferred to or deleted from a repository where the authenticated user lacks read access, the API returns a `404 Not Found` status. If the issue was deleted from a repository where the authenticated user has read access, the API returns a `410 Gone` status. To receive webhook events for transferred and deleted issues, subscribe to the [`issues`](https://developer.github.com/enterprise/2.19/v3/activity/events/types/#issuesevent) webhook.\n\n**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/enterprise/2.19/v3/pulls/#list-pull-requests)\" endpoint.",
+    "description": "The API returns a [`301 Moved Permanently` status](https://developer.github.com/enterprise/2.19/v3/#http-redirects) if the issue was [transferred](https://help.github.com/articles/transferring-an-issue-to-another-repository/) to another repository. If the issue was transferred to or deleted from a repository where the authenticated user lacks read access, the API returns a `404 Not Found` status. If the issue was deleted from a repository where the authenticated user has read access, the API returns a `410 Gone` status. To receive webhook events for transferred and deleted issues, subscribe to the [`issues`](https://developer.github.com/enterprise/2.19/webhooks/event-payloads/#issues) webhook.\n\n**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/enterprise/2.19/v3/pulls/#list-pull-requests)\" endpoint.",
     "documentationUrl": "https://developer.github.com/enterprise/2.19/v3/issues/#get-an-issue",
     "previews": [],
     "headers": [],
@@ -37365,7 +37365,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "[{\"key_id\":\"1234\",\"key\":\"2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234\"}]"
+            "data": "[{\"key_id\":\"012345678912345678\",\"key\":\"2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234\"}]"
           }
         ]
       }
@@ -37418,7 +37418,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "{\"key_id\":\"1234\",\"key\":\"2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234\"}"
+            "data": "{\"key_id\":\"012345678912345678\",\"key\":\"2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234\"}"
           }
         ]
       }
@@ -37458,7 +37458,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "{\"key_id\":\"1234\",\"key\":\"2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234\"}"
+            "data": "{\"key_id\":\"012345678912345678\",\"key\":\"2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234\"}"
           }
         ]
       }
