@@ -3959,7 +3959,20 @@
         "deprecated": null
       },
       {
-        "name": "files.content",
+        "name": "files.*",
+        "description": "",
+        "in": "BODY",
+        "type": "object",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "files.*.content",
         "description": "The content of the file.",
         "in": "BODY",
         "type": "string",
@@ -4236,7 +4249,20 @@
         "deprecated": null
       },
       {
-        "name": "files.content",
+        "name": "files.*",
+        "description": "",
+        "in": "BODY",
+        "type": "object",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "files.*.content",
         "description": "The updated content of the file.",
         "in": "BODY",
         "type": "string",
@@ -4249,7 +4275,7 @@
         "deprecated": null
       },
       {
-        "name": "files.filename",
+        "name": "files.*.filename",
         "description": "The new name for this file. To delete a file, set the value of the filename to `null`.",
         "in": "BODY",
         "type": "string",
