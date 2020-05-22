@@ -53,7 +53,7 @@
     "semantic-release": "^17.0.0",
     "semantic-release-plugin-update-version-in-files": "^1.0.0",
     "sort-keys": "^4.0.0",
-    "ts-jest": "^25.1.0",
+    "ts-jest": "^26.0.0",
     "typescript": "^3.7.4"
   },
   "jest": {
