@@ -8,70 +8,60 @@ if (!process.env.VERSION) {
   throw new Error(`VERSION environment variable must be set`);
 }
 
-const QUERY = `
-  fragment endpointFields on Endpoint {
-    name
-    scope(format: CAMELCASE)
-    id(format: CAMELCASE)
-    method
-    url
-    isDeprecated
-    isLegacy
-    description
-    documentationUrl
-    previews(required: true) {
-      name
-    }
-    headers {
-      name
-      value
-    }
-    parameters {
-      name
-      description
-      in
-      type
-      required
-      enum
-      allowNull
-      mapToData
-      validation
-      alias
-      deprecated
-    }
-    responses {
-      code
-      description
-      examples {
-        data
-      }
-    }
-    renamed {
-      before {
-        scope(format: CAMELCASE)
-        id(format: CAMELCASE)
-      }
-      after {
-        scope(format: CAMELCASE)
-        id(format: CAMELCASE)
-      }
-      date
-      note
-    }
-  }
+const version = process.env.VERSION.replace(/^v/, "");
+const GHE_VERSIONS = require("./ghe-versions");
 
-  query ($version: String) {
-    ghe220: endpoints(version: $version, ghe: GHE_220, filter: { isGithubCloudOnly: false }) {
-      ...endpointFields
-    }
-    ghe219: endpoints(version: $version, ghe: GHE_219, filter: { isGithubCloudOnly: false }) {
-      ...endpointFields
-    }
-    ghe218: endpoints(version: $version, ghe: GHE_218, filter: { isGithubCloudOnly: false }) {
-      ...endpointFields
-    }
-    ghe217: endpoints(version: $version, ghe: GHE_217, filter: { isGithubCloudOnly: false }) {
-      ...endpointFields
+const QUERY = `
+  query ($version: String, $ignoreChangesBefore: String!, $ghe: GitHubEnterpriseVersion!) {
+    endpoints(version: $version, ignoreChangesBefore: $ignoreChangesBefore, ghe: $ghe, filter: {isGithubCloudOnly: false}) {
+      name
+      scope(format: CAMELCASE)
+      id(format: CAMELCASE)
+      method
+      url
+      isDeprecated
+      deprecationDate
+      description
+      documentationUrl
+      previews(required: true) {
+        name
+      }
+      headers {
+        name
+        value
+      }
+      parameters {
+        name
+        description
+        in
+        type
+        required
+        enum
+        allowNull
+        mapToData
+        validation
+        alias
+        deprecated
+      }
+      responses {
+        code
+        description
+        examples {
+          data
+        }
+      }
+      renamed {
+        before {
+          scope(format: CAMELCASE)
+          id(format: CAMELCASE)
+        }
+        after {
+          scope(format: CAMELCASE)
+          id(format: CAMELCASE)
+        }
+        date
+        note
+      }
     }
   }
 `;
@@ -79,16 +69,19 @@ const QUERY = `
 main();
 
 async function main() {
-  const results = await graphql(QUERY, {
-    url: "https://octokit-routes-graphql-server.now.sh/",
-    version: process.env.VERSION
-  });
+  for (const ghe of GHE_VERSIONS) {
+    console.log("Loading endpoints for GHE 2.%s", ghe.substr(1));
+    const { endpoints } = await graphql(QUERY, {
+      url: "https://github-openapi-graphql-server.vercel.app/api/graphql",
+      version,
+      ignoreChangesBefore: "2019-01-01",
+      ghe: `GHE_${ghe}`,
+    });
 
-  for (const [key, endpoints] of Object.entries(results)) {
     writeFileSync(
-      path.resolve(__dirname, "generated", `${key}-endpoints.json`),
+      path.resolve(__dirname, "generated", `ghe${ghe}-endpoints.json`),
       prettier.format(JSON.stringify(endpoints), {
-        parser: "json"
+        parser: "json",
       })
     );
   }
