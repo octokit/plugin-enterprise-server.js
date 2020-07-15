@@ -6,7 +6,7 @@ const sortKeys = require("sort-keys");
 
 const WORKAROUNDS = require("./workarounds");
 
-const GHE_VERSIONS = ["217", "218", "219", "220"];
+const GHE_VERSIONS = require("./ghe-versions");
 const newRoutes = {};
 const params = {};
 
@@ -15,13 +15,8 @@ generateRoutes();
 async function generateRoutes() {
   for (const version of GHE_VERSIONS) {
     const endpoints = require(`./generated/ghe${version}-endpoints.json`);
-    endpoints.concat(WORKAROUNDS).forEach(endpoint => {
+    endpoints.concat(WORKAROUNDS).forEach((endpoint) => {
       const scope = endpoint.scope;
-
-      if (endpoint.isLegacy && !/^\/teams\/\{team_id\}/.test(endpoint.url)) {
-        // ignore legacy endpoints with the exception of the new teams legacy methods
-        return;
-      }
 
       const idName = endpoint.id;
       const route = `${endpoint.method} ${endpoint.url.replace(
@@ -51,14 +46,14 @@ async function generateRoutes() {
 
       if (endpoint.previews.length) {
         endpointDefaults.mediaType = {
-          previews: endpoint.previews.map(preview => preview.name)
+          previews: endpoint.previews.map((preview) => preview.name),
         };
       }
 
       if (endpoint.renamed) {
         endpointDecorations.renamed = [
           endpoint.renamed.after.scope,
-          endpoint.renamed.after.id
+          endpoint.renamed.after.id,
         ];
       }
 
@@ -117,13 +112,13 @@ async function generateRoutes() {
 
     const INDEX_PATH = pathResolve(process.cwd(), `src/index.ts`);
     const imports = GHE_VERSIONS.map(
-      version => `
+      (version) => `
         import ENDPOINTS_${version} from "./generated/ghe-${version}-endpoints";
         import ADMIN_ENDPOINTS_${version} from "./generated/ghe-${version}-admin-endpoints";
       `
     ).join("\n");
     const methods = GHE_VERSIONS.map(
-      version => `
+      (version) => `
         export function enterpriseServer${version}Admin(octokit: Octokit) {
           return endpointsToMethods(octokit, ADMIN_ENDPOINTS_${version});
         }
@@ -161,7 +156,7 @@ async function generateRoutes() {
 
 \`\`\`js
 ${Object.keys(newRoutesSorted.enterpriseAdmin)
-  .map(methodName =>
+  .map((methodName) =>
     endpointToMethod(
       "enterpriseAdmin",
       methodName,
@@ -176,10 +171,10 @@ ${Object.keys(newRoutesSorted.enterpriseAdmin)
 
 \`\`\`js
 ${Object.keys(newRoutesSorted)
-  .filter(scope => scope !== "enterpriseAdmin")
-  .map(scope =>
+  .filter((scope) => scope !== "enterpriseAdmin")
+  .map((scope) =>
     Object.keys(newRoutesSorted[scope])
-      .map(methodName =>
+      .map((methodName) =>
         endpointToMethod(scope, methodName, params[scope][methodName])
       )
       .join("\n")
@@ -197,8 +192,8 @@ ${Object.keys(newRoutesSorted)
 
 function endpointToMethod(scope, methodName, params) {
   const paramsString = params
-    .filter(param => !/\./.test(param.name) && !param.deprecated)
-    .map(param => param.name)
+    .filter((param) => !/\./.test(param.name) && !param.deprecated)
+    .map((param) => param.name)
     .join(", ");
   return `octokit.${scope}.${methodName}(${
     paramsString ? `{${paramsString}}` : ""
