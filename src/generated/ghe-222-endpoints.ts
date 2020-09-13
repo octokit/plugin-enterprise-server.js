@@ -1,5 +1,171 @@
 import { EndpointsDefaultsAndDecorations } from "../types";
 const Endpoints: EndpointsDefaultsAndDecorations = {
+  actions: {
+    addSelectedRepoToOrgSecret: [
+      "PUT /orgs/:org/actions/secrets/:secret_name/repositories/:repository_id",
+    ],
+    cancelWorkflowRun: ["POST /repos/:owner/:repo/actions/runs/:run_id/cancel"],
+    createOrUpdateOrgSecret: ["PUT /orgs/:org/actions/secrets/:secret_name"],
+    createOrUpdateRepoSecret: [
+      "PUT /repos/:owner/:repo/actions/secrets/:secret_name",
+    ],
+    createOrUpdateSecretForRepo: [
+      "PUT /repos/:owner/:repo/actions/secrets/:secret_name",
+      {},
+      { renamed: ["actions", "createOrUpdateRepoSecret"] },
+    ],
+    createRegistrationToken: [
+      "POST /repos/:owner/:repo/actions/runners/registration-token",
+      {},
+      { renamed: ["actions", "createRegistrationTokenForRepo"] },
+    ],
+    createRegistrationTokenForOrg: [
+      "POST /orgs/:org/actions/runners/registration-token",
+    ],
+    createRegistrationTokenForRepo: [
+      "POST /repos/:owner/:repo/actions/runners/registration-token",
+    ],
+    createRemoveToken: [
+      "POST /repos/:owner/:repo/actions/runners/remove-token",
+      {},
+      { renamed: ["actions", "createRemoveTokenForRepo"] },
+    ],
+    createRemoveTokenForOrg: ["POST /orgs/:org/actions/runners/remove-token"],
+    createRemoveTokenForRepo: [
+      "POST /repos/:owner/:repo/actions/runners/remove-token",
+    ],
+    createWorkflowDispatch: [
+      "POST /repos/:owner/:repo/actions/workflows/:workflow_id/dispatches",
+    ],
+    deleteArtifact: [
+      "DELETE /repos/:owner/:repo/actions/artifacts/:artifact_id",
+    ],
+    deleteOrgSecret: ["DELETE /orgs/:org/actions/secrets/:secret_name"],
+    deleteRepoSecret: [
+      "DELETE /repos/:owner/:repo/actions/secrets/:secret_name",
+    ],
+    deleteSecretFromRepo: [
+      "DELETE /repos/:owner/:repo/actions/secrets/:secret_name",
+      {},
+      { renamed: ["actions", "deleteRepoSecret"] },
+    ],
+    deleteSelfHostedRunnerFromOrg: [
+      "DELETE /orgs/:org/actions/runners/:runner_id",
+    ],
+    deleteSelfHostedRunnerFromRepo: [
+      "DELETE /repos/:owner/:repo/actions/runners/:runner_id",
+    ],
+    deleteWorkflowRun: ["DELETE /repos/:owner/:repo/actions/runs/:run_id"],
+    deleteWorkflowRunLogs: [
+      "DELETE /repos/:owner/:repo/actions/runs/:run_id/logs",
+    ],
+    downloadArtifact: [
+      "GET /repos/:owner/:repo/actions/artifacts/:artifact_id/:archive_format",
+    ],
+    downloadJobLogsForWorkflowRun: [
+      "GET /repos/:owner/:repo/actions/jobs/:job_id/logs",
+    ],
+    downloadWorkflowJobLogs: [
+      "GET /repos/:owner/:repo/actions/jobs/:job_id/logs",
+      {},
+      { renamed: ["actions", "downloadJobLogsForWorkflowRun"] },
+    ],
+    downloadWorkflowRunLogs: [
+      "GET /repos/:owner/:repo/actions/runs/:run_id/logs",
+    ],
+    getArtifact: ["GET /repos/:owner/:repo/actions/artifacts/:artifact_id"],
+    getJobForWorkflowRun: ["GET /repos/:owner/:repo/actions/jobs/:job_id"],
+    getOrgPublicKey: ["GET /orgs/:org/actions/secrets/public-key"],
+    getOrgSecret: ["GET /orgs/:org/actions/secrets/:secret_name"],
+    getPublicKey: [
+      "GET /repos/:owner/:repo/actions/secrets/public-key",
+      {},
+      { renamed: ["actions", "getRepoPublicKey"] },
+    ],
+    getRepoPublicKey: ["GET /repos/:owner/:repo/actions/secrets/public-key"],
+    getRepoSecret: ["GET /repos/:owner/:repo/actions/secrets/:secret_name"],
+    getSecret: [
+      "GET /repos/:owner/:repo/actions/secrets/:secret_name",
+      {},
+      { renamed: ["actions", "getRepoSecret"] },
+    ],
+    getSelfHostedRunner: [
+      "GET /repos/:owner/:repo/actions/runners/:runner_id",
+      {},
+      { renamed: ["actions", "getSelfHostedRunnerForRepo"] },
+    ],
+    getSelfHostedRunnerForOrg: ["GET /orgs/:org/actions/runners/:runner_id"],
+    getSelfHostedRunnerForRepo: [
+      "GET /repos/:owner/:repo/actions/runners/:runner_id",
+    ],
+    getWorkflow: ["GET /repos/:owner/:repo/actions/workflows/:workflow_id"],
+    getWorkflowJob: [
+      "GET /repos/:owner/:repo/actions/jobs/:job_id",
+      {},
+      { renamed: ["actions", "getJobForWorkflowRun"] },
+    ],
+    getWorkflowRun: ["GET /repos/:owner/:repo/actions/runs/:run_id"],
+    listArtifactsForRepo: ["GET /repos/:owner/:repo/actions/artifacts"],
+    listDownloadsForSelfHostedRunnerApplication: [
+      "GET /repos/:owner/:repo/actions/runners/downloads",
+      {},
+      { renamed: ["actions", "listRunnerApplicationsForRepo"] },
+    ],
+    listJobsForWorkflowRun: [
+      "GET /repos/:owner/:repo/actions/runs/:run_id/jobs",
+    ],
+    listOrgSecrets: ["GET /orgs/:org/actions/secrets"],
+    listRepoSecrets: ["GET /repos/:owner/:repo/actions/secrets"],
+    listRepoWorkflowRuns: [
+      "GET /repos/:owner/:repo/actions/runs",
+      {},
+      { renamed: ["actions", "listWorkflowRunsForRepo"] },
+    ],
+    listRepoWorkflows: ["GET /repos/:owner/:repo/actions/workflows"],
+    listRunnerApplicationsForOrg: ["GET /orgs/:org/actions/runners/downloads"],
+    listRunnerApplicationsForRepo: [
+      "GET /repos/:owner/:repo/actions/runners/downloads",
+    ],
+    listSecretsForRepo: [
+      "GET /repos/:owner/:repo/actions/secrets",
+      {},
+      { renamed: ["actions", "listRepoSecrets"] },
+    ],
+    listSelectedReposForOrgSecret: [
+      "GET /orgs/:org/actions/secrets/:secret_name/repositories",
+    ],
+    listSelfHostedRunnersForOrg: ["GET /orgs/:org/actions/runners"],
+    listSelfHostedRunnersForRepo: ["GET /repos/:owner/:repo/actions/runners"],
+    listWorkflowJobLogs: [
+      "GET /repos/:owner/:repo/actions/jobs/:job_id/logs",
+      {},
+      { renamed: ["actions", "downloadWorkflowJobLogs"] },
+    ],
+    listWorkflowRunArtifacts: [
+      "GET /repos/:owner/:repo/actions/runs/:run_id/artifacts",
+    ],
+    listWorkflowRunLogs: [
+      "GET /repos/:owner/:repo/actions/runs/:run_id/logs",
+      {},
+      { renamed: ["actions", "downloadWorkflowRunLogs"] },
+    ],
+    listWorkflowRuns: [
+      "GET /repos/:owner/:repo/actions/workflows/:workflow_id/runs",
+    ],
+    listWorkflowRunsForRepo: ["GET /repos/:owner/:repo/actions/runs"],
+    reRunWorkflow: ["POST /repos/:owner/:repo/actions/runs/:run_id/rerun"],
+    removeSelectedRepoFromOrgSecret: [
+      "DELETE /orgs/:org/actions/secrets/:secret_name/repositories/:repository_id",
+    ],
+    removeSelfHostedRunner: [
+      "DELETE /repos/:owner/:repo/actions/runners/:runner_id",
+      {},
+      { renamed: ["actions", "deleteSelfHostedRunnerFromRepo"] },
+    ],
+    setSelectedReposForOrgSecret: [
+      "PUT /orgs/:org/actions/secrets/:secret_name/repositories",
+    ],
+  },
   activity: {
     checkRepoIsStarredByAuthenticatedUser: ["GET /user/starred/:owner/:repo"],
     checkStarringRepo: [
@@ -104,11 +270,16 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
   apps: {
     addRepoToInstallation: [
       "PUT /user/installations/:installation_id/repositories/:repository_id",
+    ],
+    checkAuthorization: [
+      "GET /applications/:client_id/tokens/:access_token",
+      {},
       {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
+        deprecated:
+          "octokit.scim.checkAuthorization() is deprecated, see https://developer.github.com/enterprise/2.22/v3/apps/oauth_applications/#check-an-authorization",
       },
     ],
+    checkToken: ["POST /applications/:client_id/token"],
     createContentAttachment: [
       "POST /content_references/:content_reference_id/attachments",
       {
@@ -116,146 +287,83 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
         mediaType: { previews: ["corsair"] },
       },
     ],
-    createFromManifest: [
-      "POST /app-manifests/:code/conversions",
-      {
-        headers: { accept: "application/vnd.github.fury-preview+json" },
-        mediaType: { previews: ["fury"] },
-      },
-    ],
+    createFromManifest: ["POST /app-manifests/:code/conversions"],
     createInstallationAccessToken: [
       "POST /app/installations/:installation_id/access_tokens",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
     ],
     createInstallationToken: [
       "POST /app/installations/:installation_id/access_tokens",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
+      {},
       { renamed: ["apps", "createInstallationAccessToken"] },
     ],
-    deleteInstallation: [
-      "DELETE /app/installations/:installation_id",
-      {
-        headers: {
-          accept:
-            "application/vnd.github.gambit-preview+json,application/vnd.github.machine-man-preview+json",
-        },
-        mediaType: { previews: ["gambit", "machine-man"] },
-      },
-    ],
+    deleteAuthorization: ["DELETE /applications/:client_id/grant"],
+    deleteInstallation: ["DELETE /app/installations/:installation_id"],
+    deleteToken: ["DELETE /applications/:client_id/token"],
     findOrgInstallation: [
       "GET /orgs/:org/installation",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
+      {},
       { renamed: ["apps", "getOrgInstallation"] },
     ],
     findRepoInstallation: [
       "GET /repos/:owner/:repo/installation",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
+      {},
       { renamed: ["apps", "getRepoInstallation"] },
     ],
     findUserInstallation: [
       "GET /users/:username/installation",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
+      {},
       { renamed: ["apps", "getUserInstallation"] },
     ],
-    getAuthenticated: [
-      "GET /app",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
-    ],
-    getBySlug: [
-      "GET /apps/:app_slug",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
-    ],
-    getInstallation: [
-      "GET /app/installations/:installation_id",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
-    ],
-    getOrgInstallation: [
-      "GET /orgs/:org/installation",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
-    ],
-    getRepoInstallation: [
-      "GET /repos/:owner/:repo/installation",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
-    ],
-    getUserInstallation: [
-      "GET /users/:username/installation",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
-    ],
+    getAuthenticated: ["GET /app"],
+    getBySlug: ["GET /apps/:app_slug"],
+    getInstallation: ["GET /app/installations/:installation_id"],
+    getOrgInstallation: ["GET /orgs/:org/installation"],
+    getRepoInstallation: ["GET /repos/:owner/:repo/installation"],
+    getUserInstallation: ["GET /users/:username/installation"],
     listInstallationReposForAuthenticatedUser: [
       "GET /user/installations/:installation_id/repositories",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
     ],
-    listInstallations: [
-      "GET /app/installations",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
-    ],
-    listInstallationsForAuthenticatedUser: [
-      "GET /user/installations",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
-    ],
+    listInstallations: ["GET /app/installations"],
+    listInstallationsForAuthenticatedUser: ["GET /user/installations"],
     listRepos: [
       "GET /installation/repositories",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
+      {},
       { renamed: ["apps", "listReposAccessibleToInstallation"] },
     ],
-    listReposAccessibleToInstallation: [
-      "GET /installation/repositories",
-      {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
-      },
-    ],
+    listReposAccessibleToInstallation: ["GET /installation/repositories"],
     removeRepoFromInstallation: [
       "DELETE /user/installations/:installation_id/repositories/:repository_id",
+    ],
+    resetAuthorization: [
+      "POST /applications/:client_id/tokens/:access_token",
+      {},
       {
-        headers: { accept: "application/vnd.github.machine-man-preview+json" },
-        mediaType: { previews: ["machine-man"] },
+        deprecated:
+          "octokit.scim.resetAuthorization() is deprecated, see https://developer.github.com/enterprise/2.22/v3/apps/oauth_applications/#reset-an-authorization",
       },
+    ],
+    resetToken: ["PATCH /applications/:client_id/token"],
+    revokeAuthorizationForApplication: [
+      "DELETE /applications/:client_id/tokens/:access_token",
+      {},
+      {
+        deprecated:
+          "octokit.scim.revokeAuthorizationForApplication() is deprecated, see https://developer.github.com/enterprise/2.22/v3/apps/oauth_applications/#revoke-an-authorization-for-an-application",
+      },
+    ],
+    revokeGrantForApplication: [
+      "DELETE /applications/:client_id/grants/:access_token",
+      {},
+      {
+        deprecated:
+          "octokit.scim.revokeGrantForApplication() is deprecated, see https://developer.github.com/enterprise/2.22/v3/apps/oauth_applications/#revoke-a-grant-for-an-application",
+      },
+    ],
+    revokeInstallationAccessToken: ["DELETE /installation/token"],
+    revokeInstallationToken: [
+      "DELETE /installation/token",
+      {},
+      { renamed: ["apps", "revokeInstallationAccessToken"] },
     ],
   },
   checks: {
@@ -336,6 +444,15 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
         mediaType: { previews: ["antiope"] },
       },
     ],
+  },
+  codeScanning: {
+    getAlert: ["GET /repos/:owner/:repo/code-scanning/alerts/:alert_number"],
+    listAlertsForRepo: ["GET /repos/:owner/:repo/code-scanning/alerts"],
+    listRecentAnalyses: ["GET /repos/:owner/:repo/code-scanning/analyses"],
+    updateAlert: [
+      "PATCH /repos/:owner/:repo/code-scanning/alerts/:alert_number",
+    ],
+    uploadSarif: ["POST /repos/:owner/:repo/code-scanning/sarifs"],
   },
   codesOfConduct: {
     getAllCodesOfConduct: [
@@ -756,17 +873,12 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     createTag: ["POST /repos/:owner/:repo/git/tags"],
     createTree: ["POST /repos/:owner/:repo/git/trees"],
     deleteRef: ["DELETE /repos/:owner/:repo/git/refs/:ref"],
-    getAllRefs: ["GET /repos/:owner/:repo/git/refs/:namespace"],
     getBlob: ["GET /repos/:owner/:repo/git/blobs/:file_sha"],
     getCommit: ["GET /repos/:owner/:repo/git/commits/:commit_sha"],
-    getRef: ["GET /repos/:owner/:repo/git/refs/:ref"],
-    getRefs: [
-      "GET /repos/:owner/:repo/git/refs/:namespace",
-      {},
-      { renamed: ["git", "getAllRefs"] },
-    ],
+    getRef: ["GET /repos/:owner/:repo/git/ref/:ref"],
     getTag: ["GET /repos/:owner/:repo/git/tags/:tag_sha"],
     getTree: ["GET /repos/:owner/:repo/git/trees/:tree_sha"],
+    listMatchingRefs: ["GET /repos/:owner/:repo/git/matching-refs/:ref"],
     listRefs: ["GET /repos/:owner/:repo/git/refs/:namespace"],
     updateRef: ["PATCH /repos/:owner/:repo/git/refs/:ref"],
   },
@@ -869,26 +981,106 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
   },
   meta: { get: ["GET /meta"] },
   oauthAuthorizations: {
-    checkAuthorization: ["GET /applications/:client_id/tokens/:access_token"],
-    createAuthorization: ["POST /authorizations"],
-    deleteAuthorization: ["DELETE /authorizations/:authorization_id"],
-    deleteGrant: ["DELETE /applications/grants/:grant_id"],
-    getAuthorization: ["GET /authorizations/:authorization_id"],
-    getGrant: ["GET /applications/grants/:grant_id"],
-    getOrCreateAuthorizationForApp: ["PUT /authorizations/clients/:client_id"],
+    checkAuthorization: [
+      "GET /applications/:client_id/tokens/:access_token",
+      {},
+      { renamed: ["apps", "checkAuthorization"] },
+    ],
+    createAuthorization: [
+      "POST /authorizations",
+      {},
+      {
+        deprecated:
+          "octokit.scim.createAuthorization() is deprecated, see https://developer.github.com/enterprise/2.22/v3/oauth_authorizations/#create-a-new-authorization",
+      },
+    ],
+    deleteAuthorization: [
+      "DELETE /authorizations/:authorization_id",
+      {},
+      {
+        deprecated:
+          "octokit.scim.deleteAuthorization() is deprecated, see https://developer.github.com/enterprise/2.22/v3/oauth_authorizations/#delete-an-authorization",
+      },
+    ],
+    deleteGrant: [
+      "DELETE /applications/grants/:grant_id",
+      {},
+      {
+        deprecated:
+          "octokit.scim.deleteGrant() is deprecated, see https://developer.github.com/enterprise/2.22/v3/oauth_authorizations/#delete-a-grant",
+      },
+    ],
+    getAuthorization: [
+      "GET /authorizations/:authorization_id",
+      {},
+      {
+        deprecated:
+          "octokit.scim.getAuthorization() is deprecated, see https://developer.github.com/enterprise/2.22/v3/oauth_authorizations/#get-a-single-authorization",
+      },
+    ],
+    getGrant: [
+      "GET /applications/grants/:grant_id",
+      {},
+      {
+        deprecated:
+          "octokit.scim.getGrant() is deprecated, see https://developer.github.com/enterprise/2.22/v3/oauth_authorizations/#get-a-single-grant",
+      },
+    ],
+    getOrCreateAuthorizationForApp: [
+      "PUT /authorizations/clients/:client_id",
+      {},
+      {
+        deprecated:
+          "octokit.scim.getOrCreateAuthorizationForApp() is deprecated, see https://developer.github.com/enterprise/2.22/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app",
+      },
+    ],
     getOrCreateAuthorizationForAppAndFingerprint: [
       "PUT /authorizations/clients/:client_id/:fingerprint",
+      {},
+      {
+        deprecated:
+          "octokit.scim.getOrCreateAuthorizationForAppAndFingerprint() is deprecated, see https://developer.github.com/enterprise/2.22/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint",
+      },
     ],
-    listAuthorizations: ["GET /authorizations"],
-    listGrants: ["GET /applications/grants"],
-    resetAuthorization: ["POST /applications/:client_id/tokens/:access_token"],
+    listAuthorizations: [
+      "GET /authorizations",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listAuthorizations() is deprecated, see https://developer.github.com/enterprise/2.22/v3/oauth_authorizations/#list-your-authorizations",
+      },
+    ],
+    listGrants: [
+      "GET /applications/grants",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listGrants() is deprecated, see https://developer.github.com/enterprise/2.22/v3/oauth_authorizations/#list-your-grants",
+      },
+    ],
+    resetAuthorization: [
+      "POST /applications/:client_id/tokens/:access_token",
+      {},
+      { renamed: ["apps", "resetAuthorization"] },
+    ],
     revokeAuthorizationForApplication: [
       "DELETE /applications/:client_id/tokens/:access_token",
+      {},
+      { renamed: ["apps", "revokeAuthorizationForApplication"] },
     ],
     revokeGrantForApplication: [
       "DELETE /applications/:client_id/grants/:access_token",
+      {},
+      { renamed: ["apps", "revokeGrantForApplication"] },
     ],
-    updateAuthorization: ["PATCH /authorizations/:authorization_id"],
+    updateAuthorization: [
+      "PATCH /authorizations/:authorization_id",
+      {},
+      {
+        deprecated:
+          "octokit.scim.updateAuthorization() is deprecated, see https://developer.github.com/enterprise/2.22/v3/oauth_authorizations/#update-an-existing-authorization",
+      },
+    ],
   },
   orgs: {
     addOrUpdateMembership: [
@@ -943,12 +1135,18 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getMembershipForUser: ["GET /orgs/:org/memberships/:username"],
     getWebhook: ["GET /orgs/:org/hooks/:hook_id"],
     list: ["GET /organizations"],
+    listAppInstallations: ["GET /orgs/:org/installations"],
     listForAuthenticatedUser: ["GET /user/orgs"],
     listForUser: ["GET /users/:username/orgs"],
     listHooks: [
       "GET /orgs/:org/hooks",
       {},
       { renamed: ["orgs", "listWebhooks"] },
+    ],
+    listInstallations: [
+      "GET /orgs/:org/installations",
+      {},
+      { renamed: ["orgs", "listAppInstallations"] },
     ],
     listMembers: ["GET /orgs/:org/members"],
     listMemberships: [
@@ -1190,6 +1388,16 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
   pulls: {
     checkIfMerged: ["GET /repos/:owner/:repo/pulls/:pull_number/merge"],
     create: ["POST /repos/:owner/:repo/pulls"],
+    createComment: [
+      "POST /repos/:owner/:repo/pulls/:pull_number/comments",
+      {},
+      { renamed: ["pulls", "createReviewComment"] },
+    ],
+    createCommentReply: [
+      "POST /repos/:owner/:repo/pulls/:pull_number/comments",
+      {},
+      { renamed: ["pulls", "createComment"] },
+    ],
     createFromIssue: [
       "POST /repos/:owner/:repo/pulls",
       {},
@@ -1202,6 +1410,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /repos/:owner/:repo/pulls/:pull_number/comments/:comment_id/replies",
     ],
     createReview: ["POST /repos/:owner/:repo/pulls/:pull_number/reviews"],
+    createReviewComment: [
+      "POST /repos/:owner/:repo/pulls/:pull_number/comments",
+    ],
     createReviewCommentAlternative: [
       "POST /repos/:owner/:repo/pulls/:pull_number/comments",
     ],
@@ -1348,30 +1559,141 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /teams/:team_id/discussions/:discussion_number/reactions",
       {
         headers: {
-          accept:
-            "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json",
+          accept: "application/vnd.github.squirrel-girl-preview+json",
         },
-        mediaType: { previews: ["echo", "squirrel-girl"] },
+        mediaType: { previews: ["squirrel-girl"] },
       },
+      { renamed: ["reactions", "createForTeamDiscussionLegacy"] },
     ],
     createForTeamDiscussionComment: [
       "POST /teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
       {
         headers: {
-          accept:
-            "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json",
+          accept: "application/vnd.github.squirrel-girl-preview+json",
         },
-        mediaType: { previews: ["echo", "squirrel-girl"] },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+      { renamed: ["reactions", "createForTeamDiscussionCommentLegacy"] },
+    ],
+    createForTeamDiscussionCommentInOrg: [
+      "POST /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+    ],
+    createForTeamDiscussionCommentLegacy: [
+      "POST /teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+      {
+        deprecated:
+          "octokit.scim.createForTeamDiscussionCommentLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/reactions/#create-reaction-for-a-team-discussion-comment-legacy",
+      },
+    ],
+    createForTeamDiscussionInOrg: [
+      "POST /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+    ],
+    createForTeamDiscussionLegacy: [
+      "POST /teams/:team_id/discussions/:discussion_number/reactions",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+      {
+        deprecated:
+          "octokit.scim.createForTeamDiscussionLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/reactions/#create-reaction-for-a-team-discussion-legacy",
       },
     ],
     delete: [
       "DELETE /reactions/:reaction_id",
       {
         headers: {
-          accept:
-            "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json",
+          accept: "application/vnd.github.squirrel-girl-preview+json",
         },
-        mediaType: { previews: ["echo", "squirrel-girl"] },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+      { renamed: ["reactions", "deleteLegacy"] },
+    ],
+    deleteForCommitComment: [
+      "DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+    ],
+    deleteForIssue: [
+      "DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+    ],
+    deleteForIssueComment: [
+      "DELETE /repos/:owner/:repo/issues/comments/:comment_id/reactions/:reaction_id",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+    ],
+    deleteForPullRequestComment: [
+      "DELETE /repos/:owner/:repo/pulls/comments/:comment_id/reactions/:reaction_id",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+    ],
+    deleteForTeamDiscussion: [
+      "DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+    ],
+    deleteForTeamDiscussionComment: [
+      "DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+    ],
+    deleteLegacy: [
+      "DELETE /reactions/:reaction_id",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+      {
+        deprecated:
+          "octokit.scim.deleteLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/reactions/#delete-a-reaction-legacy",
       },
     ],
     listForCommitComment: [
@@ -1414,25 +1736,72 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /teams/:team_id/discussions/:discussion_number/reactions",
       {
         headers: {
-          accept:
-            "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json",
+          accept: "application/vnd.github.squirrel-girl-preview+json",
         },
-        mediaType: { previews: ["echo", "squirrel-girl"] },
+        mediaType: { previews: ["squirrel-girl"] },
       },
+      { renamed: ["reactions", "listForTeamDiscussionLegacy"] },
     ],
     listForTeamDiscussionComment: [
       "GET /teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
       {
         headers: {
-          accept:
-            "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json",
+          accept: "application/vnd.github.squirrel-girl-preview+json",
         },
-        mediaType: { previews: ["echo", "squirrel-girl"] },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+      { renamed: ["reactions", "listForTeamDiscussionCommentLegacy"] },
+    ],
+    listForTeamDiscussionCommentInOrg: [
+      "GET /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+    ],
+    listForTeamDiscussionCommentLegacy: [
+      "GET /teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+      {
+        deprecated:
+          "octokit.scim.listForTeamDiscussionCommentLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/reactions/#list-reactions-for-a-team-discussion-comment-legacy",
+      },
+    ],
+    listForTeamDiscussionInOrg: [
+      "GET /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+    ],
+    listForTeamDiscussionLegacy: [
+      "GET /teams/:team_id/discussions/:discussion_number/reactions",
+      {
+        headers: {
+          accept: "application/vnd.github.squirrel-girl-preview+json",
+        },
+        mediaType: { previews: ["squirrel-girl"] },
+      },
+      {
+        deprecated:
+          "octokit.scim.listForTeamDiscussionLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/reactions/#list-reactions-for-a-team-discussion-legacy",
       },
     ],
   },
   repos: {
     acceptInvitation: ["PATCH /user/repository_invitations/:invitation_id"],
+    addAppAccessRestrictions: [
+      "POST /repos/:owner/:repo/branches/:branch/protection/restrictions/apps",
+    ],
     addCollaborator: ["PUT /repos/:owner/:repo/collaborators/:username"],
     addDeployKey: [
       "POST /repos/:owner/:repo/keys",
@@ -1443,6 +1812,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /repos/:owner/:repo/branches/:branch/protection/enforce_admins",
       {},
       { renamed: ["repos", "setAdminBranchProtection"] },
+    ],
+    addProtectedBranchAppRestrictions: [
+      "POST /repos/:owner/:repo/branches/:branch/protection/restrictions/apps",
+      {},
+      { renamed: ["repos", "addAppAccessRestrictions"] },
     ],
     addProtectedBranchRequiredSignatures: [
       "POST /repos/:owner/:repo/branches/:branch/protection/required_signatures",
@@ -1549,6 +1923,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       },
     ],
     deleteDeployKey: ["DELETE /repos/:owner/:repo/keys/:key_id"],
+    deleteDeployment: ["DELETE /repos/:owner/:repo/deployments/:deployment_id"],
     deleteFile: ["DELETE /repos/:owner/:repo/contents/:path"],
     deleteHook: [
       "DELETE /repos/:owner/:repo/hooks/:hook_id",
@@ -1618,6 +1993,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
         headers: { accept: "application/vnd.github.mercy-preview+json" },
         mediaType: { previews: ["mercy"] },
       },
+    ],
+    getAppsWithAccessToProtectedBranch: [
+      "GET /repos/:owner/:repo/branches/:branch/protection/restrictions/apps",
     ],
     getArchiveLink: [
       "GET /repos/:owner/:repo/:archive_format/:ref",
@@ -1724,6 +2102,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       { renamed: ["repos", "listForAuthenticatedUser"] },
     ],
+    listAppsWithAccessToProtectedBranch: [
+      "GET /repos/:owner/:repo/branches/:branch/protection/restrictions/apps",
+      {},
+      { renamed: ["repos", "getAppsWithAccessToProtectedBranch"] },
+    ],
     listAssetsForRelease: [
       "GET /repos/:owner/:repo/releases/:release_id/assets",
       {},
@@ -1826,6 +2209,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       { renamed: ["repos", "pingWebhook"] },
     ],
     pingWebhook: ["POST /repos/:owner/:repo/hooks/:hook_id/pings"],
+    removeAppAccessRestrictions: [
+      "DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/apps",
+    ],
     removeBranchProtection: [
       "DELETE /repos/:owner/:repo/branches/:branch/protection",
       {},
@@ -1841,6 +2227,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /repos/:owner/:repo/branches/:branch/protection/enforce_admins",
       {},
       { renamed: ["repos", "deleteAdminBranchProtection"] },
+    ],
+    removeProtectedBranchAppRestrictions: [
+      "DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/apps",
+      {},
+      { renamed: ["repos", "removeAppAccessRestrictions"] },
     ],
     removeProtectedBranchPullRequestReviewEnforcement: [
       "DELETE /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
@@ -1899,6 +2290,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
         mediaType: { previews: ["mercy"] },
       },
     ],
+    replaceProtectedBranchAppRestrictions: [
+      "PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/apps",
+      {},
+      { renamed: ["repos", "setAppAccessRestrictions"] },
+    ],
     replaceProtectedBranchRequiredStatusChecksContexts: [
       "PUT /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
       {},
@@ -1924,25 +2320,15 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     requestPageBuild: [
       "POST /repos/:owner/:repo/pages/builds",
-      {
-        headers: {
-          accept: "application/vnd.github.mister-fantastic-preview+json",
-        },
-        mediaType: { previews: ["mister-fantastic"] },
-      },
+      {},
       { renamed: ["repos", "requestPagesBuild"] },
     ],
-    requestPagesBuild: [
-      "POST /repos/:owner/:repo/pages/builds",
-      {
-        headers: {
-          accept: "application/vnd.github.mister-fantastic-preview+json",
-        },
-        mediaType: { previews: ["mister-fantastic"] },
-      },
-    ],
+    requestPagesBuild: ["POST /repos/:owner/:repo/pages/builds"],
     setAdminBranchProtection: [
       "POST /repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+    ],
+    setAppAccessRestrictions: [
+      "PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/apps",
     ],
     setStatusCheckContexts: [
       "PUT /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
@@ -1959,20 +2345,8 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       { renamed: ["repos", "testPushWebhook"] },
     ],
     testPushWebhook: ["POST /repos/:owner/:repo/hooks/:hook_id/tests"],
-    transfer: [
-      "POST /repos/:owner/:repo/transfer",
-      {
-        headers: { accept: "application/vnd.github.nightshade-preview+json" },
-        mediaType: { previews: ["nightshade"] },
-      },
-    ],
-    update: [
-      "PATCH /repos/:owner/:repo",
-      {
-        headers: { accept: "application/vnd.github.x-ray-preview+json" },
-        mediaType: { previews: ["x-ray"] },
-      },
-    ],
+    transfer: ["POST /repos/:owner/:repo/transfer"],
+    update: ["PATCH /repos/:owner/:repo"],
     updateBranchProtection: [
       "PUT /repos/:owner/:repo/branches/:branch/protection",
     ],
@@ -2037,7 +2411,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.addMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.18/v3/teams/members/#add-team-member-legacy",
+          "octokit.scim.addMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/members/#add-team-member-legacy",
       },
     ],
     addOrUpdateMembership: [
@@ -2045,7 +2419,32 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       { renamed: ["teams", "addOrUpdateMembershipForUser"] },
     ],
-    addOrUpdateMembershipForUser: ["PUT /teams/:team_id/memberships/:username"],
+    addOrUpdateMembershipForUser: [
+      "PUT /teams/:team_id/memberships/:username",
+      {},
+      { renamed: ["teams", "addOrUpdateMembershipForUserLegacy"] },
+    ],
+    addOrUpdateMembershipForUserInOrg: [
+      "PUT /orgs/:org/teams/:team_slug/memberships/:username",
+    ],
+    addOrUpdateMembershipForUserLegacy: [
+      "PUT /teams/:team_id/memberships/:username",
+      {},
+      {
+        deprecated:
+          "octokit.scim.addOrUpdateMembershipForUserLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/members/#add-or-update-team-membership-for-a-user-legacy",
+      },
+    ],
+    addOrUpdateMembershipInOrg: [
+      "PUT /orgs/:org/teams/:team_slug/memberships/:username",
+      {},
+      { renamed: ["teams", "addOrUpdateMembershipForUserInOrg"] },
+    ],
+    addOrUpdateMembershipLegacy: [
+      "PUT /teams/:team_id/memberships/:username",
+      {},
+      { renamed: ["teams", "addOrUpdateMembershipForUserLegacy"] },
+    ],
     addOrUpdateProject: [
       "PUT /teams/:team_id/projects/:project_id",
       {
@@ -2054,11 +2453,46 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       },
       { renamed: ["teams", "addOrUpdateProjectPermissions"] },
     ],
+    addOrUpdateProjectInOrg: [
+      "PUT /orgs/:org/teams/:team_slug/projects/:project_id",
+      {
+        headers: { accept: "application/vnd.github.inertia-preview+json" },
+        mediaType: { previews: ["inertia"] },
+      },
+      { renamed: ["teams", "addOrUpdateProjectPermissionsInOrg"] },
+    ],
+    addOrUpdateProjectLegacy: [
+      "PUT /teams/:team_id/projects/:project_id",
+      {
+        headers: { accept: "application/vnd.github.inertia-preview+json" },
+        mediaType: { previews: ["inertia"] },
+      },
+      { renamed: ["teams", "addOrUpdateProjectPermissionsLegacy"] },
+    ],
     addOrUpdateProjectPermissions: [
       "PUT /teams/:team_id/projects/:project_id",
       {
         headers: { accept: "application/vnd.github.inertia-preview+json" },
         mediaType: { previews: ["inertia"] },
+      },
+      { renamed: ["teams", "addOrUpdateProjectPermissionsLegacy"] },
+    ],
+    addOrUpdateProjectPermissionsInOrg: [
+      "PUT /orgs/:org/teams/:team_slug/projects/:project_id",
+      {
+        headers: { accept: "application/vnd.github.inertia-preview+json" },
+        mediaType: { previews: ["inertia"] },
+      },
+    ],
+    addOrUpdateProjectPermissionsLegacy: [
+      "PUT /teams/:team_id/projects/:project_id",
+      {
+        headers: { accept: "application/vnd.github.inertia-preview+json" },
+        mediaType: { previews: ["inertia"] },
+      },
+      {
+        deprecated:
+          "octokit.scim.addOrUpdateProjectPermissionsLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#add-or-update-team-project-permissions-legacy",
       },
     ],
     addOrUpdateRepo: [
@@ -2066,11 +2500,46 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       { renamed: ["teams", "addOrUpdateRepoPermissions"] },
     ],
-    addOrUpdateRepoPermissions: ["PUT /teams/:team_id/repos/:owner/:repo"],
+    addOrUpdateRepoInOrg: [
+      "PUT /orgs/:org/teams/:team_slug/repos/:owner/:repo",
+      {},
+      { renamed: ["teams", "addOrUpdateRepoPermissionsInOrg"] },
+    ],
+    addOrUpdateRepoLegacy: [
+      "PUT /teams/:team_id/repos/:owner/:repo",
+      {},
+      { renamed: ["teams", "addOrUpdateRepoPermissionsLegacy"] },
+    ],
+    addOrUpdateRepoPermissions: [
+      "PUT /teams/:team_id/repos/:owner/:repo",
+      {},
+      { renamed: ["teams", "addOrUpdateRepoPermissionsLegacy"] },
+    ],
+    addOrUpdateRepoPermissionsInOrg: [
+      "PUT /orgs/:org/teams/:team_slug/repos/:owner/:repo",
+    ],
+    addOrUpdateRepoPermissionsLegacy: [
+      "PUT /teams/:team_id/repos/:owner/:repo",
+      {},
+      {
+        deprecated:
+          "octokit.scim.addOrUpdateRepoPermissionsLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#add-or-update-team-repository-permissions-legacy",
+      },
+    ],
     checkManagesRepo: [
       "GET /teams/:team_id/repos/:owner/:repo",
       {},
       { renamed: ["teams", "checkPermissionsForRepo"] },
+    ],
+    checkManagesRepoInOrg: [
+      "GET /orgs/:org/teams/:team_slug/repos/:owner/:repo",
+      {},
+      { renamed: ["teams", "checkPermissionsForRepoInOrg"] },
+    ],
+    checkManagesRepoLegacy: [
+      "GET /teams/:team_id/repos/:owner/:repo",
+      {},
+      { renamed: ["teams", "checkPermissionsForRepoLegacy"] },
     ],
     checkPermissionsForProject: [
       "GET /teams/:team_id/projects/:project_id",
@@ -2078,52 +2547,159 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
         headers: { accept: "application/vnd.github.inertia-preview+json" },
         mediaType: { previews: ["inertia"] },
       },
+      { renamed: ["teams", "checkPermissionsForProjectLegacy"] },
     ],
-    checkPermissionsForRepo: ["GET /teams/:team_id/repos/:owner/:repo"],
+    checkPermissionsForProjectInOrg: [
+      "GET /orgs/:org/teams/:team_slug/projects/:project_id",
+      {
+        headers: { accept: "application/vnd.github.inertia-preview+json" },
+        mediaType: { previews: ["inertia"] },
+      },
+    ],
+    checkPermissionsForProjectLegacy: [
+      "GET /teams/:team_id/projects/:project_id",
+      {
+        headers: { accept: "application/vnd.github.inertia-preview+json" },
+        mediaType: { previews: ["inertia"] },
+      },
+      {
+        deprecated:
+          "octokit.scim.checkPermissionsForProjectLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#check-team-permissions-for-a-project-legacy",
+      },
+    ],
+    checkPermissionsForRepo: [
+      "GET /teams/:team_id/repos/:owner/:repo",
+      {},
+      { renamed: ["teams", "checkPermissionsForRepoLegacy"] },
+    ],
+    checkPermissionsForRepoInOrg: [
+      "GET /orgs/:org/teams/:team_slug/repos/:owner/:repo",
+    ],
+    checkPermissionsForRepoLegacy: [
+      "GET /teams/:team_id/repos/:owner/:repo",
+      {},
+      {
+        deprecated:
+          "octokit.scim.checkPermissionsForRepoLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#check-team-permissions-for-a-repository-legacy",
+      },
+    ],
     create: ["POST /orgs/:org/teams"],
     createDiscussion: [
       "POST /teams/:team_id/discussions",
-      {
-        headers: { accept: "application/vnd.github.echo-preview+json" },
-        mediaType: { previews: ["echo"] },
-      },
+      {},
+      { renamed: ["teams", "createDiscussionLegacy"] },
     ],
     createDiscussionComment: [
       "POST /teams/:team_id/discussions/:discussion_number/comments",
+      {},
+      { renamed: ["teams", "createDiscussionCommentLegacy"] },
+    ],
+    createDiscussionCommentInOrg: [
+      "POST /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments",
+    ],
+    createDiscussionCommentLegacy: [
+      "POST /teams/:team_id/discussions/:discussion_number/comments",
+      {},
       {
-        headers: { accept: "application/vnd.github.echo-preview+json" },
-        mediaType: { previews: ["echo"] },
+        deprecated:
+          "octokit.scim.createDiscussionCommentLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/discussion_comments/#create-a-discussion-comment-legacy",
       },
     ],
-    delete: ["DELETE /teams/:team_id"],
+    createDiscussionInOrg: ["POST /orgs/:org/teams/:team_slug/discussions"],
+    createDiscussionLegacy: [
+      "POST /teams/:team_id/discussions",
+      {},
+      {
+        deprecated:
+          "octokit.scim.createDiscussionLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/discussions/#create-a-discussion-legacy",
+      },
+    ],
+    delete: [
+      "DELETE /teams/:team_id",
+      {},
+      { renamed: ["teams", "deleteLegacy"] },
+    ],
     deleteDiscussion: [
       "DELETE /teams/:team_id/discussions/:discussion_number",
-      {
-        headers: { accept: "application/vnd.github.echo-preview+json" },
-        mediaType: { previews: ["echo"] },
-      },
+      {},
+      { renamed: ["teams", "deleteDiscussionLegacy"] },
     ],
     deleteDiscussionComment: [
       "DELETE /teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+      {},
+      { renamed: ["teams", "deleteDiscussionCommentLegacy"] },
+    ],
+    deleteDiscussionCommentInOrg: [
+      "DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number",
+    ],
+    deleteDiscussionCommentLegacy: [
+      "DELETE /teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+      {},
       {
-        headers: { accept: "application/vnd.github.echo-preview+json" },
-        mediaType: { previews: ["echo"] },
+        deprecated:
+          "octokit.scim.deleteDiscussionCommentLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/discussion_comments/#delete-a-discussion-comment-legacy",
       },
     ],
-    get: ["GET /teams/:team_id"],
+    deleteDiscussionInOrg: [
+      "DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number",
+    ],
+    deleteDiscussionLegacy: [
+      "DELETE /teams/:team_id/discussions/:discussion_number",
+      {},
+      {
+        deprecated:
+          "octokit.scim.deleteDiscussionLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/discussions/#delete-a-discussion-legacy",
+      },
+    ],
+    deleteInOrg: ["DELETE /orgs/:org/teams/:team_slug"],
+    deleteLegacy: [
+      "DELETE /teams/:team_id",
+      {},
+      {
+        deprecated:
+          "octokit.scim.deleteLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#delete-a-team-legacy",
+      },
+    ],
+    get: ["GET /teams/:team_id", {}, { renamed: ["teams", "getLegacy"] }],
     getByName: ["GET /orgs/:org/teams/:team_slug"],
     getDiscussion: [
       "GET /teams/:team_id/discussions/:discussion_number",
-      {
-        headers: { accept: "application/vnd.github.echo-preview+json" },
-        mediaType: { previews: ["echo"] },
-      },
+      {},
+      { renamed: ["teams", "getDiscussionLegacy"] },
     ],
     getDiscussionComment: [
       "GET /teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+      {},
+      { renamed: ["teams", "getDiscussionCommentLegacy"] },
+    ],
+    getDiscussionCommentInOrg: [
+      "GET /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number",
+    ],
+    getDiscussionCommentLegacy: [
+      "GET /teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+      {},
       {
-        headers: { accept: "application/vnd.github.echo-preview+json" },
-        mediaType: { previews: ["echo"] },
+        deprecated:
+          "octokit.scim.getDiscussionCommentLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/discussion_comments/#get-a-discussion-comment-legacy",
+      },
+    ],
+    getDiscussionInOrg: [
+      "GET /orgs/:org/teams/:team_slug/discussions/:discussion_number",
+    ],
+    getDiscussionLegacy: [
+      "GET /teams/:team_id/discussions/:discussion_number",
+      {},
+      {
+        deprecated:
+          "octokit.scim.getDiscussionLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/discussions/#get-a-discussion-legacy",
+      },
+    ],
+    getLegacy: [
+      "GET /teams/:team_id",
+      {},
+      {
+        deprecated:
+          "octokit.scim.getLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#get-a-team-legacy",
       },
     ],
     getMember: [
@@ -2136,7 +2712,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.getMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.18/v3/teams/members/#get-team-member-legacy",
+          "octokit.scim.getMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/members/#get-team-member-legacy",
       },
     ],
     getMembership: [
@@ -2144,33 +2720,132 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       { renamed: ["teams", "getMembershipForUser"] },
     ],
-    getMembershipForUser: ["GET /teams/:team_id/memberships/:username"],
+    getMembershipForUser: [
+      "GET /teams/:team_id/memberships/:username",
+      {},
+      { renamed: ["teams", "getMembershipForUserLegacy"] },
+    ],
+    getMembershipForUserInOrg: [
+      "GET /orgs/:org/teams/:team_slug/memberships/:username",
+    ],
+    getMembershipForUserLegacy: [
+      "GET /teams/:team_id/memberships/:username",
+      {},
+      {
+        deprecated:
+          "octokit.scim.getMembershipForUserLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/members/#get-team-membership-for-a-user-legacy",
+      },
+    ],
+    getMembershipInOrg: [
+      "GET /orgs/:org/teams/:team_slug/memberships/:username",
+      {},
+      { renamed: ["teams", "getMembershipForUserInOrg"] },
+    ],
+    getMembershipLegacy: [
+      "GET /teams/:team_id/memberships/:username",
+      {},
+      { renamed: ["teams", "getMembershipForUserLegacy"] },
+    ],
     list: ["GET /orgs/:org/teams"],
-    listChild: ["GET /teams/:team_id/teams"],
+    listChild: [
+      "GET /teams/:team_id/teams",
+      {},
+      { renamed: ["teams", "listChildLegacy"] },
+    ],
+    listChildInOrg: ["GET /orgs/:org/teams/:team_slug/teams"],
+    listChildLegacy: [
+      "GET /teams/:team_id/teams",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listChildLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#list-child-teams-legacy",
+      },
+    ],
     listDiscussionComments: [
       "GET /teams/:team_id/discussions/:discussion_number/comments",
+      {},
+      { renamed: ["teams", "listDiscussionCommentsLegacy"] },
+    ],
+    listDiscussionCommentsInOrg: [
+      "GET /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments",
+    ],
+    listDiscussionCommentsLegacy: [
+      "GET /teams/:team_id/discussions/:discussion_number/comments",
+      {},
       {
-        headers: { accept: "application/vnd.github.echo-preview+json" },
-        mediaType: { previews: ["echo"] },
+        deprecated:
+          "octokit.scim.listDiscussionCommentsLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/discussion_comments/#list-discussion-comments-legacy",
       },
     ],
     listDiscussions: [
       "GET /teams/:team_id/discussions",
+      {},
+      { renamed: ["teams", "listDiscussionsLegacy"] },
+    ],
+    listDiscussionsInOrg: ["GET /orgs/:org/teams/:team_slug/discussions"],
+    listDiscussionsLegacy: [
+      "GET /teams/:team_id/discussions",
+      {},
       {
-        headers: { accept: "application/vnd.github.echo-preview+json" },
-        mediaType: { previews: ["echo"] },
+        deprecated:
+          "octokit.scim.listDiscussionsLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/discussions/#list-discussions-legacy",
       },
     ],
     listForAuthenticatedUser: ["GET /user/teams"],
-    listMembers: ["GET /teams/:team_id/members"],
+    listMembers: [
+      "GET /teams/:team_id/members",
+      {},
+      { renamed: ["teams", "listMembersLegacy"] },
+    ],
+    listMembersInOrg: ["GET /orgs/:org/teams/:team_slug/members"],
+    listMembersLegacy: [
+      "GET /teams/:team_id/members",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listMembersLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/members/#list-team-members-legacy",
+      },
+    ],
     listProjects: [
       "GET /teams/:team_id/projects",
       {
         headers: { accept: "application/vnd.github.inertia-preview+json" },
         mediaType: { previews: ["inertia"] },
       },
+      { renamed: ["teams", "listProjectsLegacy"] },
     ],
-    listRepos: ["GET /teams/:team_id/repos"],
+    listProjectsInOrg: [
+      "GET /orgs/:org/teams/:team_slug/projects",
+      {
+        headers: { accept: "application/vnd.github.inertia-preview+json" },
+        mediaType: { previews: ["inertia"] },
+      },
+    ],
+    listProjectsLegacy: [
+      "GET /teams/:team_id/projects",
+      {
+        headers: { accept: "application/vnd.github.inertia-preview+json" },
+        mediaType: { previews: ["inertia"] },
+      },
+      {
+        deprecated:
+          "octokit.scim.listProjectsLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#list-team-projects-legacy",
+      },
+    ],
+    listRepos: [
+      "GET /teams/:team_id/repos",
+      {},
+      { renamed: ["teams", "listReposLegacy"] },
+    ],
+    listReposInOrg: ["GET /orgs/:org/teams/:team_slug/repos"],
+    listReposLegacy: [
+      "GET /teams/:team_id/repos",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listReposLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#list-team-repositories-legacy",
+      },
+    ],
     removeMember: [
       "DELETE /teams/:team_id/members/:username",
       {},
@@ -2181,7 +2856,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.removeMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.18/v3/teams/members/#remove-team-member-legacy",
+          "octokit.scim.removeMemberLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/members/#remove-team-member-legacy",
       },
     ],
     removeMembership: [
@@ -2189,9 +2864,62 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       { renamed: ["teams", "removeMembershipForUser"] },
     ],
-    removeMembershipForUser: ["DELETE /teams/:team_id/memberships/:username"],
-    removeProject: ["DELETE /teams/:team_id/projects/:project_id"],
-    removeRepo: ["DELETE /teams/:team_id/repos/:owner/:repo"],
+    removeMembershipForUser: [
+      "DELETE /teams/:team_id/memberships/:username",
+      {},
+      { renamed: ["teams", "removeMembershipForUserLegacy"] },
+    ],
+    removeMembershipForUserInOrg: [
+      "DELETE /orgs/:org/teams/:team_slug/memberships/:username",
+    ],
+    removeMembershipForUserLegacy: [
+      "DELETE /teams/:team_id/memberships/:username",
+      {},
+      {
+        deprecated:
+          "octokit.scim.removeMembershipForUserLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/members/#remove-team-membership-for-a-user-legacy",
+      },
+    ],
+    removeMembershipInOrg: [
+      "DELETE /orgs/:org/teams/:team_slug/memberships/:username",
+      {},
+      { renamed: ["teams", "removeMembershipForUserInOrg"] },
+    ],
+    removeMembershipLegacy: [
+      "DELETE /teams/:team_id/memberships/:username",
+      {},
+      { renamed: ["teams", "removeMembershipForUserLegacy"] },
+    ],
+    removeProject: [
+      "DELETE /teams/:team_id/projects/:project_id",
+      {},
+      { renamed: ["teams", "removeProjectLegacy"] },
+    ],
+    removeProjectInOrg: [
+      "DELETE /orgs/:org/teams/:team_slug/projects/:project_id",
+    ],
+    removeProjectLegacy: [
+      "DELETE /teams/:team_id/projects/:project_id",
+      {},
+      {
+        deprecated:
+          "octokit.scim.removeProjectLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#remove-a-project-from-a-team-legacy",
+      },
+    ],
+    removeRepo: [
+      "DELETE /teams/:team_id/repos/:owner/:repo",
+      {},
+      { renamed: ["teams", "removeRepoLegacy"] },
+    ],
+    removeRepoInOrg: ["DELETE /orgs/:org/teams/:team_slug/repos/:owner/:repo"],
+    removeRepoLegacy: [
+      "DELETE /teams/:team_id/repos/:owner/:repo",
+      {},
+      {
+        deprecated:
+          "octokit.scim.removeRepoLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#remove-a-repository-from-a-team-legacy",
+      },
+    ],
     reviewProject: [
       "GET /teams/:team_id/projects/:project_id",
       {
@@ -2200,19 +2928,66 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       },
       { renamed: ["teams", "checkPermissionsForProject"] },
     ],
-    update: ["PATCH /teams/:team_id"],
+    reviewProjectInOrg: [
+      "GET /orgs/:org/teams/:team_slug/projects/:project_id",
+      {
+        headers: { accept: "application/vnd.github.inertia-preview+json" },
+        mediaType: { previews: ["inertia"] },
+      },
+      { renamed: ["teams", "checkPermissionsForProjectInOrg"] },
+    ],
+    reviewProjectLegacy: [
+      "GET /teams/:team_id/projects/:project_id",
+      {
+        headers: { accept: "application/vnd.github.inertia-preview+json" },
+        mediaType: { previews: ["inertia"] },
+      },
+      { renamed: ["teams", "checkPermissionsForProjectLegacy"] },
+    ],
+    update: [
+      "PATCH /teams/:team_id",
+      {},
+      { renamed: ["teams", "updateLegacy"] },
+    ],
     updateDiscussion: [
       "PATCH /teams/:team_id/discussions/:discussion_number",
-      {
-        headers: { accept: "application/vnd.github.echo-preview+json" },
-        mediaType: { previews: ["echo"] },
-      },
+      {},
+      { renamed: ["teams", "updateDiscussionLegacy"] },
     ],
     updateDiscussionComment: [
       "PATCH /teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+      {},
+      { renamed: ["teams", "updateDiscussionCommentLegacy"] },
+    ],
+    updateDiscussionCommentInOrg: [
+      "PATCH /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number",
+    ],
+    updateDiscussionCommentLegacy: [
+      "PATCH /teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+      {},
       {
-        headers: { accept: "application/vnd.github.echo-preview+json" },
-        mediaType: { previews: ["echo"] },
+        deprecated:
+          "octokit.scim.updateDiscussionCommentLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/discussion_comments/#update-a-discussion-comment-legacy",
+      },
+    ],
+    updateDiscussionInOrg: [
+      "PATCH /orgs/:org/teams/:team_slug/discussions/:discussion_number",
+    ],
+    updateDiscussionLegacy: [
+      "PATCH /teams/:team_id/discussions/:discussion_number",
+      {},
+      {
+        deprecated:
+          "octokit.scim.updateDiscussionLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/discussions/#update-a-discussion-legacy",
+      },
+    ],
+    updateInOrg: ["PATCH /orgs/:org/teams/:team_slug"],
+    updateLegacy: [
+      "PATCH /teams/:team_id",
+      {},
+      {
+        deprecated:
+          "octokit.scim.updateLegacy() is deprecated, see https://developer.github.com/enterprise/2.22/v3/teams/#update-a-team-legacy",
       },
     ],
   },
@@ -2263,13 +3038,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     follow: ["PUT /user/following/:username"],
     getAuthenticated: ["GET /user"],
     getByUsername: ["GET /users/:username"],
-    getContextForUser: [
-      "GET /users/:username/hovercard",
-      {
-        headers: { accept: "application/vnd.github.hagar-preview+json" },
-        mediaType: { previews: ["hagar"] },
-      },
-    ],
+    getContextForUser: ["GET /users/:username/hovercard"],
     getGpgKey: [
       "GET /user/gpg_keys/:gpg_key_id",
       {},
