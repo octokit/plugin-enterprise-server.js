@@ -59,14 +59,14 @@ octokit.enterpriseAdmin.createUser({
 
 The list of currently exported plugins are
 
+- [`enterpriseServer222Admin`](docs/ghe-222.md#admin)
+- [`enterpriseServer222`](docs/ghe-222.md#others)
+- [`enterpriseServer221Admin`](docs/ghe-221.md#admin)
+- [`enterpriseServer221`](docs/ghe-221.md#others)
 - [`enterpriseServer220Admin`](docs/ghe-220.md#admin)
 - [`enterpriseServer220`](docs/ghe-220.md#others)
 - [`enterpriseServer219Admin`](docs/ghe-219.md#admin)
 - [`enterpriseServer219`](docs/ghe-219.md#others)
-- [`enterpriseServer218Admin`](docs/ghe-218.md#admin)
-- [`enterpriseServer218`](docs/ghe-218.md#others)
-- [`enterpriseServer217Admin`](docs/ghe-217.md#admin)
-- [`enterpriseServer217`](docs/ghe-217.md#others)
 
 ## How it works
 
