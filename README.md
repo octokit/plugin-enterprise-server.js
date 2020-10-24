@@ -18,7 +18,6 @@ Browsers
 </th><td width=100%>
 
 Load `@octokit/plugin-enterprise-server` and [`@octokit/core`](https://github.com/octokit/core.js) (or core-compatible module) directly from [cdn.skypack.dev](https://cdn.skypack.dev)
- 
 
 ```html
 <script type="module">
