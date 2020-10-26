@@ -1,6 +1,6 @@
 // THIS FILE IS GENERATED. PLEASE OPEN AN ISSUE IF YOU FIND A PROBLEM
 
-import { Octokit } from "@octokit/core";
+import type { Octokit } from "@octokit/core";
 
 import { VERSION } from "./version";
 import { endpointsToMethods } from "./endpoints-to-methods";

@@ -36,6 +36,9 @@
   "dependencies": {
     "@octokit/types": "^5.1.0"
   },
+  "peerDependencies": {
+    "@octokit/core": ">=3"
+  },
   "devDependencies": {
     "@octokit/core": "^3.0.0",
     "@octokit/graphql": "^4.2.0",
