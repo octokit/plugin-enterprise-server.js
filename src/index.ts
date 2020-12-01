@@ -1,12 +1,9 @@
 // THIS FILE IS GENERATED. PLEASE OPEN AN ISSUE IF YOU FIND A PROBLEM
 
-import type { Octokit } from "@octokit/core";
+import { Octokit } from "@octokit/core";
 
 import { VERSION } from "./version";
 import { endpointsToMethods } from "./endpoints-to-methods";
-
-import ENDPOINTS_219 from "./generated/ghe-219-endpoints";
-import ADMIN_ENDPOINTS_219 from "./generated/ghe-219-admin-endpoints";
 
 import ENDPOINTS_220 from "./generated/ghe-220-endpoints";
 import ADMIN_ENDPOINTS_220 from "./generated/ghe-220-admin-endpoints";
@@ -16,16 +13,6 @@ import ADMIN_ENDPOINTS_221 from "./generated/ghe-221-admin-endpoints";
 
 import ENDPOINTS_222 from "./generated/ghe-222-endpoints";
 import ADMIN_ENDPOINTS_222 from "./generated/ghe-222-admin-endpoints";
-
-export function enterpriseServer219Admin(octokit: Octokit) {
-  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_219);
-}
-enterpriseServer219Admin.VERSION = VERSION;
-
-export function enterpriseServer219(octokit: Octokit) {
-  return endpointsToMethods(octokit, ENDPOINTS_219);
-}
-enterpriseServer219.VERSION = VERSION;
 
 export function enterpriseServer220Admin(octokit: Octokit) {
   return endpointsToMethods(octokit, ADMIN_ENDPOINTS_220);

@@ -65,8 +65,6 @@ The list of currently exported plugins are
 - [`enterpriseServer221`](docs/ghe-221.md#others)
 - [`enterpriseServer220Admin`](docs/ghe-220.md#admin)
 - [`enterpriseServer220`](docs/ghe-220.md#others)
-- [`enterpriseServer219Admin`](docs/ghe-219.md#admin)
-- [`enterpriseServer219`](docs/ghe-219.md#others)
 
 ## How it works
 
