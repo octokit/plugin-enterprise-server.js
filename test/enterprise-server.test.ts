@@ -1,7 +1,7 @@
 import fetchMock from "fetch-mock";
 import { Octokit } from "@octokit/core";
 
-import { enterpriseServer219Admin } from "../src";
+import { enterpriseServer222Admin } from "../src";
 
 describe("enterpriseCloud plugin", () => {
   it("README example", async () => {
@@ -14,7 +14,7 @@ describe("enterpriseCloud plugin", () => {
         },
       });
 
-    const MyOctokit = Octokit.plugin(enterpriseServer219Admin);
+    const MyOctokit = Octokit.plugin(enterpriseServer222Admin);
     const octokit = new MyOctokit({
       auth: "secret123",
       baseUrl: "https://github.acme-inc.com/api/v3",
@@ -23,7 +23,7 @@ describe("enterpriseCloud plugin", () => {
       },
     });
 
-    // See https://developer.github.com/enterprise/2.19/v3/enterprise-admin/users/#create-a-new-user
+    // https://docs.github.com/en/enterprise-server@2.22/rest/reference/enterprise-admin#create-a-user
     const { data } = await octokit.enterpriseAdmin.createUser({
       username: "octocat",
       email: "octocat@acme-inc.com",

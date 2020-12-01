@@ -72,9 +72,10 @@ async function main() {
   for (const ghe of GHE_VERSIONS) {
     console.log("Loading endpoints for GHE 2.%s", ghe.substr(1));
     const { endpoints } = await graphql(QUERY, {
-      url: "https://github-openapi-graphql-server.vercel.app/api/graphql",
+      // url: "https://github-openapi-graphql-server.vercel.app/api/graphql",
+      url: "http://localhost:3000/api/graphql",
       version,
-      ignoreChangesBefore: "2019-01-01",
+      ignoreChangesBefore: "2020-12-01",
       ghe: `GHE_${ghe}`,
     });
 

@@ -4,8 +4,6 @@ const { resolve: pathResolve } = require("path");
 const prettier = require("prettier");
 const sortKeys = require("sort-keys");
 
-const WORKAROUNDS = require("./workarounds");
-
 const GHE_VERSIONS = require("./ghe-versions");
 const newRoutes = {};
 const params = {};
@@ -15,14 +13,11 @@ generateRoutes();
 async function generateRoutes() {
   for (const version of GHE_VERSIONS) {
     const endpoints = require(`./generated/ghe${version}-endpoints.json`);
-    endpoints.concat(WORKAROUNDS).forEach((endpoint) => {
+    endpoints.forEach((endpoint) => {
       const scope = endpoint.scope;
 
       const idName = endpoint.id;
-      const route = `${endpoint.method} ${endpoint.url.replace(
-        /\{([^}]+)}/g,
-        ":$1"
-      )}`;
+      const route = `${endpoint.method} ${endpoint.url}`;
       const endpointDefaults = {};
       const endpointDecorations = {};
 
