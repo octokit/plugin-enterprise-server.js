@@ -68,7 +68,7 @@ The list of currently exported plugins are
 
 ## How it works
 
-The route definitions for the currently supported GitHub Enterprise versions are build automatically from [`@octokit/routes`](https://github.com/octokit/routes). Each time there is a new `@octokit/routes` release, the [`.github/workflows/routes-update.yml`](.github/workflows/routes-update.yml) workflow is triggered. If an update to [`routes.json`](routes.json) is found, a pull request is created.
+The route definitions for the currently supported GitHub Enterprise versions are build automatically from [`@octokit/openapi`](https://github.com/octokit/openapi). Each time there is a new `@octokit/openapi` release, the [`.github/workflows/update.yml`](.github/workflows/update.yml) workflow is triggered. If an update is found, a pull request is created.
 
 ## LICENSE
 
