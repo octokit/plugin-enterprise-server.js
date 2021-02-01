@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/octokit/plugin-enterprise-server.js#readme",
   "dependencies": {
-    "@octokit/types": "^6.7.0"
+    "@octokit/types": "^6.7.1"
   },
   "peerDependencies": {
     "@octokit/core": ">=3"
