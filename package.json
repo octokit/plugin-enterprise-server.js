@@ -15,10 +15,7 @@
     "update-endpoints:fetch-json": "node scripts/update-endpoints/fetch-json",
     "update-endpoints:code": "node scripts/update-endpoints/code"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/octokit/plugin-enterprise-server.js.git"
-  },
+  "repository": "github:octokit/plugin-enterprise-server.js",
   "keywords": [
     "octokit",
     "github",
@@ -29,10 +26,6 @@
   ],
   "author": "Gregor Martynus (https://github.com/gr2m)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/octokit/plugin-enterprise-server.js/issues"
-  },
-  "homepage": "https://github.com/octokit/plugin-enterprise-server.js#readme",
   "dependencies": {
     "@octokit/types": "^6.12.0"
   },
