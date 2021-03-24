@@ -200,10 +200,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /codes_of_conduct/{key}",
       { mediaType: { previews: ["scarlet-witch"] } },
     ],
-    getForRepo: [
-      "GET /repos/{owner}/{repo}/community/code_of_conduct",
-      { mediaType: { previews: ["scarlet-witch"] } },
-    ],
   },
   emojis: { get: ["GET /emojis"] },
   enterpriseAdmin: {
@@ -470,88 +466,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getOctocat: ["GET /octocat"],
     getZen: ["GET /zen"],
     root: ["GET /"],
-  },
-  oauthAuthorizations: {
-    createAuthorization: [
-      "POST /authorizations",
-      {},
-      {
-        deprecated:
-          "octokit.scim.createAuthorization() is deprecated, see https://docs.github.com/enterprise-server@2.20/rest/reference/oauth-authorizations#create-a-new-authorization",
-      },
-    ],
-    deleteAuthorization: [
-      "DELETE /authorizations/{authorization_id}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.deleteAuthorization() is deprecated, see https://docs.github.com/enterprise-server@2.20/rest/reference/oauth-authorizations#delete-an-authorization",
-      },
-    ],
-    deleteGrant: [
-      "DELETE /applications/grants/{grant_id}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.deleteGrant() is deprecated, see https://docs.github.com/enterprise-server@2.20/rest/reference/oauth-authorizations#delete-a-grant",
-      },
-    ],
-    getAuthorization: [
-      "GET /authorizations/{authorization_id}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.getAuthorization() is deprecated, see https://docs.github.com/enterprise-server@2.20/rest/reference/oauth-authorizations#get-a-single-authorization",
-      },
-    ],
-    getGrant: [
-      "GET /applications/grants/{grant_id}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.getGrant() is deprecated, see https://docs.github.com/enterprise-server@2.20/rest/reference/oauth-authorizations#get-a-single-grant",
-      },
-    ],
-    getOrCreateAuthorizationForApp: [
-      "PUT /authorizations/clients/{client_id}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.getOrCreateAuthorizationForApp() is deprecated, see https://docs.github.com/enterprise-server@2.20/rest/reference/oauth-authorizations#get-or-create-an-authorization-for-a-specific-app",
-      },
-    ],
-    getOrCreateAuthorizationForAppAndFingerprint: [
-      "PUT /authorizations/clients/{client_id}/{fingerprint}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.getOrCreateAuthorizationForAppAndFingerprint() is deprecated, see https://docs.github.com/enterprise-server@2.20/rest/reference/oauth-authorizations#get-or-create-an-authorization-for-a-specific-app-and-fingerprint",
-      },
-    ],
-    listAuthorizations: [
-      "GET /authorizations",
-      {},
-      {
-        deprecated:
-          "octokit.scim.listAuthorizations() is deprecated, see https://docs.github.com/enterprise-server@2.20/rest/reference/oauth-authorizations#list-your-authorizations",
-      },
-    ],
-    listGrants: [
-      "GET /applications/grants",
-      {},
-      {
-        deprecated:
-          "octokit.scim.listGrants() is deprecated, see https://docs.github.com/enterprise-server@2.20/rest/reference/oauth-authorizations#list-your-grants",
-      },
-    ],
-    updateAuthorization: [
-      "PATCH /authorizations/{authorization_id}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.updateAuthorization() is deprecated, see https://docs.github.com/enterprise-server@2.20/rest/reference/oauth-authorizations#update-an-existing-authorization",
-      },
-    ],
   },
   orgs: {
     checkMembershipForUser: ["GET /orgs/{org}/members/{username}"],
@@ -837,7 +751,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /repos/{owner}/{repo}/deployments/{deployment_id}/statuses",
     ],
     createForAuthenticatedUser: ["POST /user/repos"],
-    createFork: ["POST /repos/{owner}/{repo}/forks"],
+    createFork: ["POST /repos/{owner}/{repo}/forks{?org,organization}"],
     createInOrg: ["POST /orgs/{org}/repos"],
     createOrUpdateFileContents: ["PUT /repos/{owner}/{repo}/contents/{path}"],
     createPagesSite: [
@@ -886,11 +800,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     disableVulnerabilityAlerts: [
       "DELETE /repos/{owner}/{repo}/vulnerability-alerts",
       { mediaType: { previews: ["dorian"] } },
-    ],
-    downloadArchive: [
-      "GET /repos/{owner}/{repo}/zipball/{ref}",
-      {},
-      { renamed: ["repos", "downloadZipballArchive"] },
     ],
     downloadTarballArchive: ["GET /repos/{owner}/{repo}/tarball/{ref}"],
     downloadZipballArchive: ["GET /repos/{owner}/{repo}/zipball/{ref}"],
@@ -948,6 +857,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     getPunchCardStats: ["GET /repos/{owner}/{repo}/stats/punch_card"],
     getReadme: ["GET /repos/{owner}/{repo}/readme"],
+    getReadmeInDirectory: ["GET /repos/{owner}/{repo}/readme/{dir}"],
     getRelease: ["GET /repos/{owner}/{repo}/releases/{release_id}"],
     getReleaseAsset: ["GET /repos/{owner}/{repo}/releases/assets/{asset_id}"],
     getReleaseByTag: ["GET /repos/{owner}/{repo}/releases/tags/{tag}"],
@@ -1058,11 +968,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     updateRelease: ["PATCH /repos/{owner}/{repo}/releases/{release_id}"],
     updateReleaseAsset: [
       "PATCH /repos/{owner}/{repo}/releases/assets/{asset_id}",
-    ],
-    updateStatusCheckPotection: [
-      "PATCH /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks",
-      {},
-      { renamed: ["repos", "updateStatusCheckProtection"] },
     ],
     updateStatusCheckProtection: [
       "PATCH /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks",
