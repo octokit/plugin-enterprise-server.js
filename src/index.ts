@@ -14,6 +14,9 @@ import ADMIN_ENDPOINTS_221 from "./generated/ghe-221-admin-endpoints";
 import ENDPOINTS_222 from "./generated/ghe-222-endpoints";
 import ADMIN_ENDPOINTS_222 from "./generated/ghe-222-admin-endpoints";
 
+import ENDPOINTS_30 from "./generated/ghe-30-endpoints";
+import ADMIN_ENDPOINTS_30 from "./generated/ghe-30-admin-endpoints";
+
 export function enterpriseServer220Admin(octokit: Octokit) {
   return endpointsToMethods(octokit, ADMIN_ENDPOINTS_220);
 }
@@ -43,3 +46,13 @@ export function enterpriseServer222(octokit: Octokit) {
   return endpointsToMethods(octokit, ENDPOINTS_222);
 }
 enterpriseServer222.VERSION = VERSION;
+
+export function enterpriseServer30Admin(octokit: Octokit) {
+  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_30);
+}
+enterpriseServer30Admin.VERSION = VERSION;
+
+export function enterpriseServer30(octokit: Octokit) {
+  return endpointsToMethods(octokit, ENDPOINTS_30);
+}
+enterpriseServer30.VERSION = VERSION;
