@@ -59,6 +59,8 @@ octokit.enterpriseAdmin.createUser({
 
 The list of currently exported plugins are
 
+- [`enterpriseServer30Admin`](docs/ghe-30.md#admin)
+- [`enterpriseServer30`](docs/ghe-30.md#others)
 - [`enterpriseServer222Admin`](docs/ghe-222.md#admin)
 - [`enterpriseServer222`](docs/ghe-222.md#others)
 - [`enterpriseServer221Admin`](docs/ghe-221.md#admin)
