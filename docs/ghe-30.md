@@ -531,7 +531,7 @@ octokit.repos.createCommitComment({owner, repo, commit_sha, body, path, position
 octokit.repos.createCommitSignatureProtection({owner, repo, branch});
 octokit.repos.createCommitStatus({owner, repo, sha, state, target_url, description, context});
 octokit.repos.createDeployKey({owner, repo, title, key, read_only});
-octokit.repos.createDeployment({owner, repo, ref, task, auto_merge, required_contexts, payload, environment, description, transient_environment, production_environment, created_at});
+octokit.repos.createDeployment({owner, repo, ref, task, auto_merge, required_contexts, payload, environment, description, transient_environment, production_environment});
 octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive});
 octokit.repos.createDispatchEvent({owner, repo, event_type, client_payload});
 octokit.repos.createForAuthenticatedUser({name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge, delete_branch_on_merge, has_downloads, is_template});
