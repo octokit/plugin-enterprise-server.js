@@ -27449,49 +27449,6 @@
     "renamed": null
   },
   {
-    "name": "Disable vulnerability alerts",
-    "scope": "repos",
-    "id": "disableVulnerabilityAlerts",
-    "method": "DELETE",
-    "url": "/repos/{owner}/{repo}/vulnerability-alerts",
-    "isDeprecated": false,
-    "deprecationDate": null,
-    "description": "Disables dependency alerts and the dependency graph for a repository. The authenticated user must have admin access to the repository. For more information, see \"[About security alerts for vulnerable dependencies](https://help.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)\".",
-    "documentationUrl": "https://docs.github.com/enterprise-server@2.21/rest/reference/repos#disable-vulnerability-alerts",
-    "previews": [{ "name": "dorian" }],
-    "headers": [],
-    "parameters": [
-      {
-        "name": "owner",
-        "description": "",
-        "in": "PATH",
-        "type": "string",
-        "required": true,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      },
-      {
-        "name": "repo",
-        "description": "",
-        "in": "PATH",
-        "type": "string",
-        "required": true,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      }
-    ],
-    "responses": [{ "code": 204, "description": "Response", "examples": null }],
-    "renamed": null
-  },
-  {
     "name": "Download a repository archive (tar)",
     "scope": "repos",
     "id": "downloadTarballArchive",
@@ -27601,49 +27558,6 @@
       }
     ],
     "responses": [{ "code": 302, "description": "Response", "examples": null }],
-    "renamed": null
-  },
-  {
-    "name": "Enable vulnerability alerts",
-    "scope": "repos",
-    "id": "enableVulnerabilityAlerts",
-    "method": "PUT",
-    "url": "/repos/{owner}/{repo}/vulnerability-alerts",
-    "isDeprecated": false,
-    "deprecationDate": null,
-    "description": "Enables dependency alerts and the dependency graph for a repository. The authenticated user must have admin access to the repository. For more information, see \"[About security alerts for vulnerable dependencies](https://help.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)\".",
-    "documentationUrl": "https://docs.github.com/enterprise-server@2.21/rest/reference/repos#enable-vulnerability-alerts",
-    "previews": [{ "name": "dorian" }],
-    "headers": [],
-    "parameters": [
-      {
-        "name": "owner",
-        "description": "",
-        "in": "PATH",
-        "type": "string",
-        "required": true,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      },
-      {
-        "name": "repo",
-        "description": "",
-        "in": "PATH",
-        "type": "string",
-        "required": true,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      }
-    ],
-    "responses": [{ "code": 204, "description": "Response", "examples": null }],
     "renamed": null
   },
   {

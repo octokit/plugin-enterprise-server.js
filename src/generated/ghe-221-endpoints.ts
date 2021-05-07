@@ -881,16 +881,8 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /repos/{owner}/{repo}/releases/assets/{asset_id}",
     ],
     deleteWebhook: ["DELETE /repos/{owner}/{repo}/hooks/{hook_id}"],
-    disableVulnerabilityAlerts: [
-      "DELETE /repos/{owner}/{repo}/vulnerability-alerts",
-      { mediaType: { previews: ["dorian"] } },
-    ],
     downloadTarballArchive: ["GET /repos/{owner}/{repo}/tarball/{ref}"],
     downloadZipballArchive: ["GET /repos/{owner}/{repo}/zipball/{ref}"],
-    enableVulnerabilityAlerts: [
-      "PUT /repos/{owner}/{repo}/vulnerability-alerts",
-      { mediaType: { previews: ["dorian"] } },
-    ],
     get: ["GET /repos/{owner}/{repo}"],
     getAccessRestrictions: [
       "GET /repos/{owner}/{repo}/branches/{branch}/protection/restrictions",
