@@ -30214,6 +30214,7 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
+      { "code": 307, "description": "Temporary Redirect", "examples": null },
       {
         "code": 403,
         "description": "If an organization owner has configured the organization to prevent members from deleting organization-owned repositories, a member will get this response:",
@@ -37540,6 +37541,7 @@
           }
         ]
       },
+      { "code": 307, "description": "Temporary Redirect", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 422, "description": "Validation failed", "examples": null }
