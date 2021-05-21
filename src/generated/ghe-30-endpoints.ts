@@ -196,10 +196,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     createContentAttachment: [
       "POST /content_references/{content_reference_id}/attachments",
       { mediaType: { previews: ["corsair"] } },
-      {
-        deprecated:
-          "octokit.scim.createContentAttachment() is deprecated, see https://docs.github.com/rest/reference/apps#create-a-content-attachment",
-      },
     ],
     createContentAttachmentForRepo: [
       "POST /repos/{owner}/{repo}/content_references/{content_reference_id}/attachments",
@@ -942,14 +938,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users",
     ],
     checkCollaborator: ["GET /repos/{owner}/{repo}/collaborators/{username}"],
-    compareCommits: [
-      "GET /repos/{owner}/{repo}/compare/{base}...{head}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.compareCommits() is deprecated, see https://docs.github.com/rest/reference/repos#compare-two-commits",
-      },
-    ],
+    compareCommits: ["GET /repos/{owner}/{repo}/compare/{base}...{head}"],
     compareCommitsWithBasehead: [
       "GET /repos/{owner}/{repo}/compare/{basehead}",
     ],
