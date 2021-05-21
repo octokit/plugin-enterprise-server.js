@@ -196,6 +196,14 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     createContentAttachment: [
       "POST /content_references/{content_reference_id}/attachments",
       { mediaType: { previews: ["corsair"] } },
+      {
+        deprecated:
+          "octokit.scim.createContentAttachment() is deprecated, see https://docs.github.com/rest/reference/apps#create-a-content-attachment",
+      },
+    ],
+    createContentAttachmentForRepo: [
+      "POST /repos/{owner}/{repo}/content_references/{content_reference_id}/attachments",
+      { mediaType: { previews: ["corsair"] } },
     ],
     createFromManifest: ["POST /app-manifests/{code}/conversions"],
     createInstallationAccessToken: [
@@ -934,7 +942,17 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users",
     ],
     checkCollaborator: ["GET /repos/{owner}/{repo}/collaborators/{username}"],
-    compareCommits: ["GET /repos/{owner}/{repo}/compare/{base}...{head}"],
+    compareCommits: [
+      "GET /repos/{owner}/{repo}/compare/{base}...{head}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.compareCommits() is deprecated, see https://docs.github.com/rest/reference/repos#compare-two-commits",
+      },
+    ],
+    compareCommitsWithBasehead: [
+      "GET /repos/{owner}/{repo}/compare/{basehead}",
+    ],
     createCommitComment: [
       "POST /repos/{owner}/{repo}/commits/{commit_sha}/comments",
     ],
