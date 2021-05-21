@@ -27,7 +27,7 @@
   "author": "Gregor Martynus (https://github.com/gr2m)",
   "license": "MIT",
   "dependencies": {
-    "@octokit/types": "^6.15.0"
+    "@octokit/types": "^6.16.0"
   },
   "peerDependencies": {
     "@octokit/core": ">=3"
