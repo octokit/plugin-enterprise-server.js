@@ -16,7 +16,7 @@ export function endpointsToMethods(
   octokit: Octokit,
   endpointsMap: EndpointsDefaultsAndDecorations
 ) {
-  const newMethods = {} as { [key: string]: object };
+  const newMethods = {} as Record<string, Record<string, Function>>;
 
   for (const [scope, endpoints] of Object.entries(endpointsMap)) {
     for (const [methodName, endpoint] of Object.entries(endpoints)) {
