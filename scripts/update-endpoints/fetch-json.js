@@ -1,7 +1,7 @@
-const { readFileSync, writeFileSync } = require("fs");
+const { writeFileSync } = require("fs");
 const path = require("path");
 
-const { graphql } = require("@octokit/graphql");
+const graphql = require("github-openapi-graphql-query");
 const prettier = require("prettier");
 
 if (!process.env.VERSION) {
@@ -70,10 +70,14 @@ main();
 
 async function main() {
   for (const ghe of GHE_VERSIONS) {
-    console.log("Loading endpoints for GHE %s.%s", ghe.substr(0, 1), ghe.substr(1));
-    const { endpoints } = await graphql(QUERY, {
-      baseUrl: "https://github-openapi-graphql-server.vercel.app/api",
-      // baseUrl: "http://localhost:3000/api",
+    console.log(
+      "Loading endpoints for GHE %s.%s",
+      ghe.substr(0, 1),
+      ghe.substr(1)
+    );
+    const {
+      data: { endpoints },
+    } = await graphql(QUERY, {
       version,
       ignoreChangesBefore: "2020-12-01",
       ghe: `GHE_${ghe}`,
