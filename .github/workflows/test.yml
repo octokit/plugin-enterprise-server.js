@@ -9,11 +9,11 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  test:
+  test_matrix:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [10, 12]
+        node_version: [10, 12, 14, 16]
 
     steps:
       - uses: actions/checkout@master
@@ -22,4 +22,13 @@ jobs:
         with:
           version: ${{ matrix.node_version }}
       - run: npm ci
-      - run: npm run test
+      - run: npx jest --coverage
+
+  test:
+    runs-on: ubuntu-latest
+    needs: test_matrix
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
