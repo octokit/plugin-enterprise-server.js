@@ -13,7 +13,8 @@
     "test": "jest --coverage",
     "update-endpoints": "npm-run-all update-endpoints:*",
     "update-endpoints:fetch-json": "node scripts/update-endpoints/fetch-json",
-    "update-endpoints:code": "node scripts/update-endpoints/code"
+    "update-endpoints:code": "node scripts/update-endpoints/code",
+    "update-endpoints:types": "node scripts/update-endpoints/types"
   },
   "repository": "github:octokit/plugin-enterprise-server.js",
   "keywords": [
@@ -44,11 +45,13 @@
     "fetch-mock": "^9.0.0",
     "github-openapi-graphql-query": "^1.0.5",
     "jest": "^27.0.0",
+    "lodash.camelcase": "^4.3.0",
     "npm-run-all": "^4.1.5",
     "prettier": "2.3.2",
     "semantic-release": "^17.0.0",
     "semantic-release-plugin-update-version-in-files": "^1.0.0",
     "sort-keys": "^4.2.0",
+    "string-to-jsdoc-comment": "^1.0.0",
     "ts-jest": "^27.0.0-next.12",
     "typescript": "^4.0.2"
   },

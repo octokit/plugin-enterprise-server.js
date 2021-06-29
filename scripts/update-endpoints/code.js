@@ -110,16 +110,19 @@ async function generateRoutes() {
       (version) => `
         import ENDPOINTS_${version} from "./generated/ghe-${version}-endpoints";
         import ADMIN_ENDPOINTS_${version} from "./generated/ghe-${version}-admin-endpoints";
+        import { RestEndpointMethods as RestEndpointMethods_${version} } from "./generated/ghe-${version}-method-types";
       `
     ).join("\n");
     const methods = GHE_VERSIONS.map(
       (version) => `
-        export function enterpriseServer${version}Admin(octokit: Octokit) {
+        export function enterpriseServer${version}Admin(octokit: Octokit): { enterpriseAdmin: RestEndpointMethods_${version}["enterpriseAdmin"] } {
+          // @ts-ignore - not worth the hassle
           return endpointsToMethods(octokit, ADMIN_ENDPOINTS_${version});
         }
         enterpriseServer${version}Admin.VERSION = VERSION;
 
-        export function enterpriseServer${version}(octokit: Octokit) {
+        export function enterpriseServer${version}(octokit: Octokit): RestEndpointMethods_${version} {
+          // @ts-ignore - not worth the hassle
           return endpointsToMethods(octokit, ENDPOINTS_${version});
         }
         enterpriseServer${version}.VERSION = VERSION;

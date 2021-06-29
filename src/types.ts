@@ -1,8 +1,14 @@
 import { Route, RequestParameters } from "@octokit/types";
 
-type EndpointDecorations = {
+import { RestEndpointMethods } from "./generated/method-types";
+
+export type EndpointDecorations = {
+  mapToData?: string;
   deprecated?: string;
   renamed?: [string, string];
+  renamedParameters?: {
+    [name: string]: string;
+  };
 };
 
 export type EndpointsDefaultsAndDecorations = {
