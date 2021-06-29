@@ -345,10 +345,12 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "PUT /enterprises/{enterprise}/actions/permissions/organizations/{org_id}",
     ],
     getAllAuthorizedSshKeys: ["GET /setup/api/settings/authorized-keys"],
+    getAllStats: ["GET /enterprise/stats/gists"],
     getAllowedActionsEnterprise: [
       "GET /enterprises/{enterprise}/actions/permissions/selected-actions",
     ],
     getAnnouncement: ["GET /enterprise/announcement"],
+    getCommentStats: ["GET /enterprise/stats/comments"],
     getConfigurationStatus: ["GET /setup/api/configcheck"],
     getDownloadStatusForPreReceiveEnvironment: [
       "GET /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest",
@@ -361,8 +363,13 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /admin/hooks/{hook_id}",
       { mediaType: { previews: ["superpro"] } },
     ],
+    getHooksStats: ["GET /enterprise/stats/hooks"],
+    getIssueStats: ["GET /enterprise/stats/issues"],
     getLicenseInformation: ["GET /enterprise/settings/license"],
     getMaintenanceStatus: ["GET /setup/api/maintenance"],
+    getMilestoneStats: ["GET /enterprise/stats/milestones"],
+    getOrgStats: ["GET /enterprise/stats/orgs"],
+    getPagesStats: ["GET /enterprise/stats/pages"],
     getPreReceiveEnvironment: [
       "GET /admin/pre-receive-environments/{pre_receive_environment_id}",
       { mediaType: { previews: ["eye-scream"] } },
@@ -379,8 +386,10 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
       { mediaType: { previews: ["eye-scream"] } },
     ],
+    getPullRequestStats: ["GET /enterprise/stats/pulls"],
+    getRepoStats: ["GET /enterprise/stats/repos"],
     getSettings: ["GET /setup/api/settings"],
-    getTypeStats: ["GET /enterprise/stats/{type}"],
+    getUserStats: ["GET /enterprise/stats/users"],
     listGlobalWebhooks: [
       "GET /admin/hooks",
       { mediaType: { previews: ["superpro"] } },
