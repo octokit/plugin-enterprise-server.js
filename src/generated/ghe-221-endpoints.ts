@@ -196,14 +196,8 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
   },
   codesOfConduct: {
-    getAllCodesOfConduct: [
-      "GET /codes_of_conduct",
-      { mediaType: { previews: ["scarlet-witch"] } },
-    ],
-    getConductCode: [
-      "GET /codes_of_conduct/{key}",
-      { mediaType: { previews: ["scarlet-witch"] } },
-    ],
+    getAllCodesOfConduct: ["GET /codes_of_conduct"],
+    getConductCode: ["GET /codes_of_conduct/{key}"],
   },
   emojis: { get: ["GET /emojis"] },
   enterpriseAdmin: {
