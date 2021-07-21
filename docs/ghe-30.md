@@ -244,8 +244,8 @@ octokit.actions.listSelectedRepositoriesEnabledGithubActionsOrganization({org, p
 octokit.actions.listSelfHostedRunnersForOrg({org, per_page, page});
 octokit.actions.listSelfHostedRunnersForRepo({owner, repo, per_page, page});
 octokit.actions.listWorkflowRunArtifacts({owner, repo, run_id, per_page, page});
-octokit.actions.listWorkflowRuns({owner, repo, workflow_id, actor, branch, event, status, per_page, page});
-octokit.actions.listWorkflowRunsForRepo({owner, repo, actor, branch, event, status, per_page, page});
+octokit.actions.listWorkflowRuns({owner, repo, workflow_id, actor, branch, event, status, per_page, page, created});
+octokit.actions.listWorkflowRunsForRepo({owner, repo, actor, branch, event, status, per_page, page, created});
 octokit.actions.reRunWorkflow({owner, repo, run_id});
 octokit.actions.removeSelectedRepoFromOrgSecret({org, secret_name, repository_id});
 octokit.actions.setAllowedActionsOrganization({org, github_owned_allowed, patterns_allowed});
