@@ -19762,6 +19762,32 @@
         "validation": null,
         "alias": null,
         "deprecated": null
+      },
+      {
+        "name": "labels",
+        "description": "",
+        "in": "BODY",
+        "type": "object[]",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "labels[].name",
+        "description": "",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
       }
     ],
     "responses": [
