@@ -5,54 +5,54 @@ import { Octokit } from "@octokit/core";
 import { VERSION } from "./version";
 import { endpointsToMethods } from "./endpoints-to-methods";
 
-import ENDPOINTS_220 from "./generated/ghe-220-endpoints";
-import ADMIN_ENDPOINTS_220 from "./generated/ghe-220-admin-endpoints";
+import ENDPOINTS_32 from "./generated/ghe-32-endpoints";
+import ADMIN_ENDPOINTS_32 from "./generated/ghe-32-admin-endpoints";
 
-import ENDPOINTS_221 from "./generated/ghe-221-endpoints";
-import ADMIN_ENDPOINTS_221 from "./generated/ghe-221-admin-endpoints";
+import ENDPOINTS_33 from "./generated/ghe-33-endpoints";
+import ADMIN_ENDPOINTS_33 from "./generated/ghe-33-admin-endpoints";
 
-import ENDPOINTS_222 from "./generated/ghe-222-endpoints";
-import ADMIN_ENDPOINTS_222 from "./generated/ghe-222-admin-endpoints";
+import ENDPOINTS_34 from "./generated/ghe-34-endpoints";
+import ADMIN_ENDPOINTS_34 from "./generated/ghe-34-admin-endpoints";
 
-import ENDPOINTS_30 from "./generated/ghe-30-endpoints";
-import ADMIN_ENDPOINTS_30 from "./generated/ghe-30-admin-endpoints";
+import ENDPOINTS_35 from "./generated/ghe-35-endpoints";
+import ADMIN_ENDPOINTS_35 from "./generated/ghe-35-admin-endpoints";
 
-export function enterpriseServer220Admin(octokit: Octokit) {
-  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_220);
+export function enterpriseServer32Admin(octokit: Octokit) {
+  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_32);
 }
-enterpriseServer220Admin.VERSION = VERSION;
+enterpriseServer32Admin.VERSION = VERSION;
 
-export function enterpriseServer220(octokit: Octokit) {
-  return endpointsToMethods(octokit, ENDPOINTS_220);
+export function enterpriseServer32(octokit: Octokit) {
+  return endpointsToMethods(octokit, ENDPOINTS_32);
 }
-enterpriseServer220.VERSION = VERSION;
+enterpriseServer32.VERSION = VERSION;
 
-export function enterpriseServer221Admin(octokit: Octokit) {
-  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_221);
+export function enterpriseServer33Admin(octokit: Octokit) {
+  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_33);
 }
-enterpriseServer221Admin.VERSION = VERSION;
+enterpriseServer33Admin.VERSION = VERSION;
 
-export function enterpriseServer221(octokit: Octokit) {
-  return endpointsToMethods(octokit, ENDPOINTS_221);
+export function enterpriseServer33(octokit: Octokit) {
+  return endpointsToMethods(octokit, ENDPOINTS_33);
 }
-enterpriseServer221.VERSION = VERSION;
+enterpriseServer33.VERSION = VERSION;
 
-export function enterpriseServer222Admin(octokit: Octokit) {
-  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_222);
+export function enterpriseServer34Admin(octokit: Octokit) {
+  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_34);
 }
-enterpriseServer222Admin.VERSION = VERSION;
+enterpriseServer34Admin.VERSION = VERSION;
 
-export function enterpriseServer222(octokit: Octokit) {
-  return endpointsToMethods(octokit, ENDPOINTS_222);
+export function enterpriseServer34(octokit: Octokit) {
+  return endpointsToMethods(octokit, ENDPOINTS_34);
 }
-enterpriseServer222.VERSION = VERSION;
+enterpriseServer34.VERSION = VERSION;
 
-export function enterpriseServer30Admin(octokit: Octokit) {
-  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_30);
+export function enterpriseServer35Admin(octokit: Octokit) {
+  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_35);
 }
-enterpriseServer30Admin.VERSION = VERSION;
+enterpriseServer35Admin.VERSION = VERSION;
 
-export function enterpriseServer30(octokit: Octokit) {
-  return endpointsToMethods(octokit, ENDPOINTS_30);
+export function enterpriseServer35(octokit: Octokit) {
+  return endpointsToMethods(octokit, ENDPOINTS_35);
 }
-enterpriseServer30.VERSION = VERSION;
+enterpriseServer35.VERSION = VERSION;
