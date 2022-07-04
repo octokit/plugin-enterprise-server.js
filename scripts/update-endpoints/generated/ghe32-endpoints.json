@@ -300,7 +300,7 @@
         "name": "selected_repository_ids",
         "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/enterprise-server@3.2/rest/reference/actions#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/enterprise-server@3.2/rest/reference/actions#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/enterprise-server@3.2/rest/reference/actions#remove-selected-repository-from-an-organization-secret) endpoints.",
         "in": "BODY",
-        "type": "string[]",
+        "type": "integer[]",
         "required": false,
         "enum": null,
         "allowNull": false,
@@ -10810,13 +10810,21 @@
       }
     ],
     "responses": [
-      { "code": 200, "description": "Response", "examples": null },
       {
         "code": 200,
         "description": "Response",
         "examples": [
           {
             "data": "{\"ref\":\"refs/heads/main\",\"commit_sha\":\"c18c69115654ff0166991962832dc2bd7756e655\",\"analysis_key\":\".github/workflows/codeql-analysis.yml:analyze\",\"environment\":\"{\\\"language\\\":\\\"javascript\\\"}\",\"error\":\"\",\"category\":\".github/workflows/codeql-analysis.yml:analyze/language:javascript\",\"created_at\":\"2021-01-13T11:55:49Z\",\"results_count\":3,\"rules_count\":67,\"id\":3602840,\"url\":\"https://api.github.com/repos/octocat/hello-world/code-scanning/analyses/201\",\"sarif_id\":\"47177e22-5596-11eb-80a1-c1e54ef945c6\",\"tool\":{\"name\":\"CodeQL\",\"guid\":null,\"version\":\"2.4.0\"},\"deletable\":true,\"warning\":\"\"}"
+          }
+        ]
+      },
+      {
+        "code": 200,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"runs\":[{\"tool\":{\"driver\":{\"name\":\"CodeQL\",\"organization\":\"GitHub\",\"semanticVersion\":\"1.0.0\",\"rules\":[{\"id\":\"js/unused-local-variable\",\"name\":\"js/unused-local-variable\"}]}},\"results\":[{\"guid\":\"326aa09f-9af8-13cf-9851-3d0e5183ec38\",\"message\":{\"text\":\"Unused variable foo.\"},\"locations\":[{\"physicalLocation\":{\"artifactLocation\":{\"uri\":\"file1.js\"},\"region\":{\"startLine\":1}}}],\"ruleId\":\"js/unused-local-variable\",\"properties\":[{\"github/alertNumber\":2},{\"github/alertUrl\":\"https://api.github.com/repos/monalisa/monalisa/code-scanning/alerts/2\"}]}]}]}"
           }
         ]
       },
@@ -21223,7 +21231,7 @@
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Removes one or more assignees from an issue.",
-    "documentationUrl": "https://docs.github.com/enterprise-server@3.2/rest/reference/issues#remove-assignees-from-an-issue",
+    "documentationUrl": "https://docs.github.com/rest/reference/issues#remove-assignees-from-an-issue",
     "previews": [],
     "headers": [],
     "parameters": [
@@ -21271,7 +21279,7 @@
         "description": "Usernames of assignees to remove from an issue. _NOTE: Only users with push access can remove assignees from an issue. Assignees are silently ignored otherwise._",
         "in": "BODY",
         "type": "string[]",
-        "required": false,
+        "required": true,
         "enum": null,
         "allowNull": false,
         "mapToData": null,
