@@ -4541,7 +4541,7 @@
     "url": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Approve or reject pending deployments that are waiting on approval by a required reviewer.\n\nAnyone with read access to the repository contents and deployments can use this endpoint.",
+    "description": "Approve or reject pending deployments that are waiting on approval by a required reviewer.\n\nRequired reviewers with read access to the repository contents and deployments can use this endpoint. Required reviewers must authenticate using an access token with the `repo` scope to use this endpoint.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.4/rest/reference/actions#review-pending-deployments-for-a-workflow-run",
     "previews": [],
     "headers": [],
