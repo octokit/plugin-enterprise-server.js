@@ -4527,7 +4527,7 @@
     "renamed": null
   },
   {
-    "name": "List workflow runs",
+    "name": "List workflow runs for a workflow",
     "scope": "actions",
     "id": "listWorkflowRuns",
     "method": "GET",
@@ -38253,7 +38253,7 @@
       },
       {
         "name": "use_squash_pr_title_as_default",
-        "description": "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message.",
+        "description": "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property has been deprecated. Please use `squash_merge_commit_title` instead.",
         "in": "BODY",
         "type": "boolean",
         "required": false,
@@ -40145,7 +40145,7 @@
       },
       {
         "name": "sha",
-        "description": "The blob SHA of the file being replaced.",
+        "description": "The blob SHA of the file being deleted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -48371,7 +48371,7 @@
       },
       {
         "name": "use_squash_pr_title_as_default",
-        "description": "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message.",
+        "description": "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property has been deprecated. Please use `squash_merge_commit_title` instead.",
         "in": "BODY",
         "type": "boolean",
         "required": false,
