@@ -36,7 +36,7 @@ Install with `npm install @octokit/core @octokit/plugin-enterprise-server`. Opti
 ```js
 const { Octokit } = require("@octokit/core");
 const {
-  enterpriseServer32Admin
+  enterpriseServer32Admin,
 } = require("@octokit/plugin-enterprise-server");
 ```
 
