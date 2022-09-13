@@ -642,7 +642,7 @@ octokit.repos.getWebhookConfigForRepo({owner, repo, hook_id});
 octokit.repos.getWebhookDelivery({owner, repo, hook_id, delivery_id});
 octokit.repos.listBranches({owner, repo, protected, per_page, page});
 octokit.repos.listBranchesForHeadCommit({owner, repo, commit_sha});
-octokit.repos.listCollaborators({owner, repo, affiliation, per_page, page});
+octokit.repos.listCollaborators({owner, repo, affiliation, permission, per_page, page});
 octokit.repos.listCommentsForCommit({owner, repo, commit_sha, per_page, page});
 octokit.repos.listCommitCommentsForRepo({owner, repo, per_page, page});
 octokit.repos.listCommitStatusesForRef({owner, repo, ref, per_page, page});
