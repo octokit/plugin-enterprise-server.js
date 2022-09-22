@@ -4954,7 +4954,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -5658,7 +5662,7 @@
     "url": "/user/starred",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists repositories the authenticated user has starred.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.3/rest/overview/media-types/) via the `Accept` header:",
+    "description": "Lists repositories the authenticated user has starred.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.3/rest/overview/media-types/) via the `Accept` header: `application/vnd.github.star+json`.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-repositories-starred-by-the-authenticated-user",
     "previews": [],
     "headers": [],
@@ -5753,7 +5757,7 @@
     "url": "/users/{username}/starred",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists repositories a user has starred.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.3/rest/overview/media-types/) via the `Accept` header:",
+    "description": "Lists repositories a user has starred.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.3/rest/overview/media-types/) via the `Accept` header: `application/vnd.github.star+json`.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-repositories-starred-by-a-user",
     "previews": [],
     "headers": [],
@@ -5911,7 +5915,7 @@
     "url": "/repos/{owner}/{repo}/stargazers",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists the people that have starred the repository.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.3/rest/overview/media-types/) via the `Accept` header:",
+    "description": "Lists the people that have starred the repository.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.3/rest/overview/media-types/) via the `Accept` header: `application/vnd.github.star+json`.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-stargazers",
     "previews": [],
     "headers": [],
@@ -5982,7 +5986,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -6733,7 +6741,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -6911,7 +6923,11 @@
         "description": "Preview header missing",
         "examples": null
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -6953,7 +6969,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -7443,7 +7463,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -7489,7 +7513,11 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -7568,7 +7596,11 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -7881,7 +7913,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -8205,7 +8241,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -8240,7 +8280,11 @@
       { "code": 202, "description": "Accepted", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -8451,7 +8495,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -9082,7 +9130,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -15913,7 +15965,11 @@
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -16096,7 +16152,11 @@
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -16251,7 +16311,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -16537,7 +16601,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -16675,7 +16743,11 @@
       },
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -16925,7 +16997,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -17075,7 +17151,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 409, "description": "Conflict", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -17286,7 +17366,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -17379,7 +17463,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -17537,7 +17625,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -17684,7 +17776,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -17743,7 +17839,11 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -17812,7 +17912,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -18097,7 +18201,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -18256,7 +18364,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -18496,8 +18608,14 @@
           }
         ]
       },
+      { "code": 301, "description": "Moved permanently", "examples": null },
+      { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -18699,7 +18817,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -18783,7 +18905,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -18877,7 +19003,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -18984,7 +19114,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -19688,7 +19822,11 @@
       },
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -19995,7 +20133,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -20168,7 +20310,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -20753,7 +20899,11 @@
       },
       { "code": 301, "description": "Moved permanently", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -21018,6 +21168,8 @@
           }
         ]
       },
+      { "code": 301, "description": "Moved permanently", "examples": null },
+      { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null }
     ],
     "renamed": null
@@ -21212,7 +21364,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -21271,6 +21427,8 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
+      { "code": 301, "description": "Moved permanently", "examples": null },
+      { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null }
     ],
     "renamed": null
@@ -21430,6 +21588,7 @@
           }
         ]
       },
+      { "code": 301, "description": "Moved permanently", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null }
     ],
@@ -21524,8 +21683,14 @@
           }
         ]
       },
+      { "code": 301, "description": "Moved permanently", "examples": null },
+      { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -21760,7 +21925,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -21841,7 +22010,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -22790,7 +22963,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -23150,7 +23327,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -23489,7 +23670,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -23563,7 +23748,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -23790,7 +23979,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -23964,7 +24157,11 @@
       { "code": 202, "description": "Accepted", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -24222,7 +24419,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -24587,7 +24788,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -24746,7 +24951,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -24918,7 +25127,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -25067,7 +25280,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -25128,7 +25345,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -25203,7 +25424,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -25291,7 +25516,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -25616,7 +25845,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -25790,7 +26023,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -25943,7 +26180,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -26044,7 +26285,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -26124,7 +26369,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -26194,7 +26443,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Response", "examples": null }
     ],
     "renamed": null
@@ -26252,7 +26505,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -26306,7 +26563,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -26425,7 +26686,11 @@
         "examples": null
       },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -26500,7 +26765,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -26773,7 +27042,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -27077,7 +27350,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -27262,7 +27539,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -27343,7 +27624,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -27509,7 +27794,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -27872,7 +28161,11 @@
         ]
       },
       { "code": 304, "description": "Not modified", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -28163,7 +28456,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 500, "description": "Internal Error", "examples": null },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
@@ -28709,7 +29006,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -28802,7 +29103,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29008,7 +29313,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29141,7 +29450,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29222,7 +29535,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29315,7 +29632,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29520,7 +29841,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29618,7 +29943,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29716,7 +30045,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29814,7 +30147,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29903,7 +30240,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -31992,7 +32333,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -32078,7 +32423,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -32160,7 +32509,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -32240,7 +32593,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -32320,7 +32677,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -32682,7 +33043,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -32802,7 +33167,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33080,7 +33449,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33265,7 +33638,11 @@
         "description": "Conflict when there is a merge conflict or the commit's status checks failed",
         "examples": null
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33523,7 +33900,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33608,7 +33989,11 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33932,7 +34317,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -34003,7 +34392,11 @@
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -34344,7 +34737,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -34740,7 +35137,11 @@
       },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 409, "description": "Conflict", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -34847,7 +35248,11 @@
         ]
       },
       { "code": 409, "description": "Conflict", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -34992,7 +35397,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -35296,7 +35705,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -35957,7 +36370,11 @@
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -36212,7 +36629,11 @@
       },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 409, "description": "Conflict", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -36316,7 +36737,12 @@
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      { "code": 409, "description": "Conflict", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -37844,7 +38270,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 500, "description": "Internal Error", "examples": null },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
@@ -39017,7 +39447,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -39098,7 +39532,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -39716,7 +40154,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -39942,7 +40384,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -41099,7 +41545,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -41734,7 +42184,11 @@
         ]
       },
       { "code": 304, "description": "Not modified", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -42251,7 +42705,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -42440,7 +42898,11 @@
         "description": "Conflict when there is a merge conflict",
         "examples": null
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -42649,7 +43111,11 @@
       { "code": 202, "description": "Accepted", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -42729,7 +43195,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -42862,7 +43332,11 @@
         "examples": [{ "data": "[\"continuous-integration/travis-ci\"]" }]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -42998,7 +43472,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -43078,7 +43556,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -43160,7 +43642,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -43226,7 +43712,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -43425,7 +43915,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -43502,7 +43996,11 @@
         "examples": [{ "data": "[\"continuous-integration/travis-ci\"]" }]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -43582,7 +44080,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -43662,7 +44164,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -44247,7 +44753,11 @@
       { "code": 307, "description": "Temporary Redirect", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -44641,7 +45151,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -44926,7 +45440,12 @@
       { "code": 204, "description": "Response", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      { "code": 409, "description": "Conflict", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -45163,7 +45682,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -45506,7 +46029,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -45717,7 +46244,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -46053,7 +46584,11 @@
       },
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -46254,7 +46789,11 @@
       },
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -46364,7 +46903,11 @@
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -46458,7 +47001,11 @@
         ]
       },
       { "code": 304, "description": "Not modified", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -46620,7 +47167,11 @@
         ]
       },
       { "code": 304, "description": "Not modified", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -46796,7 +47347,7 @@
         "description": "Response",
         "examples": [
           {
-            "data": "[{\"number\":2,\"created_at\":\"2020-11-06T18:48:51Z\",\"url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2\",\"html_url\":\"https://github.com/owner/private-repo/security/secret-scanning/2\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2/locations\",\"state\":\"resolved\",\"resolution\":\"false_positive\",\"resolved_at\":\"2020-11-07T02:47:13Z\",\"resolved_by\":{\"login\":\"monalisa\",\"id\":2,\"node_id\":\"MDQ6VXNlcjI=\",\"avatar_url\":\"https://alambic.github.com/avatars/u/2?\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/monalisa\",\"html_url\":\"https://github.com/monalisa\",\"followers_url\":\"https://api.github.com/users/monalisa/followers\",\"following_url\":\"https://api.github.com/users/monalisa/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/monalisa/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/monalisa/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/monalisa/subscriptions\",\"organizations_url\":\"https://api.github.com/users/monalisa/orgs\",\"repos_url\":\"https://api.github.com/users/monalisa/repos\",\"events_url\":\"https://api.github.com/users/monalisa/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/monalisa/received_events\",\"type\":\"User\",\"site_admin\":true},\"secret_type\":\"adafruit_io_key\",\"secret_type_display_name\":\"Adafruit IO Key\",\"secret\":\"aio_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\"repository\":{\"id\":1296269,\"node_id\":\"MDEwOlJlcG9zaXRvcnkxMjk2MjY5\",\"name\":\"Hello-World\",\"full_name\":\"octocat/Hello-World\",\"owner\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"private\":false,\"html_url\":\"https://github.com/octocat/Hello-World\",\"description\":\"This your first repo!\",\"fork\":false,\"url\":\"https://api.github.com/repos/octocat/Hello-World\",\"archive_url\":\"https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}\",\"assignees_url\":\"https://api.github.com/repos/octocat/Hello-World/assignees{/user}\",\"blobs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}\",\"branches_url\":\"https://api.github.com/repos/octocat/Hello-World/branches{/branch}\",\"collaborators_url\":\"https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}\",\"comments_url\":\"https://api.github.com/repos/octocat/Hello-World/comments{/number}\",\"commits_url\":\"https://api.github.com/repos/octocat/Hello-World/commits{/sha}\",\"compare_url\":\"https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}\",\"contents_url\":\"https://api.github.com/repos/octocat/Hello-World/contents/{+path}\",\"contributors_url\":\"https://api.github.com/repos/octocat/Hello-World/contributors\",\"deployments_url\":\"https://api.github.com/repos/octocat/Hello-World/deployments\",\"downloads_url\":\"https://api.github.com/repos/octocat/Hello-World/downloads\",\"events_url\":\"https://api.github.com/repos/octocat/Hello-World/events\",\"forks_url\":\"https://api.github.com/repos/octocat/Hello-World/forks\",\"git_commits_url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}\",\"issue_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}\",\"issue_events_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/events{/number}\",\"issues_url\":\"https://api.github.com/repos/octocat/Hello-World/issues{/number}\",\"keys_url\":\"https://api.github.com/repos/octocat/Hello-World/keys{/key_id}\",\"labels_url\":\"https://api.github.com/repos/octocat/Hello-World/labels{/name}\",\"languages_url\":\"https://api.github.com/repos/octocat/Hello-World/languages\",\"merges_url\":\"https://api.github.com/repos/octocat/Hello-World/merges\",\"milestones_url\":\"https://api.github.com/repos/octocat/Hello-World/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}\",\"pulls_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls{/number}\",\"releases_url\":\"https://api.github.com/repos/octocat/Hello-World/releases{/id}\",\"stargazers_url\":\"https://api.github.com/repos/octocat/Hello-World/stargazers\",\"statuses_url\":\"https://api.github.com/repos/octocat/Hello-World/statuses/{sha}\",\"subscribers_url\":\"https://api.github.com/repos/octocat/Hello-World/subscribers\",\"subscription_url\":\"https://api.github.com/repos/octocat/Hello-World/subscription\",\"tags_url\":\"https://api.github.com/repos/octocat/Hello-World/tags\",\"teams_url\":\"https://api.github.com/repos/octocat/Hello-World/teams\",\"trees_url\":\"https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}\",\"hooks_url\":\"https://api.github.com/repos/octocat/Hello-World/hooks\"}},{\"number\":1,\"created_at\":\"2020-11-06T18:18:30Z\",\"url\":\"https://api.github.com/repos/owner/repo/secret-scanning/alerts/1\",\"html_url\":\"https://github.com/owner/repo/security/secret-scanning/1\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/1/locations\",\"state\":\"open\",\"resolution\":null,\"resolved_at\":null,\"resolved_by\":null,\"secret_type\":\"mailchimp_api_key\",\"secret_type_display_name\":\"Mailchimp API Key\",\"secret\":\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-us2\",\"repository\":{\"id\":1296269,\"node_id\":\"MDEwOlJlcG9zaXRvcnkxMjk2MjY5\",\"name\":\"Hello-World\",\"full_name\":\"octocat/Hello-World\",\"owner\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"private\":false,\"html_url\":\"https://github.com/octocat/Hello-World\",\"description\":\"This your first repo!\",\"fork\":false,\"url\":\"https://api.github.com/repos/octocat/Hello-World\",\"archive_url\":\"https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}\",\"assignees_url\":\"https://api.github.com/repos/octocat/Hello-World/assignees{/user}\",\"blobs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}\",\"branches_url\":\"https://api.github.com/repos/octocat/Hello-World/branches{/branch}\",\"collaborators_url\":\"https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}\",\"comments_url\":\"https://api.github.com/repos/octocat/Hello-World/comments{/number}\",\"commits_url\":\"https://api.github.com/repos/octocat/Hello-World/commits{/sha}\",\"compare_url\":\"https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}\",\"contents_url\":\"https://api.github.com/repos/octocat/Hello-World/contents/{+path}\",\"contributors_url\":\"https://api.github.com/repos/octocat/Hello-World/contributors\",\"deployments_url\":\"https://api.github.com/repos/octocat/Hello-World/deployments\",\"downloads_url\":\"https://api.github.com/repos/octocat/Hello-World/downloads\",\"events_url\":\"https://api.github.com/repos/octocat/Hello-World/events\",\"forks_url\":\"https://api.github.com/repos/octocat/Hello-World/forks\",\"git_commits_url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}\",\"issue_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}\",\"issue_events_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/events{/number}\",\"issues_url\":\"https://api.github.com/repos/octocat/Hello-World/issues{/number}\",\"keys_url\":\"https://api.github.com/repos/octocat/Hello-World/keys{/key_id}\",\"labels_url\":\"https://api.github.com/repos/octocat/Hello-World/labels{/name}\",\"languages_url\":\"https://api.github.com/repos/octocat/Hello-World/languages\",\"merges_url\":\"https://api.github.com/repos/octocat/Hello-World/merges\",\"milestones_url\":\"https://api.github.com/repos/octocat/Hello-World/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}\",\"pulls_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls{/number}\",\"releases_url\":\"https://api.github.com/repos/octocat/Hello-World/releases{/id}\",\"stargazers_url\":\"https://api.github.com/repos/octocat/Hello-World/stargazers\",\"statuses_url\":\"https://api.github.com/repos/octocat/Hello-World/statuses/{sha}\",\"subscribers_url\":\"https://api.github.com/repos/octocat/Hello-World/subscribers\",\"subscription_url\":\"https://api.github.com/repos/octocat/Hello-World/subscription\",\"tags_url\":\"https://api.github.com/repos/octocat/Hello-World/tags\",\"teams_url\":\"https://api.github.com/repos/octocat/Hello-World/teams\",\"trees_url\":\"https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}\",\"hooks_url\":\"https://api.github.com/repos/octocat/Hello-World/hooks\"}}]"
+            "data": "[{\"number\":2,\"created_at\":\"2020-11-06T18:48:51Z\",\"url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2\",\"html_url\":\"https://github.com/owner/private-repo/security/secret-scanning/2\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2/locations\",\"state\":\"resolved\",\"resolution\":\"false_positive\",\"resolved_at\":\"2020-11-07T02:47:13Z\",\"resolved_by\":{\"login\":\"monalisa\",\"id\":2,\"node_id\":\"MDQ6VXNlcjI=\",\"avatar_url\":\"https://alambic.github.com/avatars/u/2?\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/monalisa\",\"html_url\":\"https://github.com/monalisa\",\"followers_url\":\"https://api.github.com/users/monalisa/followers\",\"following_url\":\"https://api.github.com/users/monalisa/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/monalisa/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/monalisa/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/monalisa/subscriptions\",\"organizations_url\":\"https://api.github.com/users/monalisa/orgs\",\"repos_url\":\"https://api.github.com/users/monalisa/repos\",\"events_url\":\"https://api.github.com/users/monalisa/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/monalisa/received_events\",\"type\":\"User\",\"site_admin\":true},\"secret_type\":\"adafruit_io_key\",\"secret_type_display_name\":\"Adafruit IO Key\",\"secret\":\"aio_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\"repository\":{\"id\":1296269,\"node_id\":\"MDEwOlJlcG9zaXRvcnkxMjk2MjY5\",\"name\":\"Hello-World\",\"full_name\":\"octocat/Hello-World\",\"owner\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"private\":false,\"html_url\":\"https://github.com/octocat/Hello-World\",\"description\":\"This your first repo!\",\"fork\":false,\"url\":\"https://api.github.com/repos/octocat/Hello-World\",\"archive_url\":\"https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}\",\"assignees_url\":\"https://api.github.com/repos/octocat/Hello-World/assignees{/user}\",\"blobs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}\",\"branches_url\":\"https://api.github.com/repos/octocat/Hello-World/branches{/branch}\",\"collaborators_url\":\"https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}\",\"comments_url\":\"https://api.github.com/repos/octocat/Hello-World/comments{/number}\",\"commits_url\":\"https://api.github.com/repos/octocat/Hello-World/commits{/sha}\",\"compare_url\":\"https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}\",\"contents_url\":\"https://api.github.com/repos/octocat/Hello-World/contents/{+path}\",\"contributors_url\":\"https://api.github.com/repos/octocat/Hello-World/contributors\",\"deployments_url\":\"https://api.github.com/repos/octocat/Hello-World/deployments\",\"downloads_url\":\"https://api.github.com/repos/octocat/Hello-World/downloads\",\"events_url\":\"https://api.github.com/repos/octocat/Hello-World/events\",\"forks_url\":\"https://api.github.com/repos/octocat/Hello-World/forks\",\"git_commits_url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}\",\"issue_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}\",\"issue_events_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/events{/number}\",\"issues_url\":\"https://api.github.com/repos/octocat/Hello-World/issues{/number}\",\"keys_url\":\"https://api.github.com/repos/octocat/Hello-World/keys{/key_id}\",\"labels_url\":\"https://api.github.com/repos/octocat/Hello-World/labels{/name}\",\"languages_url\":\"https://api.github.com/repos/octocat/Hello-World/languages\",\"merges_url\":\"https://api.github.com/repos/octocat/Hello-World/merges\",\"milestones_url\":\"https://api.github.com/repos/octocat/Hello-World/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}\",\"pulls_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls{/number}\",\"releases_url\":\"https://api.github.com/repos/octocat/Hello-World/releases{/id}\",\"stargazers_url\":\"https://api.github.com/repos/octocat/Hello-World/stargazers\",\"statuses_url\":\"https://api.github.com/repos/octocat/Hello-World/statuses/{sha}\",\"subscribers_url\":\"https://api.github.com/repos/octocat/Hello-World/subscribers\",\"subscription_url\":\"https://api.github.com/repos/octocat/Hello-World/subscription\",\"tags_url\":\"https://api.github.com/repos/octocat/Hello-World/tags\",\"teams_url\":\"https://api.github.com/repos/octocat/Hello-World/teams\",\"trees_url\":\"https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}\",\"hooks_url\":\"https://api.github.com/repos/octocat/Hello-World/hooks\"},\"push_protection_bypassed_by\":{\"login\":\"monalisa\",\"id\":2,\"node_id\":\"MDQ6VXNlcjI=\",\"avatar_url\":\"https://alambic.github.com/avatars/u/2?\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/monalisa\",\"html_url\":\"https://github.com/monalisa\",\"followers_url\":\"https://api.github.com/users/monalisa/followers\",\"following_url\":\"https://api.github.com/users/monalisa/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/monalisa/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/monalisa/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/monalisa/subscriptions\",\"organizations_url\":\"https://api.github.com/users/monalisa/orgs\",\"repos_url\":\"https://api.github.com/users/monalisa/repos\",\"events_url\":\"https://api.github.com/users/monalisa/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/monalisa/received_events\",\"type\":\"User\",\"site_admin\":true},\"push_protection_bypassed\":true,\"push_protection_bypassed_at\":\"2020-11-06T21:48:51Z\"},{\"number\":1,\"created_at\":\"2020-11-06T18:18:30Z\",\"url\":\"https://api.github.com/repos/owner/repo/secret-scanning/alerts/1\",\"html_url\":\"https://github.com/owner/repo/security/secret-scanning/1\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/1/locations\",\"state\":\"open\",\"resolution\":null,\"resolved_at\":null,\"resolved_by\":null,\"secret_type\":\"mailchimp_api_key\",\"secret_type_display_name\":\"Mailchimp API Key\",\"secret\":\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-us2\",\"repository\":{\"id\":1296269,\"node_id\":\"MDEwOlJlcG9zaXRvcnkxMjk2MjY5\",\"name\":\"Hello-World\",\"full_name\":\"octocat/Hello-World\",\"owner\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"private\":false,\"html_url\":\"https://github.com/octocat/Hello-World\",\"description\":\"This your first repo!\",\"fork\":false,\"url\":\"https://api.github.com/repos/octocat/Hello-World\",\"archive_url\":\"https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}\",\"assignees_url\":\"https://api.github.com/repos/octocat/Hello-World/assignees{/user}\",\"blobs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}\",\"branches_url\":\"https://api.github.com/repos/octocat/Hello-World/branches{/branch}\",\"collaborators_url\":\"https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}\",\"comments_url\":\"https://api.github.com/repos/octocat/Hello-World/comments{/number}\",\"commits_url\":\"https://api.github.com/repos/octocat/Hello-World/commits{/sha}\",\"compare_url\":\"https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}\",\"contents_url\":\"https://api.github.com/repos/octocat/Hello-World/contents/{+path}\",\"contributors_url\":\"https://api.github.com/repos/octocat/Hello-World/contributors\",\"deployments_url\":\"https://api.github.com/repos/octocat/Hello-World/deployments\",\"downloads_url\":\"https://api.github.com/repos/octocat/Hello-World/downloads\",\"events_url\":\"https://api.github.com/repos/octocat/Hello-World/events\",\"forks_url\":\"https://api.github.com/repos/octocat/Hello-World/forks\",\"git_commits_url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}\",\"issue_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}\",\"issue_events_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/events{/number}\",\"issues_url\":\"https://api.github.com/repos/octocat/Hello-World/issues{/number}\",\"keys_url\":\"https://api.github.com/repos/octocat/Hello-World/keys{/key_id}\",\"labels_url\":\"https://api.github.com/repos/octocat/Hello-World/labels{/name}\",\"languages_url\":\"https://api.github.com/repos/octocat/Hello-World/languages\",\"merges_url\":\"https://api.github.com/repos/octocat/Hello-World/merges\",\"milestones_url\":\"https://api.github.com/repos/octocat/Hello-World/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}\",\"pulls_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls{/number}\",\"releases_url\":\"https://api.github.com/repos/octocat/Hello-World/releases{/id}\",\"stargazers_url\":\"https://api.github.com/repos/octocat/Hello-World/stargazers\",\"statuses_url\":\"https://api.github.com/repos/octocat/Hello-World/statuses/{sha}\",\"subscribers_url\":\"https://api.github.com/repos/octocat/Hello-World/subscribers\",\"subscription_url\":\"https://api.github.com/repos/octocat/Hello-World/subscription\",\"tags_url\":\"https://api.github.com/repos/octocat/Hello-World/tags\",\"teams_url\":\"https://api.github.com/repos/octocat/Hello-World/teams\",\"trees_url\":\"https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}\",\"hooks_url\":\"https://api.github.com/repos/octocat/Hello-World/hooks\"},\"push_protection_bypassed_by\":null,\"push_protection_bypassed\":false,\"push_protection_bypassed_at\":null}]"
           }
         ]
       },
@@ -46916,7 +47467,7 @@
         "description": "Response",
         "examples": [
           {
-            "data": "[{\"number\":2,\"created_at\":\"2020-11-06T18:48:51Z\",\"url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2\",\"html_url\":\"https://github.com/owner/private-repo/security/secret-scanning/2\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2/locations\",\"state\":\"resolved\",\"resolution\":\"false_positive\",\"resolved_at\":\"2020-11-07T02:47:13Z\",\"resolved_by\":{\"login\":\"monalisa\",\"id\":2,\"node_id\":\"MDQ6VXNlcjI=\",\"avatar_url\":\"https://alambic.github.com/avatars/u/2?\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/monalisa\",\"html_url\":\"https://github.com/monalisa\",\"followers_url\":\"https://api.github.com/users/monalisa/followers\",\"following_url\":\"https://api.github.com/users/monalisa/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/monalisa/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/monalisa/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/monalisa/subscriptions\",\"organizations_url\":\"https://api.github.com/users/monalisa/orgs\",\"repos_url\":\"https://api.github.com/users/monalisa/repos\",\"events_url\":\"https://api.github.com/users/monalisa/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/monalisa/received_events\",\"type\":\"User\",\"site_admin\":true},\"secret_type\":\"adafruit_io_key\",\"secret_type_display_name\":\"Adafruit IO Key\",\"secret\":\"aio_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\"},{\"number\":1,\"created_at\":\"2020-11-06T18:18:30Z\",\"url\":\"https://api.github.com/repos/owner/repo/secret-scanning/alerts/1\",\"html_url\":\"https://github.com/owner/repo/security/secret-scanning/1\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/1/locations\",\"state\":\"open\",\"resolution\":null,\"resolved_at\":null,\"resolved_by\":null,\"secret_type\":\"mailchimp_api_key\",\"secret_type_display_name\":\"Mailchimp API Key\",\"secret\":\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-us2\"}]"
+            "data": "[{\"number\":2,\"created_at\":\"2020-11-06T18:48:51Z\",\"url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2\",\"html_url\":\"https://github.com/owner/private-repo/security/secret-scanning/2\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2/locations\",\"state\":\"resolved\",\"resolution\":\"false_positive\",\"resolved_at\":\"2020-11-07T02:47:13Z\",\"resolved_by\":{\"login\":\"monalisa\",\"id\":2,\"node_id\":\"MDQ6VXNlcjI=\",\"avatar_url\":\"https://alambic.github.com/avatars/u/2?\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/monalisa\",\"html_url\":\"https://github.com/monalisa\",\"followers_url\":\"https://api.github.com/users/monalisa/followers\",\"following_url\":\"https://api.github.com/users/monalisa/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/monalisa/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/monalisa/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/monalisa/subscriptions\",\"organizations_url\":\"https://api.github.com/users/monalisa/orgs\",\"repos_url\":\"https://api.github.com/users/monalisa/repos\",\"events_url\":\"https://api.github.com/users/monalisa/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/monalisa/received_events\",\"type\":\"User\",\"site_admin\":true},\"secret_type\":\"adafruit_io_key\",\"secret_type_display_name\":\"Adafruit IO Key\",\"secret\":\"aio_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\"push_protection_bypassed_by\":{\"login\":\"monalisa\",\"id\":2,\"node_id\":\"MDQ6VXNlcjI=\",\"avatar_url\":\"https://alambic.github.com/avatars/u/2?\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/monalisa\",\"html_url\":\"https://github.com/monalisa\",\"followers_url\":\"https://api.github.com/users/monalisa/followers\",\"following_url\":\"https://api.github.com/users/monalisa/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/monalisa/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/monalisa/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/monalisa/subscriptions\",\"organizations_url\":\"https://api.github.com/users/monalisa/orgs\",\"repos_url\":\"https://api.github.com/users/monalisa/repos\",\"events_url\":\"https://api.github.com/users/monalisa/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/monalisa/received_events\",\"type\":\"User\",\"site_admin\":true},\"push_protection_bypassed\":true,\"push_protection_bypassed_at\":\"2020-11-06T21:48:51Z\"},{\"number\":1,\"created_at\":\"2020-11-06T18:18:30Z\",\"url\":\"https://api.github.com/repos/owner/repo/secret-scanning/alerts/1\",\"html_url\":\"https://github.com/owner/repo/security/secret-scanning/1\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/1/locations\",\"state\":\"open\",\"resolution\":null,\"resolved_at\":null,\"resolved_by\":null,\"secret_type\":\"mailchimp_api_key\",\"secret_type_display_name\":\"Mailchimp API Key\",\"secret\":\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-us2\",\"push_protection_bypassed_by\":null,\"push_protection_bypassed\":false,\"push_protection_bypassed_at\":null}]"
           }
         ]
       },
@@ -47503,7 +48054,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -47658,7 +48213,11 @@
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -48098,7 +48657,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -48715,7 +49278,11 @@
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -49464,7 +50031,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -50631,7 +51202,11 @@
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -51228,7 +51803,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -51345,7 +51924,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -51394,7 +51977,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": {
       "before": { "scope": "users", "id": "addEmailForAuthenticated" },
@@ -51448,7 +52035,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -51599,7 +52190,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": {
       "before": { "scope": "users", "id": "createGpgKeyForAuthenticated" },
@@ -51653,7 +52248,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -51715,7 +52314,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": {
       "before": {
@@ -51788,7 +52391,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -51829,7 +52436,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": {
       "before": { "scope": "users", "id": "deleteEmailForAuthenticated" },
@@ -51875,7 +52486,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -51916,7 +52531,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": {
       "before": { "scope": "users", "id": "deleteGpgKeyForAuthenticated" },
@@ -51962,7 +52581,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -52241,7 +52864,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -53639,7 +54266,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   }

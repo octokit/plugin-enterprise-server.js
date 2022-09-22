@@ -38,7 +38,12 @@ octokit.enterpriseAdmin.deletePreReceiveEnvironment({
 });
 octokit.enterpriseAdmin.deletePreReceiveHook({ pre_receive_hook_id });
 octokit.enterpriseAdmin.deletePublicKey({ key_ids });
+octokit.enterpriseAdmin.deleteScimGroupFromEnterprise({
+  enterprise,
+  scim_group_id,
+});
 octokit.enterpriseAdmin.deleteUser({ username });
+octokit.enterpriseAdmin.deleteUserFromEnterprise({ enterprise, scim_user_id });
 octokit.enterpriseAdmin.demoteSiteAdministrator({ username });
 octokit.enterpriseAdmin.disableSelectedOrganizationGithubActionsEnterprise({
   enterprise,
@@ -78,6 +83,15 @@ octokit.enterpriseAdmin.getPreReceiveHookForRepo({
   repo,
   pre_receive_hook_id,
 });
+octokit.enterpriseAdmin.getProvisioningInformationForEnterpriseGroup({
+  enterprise,
+  scim_group_id,
+  excludedAttributes,
+});
+octokit.enterpriseAdmin.getProvisioningInformationForEnterpriseUser({
+  enterprise,
+  scim_user_id,
+});
 octokit.enterpriseAdmin.getPullRequestStats();
 octokit.enterpriseAdmin.getRepoStats();
 octokit.enterpriseAdmin.getSettings({ origin });
@@ -115,6 +129,19 @@ octokit.enterpriseAdmin.listPreReceiveHooksForRepo({
   direction,
   sort,
 });
+octokit.enterpriseAdmin.listProvisionedGroupsEnterprise({
+  enterprise,
+  startIndex,
+  count,
+  filter,
+  excludedAttributes,
+});
+octokit.enterpriseAdmin.listProvisionedIdentitiesEnterprise({
+  enterprise,
+  startIndex,
+  count,
+  filter,
+});
 octokit.enterpriseAdmin.listPublicKeys({
   per_page,
   page,
@@ -127,6 +154,20 @@ octokit.enterpriseAdmin.listSelectedOrganizationsEnabledGithubActionsEnterprise(
 );
 octokit.enterpriseAdmin.pingGlobalWebhook({ hook_id });
 octokit.enterpriseAdmin.promoteUserToBeSiteAdministrator({ username });
+octokit.enterpriseAdmin.provisionAndInviteEnterpriseGroup({
+  enterprise,
+  schemas,
+  displayName,
+  members,
+});
+octokit.enterpriseAdmin.provisionAndInviteEnterpriseUser({
+  enterprise,
+  schemas,
+  userName,
+  name,
+  emails,
+  groups,
+});
 octokit.enterpriseAdmin.removeAllCustomLabelsFromSelfHostedRunnerForEnterprise({
   enterprise,
   runner_id,
@@ -163,6 +204,22 @@ octokit.enterpriseAdmin.setGithubActionsPermissionsEnterprise({
   enabled_organizations,
   allowed_actions,
 });
+octokit.enterpriseAdmin.setInformationForProvisionedEnterpriseGroup({
+  enterprise,
+  scim_group_id,
+  schemas,
+  displayName,
+  members,
+});
+octokit.enterpriseAdmin.setInformationForProvisionedEnterpriseUser({
+  enterprise,
+  scim_user_id,
+  schemas,
+  userName,
+  name,
+  emails,
+  groups,
+});
 octokit.enterpriseAdmin.setSelectedOrganizationsEnabledGithubActionsEnterprise({
   enterprise,
   selected_organization_ids,
@@ -176,6 +233,18 @@ octokit.enterpriseAdmin.suspendUser({ username, reason });
 octokit.enterpriseAdmin.syncLdapMappingForTeam({ team_id });
 octokit.enterpriseAdmin.syncLdapMappingForUser({ username });
 octokit.enterpriseAdmin.unsuspendUser({ username, reason });
+octokit.enterpriseAdmin.updateAttributeForEnterpriseGroup({
+  enterprise,
+  scim_group_id,
+  schemas,
+  Operations,
+});
+octokit.enterpriseAdmin.updateAttributeForEnterpriseUser({
+  enterprise,
+  scim_user_id,
+  schemas,
+  Operations,
+});
 octokit.enterpriseAdmin.updateGlobalWebhook({
   hook_id,
   config,
