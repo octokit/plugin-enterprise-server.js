@@ -63,7 +63,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -144,7 +148,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -5318,7 +5326,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -5399,7 +5411,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -5876,7 +5892,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -5957,7 +5977,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -6935,7 +6959,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -7639,7 +7667,7 @@
     "url": "/user/starred",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists repositories the authenticated user has starred.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.6/rest/overview/media-types/) via the `Accept` header:",
+    "description": "Lists repositories the authenticated user has starred.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.6/rest/overview/media-types/) via the `Accept` header: `application/vnd.github.star+json`.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/activity#list-repositories-starred-by-the-authenticated-user",
     "previews": [],
     "headers": [],
@@ -7734,7 +7762,7 @@
     "url": "/users/{username}/starred",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists repositories a user has starred.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.6/rest/overview/media-types/) via the `Accept` header:",
+    "description": "Lists repositories a user has starred.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.6/rest/overview/media-types/) via the `Accept` header: `application/vnd.github.star+json`.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/activity#list-repositories-starred-by-a-user",
     "previews": [],
     "headers": [],
@@ -7892,7 +7920,7 @@
     "url": "/repos/{owner}/{repo}/stargazers",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists the people that have starred the repository.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.6/rest/overview/media-types/) via the `Accept` header:",
+    "description": "Lists the people that have starred the repository.\n\nYou can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@3.6/rest/overview/media-types/) via the `Accept` header: `application/vnd.github.star+json`.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/activity#list-stargazers",
     "previews": [],
     "headers": [],
@@ -7963,7 +7991,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -8660,7 +8692,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -8702,7 +8738,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -9179,7 +9219,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -9225,7 +9269,11 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -9304,7 +9352,11 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -9617,7 +9669,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -9941,7 +9997,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -9976,7 +10036,11 @@
       { "code": 202, "description": "Accepted", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -10134,7 +10198,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -10666,7 +10734,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -14895,7 +14967,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -15656,6 +15732,49 @@
     "renamed": null
   },
   {
+    "name": "Delete a SCIM group from an enterprise",
+    "scope": "enterpriseAdmin",
+    "id": "deleteScimGroupFromEnterprise",
+    "method": "DELETE",
+    "url": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#delete-a-scim-group-from-an-enterprise",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "scim_group_id",
+        "description": "Identifier generated by the GitHub SCIM endpoint.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [{ "code": 204, "description": "Response", "examples": null }],
+    "renamed": null
+  },
+  {
     "name": "Delete a user",
     "scope": "enterpriseAdmin",
     "id": "deleteUser",
@@ -15671,6 +15790,49 @@
       {
         "name": "username",
         "description": "The handle for the GitHub user account.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [{ "code": 204, "description": "Response", "examples": null }],
+    "renamed": null
+  },
+  {
+    "name": "Delete a SCIM user from an enterprise",
+    "scope": "enterpriseAdmin",
+    "id": "deleteUserFromEnterprise",
+    "method": "DELETE",
+    "url": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#delete-a-scim-user-from-an-enterprise",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "scim_user_id",
+        "description": "The unique identifier of the SCIM user.",
         "in": "PATH",
         "type": "string",
         "required": true,
@@ -16524,6 +16686,125 @@
     "renamed": null
   },
   {
+    "name": "Get SCIM provisioning information for an enterprise group",
+    "scope": "enterpriseAdmin",
+    "id": "getProvisioningInformationForEnterpriseGroup",
+    "method": "GET",
+    "url": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#get-scim-provisioning-information-for-an-enterprise-group",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "scim_group_id",
+        "description": "Identifier generated by the GitHub SCIM endpoint.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "excludedAttributes",
+        "description": "Attributes to exclude.",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:Group\"],\"id\":\"abcd27f8-a9aa-11ea-8221-f59b2be9cccc\",\"externalId\":null,\"displayName\":\"octo-org\",\"members\":[{\"value\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"$ref\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"display\":\"octocat@github.com\"},{\"value\":\"aaaa8c34-a6b2-11ea-9d70-bbbbbd1c8fd5\",\"$ref\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/aaaa8c34-a6b2-11ea-9d70-bbbbbd1c8fd5\",\"display\":\"hubot@example.com\"}],\"meta\":{\"resourceType\":\"Group\",\"created\":\"2020-06-09T03:10:17.000+10:0\",\"lastModified\":\"2020-06-09T03:10:17.000+10:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Groups/abcd27f8-a9aa-11ea-8221-f59b2be9cccc\"}}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
+    "name": "Get SCIM provisioning information for an enterprise user",
+    "scope": "enterpriseAdmin",
+    "id": "getProvisioningInformationForEnterpriseUser",
+    "method": "GET",
+    "url": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#get-scim-provisioning-information-for-an-enterprise-user",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "scim_user_id",
+        "description": "The unique identifier of the SCIM user.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:User\"],\"id\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"externalId\":\"00dowz5dr9oSfDFRA0h7\",\"userName\":\"mona.octocat@okta.example.com\",\"name\":{\"givenName\":\"Mona\",\"familyName\":\"Octocat\"},\"emails\":[{\"value\":\"mona.octocat@okta.example.com\",\"type\":\"work\",\"primary\":true}],\"groups\":[{\"value\":\"468dd3fa-a1d6-11ea-9031-15a1f0d7811d\"}],\"active\":true,\"meta\":{\"resourceType\":\"User\",\"created\":\"2017-03-09T16:11:13-05:00\",\"lastModified\":\"2017-03-09T16:11:13-05:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\"}}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
     "name": "Get pull request statistics",
     "scope": "enterpriseAdmin",
     "id": "getPullRequestStats",
@@ -17127,6 +17408,177 @@
     "renamed": null
   },
   {
+    "name": "List provisioned SCIM groups for an enterprise",
+    "scope": "enterpriseAdmin",
+    "id": "listProvisionedGroupsEnterprise",
+    "method": "GET",
+    "url": "/scim/v2/enterprises/{enterprise}/Groups",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#list-provisioned-scim-groups-for-an-enterprise",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "startIndex",
+        "description": "Used for pagination: the index of the first result to return.",
+        "in": "QUERY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "count",
+        "description": "Used for pagination: the number of results to return.",
+        "in": "QUERY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "filter",
+        "description": "filter results",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "excludedAttributes",
+        "description": "attributes to exclude",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"schemas\":[\"urn:ietf:params:scim:api:messages:2.0:ListResponse\"],\"totalResults\":2,\"itemsPerPage\":2,\"startIndex\":1,\"Resources\":[{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:Group\"],\"id\":\"abcd27f8-a9aa-11ea-8221-f59b2be9cccc\",\"externalId\":null,\"displayName\":\"octo-org\",\"members\":[{\"value\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"$ref\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"display\":\"octocat@github.com\"},{\"value\":\"aaaa8c34-a6b2-11ea-9d70-bbbbbd1c8fd5\",\"$ref\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/aaaa8c34-a6b2-11ea-9d70-bbbbbd1c8fd5\",\"display\":\"hubot@example.com\"}],\"meta\":{\"resourceType\":\"Group\",\"created\":\"2020-06-09T03:10:17.000+10:00\",\"lastModified\":\"2020-06-09T03:10:17.000+10:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Groups/abcd27f8-a9aa-11ea-8221-f59b2be9cccc\"}},{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:Group\"],\"id\":\"5e75bbbb-aa1a-11ea-8644-75ff655cdddd\",\"externalId\":null,\"displayName\":\"octo-docs-org\",\"members\":[{\"value\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"$ref\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"display\":\"octocat@github.com\"}],\"meta\":{\"resourceType\":\"Group\",\"created\":\"2020-06-09T16:28:01.000+10:00\",\"lastModified\":\"2020-06-09T16:28:01.000+10:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Groups/5e75bbbb-aa1a-11ea-8644-75ff655cdddd\"}}]}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
+    "name": "List SCIM provisioned identities for an enterprise",
+    "scope": "enterpriseAdmin",
+    "id": "listProvisionedIdentitiesEnterprise",
+    "method": "GET",
+    "url": "/scim/v2/enterprises/{enterprise}/Users",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.\n\nRetrieves a paginated list of all provisioned enterprise members, including pending invitations.\n\nWhen a user with a SAML-provisioned external identity leaves (or is removed from) an enterprise, the account's metadata is immediately removed. However, the returned list of user accounts might not always match the organization or enterprise member list you see on GitHub Enterprise Server. This can happen in certain cases where an external identity associated with an organization will not match an organization member:\n  - When a user with a SCIM-provisioned external identity is removed from an enterprise, the account's metadata is preserved to allow the user to re-join the organization in the future.\n  - When inviting a user to join an organization, you can expect to see their external identity in the results before they accept the invitation, or if the invitation is cancelled (or never accepted).\n  - When a user is invited over SCIM, an external identity is created that matches with the invitee's email address. However, this identity is only linked to a user account when the user accepts the invitation by going through SAML SSO.\n\nThe returned list of external identities can include an entry for a `null` user. These are unlinked SAML identities that are created when a user goes through the following Single Sign-On (SSO) process but does not sign in to their GitHub Enterprise Server account after completing SSO:\n\n1. The user is granted access by the IdP and is not a member of the GitHub Enterprise Server enterprise.\n\n1. The user attempts to access the GitHub Enterprise Server enterprise and initiates the SAML SSO process, and is not currently signed in to their GitHub Enterprise Server account.\n\n1. After successfully authenticating with the SAML SSO IdP, the `null` external identity entry is created and the user is prompted to sign in to their GitHub Enterprise Server account:\n   - If the user signs in, their GitHub Enterprise Server account is linked to this entry.\n   - If the user does not sign in (or does not create a new account when prompted), they are not added to the GitHub Enterprise Server enterprise, and the external identity `null` entry remains in place.",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#list-scim-provisioned-identities-for-an-enterprise",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "startIndex",
+        "description": "Used for pagination: the index of the first result to return.",
+        "in": "QUERY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "count",
+        "description": "Used for pagination: the number of results to return.",
+        "in": "QUERY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "filter",
+        "description": "filter results",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"schemas\":[\"urn:ietf:params:scim:api:messages:2.0:ListResponse\"],\"totalResults\":2,\"itemsPerPage\":2,\"startIndex\":1,\"Resources\":[{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:User\"],\"id\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"externalId\":\"00dowz5dr9oSfDFRA0h7\",\"userName\":\"octocat@github.com\",\"name\":{\"givenName\":\"Mona\",\"familyName\":\"Octocat\"},\"emails\":[{\"value\":\"octocat@github.com\",\"primary\":true,\"type\":\"work\"}],\"groups\":[{\"value\":\"468dd3fa-a1d6-11ea-9031-15a1f0d7811d\"}],\"active\":true,\"meta\":{\"resourceType\":\"User\",\"created\":\"2020-05-30T04:02:34.000+10:00\",\"lastModified\":\"2020-05-30T04:05:04.000+10:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\"}},{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:User\"],\"id\":\"e18b8c34-a6b2-11ea-9d70-54abbd1c8fd5\",\"externalId\":\"sdfoiausdofiua\",\"userName\":\"hubot@example.com\",\"name\":{\"givenName\":\"hu\",\"familyName\":\"bot\"},\"emails\":[{\"value\":\"hubot@example.com\",\"type\":\"work\",\"primary\":true}],\"groups\":[],\"active\":true,\"meta\":{\"resourceType\":\"User\",\"created\":\"2020-06-05T08:29:40.000+10:00\",\"lastModified\":\"2020-06-05T08:30:19.000+10:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/e18b8c34-a6b2-11ea-9d70-54abbd1c8fd5\"}}]}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
     "name": "List public keys",
     "scope": "enterpriseAdmin",
     "id": "listPublicKeys",
@@ -17345,6 +17797,281 @@
     "renamed": null
   },
   {
+    "name": "Provision a SCIM enterprise group and invite users",
+    "scope": "enterpriseAdmin",
+    "id": "provisionAndInviteEnterpriseGroup",
+    "method": "POST",
+    "url": "/scim/v2/enterprises/{enterprise}/Groups",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.\n\nProvision an enterprise group, and invite users to the group. This sends invitation emails to the email address of the invited users to join the GitHub organization that the SCIM group corresponds to.",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#provision-a-scim-enterprise-group-and-invite-users",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "schemas",
+        "description": "The SCIM schema URIs.",
+        "in": "BODY",
+        "type": "string[]",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "displayName",
+        "description": "The name of the SCIM group. This must match the GitHub organization that the group maps to.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "members",
+        "description": "",
+        "in": "BODY",
+        "type": "object[]",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "members[].value",
+        "description": "The SCIM user ID for a user.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 201,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:Group\"],\"id\":\"abcd27f8-a9aa-11ea-8221-f59b2be9cccc\",\"externalId\":null,\"displayName\":\"octo-org\",\"members\":[{\"value\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"$ref\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"display\":\"octocat@github.com\"},{\"value\":\"aaaa8c34-a6b2-11ea-9d70-bbbbbd1c8fd5\",\"$ref\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/aaaa8c34-a6b2-11ea-9d70-bbbbbd1c8fd5\",\"display\":\"hubot@example.com\"}],\"meta\":{\"resourceType\":\"Group\",\"created\":\"2020-06-09T03:10:17.000+10:0\",\"lastModified\":\"2020-06-09T03:10:17.000+10:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Groups/abcd27f8-a9aa-11ea-8221-f59b2be9cccc\"}}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
+    "name": "Provision and invite a SCIM enterprise user",
+    "scope": "enterpriseAdmin",
+    "id": "provisionAndInviteEnterpriseUser",
+    "method": "POST",
+    "url": "/scim/v2/enterprises/{enterprise}/Users",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.\n\nProvision enterprise membership for a user, and send organization invitation emails to the email address.\n\nYou can optionally include the groups a user will be invited to join. If you do not provide a list of `groups`, the user is provisioned for the enterprise, but no organization invitation emails will be sent.",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#provision-and-invite-a-scim-enterprise-user",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "schemas",
+        "description": "The SCIM schema URIs.",
+        "in": "BODY",
+        "type": "string[]",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "userName",
+        "description": "The username for the user.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "name",
+        "description": "",
+        "in": "BODY",
+        "type": "object",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "name.givenName",
+        "description": "The first name of the user.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "name.familyName",
+        "description": "The last name of the user.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "emails",
+        "description": "List of user emails.",
+        "in": "BODY",
+        "type": "object[]",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "emails[].value",
+        "description": "The email address.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "emails[].type",
+        "description": "The type of email address.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "emails[].primary",
+        "description": "Whether this email address is the primary address.",
+        "in": "BODY",
+        "type": "boolean",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "groups",
+        "description": "List of SCIM group IDs the user is a member of.",
+        "in": "BODY",
+        "type": "object[]",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "groups[].value",
+        "description": "",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 201,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:User\"],\"id\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"externalId\":\"00dowz5dr9oSfDFRA0h7\",\"userName\":\"mona.octocat@okta.example.com\",\"name\":{\"givenName\":\"Mona\",\"familyName\":\"Octocat\"},\"emails\":[{\"value\":\"mona.octocat@okta.example.com\",\"type\":\"work\",\"primary\":true}],\"groups\":[{\"value\":\"468dd3fa-a1d6-11ea-9031-15a1f0d7811d\"}],\"active\":true,\"meta\":{\"resourceType\":\"User\",\"created\":\"2017-03-09T16:11:13-05:00\",\"lastModified\":\"2017-03-09T16:11:13-05:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\"}}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
     "name": "Remove all custom labels from a self-hosted runner for an enterprise",
     "scope": "enterpriseAdmin",
     "id": "removeAllCustomLabelsFromSelfHostedRunnerForEnterprise",
@@ -17395,7 +18122,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -17532,7 +18263,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -17828,7 +18563,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -17886,6 +18625,307 @@
       }
     ],
     "responses": [{ "code": 204, "description": "Response", "examples": null }],
+    "renamed": null
+  },
+  {
+    "name": "Set SCIM information for a provisioned enterprise group",
+    "scope": "enterpriseAdmin",
+    "id": "setInformationForProvisionedEnterpriseGroup",
+    "method": "PUT",
+    "url": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.\n\nReplaces an existing provisioned group’s information. You must provide all the information required for the group as if you were provisioning it for the first time. Any existing group information that you don't provide will be removed, including group membership. If you want to only update a specific attribute, use the [Update an attribute for a SCIM enterprise group](#update-an-attribute-for-a-scim-enterprise-group) endpoint instead.",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#set-scim-information-for-a-provisioned-enterprise-group",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "scim_group_id",
+        "description": "Identifier generated by the GitHub SCIM endpoint.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "schemas",
+        "description": "The SCIM schema URIs.",
+        "in": "BODY",
+        "type": "string[]",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "displayName",
+        "description": "The name of the SCIM group. This must match the GitHub organization that the group maps to.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "members",
+        "description": "",
+        "in": "BODY",
+        "type": "object[]",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "members[].value",
+        "description": "The SCIM user ID for a user.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:Group\"],\"id\":\"abcd27f8-a9aa-11ea-8221-f59b2be9cccc\",\"externalId\":null,\"displayName\":\"octo-org\",\"members\":[{\"value\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"$ref\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"display\":\"octocat@github.com\"},{\"value\":\"aaaa8c34-a6b2-11ea-9d70-bbbbbd1c8fd5\",\"$ref\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/aaaa8c34-a6b2-11ea-9d70-bbbbbd1c8fd5\",\"display\":\"hubot@example.com\"}],\"meta\":{\"resourceType\":\"Group\",\"created\":\"2020-06-09T03:10:17.000+10:0\",\"lastModified\":\"2020-06-09T03:10:17.000+10:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Groups/abcd27f8-a9aa-11ea-8221-f59b2be9cccc\"}}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
+    "name": "Set SCIM information for a provisioned enterprise user",
+    "scope": "enterpriseAdmin",
+    "id": "setInformationForProvisionedEnterpriseUser",
+    "method": "PUT",
+    "url": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.\n\nReplaces an existing provisioned user's information. You must provide all the information required for the user as if you were provisioning them for the first time. Any existing user information that you don't provide will be removed. If you want to only update a specific attribute, use the [Update an attribute for a SCIM user](#update-an-attribute-for-an-enterprise-scim-user) endpoint instead.\n\nYou must at least provide the required values for the user: `userName`, `name`, and `emails`.\n\n**Warning:** Setting `active: false` removes the user from the enterprise, deletes the external identity, and deletes the associated `{scim_user_id}`.",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#set-scim-information-for-a-provisioned-enterprise-user",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "scim_user_id",
+        "description": "The unique identifier of the SCIM user.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "schemas",
+        "description": "The SCIM schema URIs.",
+        "in": "BODY",
+        "type": "string[]",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "userName",
+        "description": "The username for the user.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "name",
+        "description": "",
+        "in": "BODY",
+        "type": "object",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "name.givenName",
+        "description": "The first name of the user.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "name.familyName",
+        "description": "The last name of the user.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "emails",
+        "description": "List of user emails.",
+        "in": "BODY",
+        "type": "object[]",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "emails[].value",
+        "description": "The email address.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "emails[].type",
+        "description": "The type of email address.",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "emails[].primary",
+        "description": "Whether this email address is the primary address.",
+        "in": "BODY",
+        "type": "boolean",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "groups",
+        "description": "List of SCIM group IDs the user is a member of.",
+        "in": "BODY",
+        "type": "object[]",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "groups[].value",
+        "description": "",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:User\"],\"id\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"externalId\":\"00dowz5dr9oSfDFRA0h7\",\"userName\":\"mona.octocat@okta.example.com\",\"name\":{\"givenName\":\"Mona\",\"familyName\":\"Octocat\"},\"emails\":[{\"value\":\"mona.octocat@okta.example.com\",\"type\":\"work\",\"primary\":true}],\"groups\":[{\"value\":\"468dd3fa-a1d6-11ea-9031-15a1f0d7811d\"}],\"active\":true,\"meta\":{\"resourceType\":\"User\",\"created\":\"2017-03-09T16:11:13-05:00\",\"lastModified\":\"2017-03-09T16:11:13-05:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\"}}"
+          }
+        ]
+      }
+    ],
     "renamed": null
   },
   {
@@ -18209,6 +19249,203 @@
       }
     ],
     "responses": [{ "code": 204, "description": "Response", "examples": null }],
+    "renamed": null
+  },
+  {
+    "name": "Update an attribute for a SCIM enterprise group",
+    "scope": "enterpriseAdmin",
+    "id": "updateAttributeForEnterpriseGroup",
+    "method": "PATCH",
+    "url": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.\n\nAllows you to change a provisioned group’s individual attributes. To change a group’s values, you must provide a specific Operations JSON format that contains at least one of the add, remove, or replace operations. For examples and more information on the SCIM operations format, see the [SCIM specification](https://tools.ietf.org/html/rfc7644#section-3.5.2).",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#update-an-attribute-for-a-scim-enterprise-group",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "scim_group_id",
+        "description": "Identifier generated by the GitHub SCIM endpoint.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "schemas",
+        "description": "The SCIM schema URIs.",
+        "in": "BODY",
+        "type": "string[]",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "Operations",
+        "description": "Array of [SCIM operations](https://tools.ietf.org/html/rfc7644#section-3.5.2).",
+        "in": "BODY",
+        "type": "object[]",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "Operations[].op",
+        "description": "",
+        "in": "BODY",
+        "type": "string",
+        "required": true,
+        "enum": ["add", "Add", "remove", "Remove", "replace", "Replace"],
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "Operations[].path",
+        "description": "",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "Operations[].value",
+        "description": "Can be any value - string, number, array or object.",
+        "in": "BODY",
+        "type": null,
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:Group\"],\"id\":\"abcd27f8-a9aa-11ea-8221-f59b2be9cccc\",\"externalId\":null,\"displayName\":\"octo-org\",\"members\":[{\"value\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"$ref\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"display\":\"octocat@github.com\"}],\"meta\":{\"resourceType\":\"Group\",\"created\":\"2020-06-09T03:10:17.000+10:00\",\"lastModified\":\"2020-06-09T03:10:17.000+10:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Groups/abcd27f8-a9aa-11ea-8221-f59b2be9cccc\"}}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
+    "name": "Update an attribute for a SCIM enterprise user",
+    "scope": "enterpriseAdmin",
+    "id": "updateAttributeForEnterpriseUser",
+    "method": "PATCH",
+    "url": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+    "isDeprecated": false,
+    "deprecationDate": null,
+    "description": "**Note:** The SCIM API endpoints for enterprise accounts are currently in beta and are subject to change.\n\nAllows you to change a provisioned user's individual attributes. To change a user's values, you must provide a specific `Operations` JSON format that contains at least one of the `add`, `remove`, or `replace` operations. For examples and more information on the SCIM operations format, see the [SCIM specification](https://tools.ietf.org/html/rfc7644#section-3.5.2).\n\n**Note:** Complicated SCIM `path` selectors that include filters are not supported. For example, a `path` selector defined as `\"path\": \"emails[type eq \\\"work\\\"]\"` will not work.\n\n**Warning:** If you set `active:false` using the `replace` operation (as shown in the JSON example below), it removes the user from the enterprise, deletes the external identity, and deletes the associated `:scim_user_id`.\n\n```\n{\n  \"Operations\":[{\n    \"op\":\"replace\",\n    \"value\":{\n      \"active\":false\n    }\n  }]\n}\n```",
+    "documentationUrl": "https://docs.github.com/enterprise-server@3.6/rest/reference/enterprise-admin#update-an-attribute-for-a-scim-enterprise-user",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "enterprise",
+        "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "scim_user_id",
+        "description": "The unique identifier of the SCIM user.",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "schemas",
+        "description": "The SCIM schema URIs.",
+        "in": "BODY",
+        "type": "string[]",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "Operations",
+        "description": "Array of [SCIM operations](https://tools.ietf.org/html/rfc7644#section-3.5.2).",
+        "in": "BODY",
+        "type": "object[]",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "Response",
+        "examples": [
+          {
+            "data": "{\"schemas\":[\"urn:ietf:params:scim:schemas:core:2.0:User\"],\"id\":\"92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\",\"externalId\":\"00dowz5dr9oSfDFRA0h7\",\"userName\":\"mona.octocat@okta.example.com\",\"name\":{\"givenName\":\"Monalisa\",\"familyName\":\"Octocat\"},\"emails\":[{\"value\":\"mona.octocat@okta.example.com\",\"type\":\"work\",\"primary\":true},{\"value\":\"monalisa@octocat.github.com\",\"type\":\"home\"}],\"groups\":[{\"value\":\"468dd3fa-a1d6-11ea-9031-15a1f0d7811d\"}],\"active\":true,\"meta\":{\"resourceType\":\"User\",\"created\":\"2017-03-09T16:11:13-05:00\",\"lastModified\":\"2017-03-09T16:11:13-05:00\",\"location\":\"https://api.github.com/scim/v2/enterprises/octo-corp/Users/92b58aaa-a1d6-11ea-8227-b9ce9e023ccc\"}}"
+          }
+        ]
+      }
+    ],
     "renamed": null
   },
   {
@@ -19109,7 +20346,11 @@
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -19292,7 +20533,11 @@
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -19447,7 +20692,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -19733,7 +20982,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -19871,7 +21124,11 @@
       },
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -20121,7 +21378,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -20271,7 +21532,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 409, "description": "Conflict", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -20482,7 +21747,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -20575,7 +21844,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -20733,7 +22006,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -20880,7 +22157,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -20939,7 +22220,11 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -21008,7 +22293,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -21293,7 +22582,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -21452,7 +22745,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -21692,8 +22989,14 @@
           }
         ]
       },
+      { "code": 301, "description": "Moved permanently", "examples": null },
+      { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -21895,7 +23198,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -21979,7 +23286,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -22073,7 +23384,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -22180,7 +23495,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -22884,7 +24203,11 @@
       },
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -23191,7 +24514,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -23364,7 +24691,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -23949,7 +25280,11 @@
       },
       { "code": 301, "description": "Moved permanently", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -24214,6 +25549,8 @@
           }
         ]
       },
+      { "code": 301, "description": "Moved permanently", "examples": null },
+      { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null }
     ],
     "renamed": null
@@ -24408,7 +25745,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -24467,6 +25808,8 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
+      { "code": 301, "description": "Moved permanently", "examples": null },
+      { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null }
     ],
     "renamed": null
@@ -24626,6 +25969,7 @@
           }
         ]
       },
+      { "code": 301, "description": "Moved permanently", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null }
     ],
@@ -24720,8 +26064,14 @@
           }
         ]
       },
+      { "code": 301, "description": "Moved permanently", "examples": null },
+      { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -24956,7 +26306,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -25037,7 +26391,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -26168,7 +27526,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -26327,7 +27689,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -26681,7 +28047,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -27041,7 +28411,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -27420,7 +28794,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -27494,7 +28872,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -27721,7 +29103,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -27895,7 +29281,11 @@
       { "code": 202, "description": "Accepted", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -28153,7 +29543,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -28544,7 +29938,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -28703,7 +30101,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -28875,7 +30277,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29024,7 +30430,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29085,7 +30495,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29160,7 +30574,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29248,7 +30666,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29573,7 +30995,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29747,7 +31173,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -29900,7 +31330,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -30001,7 +31435,11 @@
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -30081,7 +31519,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -30151,7 +31593,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Response", "examples": null }
     ],
     "renamed": null
@@ -30209,7 +31655,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -30263,7 +31713,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -30382,7 +31836,11 @@
         "examples": null
       },
       { "code": 410, "description": "Gone", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -30457,7 +31915,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -30730,7 +32192,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -31034,7 +32500,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -31219,7 +32689,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -31300,7 +32774,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -31466,7 +32944,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -31829,7 +33311,11 @@
         ]
       },
       { "code": 304, "description": "Not modified", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -32120,7 +33606,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 500, "description": "Internal Error", "examples": null },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
@@ -32666,7 +34156,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -32759,7 +34253,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -32965,7 +34463,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33098,7 +34600,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33179,7 +34685,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33272,7 +34782,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33477,7 +34991,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33575,7 +35093,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33673,7 +35195,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33771,7 +35297,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -33860,7 +35390,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -35909,7 +37443,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -35995,7 +37533,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -36077,7 +37619,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -36157,7 +37703,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -36237,7 +37787,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -36666,7 +38220,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -36786,7 +38344,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -37064,7 +38626,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -37249,7 +38815,11 @@
         "description": "Conflict when there is a merge conflict or the commit's status checks failed",
         "examples": null
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -37507,7 +39077,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -37592,7 +39166,11 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -37916,7 +39494,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -37987,7 +39569,11 @@
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -38328,7 +39914,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -38724,7 +40314,11 @@
       },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 409, "description": "Conflict", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -38831,7 +40425,11 @@
         ]
       },
       { "code": 409, "description": "Conflict", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -38976,7 +40574,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -39344,7 +40946,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -40005,7 +41611,11 @@
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -40260,7 +41870,11 @@
       },
       { "code": 404, "description": "Resource not found", "examples": null },
       { "code": 409, "description": "Conflict", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -40364,7 +41978,12 @@
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      { "code": 409, "description": "Conflict", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -41952,7 +43571,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 500, "description": "Internal Error", "examples": null },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
@@ -43125,7 +44748,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -43206,7 +44833,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -43824,7 +45455,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -44050,7 +45685,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -45288,7 +46927,11 @@
         "examples": null
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -45923,7 +47566,11 @@
         ]
       },
       { "code": 304, "description": "Not modified", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -46491,7 +48138,11 @@
       },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -46680,7 +48331,11 @@
         "description": "Conflict when there is a merge conflict",
         "examples": null
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -46889,7 +48544,11 @@
       { "code": 202, "description": "Accepted", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -46969,7 +48628,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -47102,7 +48765,11 @@
         "examples": [{ "data": "[\"continuous-integration/travis-ci\"]" }]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -47238,7 +48905,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -47318,7 +48989,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -47400,7 +49075,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -47466,7 +49145,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -47665,7 +49348,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -47742,7 +49429,11 @@
         "examples": [{ "data": "[\"continuous-integration/travis-ci\"]" }]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -47822,7 +49513,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -47902,7 +49597,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -48500,7 +50199,11 @@
       { "code": 307, "description": "Temporary Redirect", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -48933,7 +50636,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -49218,7 +50925,12 @@
       { "code": 204, "description": "Response", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
       { "code": 400, "description": "Bad Request", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      { "code": 409, "description": "Conflict", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -49507,7 +51219,11 @@
           }
         ]
       },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -49889,7 +51605,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -50100,7 +51820,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -50436,7 +52160,11 @@
       },
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -50637,7 +52365,11 @@
       },
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -50747,7 +52479,11 @@
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -50841,7 +52577,11 @@
         ]
       },
       { "code": 304, "description": "Not modified", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -51003,7 +52743,11 @@
         ]
       },
       { "code": 304, "description": "Not modified", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null },
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
     "renamed": null
@@ -51067,7 +52811,7 @@
         "description": "Response",
         "examples": [
           {
-            "data": "{\"number\":42,\"created_at\":\"2020-11-06T18:18:30Z\",\"url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/42\",\"html_url\":\"https://github.com/owner/private-repo/security/secret-scanning/42\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/42/locations\",\"state\":\"open\",\"resolution\":null,\"resolved_at\":null,\"resolved_by\":null,\"secret_type\":\"mailchimp_api_key\",\"secret_type_display_name\":\"Mailchimp API Key\",\"secret\":\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-us2\",\"push_protection_bypassed_by\":null,\"push_protection_bypassed\":false,\"push_protection_bypassed_at\":null}"
+            "data": "{\"number\":42,\"created_at\":\"2020-11-06T18:18:30Z\",\"url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/42\",\"html_url\":\"https://github.com/owner/private-repo/security/secret-scanning/42\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/42/locations\",\"state\":\"open\",\"secret_type\":\"mailchimp_api_key\",\"secret_type_display_name\":\"Mailchimp API Key\",\"secret\":\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-us2\",\"push_protection_bypassed\":false}"
           }
         ]
       },
@@ -51699,7 +53443,7 @@
         "description": "Response",
         "examples": [
           {
-            "data": "{\"number\":42,\"created_at\":\"2020-11-06T18:18:30Z\",\"url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/42\",\"html_url\":\"https://github.com/owner/private-repo/security/secret-scanning/42\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/42/locations\",\"state\":\"resolved\",\"resolution\":\"used_in_tests\",\"resolved_at\":\"2020-11-16T22:42:07Z\",\"resolved_by\":{\"login\":\"monalisa\",\"id\":2,\"node_id\":\"MDQ6VXNlcjI=\",\"avatar_url\":\"https://alambic.github.com/avatars/u/2?\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/monalisa\",\"html_url\":\"https://github.com/monalisa\",\"followers_url\":\"https://api.github.com/users/monalisa/followers\",\"following_url\":\"https://api.github.com/users/monalisa/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/monalisa/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/monalisa/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/monalisa/subscriptions\",\"organizations_url\":\"https://api.github.com/users/monalisa/orgs\",\"repos_url\":\"https://api.github.com/users/monalisa/repos\",\"events_url\":\"https://api.github.com/users/monalisa/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/monalisa/received_events\",\"type\":\"User\",\"site_admin\":true},\"secret_type\":\"mailchimp_api_key\",\"secret_type_display_name\":\"Mailchimp API Key\",\"secret\":\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-us2\",\"push_protection_bypassed\":false,\"push_protection_bypassed_by\":null,\"push_protection_bypassed_at\":null}"
+            "data": "{\"number\":42,\"created_at\":\"2020-11-06T18:18:30Z\",\"url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/42\",\"html_url\":\"https://github.com/owner/private-repo/security/secret-scanning/42\",\"locations_url\":\"https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/42/locations\",\"state\":\"resolved\",\"resolution\":\"used_in_tests\",\"resolved_at\":\"2020-11-16T22:42:07Z\",\"resolved_by\":{\"login\":\"monalisa\",\"id\":2,\"node_id\":\"MDQ6VXNlcjI=\",\"avatar_url\":\"https://alambic.github.com/avatars/u/2?\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/monalisa\",\"html_url\":\"https://github.com/monalisa\",\"followers_url\":\"https://api.github.com/users/monalisa/followers\",\"following_url\":\"https://api.github.com/users/monalisa/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/monalisa/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/monalisa/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/monalisa/subscriptions\",\"organizations_url\":\"https://api.github.com/users/monalisa/orgs\",\"repos_url\":\"https://api.github.com/users/monalisa/repos\",\"events_url\":\"https://api.github.com/users/monalisa/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/monalisa/received_events\",\"type\":\"User\",\"site_admin\":true},\"secret_type\":\"mailchimp_api_key\",\"secret_type_display_name\":\"Mailchimp API Key\",\"secret\":\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-us2\",\"push_protection_bypassed\":false}"
           }
         ]
       },
@@ -52084,7 +53828,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -52239,7 +53987,11 @@
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -52679,7 +54431,11 @@
         ]
       },
       { "code": 403, "description": "Forbidden", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -53296,7 +55052,11 @@
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -54045,7 +55805,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -55212,7 +56976,11 @@
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -55809,7 +57577,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -55926,7 +57698,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -55975,7 +57751,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": {
       "before": { "scope": "users", "id": "addEmailForAuthenticated" },
@@ -56029,7 +57809,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -56193,7 +57977,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": {
       "before": { "scope": "users", "id": "createGpgKeyForAuthenticated" },
@@ -56260,7 +58048,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -56322,7 +58114,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": {
       "before": {
@@ -56395,7 +58191,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -56436,7 +58236,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": {
       "before": { "scope": "users", "id": "deleteEmailForAuthenticated" },
@@ -56482,7 +58286,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -56523,7 +58331,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": {
       "before": { "scope": "users", "id": "deleteGpgKeyForAuthenticated" },
@@ -56569,7 +58381,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -56848,7 +58664,11 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   },
@@ -58246,7 +60066,11 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
-      { "code": 422, "description": "Validation failed", "examples": null }
+      {
+        "code": 422,
+        "description": "Validation failed, or the endpoint has been spammed.",
+        "examples": null
+      }
     ],
     "renamed": null
   }
