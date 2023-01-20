@@ -5,12 +5,6 @@ import { Octokit } from "@octokit/core";
 import { VERSION } from "./version";
 import { endpointsToMethods } from "./endpoints-to-methods";
 
-import ENDPOINTS_32 from "./generated/ghe-32-endpoints";
-import ADMIN_ENDPOINTS_32 from "./generated/ghe-32-admin-endpoints";
-
-import ENDPOINTS_33 from "./generated/ghe-33-endpoints";
-import ADMIN_ENDPOINTS_33 from "./generated/ghe-33-admin-endpoints";
-
 import ENDPOINTS_34 from "./generated/ghe-34-endpoints";
 import ADMIN_ENDPOINTS_34 from "./generated/ghe-34-admin-endpoints";
 
@@ -19,26 +13,6 @@ import ADMIN_ENDPOINTS_35 from "./generated/ghe-35-admin-endpoints";
 
 import ENDPOINTS_36 from "./generated/ghe-36-endpoints";
 import ADMIN_ENDPOINTS_36 from "./generated/ghe-36-admin-endpoints";
-
-export function enterpriseServer32Admin(octokit: Octokit) {
-  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_32);
-}
-enterpriseServer32Admin.VERSION = VERSION;
-
-export function enterpriseServer32(octokit: Octokit) {
-  return endpointsToMethods(octokit, ENDPOINTS_32);
-}
-enterpriseServer32.VERSION = VERSION;
-
-export function enterpriseServer33Admin(octokit: Octokit) {
-  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_33);
-}
-enterpriseServer33Admin.VERSION = VERSION;
-
-export function enterpriseServer33(octokit: Octokit) {
-  return endpointsToMethods(octokit, ENDPOINTS_33);
-}
-enterpriseServer33.VERSION = VERSION;
 
 export function enterpriseServer34Admin(octokit: Octokit) {
   return endpointsToMethods(octokit, ADMIN_ENDPOINTS_34);
