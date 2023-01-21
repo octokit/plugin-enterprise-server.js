@@ -36,7 +36,7 @@ Install with `npm install @octokit/core @octokit/plugin-enterprise-server`. Opti
 ```js
 const { Octokit } = require("@octokit/core");
 const {
-  enterpriseServer32Admin,
+  enterpriseServer36Admin,
 } = require("@octokit/plugin-enterprise-server");
 ```
 
@@ -45,7 +45,7 @@ const {
 </table>
 
 ```js
-const OctokitEnterprise32 = Octokit.plugin(enterpriseServer32Admin);
+const OctokitEnterprise36 = Octokit.plugin(enterpriseServer36Admin);
 const octokit = new OctokitEnterprise32({
   auth: "secret123",
   baseUrl: "https://github.acme-inc.com/api/v3",
@@ -59,10 +59,6 @@ octokit.enterpriseAdmin.createUser({
 
 The list of currently exported plugins are
 
-- [`enterpriseServer32Admin`](docs/ghe-32.md#admin)
-- [`enterpriseServer32`](docs/ghe-32.md#others)
-- [`enterpriseServer33Admin`](docs/ghe-33.md#admin)
-- [`enterpriseServer33`](docs/ghe-33.md#others)
 - [`enterpriseServer34Admin`](docs/ghe-34.md#admin)
 - [`enterpriseServer34`](docs/ghe-34.md#others)
 - [`enterpriseServer35Admin`](docs/ghe-35.md#admin)

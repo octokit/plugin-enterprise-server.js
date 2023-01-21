@@ -26,13 +26,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /admin/pre-receive-hooks/{pre_receive_hook_id}",
     ],
     deletePublicKey: ["DELETE /admin/keys/{key_ids}"],
-    deleteScimGroupFromEnterprise: [
-      "DELETE /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-    ],
+    deleteScimGroupFromEnterprise: ["DELETE /scim/v2/Groups/{scim_group_id}"],
     deleteUser: ["DELETE /admin/users/{username}"],
-    deleteUserFromEnterprise: [
-      "DELETE /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-    ],
+    deleteUserFromEnterprise: ["DELETE /scim/v2/Users/{scim_user_id}"],
     demoteSiteAdministrator: ["DELETE /users/{username}/site_admin"],
     disableSelectedOrganizationGithubActionsEnterprise: [
       "DELETE /enterprises/{enterprise}/actions/permissions/organizations/{org_id}",
@@ -77,10 +73,10 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
     ],
     getProvisioningInformationForEnterpriseGroup: [
-      "GET /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+      "GET /scim/v2/Groups/{scim_group_id}",
     ],
     getProvisioningInformationForEnterpriseUser: [
-      "GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+      "GET /scim/v2/Users/{scim_user_id}",
     ],
     getPullRequestStats: ["GET /enterprise/stats/pulls"],
     getRepoStats: ["GET /enterprise/stats/repos"],
@@ -95,24 +91,16 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listPreReceiveHooks: ["GET /admin/pre-receive-hooks"],
     listPreReceiveHooksForOrg: ["GET /orgs/{org}/pre-receive-hooks"],
     listPreReceiveHooksForRepo: ["GET /repos/{owner}/{repo}/pre-receive-hooks"],
-    listProvisionedGroupsEnterprise: [
-      "GET /scim/v2/enterprises/{enterprise}/Groups",
-    ],
-    listProvisionedIdentitiesEnterprise: [
-      "GET /scim/v2/enterprises/{enterprise}/Users",
-    ],
+    listProvisionedGroupsEnterprise: ["GET /scim/v2/Groups"],
+    listProvisionedIdentitiesEnterprise: ["GET /scim/v2/Users"],
     listPublicKeys: ["GET /admin/keys"],
     listSelectedOrganizationsEnabledGithubActionsEnterprise: [
       "GET /enterprises/{enterprise}/actions/permissions/organizations",
     ],
     pingGlobalWebhook: ["POST /admin/hooks/{hook_id}/pings"],
     promoteUserToBeSiteAdministrator: ["PUT /users/{username}/site_admin"],
-    provisionAndInviteEnterpriseGroup: [
-      "POST /scim/v2/enterprises/{enterprise}/Groups",
-    ],
-    provisionAndInviteEnterpriseUser: [
-      "POST /scim/v2/enterprises/{enterprise}/Users",
-    ],
+    provisionEnterpriseGroup: ["POST /scim/v2/Groups"],
+    provisionEnterpriseUser: ["POST /scim/v2/Users"],
     removeAllCustomLabelsFromSelfHostedRunnerForEnterprise: [
       "DELETE /enterprises/{enterprise}/actions/runners/{runner_id}/labels",
     ],
@@ -140,10 +128,10 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "PUT /enterprises/{enterprise}/actions/permissions",
     ],
     setInformationForProvisionedEnterpriseGroup: [
-      "PUT /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+      "PUT /scim/v2/Groups/{scim_group_id}",
     ],
     setInformationForProvisionedEnterpriseUser: [
-      "PUT /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+      "PUT /scim/v2/Users/{scim_user_id}",
     ],
     setSelectedOrganizationsEnabledGithubActionsEnterprise: [
       "PUT /enterprises/{enterprise}/actions/permissions/organizations",
@@ -158,11 +146,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     syncLdapMappingForUser: ["POST /admin/ldap/users/{username}/sync"],
     unsuspendUser: ["DELETE /users/{username}/suspended"],
     updateAttributeForEnterpriseGroup: [
-      "PATCH /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+      "PATCH /scim/v2/Groups/{scim_group_id}",
     ],
-    updateAttributeForEnterpriseUser: [
-      "PATCH /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-    ],
+    updateAttributeForEnterpriseUser: ["PATCH /scim/v2/Users/{scim_user_id}"],
     updateGlobalWebhook: ["PATCH /admin/hooks/{hook_id}"],
     updateLdapMappingForTeam: ["PATCH /admin/ldap/teams/{team_id}/mapping"],
     updateLdapMappingForUser: ["PATCH /admin/ldap/users/{username}/mapping"],

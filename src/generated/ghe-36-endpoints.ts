@@ -302,22 +302,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     addRepoToInstallationForAuthenticatedUser: [
       "PUT /user/installations/{installation_id}/repositories/{repository_id}",
     ],
-    checkAuthorization: [
-      "GET /applications/{client_id}/tokens/{access_token}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.checkAuthorization() is deprecated, see https://docs.github.com/enterprise-server@3.3/rest/reference/apps#check-an-authorization",
-      },
-    ],
     checkToken: ["POST /applications/{client_id}/token"],
-    createContentAttachment: [
-      "POST /content_references/{content_reference_id}/attachments",
-      { mediaType: { previews: ["corsair"] } },
-    ],
-    createContentAttachmentForRepo: [
-      "POST /repos/{owner}/{repo}/content_references/{content_reference_id}/attachments",
-    ],
     createFromManifest: ["POST /app-manifests/{code}/conversions"],
     createInstallationAccessToken: [
       "POST /app/installations/{installation_id}/access_tokens",
@@ -351,31 +336,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     removeRepoFromInstallationForAuthenticatedUser: [
       "DELETE /user/installations/{installation_id}/repositories/{repository_id}",
     ],
-    resetAuthorization: [
-      "POST /applications/{client_id}/tokens/{access_token}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.resetAuthorization() is deprecated, see https://docs.github.com/enterprise-server@3.3/rest/reference/apps#reset-an-authorization",
-      },
-    ],
     resetToken: ["PATCH /applications/{client_id}/token"],
-    revokeAuthorizationForApplication: [
-      "DELETE /applications/{client_id}/tokens/{access_token}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.revokeAuthorizationForApplication() is deprecated, see https://docs.github.com/enterprise-server@3.3/rest/reference/apps#revoke-an-authorization-for-an-application",
-      },
-    ],
-    revokeGrantForApplication: [
-      "DELETE /applications/{client_id}/grants/{access_token}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.revokeGrantForApplication() is deprecated, see https://docs.github.com/enterprise-server@3.3/rest/reference/apps#revoke-a-grant-for-an-application",
-      },
-    ],
     revokeInstallationAccessToken: ["DELETE /installation/token"],
     scopeToken: ["POST /applications/{client_id}/token/scoped"],
     suspendInstallation: ["PUT /app/installations/{installation_id}/suspended"],
@@ -444,14 +405,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
   codesOfConduct: {
     getAllCodesOfConduct: ["GET /codes_of_conduct"],
     getConductCode: ["GET /codes_of_conduct/{key}"],
-    getForRepo: [
-      "GET /repos/{owner}/{repo}/community/code_of_conduct",
-      { mediaType: { previews: ["scarlet-witch"] } },
-      {
-        deprecated:
-          "octokit.scim.getForRepo() is deprecated, see https://docs.github.com/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository",
-      },
-    ],
   },
   dependabot: {
     addSelectedRepoToOrgSecret: [
@@ -519,13 +472,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /admin/pre-receive-hooks/{pre_receive_hook_id}",
     ],
     deletePublicKey: ["DELETE /admin/keys/{key_ids}"],
-    deleteScimGroupFromEnterprise: [
-      "DELETE /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-    ],
+    deleteScimGroupFromEnterprise: ["DELETE /scim/v2/Groups/{scim_group_id}"],
     deleteUser: ["DELETE /admin/users/{username}"],
-    deleteUserFromEnterprise: [
-      "DELETE /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-    ],
+    deleteUserFromEnterprise: ["DELETE /scim/v2/Users/{scim_user_id}"],
     demoteSiteAdministrator: ["DELETE /users/{username}/site_admin"],
     disableSelectedOrganizationGithubActionsEnterprise: [
       "DELETE /enterprises/{enterprise}/actions/permissions/organizations/{org_id}",
@@ -570,10 +519,10 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
     ],
     getProvisioningInformationForEnterpriseGroup: [
-      "GET /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+      "GET /scim/v2/Groups/{scim_group_id}",
     ],
     getProvisioningInformationForEnterpriseUser: [
-      "GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+      "GET /scim/v2/Users/{scim_user_id}",
     ],
     getPullRequestStats: ["GET /enterprise/stats/pulls"],
     getRepoStats: ["GET /enterprise/stats/repos"],
@@ -588,24 +537,16 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listPreReceiveHooks: ["GET /admin/pre-receive-hooks"],
     listPreReceiveHooksForOrg: ["GET /orgs/{org}/pre-receive-hooks"],
     listPreReceiveHooksForRepo: ["GET /repos/{owner}/{repo}/pre-receive-hooks"],
-    listProvisionedGroupsEnterprise: [
-      "GET /scim/v2/enterprises/{enterprise}/Groups",
-    ],
-    listProvisionedIdentitiesEnterprise: [
-      "GET /scim/v2/enterprises/{enterprise}/Users",
-    ],
+    listProvisionedGroupsEnterprise: ["GET /scim/v2/Groups"],
+    listProvisionedIdentitiesEnterprise: ["GET /scim/v2/Users"],
     listPublicKeys: ["GET /admin/keys"],
     listSelectedOrganizationsEnabledGithubActionsEnterprise: [
       "GET /enterprises/{enterprise}/actions/permissions/organizations",
     ],
     pingGlobalWebhook: ["POST /admin/hooks/{hook_id}/pings"],
     promoteUserToBeSiteAdministrator: ["PUT /users/{username}/site_admin"],
-    provisionAndInviteEnterpriseGroup: [
-      "POST /scim/v2/enterprises/{enterprise}/Groups",
-    ],
-    provisionAndInviteEnterpriseUser: [
-      "POST /scim/v2/enterprises/{enterprise}/Users",
-    ],
+    provisionEnterpriseGroup: ["POST /scim/v2/Groups"],
+    provisionEnterpriseUser: ["POST /scim/v2/Users"],
     removeAllCustomLabelsFromSelfHostedRunnerForEnterprise: [
       "DELETE /enterprises/{enterprise}/actions/runners/{runner_id}/labels",
     ],
@@ -633,10 +574,10 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "PUT /enterprises/{enterprise}/actions/permissions",
     ],
     setInformationForProvisionedEnterpriseGroup: [
-      "PUT /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+      "PUT /scim/v2/Groups/{scim_group_id}",
     ],
     setInformationForProvisionedEnterpriseUser: [
-      "PUT /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+      "PUT /scim/v2/Users/{scim_user_id}",
     ],
     setSelectedOrganizationsEnabledGithubActionsEnterprise: [
       "PUT /enterprises/{enterprise}/actions/permissions/organizations",
@@ -651,11 +592,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     syncLdapMappingForUser: ["POST /admin/ldap/users/{username}/sync"],
     unsuspendUser: ["DELETE /users/{username}/suspended"],
     updateAttributeForEnterpriseGroup: [
-      "PATCH /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+      "PATCH /scim/v2/Groups/{scim_group_id}",
     ],
-    updateAttributeForEnterpriseUser: [
-      "PATCH /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-    ],
+    updateAttributeForEnterpriseUser: ["PATCH /scim/v2/Users/{scim_user_id}"],
     updateGlobalWebhook: ["PATCH /admin/hooks/{hook_id}"],
     updateLdapMappingForTeam: ["PATCH /admin/ldap/teams/{team_id}/mapping"],
     updateLdapMappingForUser: ["PATCH /admin/ldap/users/{username}/mapping"],
@@ -722,6 +661,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     addLabels: ["POST /repos/{owner}/{repo}/issues/{issue_number}/labels"],
     checkUserCanBeAssigned: ["GET /repos/{owner}/{repo}/assignees/{assignee}"],
+    checkUserCanBeAssignedToIssue: [
+      "GET /repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}",
+    ],
     create: ["POST /repos/{owner}/{repo}/issues"],
     createComment: [
       "POST /repos/{owner}/{repo}/issues/{issue_number}/comments",
@@ -1433,7 +1375,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.addOrUpdateRepoPermissionsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.6/rest/reference/teams/#add-or-update-team-repository-permissions-legacy",
+          "octokit.scim.addOrUpdateRepoPermissionsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.6/rest/reference/teams#add-or-update-team-repository-permissions-legacy",
       },
     ],
     checkPermissionsForProjectInOrg: [
