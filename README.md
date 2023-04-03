@@ -46,7 +46,7 @@ const {
 
 ```js
 const OctokitEnterprise36 = Octokit.plugin(enterpriseServer36Admin);
-const octokit = new OctokitEnterprise32({
+const octokit = new OctokitEnterprise36({
   auth: "secret123",
   baseUrl: "https://github.acme-inc.com/api/v3",
 });
