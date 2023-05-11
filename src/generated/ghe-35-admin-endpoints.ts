@@ -2,9 +2,6 @@ import { EndpointsDefaultsAndDecorations } from "../types";
 const Endpoints: EndpointsDefaultsAndDecorations = {
   enterpriseAdmin: {
     addAuthorizedSshKey: ["POST {origin}/setup/api/settings/authorized-keys"],
-    addCustomLabelsToSelfHostedRunnerForEnterprise: [
-      "POST /enterprises/{enterprise}/actions/runners/{runner_id}/labels",
-    ],
     createEnterpriseServerLicense: ["POST {origin}/setup/api/start"],
     createGlobalWebhook: ["POST /admin/hooks"],
     createImpersonationOAuthToken: [
@@ -28,20 +25,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     deletePublicKey: ["DELETE /admin/keys/{key_ids}"],
     deleteUser: ["DELETE /admin/users/{username}"],
     demoteSiteAdministrator: ["DELETE /users/{username}/site_admin"],
-    disableSelectedOrganizationGithubActionsEnterprise: [
-      "DELETE /enterprises/{enterprise}/actions/permissions/organizations/{org_id}",
-    ],
     enableOrDisableMaintenanceMode: ["POST {origin}/setup/api/maintenance"],
-    enableSelectedOrganizationGithubActionsEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/permissions/organizations/{org_id}",
-    ],
     getAllAuthorizedSshKeys: [
       "GET {origin}/setup/api/settings/authorized-keys",
     ],
     getAllStats: ["GET /enterprise/stats/all"],
-    getAllowedActionsEnterprise: [
-      "GET /enterprises/{enterprise}/actions/permissions/selected-actions",
-    ],
     getAnnouncement: ["GET /enterprise/announcement"],
     getCommentStats: ["GET /enterprise/stats/comments"],
     getConfigurationStatus: ["GET {origin}/setup/api/configcheck"],
@@ -49,9 +37,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest",
     ],
     getGistStats: ["GET /enterprise/stats/gists"],
-    getGithubActionsPermissionsEnterprise: [
-      "GET /enterprises/{enterprise}/actions/permissions",
-    ],
     getGlobalWebhook: ["GET /admin/hooks/{hook_id}"],
     getHooksStats: ["GET /enterprise/stats/hooks"],
     getIssueStats: ["GET /enterprise/stats/issues"],
@@ -75,29 +60,17 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getSettings: ["GET {origin}/setup/api/settings"],
     getUserStats: ["GET /enterprise/stats/users"],
     listGlobalWebhooks: ["GET /admin/hooks"],
-    listLabelsForSelfHostedRunnerForEnterprise: [
-      "GET /enterprises/{enterprise}/actions/runners/{runner_id}/labels",
-    ],
     listPersonalAccessTokens: ["GET /admin/tokens"],
     listPreReceiveEnvironments: ["GET /admin/pre-receive-environments"],
     listPreReceiveHooks: ["GET /admin/pre-receive-hooks"],
     listPreReceiveHooksForOrg: ["GET /orgs/{org}/pre-receive-hooks"],
     listPreReceiveHooksForRepo: ["GET /repos/{owner}/{repo}/pre-receive-hooks"],
     listPublicKeys: ["GET /admin/keys"],
-    listSelectedOrganizationsEnabledGithubActionsEnterprise: [
-      "GET /enterprises/{enterprise}/actions/permissions/organizations",
-    ],
     pingGlobalWebhook: ["POST /admin/hooks/{hook_id}/pings"],
     promoteUserToBeSiteAdministrator: ["PUT /users/{username}/site_admin"],
-    removeAllCustomLabelsFromSelfHostedRunnerForEnterprise: [
-      "DELETE /enterprises/{enterprise}/actions/runners/{runner_id}/labels",
-    ],
     removeAnnouncement: ["DELETE /enterprise/announcement"],
     removeAuthorizedSshKey: [
       "DELETE {origin}/setup/api/settings/authorized-keys",
-    ],
-    removeCustomLabelFromSelfHostedRunnerForEnterprise: [
-      "DELETE /enterprises/{enterprise}/actions/runners/{runner_id}/labels/{name}",
     ],
     removePreReceiveHookEnforcementForOrg: [
       "DELETE /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
@@ -105,19 +78,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     removePreReceiveHookEnforcementForRepo: [
       "DELETE /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
     ],
-    setAllowedActionsEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/permissions/selected-actions",
-    ],
     setAnnouncement: ["PATCH /enterprise/announcement"],
-    setCustomLabelsForSelfHostedRunnerForEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/runners/{runner_id}/labels",
-    ],
-    setGithubActionsPermissionsEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/permissions",
-    ],
-    setSelectedOrganizationsEnabledGithubActionsEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/permissions/organizations",
-    ],
     setSettings: ["PUT {origin}/setup/api/settings"],
     startConfigurationProcess: ["POST {origin}/setup/api/configure"],
     startPreReceiveEnvironmentDownload: [
