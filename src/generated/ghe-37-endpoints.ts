@@ -88,9 +88,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getActionsCacheUsageByRepoForOrg: [
       "GET /orgs/{org}/actions/cache/usage-by-repository",
     ],
-    getActionsCacheUsageForEnterprise: [
-      "GET /enterprises/{enterprise}/actions/cache/usage",
-    ],
     getActionsCacheUsageForOrg: ["GET /orgs/{org}/actions/cache/usage"],
     getActionsCacheUsagePolicy: [
       "GET /repos/{owner}/{repo}/actions/cache/usage-policy",
@@ -110,9 +107,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     getEnvironmentSecret: [
       "GET /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
-    ],
-    getGithubActionsDefaultWorkflowPermissionsEnterprise: [
-      "GET /enterprises/{enterprise}/actions/permissions/workflow",
     ],
     getGithubActionsDefaultWorkflowPermissionsOrganization: [
       "GET /orgs/{org}/actions/permissions/workflow",
@@ -230,9 +224,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     setCustomLabelsForSelfHostedRunnerForRepo: [
       "PUT /repos/{owner}/{repo}/actions/runners/{runner_id}/labels",
     ],
-    setGithubActionsDefaultWorkflowPermissionsEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/permissions/workflow",
-    ],
     setGithubActionsDefaultWorkflowPermissionsOrganization: [
       "PUT /orgs/{org}/actions/permissions/workflow",
     ],
@@ -328,6 +319,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listInstallationReposForAuthenticatedUser: [
       "GET /user/installations/{installation_id}/repositories",
     ],
+    listInstallationRequestsForAuthenticatedApp: [
+      "GET /app/installation-requests",
+    ],
     listInstallations: ["GET /app/installations"],
     listInstallationsForAuthenticatedUser: ["GET /user/installations"],
     listReposAccessibleToInstallation: ["GET /installation/repositories"],
@@ -351,14 +345,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /app/installations/{installation_id}/suspended",
     ],
     updateWebhookConfigForApp: ["PATCH /app/hook/config"],
-  },
-  billing: {
-    getGithubAdvancedSecurityBillingGhe: [
-      "GET /enterprises/{enterprise}/settings/billing/advanced-security",
-    ],
-    getGithubAdvancedSecurityBillingOrg: [
-      "GET /orgs/{org}/settings/billing/advanced-security",
-    ],
   },
   checks: {
     create: ["POST /repos/{owner}/{repo}/check-runs"],
@@ -395,9 +381,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getSarif: ["GET /repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}"],
     listAlertInstances: [
       "GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances",
-    ],
-    listAlertsForEnterprise: [
-      "GET /enterprises/{enterprise}/code-scanning/alerts",
     ],
     listAlertsForOrg: ["GET /orgs/{org}/code-scanning/alerts"],
     listAlertsForRepo: ["GET /repos/{owner}/{repo}/code-scanning/alerts"],
@@ -461,9 +444,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
   emojis: { get: ["GET /emojis"] },
   enterpriseAdmin: {
     addAuthorizedSshKey: ["POST {origin}/setup/api/settings/authorized-keys"],
-    addCustomLabelsToSelfHostedRunnerForEnterprise: [
-      "POST /enterprises/{enterprise}/actions/runners/{runner_id}/labels",
-    ],
     createEnterpriseServerLicense: ["POST {origin}/setup/api/start"],
     createGlobalWebhook: ["POST /admin/hooks"],
     createImpersonationOAuthToken: [
@@ -489,20 +469,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     deleteUser: ["DELETE /admin/users/{username}"],
     deleteUserFromEnterprise: ["DELETE /scim/v2/Users/{scim_user_id}"],
     demoteSiteAdministrator: ["DELETE /users/{username}/site_admin"],
-    disableSelectedOrganizationGithubActionsEnterprise: [
-      "DELETE /enterprises/{enterprise}/actions/permissions/organizations/{org_id}",
-    ],
     enableOrDisableMaintenanceMode: ["POST {origin}/setup/api/maintenance"],
-    enableSelectedOrganizationGithubActionsEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/permissions/organizations/{org_id}",
-    ],
     getAllAuthorizedSshKeys: [
       "GET {origin}/setup/api/settings/authorized-keys",
     ],
     getAllStats: ["GET /enterprise/stats/all"],
-    getAllowedActionsEnterprise: [
-      "GET /enterprises/{enterprise}/actions/permissions/selected-actions",
-    ],
     getAnnouncement: ["GET /enterprise/announcement"],
     getCommentStats: ["GET /enterprise/stats/comments"],
     getConfigurationStatus: ["GET {origin}/setup/api/configcheck"],
@@ -510,9 +481,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest",
     ],
     getGistStats: ["GET /enterprise/stats/gists"],
-    getGithubActionsPermissionsEnterprise: [
-      "GET /enterprises/{enterprise}/actions/permissions",
-    ],
     getGlobalWebhook: ["GET /admin/hooks/{hook_id}"],
     getHooksStats: ["GET /enterprise/stats/hooks"],
     getIssueStats: ["GET /enterprise/stats/issues"],
@@ -542,9 +510,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getSettings: ["GET {origin}/setup/api/settings"],
     getUserStats: ["GET /enterprise/stats/users"],
     listGlobalWebhooks: ["GET /admin/hooks"],
-    listLabelsForSelfHostedRunnerForEnterprise: [
-      "GET /enterprises/{enterprise}/actions/runners/{runner_id}/labels",
-    ],
     listPersonalAccessTokens: ["GET /admin/tokens"],
     listPreReceiveEnvironments: ["GET /admin/pre-receive-environments"],
     listPreReceiveHooks: ["GET /admin/pre-receive-hooks"],
@@ -553,22 +518,13 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listProvisionedGroupsEnterprise: ["GET /scim/v2/Groups"],
     listProvisionedIdentitiesEnterprise: ["GET /scim/v2/Users"],
     listPublicKeys: ["GET /admin/keys"],
-    listSelectedOrganizationsEnabledGithubActionsEnterprise: [
-      "GET /enterprises/{enterprise}/actions/permissions/organizations",
-    ],
     pingGlobalWebhook: ["POST /admin/hooks/{hook_id}/pings"],
     promoteUserToBeSiteAdministrator: ["PUT /users/{username}/site_admin"],
     provisionEnterpriseGroup: ["POST /scim/v2/Groups"],
     provisionEnterpriseUser: ["POST /scim/v2/Users"],
-    removeAllCustomLabelsFromSelfHostedRunnerForEnterprise: [
-      "DELETE /enterprises/{enterprise}/actions/runners/{runner_id}/labels",
-    ],
     removeAnnouncement: ["DELETE /enterprise/announcement"],
     removeAuthorizedSshKey: [
       "DELETE {origin}/setup/api/settings/authorized-keys",
-    ],
-    removeCustomLabelFromSelfHostedRunnerForEnterprise: [
-      "DELETE /enterprises/{enterprise}/actions/runners/{runner_id}/labels/{name}",
     ],
     removePreReceiveHookEnforcementForOrg: [
       "DELETE /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
@@ -576,24 +532,12 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     removePreReceiveHookEnforcementForRepo: [
       "DELETE /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
     ],
-    setAllowedActionsEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/permissions/selected-actions",
-    ],
     setAnnouncement: ["PATCH /enterprise/announcement"],
-    setCustomLabelsForSelfHostedRunnerForEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/runners/{runner_id}/labels",
-    ],
-    setGithubActionsPermissionsEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/permissions",
-    ],
     setInformationForProvisionedEnterpriseGroup: [
       "PUT /scim/v2/Groups/{scim_group_id}",
     ],
     setInformationForProvisionedEnterpriseUser: [
       "PUT /scim/v2/Users/{scim_user_id}",
-    ],
-    setSelectedOrganizationsEnabledGithubActionsEnterprise: [
-      "PUT /enterprises/{enterprise}/actions/permissions/organizations",
     ],
     setSettings: ["PUT {origin}/setup/api/settings"],
     startConfigurationProcess: ["POST {origin}/setup/api/configure"],
@@ -753,6 +697,12 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     root: ["GET /"],
   },
   migrations: {
+    deleteArchiveForOrg: [
+      "DELETE /orgs/{org}/migrations/{migration_id}/archive",
+    ],
+    downloadArchiveForOrg: [
+      "GET /orgs/{org}/migrations/{migration_id}/archive",
+    ],
     getArchiveForAuthenticatedUser: [
       "GET /user/migrations/{migration_id}/archive",
     ],
@@ -762,6 +712,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listReposForAuthenticatedUser: [
       "GET /user/migrations/{migration_id}/repositories",
     ],
+    listReposForOrg: ["GET /orgs/{org}/migrations/{migration_id}/repositories"],
     listReposForUser: [
       "GET /user/migrations/{migration_id}/repositories",
       {},
@@ -769,6 +720,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     startForAuthenticatedUser: ["POST /user/migrations"],
     startForOrg: ["POST /orgs/{org}/migrations"],
+    unlockRepoForOrg: [
+      "DELETE /orgs/{org}/migrations/{migration_id}/repos/{repo_name}/lock",
+    ],
   },
   orgs: {
     addSecurityManagerTeam: [
@@ -794,7 +748,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     list: ["GET /organizations"],
     listAppInstallations: ["GET /orgs/{org}/installations"],
-    listCustomRoles: ["GET /organizations/{organization_id}/custom_roles"],
     listForAuthenticatedUser: ["GET /user/orgs"],
     listForUser: ["GET /users/{username}/orgs"],
     listMembers: ["GET /orgs/{org}/members"],
@@ -979,14 +932,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     deleteForTeamDiscussionComment: [
       "DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}",
-    ],
-    deleteLegacy: [
-      "DELETE /reactions/{reaction_id}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.deleteLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.4/rest/reference/reactions/#delete-a-reaction-legacy",
-      },
     ],
     listForCommitComment: [
       "GET /repos/{owner}/{repo}/comments/{comment_id}/reactions",
