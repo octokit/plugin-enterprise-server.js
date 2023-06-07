@@ -1,12 +1,12 @@
 import { Octokit } from "@octokit/core";
-import {
+import type {
   EndpointOptions,
   RequestParameters,
   RequestMethod,
   Route,
   Url,
 } from "@octokit/types";
-import { EndpointsDefaultsAndDecorations } from "./types";
+import type { EndpointsDefaultsAndDecorations } from "./types";
 
 type EndpointMethods = {
   [methodName: string]: typeof Octokit.prototype.request;
