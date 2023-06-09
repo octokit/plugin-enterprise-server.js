@@ -5,7 +5,7 @@
 [![@latest](https://img.shields.io/npm/v/@octokit/plugin-enterprise-server.svg)](https://www.npmjs.com/package/@octokit/plugin-enterprise-server)
 [![Build Status](https://github.com/octokit/plugin-enterprise-server.js/workflows/Test/badge.svg)](https://github.com/octokit/plugin-enterprise-server.js/actions?workflow=Test)
 
-[`@octokit/rest`](https://github.com/octokit/rest.js/) and the [`@octokit/plugin-rest-endpoint-methods`](https://github.com/octokit/plugin-rest-endpoint-methods.js/) plugin it's using internally do not include methods for Enterprise Administration as they do not exist on https://api.github.com. This plugin adds endpoint methods for very GitHub Enterprise Server version that is currently supported.
+[`@octokit/rest`](https://github.com/octokit/rest.js/) and the [`@octokit/plugin-rest-endpoint-methods`](https://github.com/octokit/plugin-rest-endpoint-methods.js/) plugin it's using internally do not include methods for Enterprise Administration as they do not exist on https://api.github.com. This plugin adds endpoint methods for every GitHub Enterprise Server version that is currently supported.
 
 Besides the admin-specific endpoints, there are differences between `api.github.com` and each GitHub Enterprise Server version. Instead of loading [`@octokit/plugin-rest-endpoint-methods`](https://github.com/octokit/plugin-rest-endpoint-methods.js/) you can optionally add all endpoint methods for each GitHub Enterprise Server version, including the admin endpoints.
 
@@ -68,7 +68,7 @@ The list of currently exported plugins are
 
 ## How it works
 
-The route definitions for the currently supported GitHub Enterprise versions are build automatically from [`@octokit/openapi`](https://github.com/octokit/openapi). Each time there is a new `@octokit/openapi` release, the [`.github/workflows/update.yml`](.github/workflows/update.yml) workflow is triggered. If an update is found, a pull request is created.
+The route definitions for the currently supported GitHub Enterprise versions are built automatically from [`@octokit/openapi`](https://github.com/octokit/openapi). Each time there is a new `@octokit/openapi` release, the [`.github/workflows/update.yml`](.github/workflows/update.yml) workflow is triggered. If an update is found, a pull request is created.
 
 ## LICENSE
 
