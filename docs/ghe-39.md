@@ -1,4 +1,4 @@
-# enterpriseServer35
+# enterpriseServer39
 
 <a name="admin"></a>
 
@@ -24,7 +24,7 @@ octokit.enterpriseAdmin.createPreReceiveHook({
   enforcement,
   allow_downstream_configuration,
 });
-octokit.enterpriseAdmin.createUser({ login, email });
+octokit.enterpriseAdmin.createUser({ login, email, suspended });
 octokit.enterpriseAdmin.deleteGlobalWebhook({ hook_id });
 octokit.enterpriseAdmin.deleteImpersonationOAuthToken({ username });
 octokit.enterpriseAdmin.deletePersonalAccessToken({ token_id });
@@ -33,7 +33,9 @@ octokit.enterpriseAdmin.deletePreReceiveEnvironment({
 });
 octokit.enterpriseAdmin.deletePreReceiveHook({ pre_receive_hook_id });
 octokit.enterpriseAdmin.deletePublicKey({ key_ids });
+octokit.enterpriseAdmin.deleteScimGroupFromEnterprise({ scim_group_id });
 octokit.enterpriseAdmin.deleteUser({ username });
+octokit.enterpriseAdmin.deleteUserFromEnterprise({ scim_user_id });
 octokit.enterpriseAdmin.demoteSiteAdministrator({ username });
 octokit.enterpriseAdmin.enableOrDisableMaintenanceMode({ maintenance, origin });
 octokit.enterpriseAdmin.getAllAuthorizedSshKeys({ origin });
@@ -63,10 +65,19 @@ octokit.enterpriseAdmin.getPreReceiveHookForRepo({
   repo,
   pre_receive_hook_id,
 });
+octokit.enterpriseAdmin.getProvisioningInformationForEnterpriseGroup({
+  scim_group_id,
+  excludedAttributes,
+});
+octokit.enterpriseAdmin.getProvisioningInformationForEnterpriseUser({
+  scim_user_id,
+});
 octokit.enterpriseAdmin.getPullRequestStats();
+octokit.enterpriseAdmin.getReplicationStatus({ origin });
 octokit.enterpriseAdmin.getRepoStats();
 octokit.enterpriseAdmin.getSettings({ origin });
 octokit.enterpriseAdmin.getUserStats();
+octokit.enterpriseAdmin.getVersion({ origin });
 octokit.enterpriseAdmin.listGlobalWebhooks({ per_page, page });
 octokit.enterpriseAdmin.listPersonalAccessTokens({ per_page, page });
 octokit.enterpriseAdmin.listPreReceiveEnvironments({
@@ -96,6 +107,18 @@ octokit.enterpriseAdmin.listPreReceiveHooksForRepo({
   direction,
   sort,
 });
+octokit.enterpriseAdmin.listProvisionedGroupsEnterprise({
+  filter,
+  excludedAttributes,
+  startIndex,
+  count,
+});
+octokit.enterpriseAdmin.listProvisionedIdentitiesEnterprise({
+  filter,
+  excludedAttributes,
+  startIndex,
+  count,
+});
 octokit.enterpriseAdmin.listPublicKeys({
   per_page,
   page,
@@ -105,6 +128,22 @@ octokit.enterpriseAdmin.listPublicKeys({
 });
 octokit.enterpriseAdmin.pingGlobalWebhook({ hook_id });
 octokit.enterpriseAdmin.promoteUserToBeSiteAdministrator({ username });
+octokit.enterpriseAdmin.provisionEnterpriseGroup({
+  schemas,
+  externalId,
+  displayName,
+  members,
+});
+octokit.enterpriseAdmin.provisionEnterpriseUser({
+  schemas,
+  externalId,
+  active,
+  userName,
+  name,
+  displayName,
+  emails,
+  roles,
+});
 octokit.enterpriseAdmin.removeAnnouncement();
 octokit.enterpriseAdmin.removeAuthorizedSshKey({ authorized_key, origin });
 octokit.enterpriseAdmin.removePreReceiveHookEnforcementForOrg({
@@ -117,6 +156,24 @@ octokit.enterpriseAdmin.removePreReceiveHookEnforcementForRepo({
   pre_receive_hook_id,
 });
 octokit.enterpriseAdmin.setAnnouncement({ announcement, expires_at });
+octokit.enterpriseAdmin.setInformationForProvisionedEnterpriseGroup({
+  scim_group_id,
+  schemas,
+  externalId,
+  displayName,
+  members,
+});
+octokit.enterpriseAdmin.setInformationForProvisionedEnterpriseUser({
+  scim_user_id,
+  schemas,
+  externalId,
+  active,
+  userName,
+  name,
+  displayName,
+  emails,
+  roles,
+});
 octokit.enterpriseAdmin.setSettings({ settings, origin });
 octokit.enterpriseAdmin.startConfigurationProcess({ origin });
 octokit.enterpriseAdmin.startPreReceiveEnvironmentDownload({
@@ -126,6 +183,16 @@ octokit.enterpriseAdmin.suspendUser({ username, reason });
 octokit.enterpriseAdmin.syncLdapMappingForTeam({ team_id });
 octokit.enterpriseAdmin.syncLdapMappingForUser({ username });
 octokit.enterpriseAdmin.unsuspendUser({ username, reason });
+octokit.enterpriseAdmin.updateAttributeForEnterpriseGroup({
+  scim_group_id,
+  Operations,
+  schemas,
+});
+octokit.enterpriseAdmin.updateAttributeForEnterpriseUser({
+  scim_user_id,
+  Operations,
+  schemas,
+});
 octokit.enterpriseAdmin.updateGlobalWebhook({
   hook_id,
   config,
@@ -173,19 +240,31 @@ octokit.enterpriseAdmin.upgradeLicense({ license, origin });
 octokit.actions.addCustomLabelsToSelfHostedRunnerForOrg({org, runner_id, labels});
 octokit.actions.addCustomLabelsToSelfHostedRunnerForRepo({owner, repo, runner_id, labels});
 octokit.actions.addSelectedRepoToOrgSecret({org, secret_name, repository_id});
+octokit.actions.addSelectedRepoToOrgVariable({org, name, repository_id});
+octokit.actions.addSelectedRepoToRequiredWorkflow({org, required_workflow_id, repository_id});
 octokit.actions.cancelWorkflowRun({owner, repo, run_id});
+octokit.actions.createEnvironmentVariable({repository_id, environment_name, name, value});
 octokit.actions.createOrUpdateEnvironmentSecret({repository_id, environment_name, secret_name, encrypted_value, key_id});
 octokit.actions.createOrUpdateOrgSecret({org, secret_name, encrypted_value, key_id, visibility, selected_repository_ids});
 octokit.actions.createOrUpdateRepoSecret({owner, repo, secret_name, encrypted_value, key_id});
+octokit.actions.createOrgVariable({org, name, value, visibility, selected_repository_ids});
 octokit.actions.createRegistrationTokenForOrg({org});
 octokit.actions.createRegistrationTokenForRepo({owner, repo});
 octokit.actions.createRemoveTokenForOrg({org});
 octokit.actions.createRemoveTokenForRepo({owner, repo});
+octokit.actions.createRepoVariable({owner, repo, name, value});
+octokit.actions.createRequiredWorkflow({org, workflow_file_path, repository_id, scope, selected_repository_ids});
 octokit.actions.createWorkflowDispatch({owner, repo, workflow_id, ref, inputs});
+octokit.actions.deleteActionsCacheById({owner, repo, cache_id});
+octokit.actions.deleteActionsCacheByKey({owner, repo, key, ref});
 octokit.actions.deleteArtifact({owner, repo, artifact_id});
 octokit.actions.deleteEnvironmentSecret({repository_id, environment_name, secret_name});
+octokit.actions.deleteEnvironmentVariable({repository_id, name, environment_name});
 octokit.actions.deleteOrgSecret({org, secret_name});
+octokit.actions.deleteOrgVariable({org, name});
 octokit.actions.deleteRepoSecret({owner, repo, secret_name});
+octokit.actions.deleteRepoVariable({owner, repo, name});
+octokit.actions.deleteRequiredWorkflow({org, required_workflow_id});
 octokit.actions.deleteSelfHostedRunnerFromOrg({org, runner_id});
 octokit.actions.deleteSelfHostedRunnerFromRepo({owner, repo, runner_id});
 octokit.actions.deleteWorkflowRun({owner, repo, run_id});
@@ -198,6 +277,7 @@ octokit.actions.downloadWorkflowRunAttemptLogs({owner, repo, run_id, attempt_num
 octokit.actions.downloadWorkflowRunLogs({owner, repo, run_id});
 octokit.actions.enableSelectedRepositoryGithubActionsOrganization({org, repository_id});
 octokit.actions.enableWorkflow({owner, repo, workflow_id});
+octokit.actions.getActionsCacheList({owner, repo, per_page, page, ref, key, sort, direction});
 octokit.actions.getActionsCacheUsage({owner, repo});
 octokit.actions.getActionsCacheUsageByRepoForOrg({org, per_page, page});
 octokit.actions.getActionsCacheUsageForOrg({org});
@@ -208,15 +288,21 @@ octokit.actions.getAllowedActionsRepository({owner, repo});
 octokit.actions.getArtifact({owner, repo, artifact_id});
 octokit.actions.getEnvironmentPublicKey({repository_id, environment_name});
 octokit.actions.getEnvironmentSecret({repository_id, environment_name, secret_name});
+octokit.actions.getEnvironmentVariable({repository_id, environment_name, name});
 octokit.actions.getGithubActionsDefaultWorkflowPermissionsOrganization({org});
+octokit.actions.getGithubActionsDefaultWorkflowPermissionsRepository({owner, repo});
 octokit.actions.getGithubActionsPermissionsOrganization({org});
 octokit.actions.getGithubActionsPermissionsRepository({owner, repo});
 octokit.actions.getJobForWorkflowRun({owner, repo, job_id});
 octokit.actions.getOrgPublicKey({org});
 octokit.actions.getOrgSecret({org, secret_name});
+octokit.actions.getOrgVariable({org, name});
 octokit.actions.getPendingDeploymentsForRun({owner, repo, run_id});
 octokit.actions.getRepoPublicKey({owner, repo});
+octokit.actions.getRepoRequiredWorkflow({org, repo, required_workflow_id_for_repo});
 octokit.actions.getRepoSecret({owner, repo, secret_name});
+octokit.actions.getRepoVariable({owner, repo, name});
+octokit.actions.getRequiredWorkflow({org, required_workflow_id});
 octokit.actions.getReviewsForRun({owner, repo, run_id});
 octokit.actions.getSelfHostedRunnerForOrg({org, runner_id});
 octokit.actions.getSelfHostedRunnerForRepo({owner, repo, runner_id});
@@ -224,32 +310,44 @@ octokit.actions.getWorkflow({owner, repo, workflow_id});
 octokit.actions.getWorkflowAccessToRepository({owner, repo});
 octokit.actions.getWorkflowRun({owner, repo, run_id, exclude_pull_requests});
 octokit.actions.getWorkflowRunAttempt({owner, repo, run_id, attempt_number, exclude_pull_requests});
-octokit.actions.listArtifactsForRepo({owner, repo, per_page, page});
+octokit.actions.listArtifactsForRepo({owner, repo, per_page, page, name});
 octokit.actions.listEnvironmentSecrets({repository_id, environment_name, per_page, page});
+octokit.actions.listEnvironmentVariables({repository_id, environment_name, per_page, page});
 octokit.actions.listJobsForWorkflowRun({owner, repo, run_id, filter, per_page, page});
 octokit.actions.listJobsForWorkflowRunAttempt({owner, repo, run_id, attempt_number, per_page, page});
 octokit.actions.listLabelsForSelfHostedRunnerForOrg({org, runner_id});
 octokit.actions.listLabelsForSelfHostedRunnerForRepo({owner, repo, runner_id});
 octokit.actions.listOrgSecrets({org, per_page, page});
+octokit.actions.listOrgVariables({org, per_page, page});
+octokit.actions.listRepoOrganizationSecrets({owner, repo, per_page, page});
+octokit.actions.listRepoOrganizationVariables({owner, repo, per_page, page});
+octokit.actions.listRepoRequiredWorkflows({org, repo, per_page, page});
 octokit.actions.listRepoSecrets({owner, repo, per_page, page});
+octokit.actions.listRepoVariables({owner, repo, per_page, page});
 octokit.actions.listRepoWorkflows({owner, repo, per_page, page});
+octokit.actions.listRequiredWorkflowRuns({owner, repo, required_workflow_id_for_repo, actor, branch, event, status, per_page, page, created, exclude_pull_requests, check_suite_id, head_sha});
+octokit.actions.listRequiredWorkflows({org, per_page, page});
 octokit.actions.listRunnerApplicationsForOrg({org});
 octokit.actions.listRunnerApplicationsForRepo({owner, repo});
 octokit.actions.listSelectedReposForOrgSecret({org, secret_name, page, per_page});
+octokit.actions.listSelectedReposForOrgVariable({org, name, page, per_page});
 octokit.actions.listSelectedRepositoriesEnabledGithubActionsOrganization({org, per_page, page});
+octokit.actions.listSelectedRepositoriesRequiredWorkflow({org, required_workflow_id});
 octokit.actions.listSelfHostedRunnersForOrg({org, per_page, page});
 octokit.actions.listSelfHostedRunnersForRepo({owner, repo, per_page, page});
 octokit.actions.listWorkflowRunArtifacts({owner, repo, run_id, per_page, page});
-octokit.actions.listWorkflowRuns({owner, repo, workflow_id, actor, branch, event, status, per_page, page, created, exclude_pull_requests, check_suite_id});
-octokit.actions.listWorkflowRunsForRepo({owner, repo, actor, branch, event, status, per_page, page, created, exclude_pull_requests, check_suite_id});
-octokit.actions.reRunJobForWorkflowRun({owner, repo, job_id});
-octokit.actions.reRunWorkflow({owner, repo, run_id});
-octokit.actions.reRunWorkflowFailedJobs({owner, repo, run_id});
+octokit.actions.listWorkflowRuns({owner, repo, workflow_id, actor, branch, event, status, per_page, page, created, exclude_pull_requests, check_suite_id, head_sha});
+octokit.actions.listWorkflowRunsForRepo({owner, repo, actor, branch, event, status, per_page, page, created, exclude_pull_requests, check_suite_id, head_sha});
+octokit.actions.reRunJobForWorkflowRun({owner, repo, job_id, enable_debug_logging});
+octokit.actions.reRunWorkflow({owner, repo, run_id, enable_debug_logging});
+octokit.actions.reRunWorkflowFailedJobs({owner, repo, run_id, enable_debug_logging});
 octokit.actions.removeAllCustomLabelsFromSelfHostedRunnerForOrg({org, runner_id});
 octokit.actions.removeAllCustomLabelsFromSelfHostedRunnerForRepo({owner, repo, runner_id});
 octokit.actions.removeCustomLabelFromSelfHostedRunnerForOrg({org, runner_id, name});
 octokit.actions.removeCustomLabelFromSelfHostedRunnerForRepo({owner, repo, runner_id, name});
 octokit.actions.removeSelectedRepoFromOrgSecret({org, secret_name, repository_id});
+octokit.actions.removeSelectedRepoFromOrgVariable({org, name, repository_id});
+octokit.actions.removeSelectedRepoFromRequiredWorkflow({org, required_workflow_id, repository_id});
 octokit.actions.reviewPendingDeploymentsForRun({owner, repo, run_id, environment_ids, state, comment});
 octokit.actions.setActionsCacheUsagePolicy({owner, repo, repo_cache_size_limit_in_gb});
 octokit.actions.setActionsCacheUsagePolicyForEnterprise({enterprise, repo_cache_size_limit_in_gb, max_repo_cache_size_limit_in_gb});
@@ -258,11 +356,18 @@ octokit.actions.setAllowedActionsRepository({owner, repo, github_owned_allowed, 
 octokit.actions.setCustomLabelsForSelfHostedRunnerForOrg({org, runner_id, labels});
 octokit.actions.setCustomLabelsForSelfHostedRunnerForRepo({owner, repo, runner_id, labels});
 octokit.actions.setGithubActionsDefaultWorkflowPermissionsOrganization({org, default_workflow_permissions, can_approve_pull_request_reviews});
+octokit.actions.setGithubActionsDefaultWorkflowPermissionsRepository({owner, repo, default_workflow_permissions, can_approve_pull_request_reviews});
 octokit.actions.setGithubActionsPermissionsOrganization({org, enabled_repositories, allowed_actions});
 octokit.actions.setGithubActionsPermissionsRepository({owner, repo, enabled, allowed_actions});
 octokit.actions.setSelectedReposForOrgSecret({org, secret_name, selected_repository_ids});
+octokit.actions.setSelectedReposForOrgVariable({org, name, selected_repository_ids});
+octokit.actions.setSelectedReposToRequiredWorkflow({org, required_workflow_id, selected_repository_ids});
 octokit.actions.setSelectedRepositoriesEnabledGithubActionsOrganization({org, selected_repository_ids});
 octokit.actions.setWorkflowAccessToRepository({owner, repo, access_level});
+octokit.actions.updateEnvironmentVariable({repository_id, name, environment_name, value});
+octokit.actions.updateOrgVariable({org, name, value, visibility, selected_repository_ids});
+octokit.actions.updateRepoVariable({owner, repo, name, value});
+octokit.actions.updateRequiredWorkflow({org, required_workflow_id, workflow_file_path, repository_id, scope, selected_repository_ids});
 octokit.activity.checkRepoIsStarredByAuthenticatedUser({owner, repo});
 octokit.activity.deleteRepoSubscription({owner, repo});
 octokit.activity.deleteThreadSubscription({thread_id});
@@ -340,13 +445,15 @@ octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id
 octokit.codeScanning.deleteAnalysis({owner, repo, analysis_id, confirm_delete});
 octokit.codeScanning.getAlert({owner, repo, alert_number});
 octokit.codeScanning.getAnalysis({owner, repo, analysis_id});
+octokit.codeScanning.getDefaultSetup({owner, repo});
 octokit.codeScanning.getSarif({owner, repo, sarif_id});
 octokit.codeScanning.listAlertInstances({owner, repo, alert_number, page, per_page, ref});
-octokit.codeScanning.listAlertsForOrg({org, tool_name, tool_guid, before, after, page, per_page, direction, state, sort});
+octokit.codeScanning.listAlertsForOrg({org, tool_name, tool_guid, before, after, page, per_page, direction, state, sort, severity});
 octokit.codeScanning.listAlertsForRepo({owner, repo, tool_name, tool_guid, page, per_page, ref, direction, sort, state});
 octokit.codeScanning.listAlertsInstances({owner, repo, alert_number, page, per_page, ref});
-octokit.codeScanning.listRecentAnalyses({owner, repo, tool_name, tool_guid, page, per_page, ref, sarif_id});
-octokit.codeScanning.updateAlert({owner, repo, alert_number, state, dismissed_reason});
+octokit.codeScanning.listRecentAnalyses({owner, repo, tool_name, tool_guid, page, per_page, ref, sarif_id, direction, sort});
+octokit.codeScanning.updateAlert({owner, repo, alert_number, state, dismissed_reason, dismissed_comment});
+octokit.codeScanning.updateDefaultSetup({owner, repo, state, query_suite});
 octokit.codeScanning.uploadSarif({owner, repo, commit_sha, ref, sarif, checkout_uri, started_at, tool_name});
 octokit.codesOfConduct.getAllCodesOfConduct();
 octokit.codesOfConduct.getConductCode({key});
@@ -355,15 +462,23 @@ octokit.dependabot.createOrUpdateOrgSecret({org, secret_name, encrypted_value, k
 octokit.dependabot.createOrUpdateRepoSecret({owner, repo, secret_name, encrypted_value, key_id});
 octokit.dependabot.deleteOrgSecret({org, secret_name});
 octokit.dependabot.deleteRepoSecret({owner, repo, secret_name});
+octokit.dependabot.getAlert({owner, repo, alert_number});
 octokit.dependabot.getOrgPublicKey({org});
 octokit.dependabot.getOrgSecret({org, secret_name});
 octokit.dependabot.getRepoPublicKey({owner, repo});
 octokit.dependabot.getRepoSecret({owner, repo, secret_name});
+octokit.dependabot.listAlertsForEnterprise({enterprise, state, severity, ecosystem, package, scope, sort, direction, before, after, first, last, per_page});
+octokit.dependabot.listAlertsForOrg({org, state, severity, ecosystem, package, scope, sort, direction, before, after, first, last, per_page});
+octokit.dependabot.listAlertsForRepo({owner, repo, state, severity, ecosystem, package, manifest, scope, sort, direction, page, per_page, before, after, first, last});
 octokit.dependabot.listOrgSecrets({org, per_page, page});
 octokit.dependabot.listRepoSecrets({owner, repo, per_page, page});
 octokit.dependabot.listSelectedReposForOrgSecret({org, secret_name, page, per_page});
 octokit.dependabot.removeSelectedRepoFromOrgSecret({org, secret_name, repository_id});
 octokit.dependabot.setSelectedReposForOrgSecret({org, secret_name, selected_repository_ids});
+octokit.dependabot.updateAlert({owner, repo, alert_number, state, dismissed_reason, dismissed_comment});
+octokit.dependencyGraph.createRepositorySnapshot({owner, repo, version, job, sha, ref, detector, metadata, manifests, scanned});
+octokit.dependencyGraph.diffRange({owner, repo, basehead, name});
+octokit.dependencyGraph.exportSbom({owner, repo});
 octokit.emojis.get();
 octokit.gists.checkIsStarred({gist_id});
 octokit.gists.create({description, files, public});
@@ -387,7 +502,7 @@ octokit.gists.update({gist_id, description, files});
 octokit.gists.updateComment({gist_id, comment_id, body});
 octokit.git.createBlob({owner, repo, content, encoding});
 octokit.git.createCommit({owner, repo, message, tree, parents, author, committer, signature});
-octokit.git.createRef({owner, repo, ref, sha, key});
+octokit.git.createRef({owner, repo, ref, sha});
 octokit.git.createTag({owner, repo, tag, message, object, type, tagger});
 octokit.git.createTree({owner, repo, tree, base_tree});
 octokit.git.deleteRef({owner, repo, ref});
@@ -461,11 +576,14 @@ octokit.migrations.listReposForUser({migration_id, per_page, page});
 octokit.migrations.startForAuthenticatedUser({lock_repositories, exclude_metadata, exclude_git_data, exclude_attachments, exclude_releases, exclude_owner_projects, org_metadata_only, exclude, repositories});
 octokit.migrations.startForOrg({org, repositories, lock_repositories, exclude_metadata, exclude_git_data, exclude_attachments, exclude_releases, exclude_owner_projects, org_metadata_only, exclude});
 octokit.migrations.unlockRepoForOrg({org, migration_id, repo_name});
+octokit.orgs.addSecurityManagerTeam({org, team_slug});
 octokit.orgs.checkMembershipForUser({org, username});
 octokit.orgs.checkPublicMembershipForUser({org, username});
 octokit.orgs.convertMemberToOutsideCollaborator({org, username, async});
 octokit.orgs.createWebhook({org, name, config, events, active});
+octokit.orgs.delete({org});
 octokit.orgs.deleteWebhook({org, hook_id});
+octokit.orgs.enableOrDisableSecurityProductOnAllOrgRepos({org, security_product, enablement});
 octokit.orgs.get({org});
 octokit.orgs.getMembershipForAuthenticatedUser({org});
 octokit.orgs.getMembershipForUser({org, username});
@@ -480,6 +598,7 @@ octokit.orgs.listMembers({org, filter, role, per_page, page});
 octokit.orgs.listMembershipsForAuthenticatedUser({state, per_page, page});
 octokit.orgs.listOutsideCollaborators({org, filter, per_page, page});
 octokit.orgs.listPublicMembers({org, per_page, page});
+octokit.orgs.listSecurityManagerTeams({org});
 octokit.orgs.listWebhookDeliveries({org, hook_id, per_page, cursor, redelivery});
 octokit.orgs.listWebhooks({org, per_page, page});
 octokit.orgs.pingWebhook({org, hook_id});
@@ -488,12 +607,42 @@ octokit.orgs.removeMember({org, username});
 octokit.orgs.removeMembershipForUser({org, username});
 octokit.orgs.removeOutsideCollaborator({org, username});
 octokit.orgs.removePublicMembershipForAuthenticatedUser({org, username});
+octokit.orgs.removeSecurityManagerTeam({org, team_slug});
 octokit.orgs.setMembershipForUser({org, username, role});
 octokit.orgs.setPublicMembershipForAuthenticatedUser({org, username});
-octokit.orgs.update({org, billing_email, company, email, twitter_username, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories, members_can_create_internal_repositories, members_can_create_private_repositories, members_can_create_public_repositories, members_allowed_repository_creation_type, members_can_create_pages, members_can_fork_private_repositories, blog});
+octokit.orgs.update({org, billing_email, company, email, twitter_username, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories, members_can_create_internal_repositories, members_can_create_private_repositories, members_can_create_public_repositories, members_allowed_repository_creation_type, members_can_create_pages, members_can_fork_private_repositories, web_commit_signoff_required, blog, advanced_security_enabled_for_new_repositories, dependabot_alerts_enabled_for_new_repositories, dependabot_security_updates_enabled_for_new_repositories, dependency_graph_enabled_for_new_repositories, secret_scanning_enabled_for_new_repositories, secret_scanning_push_protection_enabled_for_new_repositories, secret_scanning_push_protection_custom_link_enabled, secret_scanning_push_protection_custom_link});
 octokit.orgs.updateMembershipForAuthenticatedUser({org, state});
 octokit.orgs.updateWebhook({org, hook_id, config, events, active, name});
 octokit.orgs.updateWebhookConfigForOrg({org, hook_id, url, content_type, secret, insecure_ssl});
+octokit.packages.deletePackageForAuthenticatedUser({package_type, package_name});
+octokit.packages.deletePackageForOrg({package_type, package_name, org});
+octokit.packages.deletePackageForUser({package_type, package_name, username});
+octokit.packages.deletePackageVersionForAuthenticatedUser({package_type, package_name, package_version_id});
+octokit.packages.deletePackageVersionForOrg({package_type, package_name, org, package_version_id});
+octokit.packages.deletePackageVersionForUser({package_type, package_name, username, package_version_id});
+octokit.packages.getAllPackageVersionsForAPackageOwnedByAnOrg({package_type, package_name, org, page, per_page, state});
+octokit.packages.getAllPackageVersionsForAPackageOwnedByTheAuthenticatedUser({package_type, package_name, page, per_page, state});
+octokit.packages.getAllPackageVersionsForPackageOwnedByAuthenticatedUser({package_type, package_name, page, per_page, state});
+octokit.packages.getAllPackageVersionsForPackageOwnedByOrg({package_type, package_name, org, page, per_page, state});
+octokit.packages.getAllPackageVersionsForPackageOwnedByUser({package_type, package_name, username});
+octokit.packages.getPackageForAuthenticatedUser({package_type, package_name});
+octokit.packages.getPackageForOrganization({package_type, package_name, org});
+octokit.packages.getPackageForUser({package_type, package_name, username});
+octokit.packages.getPackageVersionForAuthenticatedUser({package_type, package_name, package_version_id});
+octokit.packages.getPackageVersionForOrganization({package_type, package_name, org, package_version_id});
+octokit.packages.getPackageVersionForUser({package_type, package_name, package_version_id, username});
+octokit.packages.listDockerMigrationConflictingPackagesForAuthenticatedUser();
+octokit.packages.listDockerMigrationConflictingPackagesForOrganization({org});
+octokit.packages.listDockerMigrationConflictingPackagesForUser({username});
+octokit.packages.listPackagesForAuthenticatedUser({package_type, visibility, page, per_page});
+octokit.packages.listPackagesForOrganization({package_type, org, visibility, page, per_page});
+octokit.packages.listPackagesForUser({package_type, visibility, username, page, per_page});
+octokit.packages.restorePackageForAuthenticatedUser({package_type, package_name, token});
+octokit.packages.restorePackageForOrg({package_type, package_name, org, token});
+octokit.packages.restorePackageForUser({package_type, package_name, username, token});
+octokit.packages.restorePackageVersionForAuthenticatedUser({package_type, package_name, package_version_id});
+octokit.packages.restorePackageVersionForOrg({package_type, package_name, org, package_version_id});
+octokit.packages.restorePackageVersionForUser({package_type, package_name, username, package_version_id});
 octokit.projects.addCollaborator({project_id, username, permission});
 octokit.projects.createCard({column_id, note, content_id, content_type});
 octokit.projects.createColumn({project_id, name});
@@ -520,10 +669,10 @@ octokit.projects.update({project_id, name, body, state, organization_permission,
 octokit.projects.updateCard({card_id, note, archived});
 octokit.projects.updateColumn({column_id, name});
 octokit.pulls.checkIfMerged({owner, repo, pull_number});
-octokit.pulls.create({owner, repo, title, head, base, body, maintainer_can_modify, draft, issue});
+octokit.pulls.create({owner, repo, title, head, head_repo, base, body, maintainer_can_modify, draft, issue});
 octokit.pulls.createReplyForReviewComment({owner, repo, pull_number, comment_id, body});
 octokit.pulls.createReview({owner, repo, pull_number, commit_id, body, event, comments});
-octokit.pulls.createReviewComment({owner, repo, pull_number, body, commit_id, path, position, side, line, start_line, start_side, in_reply_to});
+octokit.pulls.createReviewComment({owner, repo, pull_number, body, commit_id, path, position, side, line, start_line, start_side, in_reply_to, subject_type});
 octokit.pulls.deletePendingReview({owner, repo, pull_number, review_id});
 octokit.pulls.deleteReviewComment({owner, repo, comment_id});
 octokit.pulls.dismissReview({owner, repo, pull_number, review_id, message, event});
@@ -580,6 +729,7 @@ octokit.repos.addStatusCheckContexts({owner, repo, branch, contexts});
 octokit.repos.addTeamAccessRestrictions({owner, repo, branch, teams});
 octokit.repos.addUserAccessRestrictions({owner, repo, branch, users});
 octokit.repos.checkCollaborator({owner, repo, username});
+octokit.repos.checkVulnerabilityAlerts({owner, repo});
 octokit.repos.codeownersErrors({owner, repo, ref});
 octokit.repos.compareCommits({owner, repo, base, head, per_page, page});
 octokit.repos.compareCommitsWithBasehead({owner, repo, page, per_page, basehead});
@@ -593,12 +743,13 @@ octokit.repos.createDeploymentBranchPolicy({owner, repo, environment_name, name}
 octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive});
 octokit.repos.createDispatchEvent({owner, repo, event_type, client_payload});
 octokit.repos.createForAuthenticatedUser({name, description, homepage, private, has_issues, has_projects, has_wiki, has_discussions, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge, allow_auto_merge, delete_branch_on_merge, squash_merge_commit_title, squash_merge_commit_message, merge_commit_title, merge_commit_message, has_downloads, is_template});
-octokit.repos.createFork({owner, repo, organization});
+octokit.repos.createFork({owner, repo, organization, name, default_branch_only});
 octokit.repos.createInOrg({org, name, description, homepage, private, visibility, has_issues, has_projects, has_wiki, has_downloads, is_template, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge, allow_auto_merge, delete_branch_on_merge, use_squash_pr_title_as_default, squash_merge_commit_title, squash_merge_commit_message, merge_commit_title, merge_commit_message});
 octokit.repos.createOrUpdateEnvironment({owner, repo, environment_name, wait_timer, reviewers, deployment_branch_policy});
 octokit.repos.createOrUpdateFileContents({owner, repo, path, message, content, sha, branch, committer, author});
+octokit.repos.createPagesDeployment({owner, repo, artifact_url, environment, pages_build_version, oidc_token});
 octokit.repos.createPagesSite({owner, repo, build_type, source});
-octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease, generate_release_notes});
+octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease, generate_release_notes, make_latest});
 octokit.repos.createTagProtection({owner, repo, pattern});
 octokit.repos.createUsingTemplate({template_owner, template_repo, owner, name, description, include_all_branches, private});
 octokit.repos.createWebhook({owner, repo, name, config, events, active});
@@ -624,9 +775,11 @@ octokit.repos.deleteReleaseAsset({owner, repo, asset_id});
 octokit.repos.deleteTagProtection({owner, repo, tag_protection_id});
 octokit.repos.deleteWebhook({owner, repo, hook_id});
 octokit.repos.disableLfsForRepo({owner, repo});
+octokit.repos.disableVulnerabilityAlerts({owner, repo});
 octokit.repos.downloadTarballArchive({owner, repo, ref});
 octokit.repos.downloadZipballArchive({owner, repo, ref});
 octokit.repos.enableLfsForRepo({owner, repo});
+octokit.repos.enableVulnerabilityAlerts({owner, repo});
 octokit.repos.generateReleaseNotes({owner, repo, tag_name, target_commitish, previous_tag_name, configuration_file_path});
 octokit.repos.get({owner, repo});
 octokit.repos.getAccessRestrictions({owner, repo, branch});
@@ -674,7 +827,7 @@ octokit.repos.listAutolinks({owner, repo, page});
 octokit.repos.listBranches({owner, repo, protected, per_page, page});
 octokit.repos.listBranchesForHeadCommit({owner, repo, commit_sha});
 octokit.repos.listCacheInfo({owner, repo, per_page, page});
-octokit.repos.listCollaborators({owner, repo, affiliation, per_page, page});
+octokit.repos.listCollaborators({owner, repo, affiliation, permission, per_page, page});
 octokit.repos.listCommentsForCommit({owner, repo, commit_sha, per_page, page});
 octokit.repos.listCommitCommentsForRepo({owner, repo, per_page, page});
 octokit.repos.listCommitStatusesForRef({owner, repo, ref, per_page, page});
@@ -720,15 +873,15 @@ octokit.repos.setStatusCheckContexts({owner, repo, branch, contexts});
 octokit.repos.setTeamAccessRestrictions({owner, repo, branch, teams});
 octokit.repos.setUserAccessRestrictions({owner, repo, branch, users});
 octokit.repos.testPushWebhook({owner, repo, hook_id});
-octokit.repos.transfer({owner, repo, new_owner, team_ids});
-octokit.repos.update({owner, repo, name, description, homepage, private, visibility, has_issues, has_projects, has_wiki, is_template, default_branch, allow_squash_merge, allow_merge_commit, allow_rebase_merge, delete_branch_on_merge, allow_update_branch, use_squash_pr_title_as_default, squash_merge_commit_title, squash_merge_commit_message, merge_commit_title, merge_commit_message, archived, allow_forking});
-octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, enforce_admins, required_pull_request_reviews, restrictions, required_linear_history, allow_force_pushes, allow_deletions, block_creations, required_conversation_resolution});
+octokit.repos.transfer({owner, repo, new_owner, new_name, team_ids});
+octokit.repos.update({owner, repo, name, description, homepage, private, visibility, security_and_analysis, has_issues, has_projects, has_wiki, is_template, default_branch, allow_squash_merge, allow_merge_commit, allow_rebase_merge, delete_branch_on_merge, allow_update_branch, use_squash_pr_title_as_default, squash_merge_commit_title, squash_merge_commit_message, merge_commit_title, merge_commit_message, archived, allow_forking, web_commit_signoff_required});
+octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, enforce_admins, required_pull_request_reviews, restrictions, required_linear_history, allow_force_pushes, allow_deletions, block_creations, required_conversation_resolution, lock_branch, allow_fork_syncing});
 octokit.repos.updateCommitComment({owner, repo, comment_id, body});
 octokit.repos.updateDeploymentBranchPolicy({owner, repo, environment_name, branch_policy_id, name});
 octokit.repos.updateInformationAboutPagesSite({owner, repo, cname, https_enforced, build_type, source});
 octokit.repos.updateInvitation({owner, repo, invitation_id, permissions});
-octokit.repos.updatePullRequestReviewProtection({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews, required_approving_review_count, bypass_pull_request_allowances});
-octokit.repos.updateRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease});
+octokit.repos.updatePullRequestReviewProtection({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews, required_approving_review_count, require_last_push_approval, bypass_pull_request_allowances});
+octokit.repos.updateRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease, make_latest});
 octokit.repos.updateReleaseAsset({owner, repo, asset_id, name, label, state});
 octokit.repos.updateStatusCheckProtection({owner, repo, branch, strict, contexts, checks});
 octokit.repos.updateWebhook({owner, repo, hook_id, config, events, add_events, remove_events, active});
@@ -742,11 +895,11 @@ octokit.search.repos({q, sort, order, per_page, page});
 octokit.search.topics({q, per_page, page});
 octokit.search.users({q, sort, order, per_page, page});
 octokit.secretScanning.getAlert({owner, repo, alert_number});
-octokit.secretScanning.listAlertsForEnterprise({enterprise, state, secret_type, resolution, per_page, before, after});
-octokit.secretScanning.listAlertsForOrg({org, state, secret_type, resolution, page, per_page});
-octokit.secretScanning.listAlertsForRepo({owner, repo, state, secret_type, resolution, page, per_page});
+octokit.secretScanning.listAlertsForEnterprise({enterprise, state, secret_type, resolution, sort, direction, per_page, before, after});
+octokit.secretScanning.listAlertsForOrg({org, state, secret_type, resolution, sort, direction, page, per_page, before, after});
+octokit.secretScanning.listAlertsForRepo({owner, repo, state, secret_type, resolution, sort, direction, page, per_page, before, after});
 octokit.secretScanning.listLocationsForAlert({owner, repo, alert_number, page, per_page});
-octokit.secretScanning.updateAlert({owner, repo, alert_number, state, resolution});
+octokit.secretScanning.updateAlert({owner, repo, alert_number, state, resolution, resolution_comment});
 octokit.teams.addMemberLegacy({team_id, username});
 octokit.teams.addOrUpdateMembershipForUserInOrg({org, team_slug, username, role});
 octokit.teams.addOrUpdateMembershipForUserLegacy({team_id, username, role});
@@ -807,18 +960,22 @@ octokit.teams.updateInOrg({org, team_slug, name, description, privacy, permissio
 octokit.teams.updateLegacy({team_id, name, description, privacy, permission, parent_team_id});
 octokit.users.addEmailForAuthenticated({emails});
 octokit.users.addEmailForAuthenticatedUser({emails});
+octokit.users.addSocialAccountForAuthenticatedUser({account_urls});
 octokit.users.checkFollowingForUser({username, target_user});
 octokit.users.checkPersonIsFollowedByAuthenticated({username});
-octokit.users.createGpgKeyForAuthenticated({armored_public_key});
-octokit.users.createGpgKeyForAuthenticatedUser({armored_public_key});
+octokit.users.createGpgKeyForAuthenticated({name, armored_public_key});
+octokit.users.createGpgKeyForAuthenticatedUser({name, armored_public_key});
 octokit.users.createPublicSshKeyForAuthenticated({title, key});
 octokit.users.createPublicSshKeyForAuthenticatedUser({title, key});
+octokit.users.createSshSigningKeyForAuthenticatedUser({title, key});
 octokit.users.deleteEmailForAuthenticated({emails});
 octokit.users.deleteEmailForAuthenticatedUser({emails});
 octokit.users.deleteGpgKeyForAuthenticated({gpg_key_id});
 octokit.users.deleteGpgKeyForAuthenticatedUser({gpg_key_id});
 octokit.users.deletePublicSshKeyForAuthenticated({key_id});
 octokit.users.deletePublicSshKeyForAuthenticatedUser({key_id});
+octokit.users.deleteSocialAccountForAuthenticatedUser({account_urls});
+octokit.users.deleteSshSigningKeyForAuthenticatedUser({ssh_signing_key_id});
 octokit.users.follow({username});
 octokit.users.getAuthenticated();
 octokit.users.getByUsername({username});
@@ -827,6 +984,7 @@ octokit.users.getGpgKeyForAuthenticated({gpg_key_id});
 octokit.users.getGpgKeyForAuthenticatedUser({gpg_key_id});
 octokit.users.getPublicSshKeyForAuthenticated({key_id});
 octokit.users.getPublicSshKeyForAuthenticatedUser({key_id});
+octokit.users.getSshSigningKeyForAuthenticatedUser({ssh_signing_key_id});
 octokit.users.list({since, per_page});
 octokit.users.listEmailsForAuthenticated({per_page, page});
 octokit.users.listEmailsForAuthenticatedUser({per_page, page});
@@ -843,6 +1001,10 @@ octokit.users.listPublicEmailsForAuthenticatedUser({per_page, page});
 octokit.users.listPublicKeysForUser({username, per_page, page});
 octokit.users.listPublicSshKeysForAuthenticated({per_page, page});
 octokit.users.listPublicSshKeysForAuthenticatedUser({per_page, page});
+octokit.users.listSocialAccountsForAuthenticatedUser({per_page, page});
+octokit.users.listSocialAccountsForUser({username, per_page, page});
+octokit.users.listSshSigningKeysForAuthenticatedUser({per_page, page});
+octokit.users.listSshSigningKeysForUser({username, per_page, page});
 octokit.users.unfollow({username});
 octokit.users.updateAuthenticated({name, email, blog, twitter_username, company, location, hireable, bio});
 ```
