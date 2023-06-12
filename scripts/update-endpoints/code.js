@@ -76,11 +76,11 @@ async function generateRoutes() {
     writeFileSync(
       ALL_ENDPOINTS_PATH,
       prettier.format(
-        `import { EndpointsDefaultsAndDecorations } from "../types";
+        `import type { EndpointsDefaultsAndDecorations } from "../types";
     const Endpoints: EndpointsDefaultsAndDecorations = ${JSON.stringify(
       sortKeys(newRoutes, { deep: true })
     )}
-    
+
     export default Endpoints`,
         { parser: "typescript" }
       )
@@ -94,11 +94,11 @@ async function generateRoutes() {
     writeFileSync(
       ADMIN_ENDPOINTS_PATH,
       prettier.format(
-        `import { EndpointsDefaultsAndDecorations } from "../types";
+        `import type { EndpointsDefaultsAndDecorations } from "../types";
     const Endpoints: EndpointsDefaultsAndDecorations = ${JSON.stringify(
       sortKeys({ enterpriseAdmin: newRoutes.enterpriseAdmin }, { deep: true })
     )}
-    
+
     export default Endpoints`,
         { parser: "typescript" }
       )

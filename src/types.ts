@@ -1,4 +1,4 @@
-import { Route, RequestParameters } from "@octokit/types";
+import type { Route, RequestParameters } from "@octokit/types";
 
 type EndpointDecorations = {
   deprecated?: string;
