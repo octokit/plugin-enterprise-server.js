@@ -1,7 +1,7 @@
 import fetchMock from "fetch-mock";
 import { Octokit } from "@octokit/core";
 
-import { enterpriseServer35Admin } from "../src";
+import { enterpriseServer38Admin } from "../src";
 
 describe("enterpriseCloud plugin", () => {
   it("README example", async () => {
@@ -14,7 +14,7 @@ describe("enterpriseCloud plugin", () => {
         },
       });
 
-    const MyOctokit = Octokit.plugin(enterpriseServer35Admin);
+    const MyOctokit = Octokit.plugin(enterpriseServer38Admin);
     const octokit = new MyOctokit({
       auth: "secret123",
       baseUrl: "https://github.acme-inc.com/api/v3",
