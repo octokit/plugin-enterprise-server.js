@@ -75,7 +75,7 @@ async function generateRoutes() {
 
     writeFileSync(
       ALL_ENDPOINTS_PATH,
-      prettier.format(
+      await prettier.format(
         `import type { EndpointsDefaultsAndDecorations } from "../types";
     const Endpoints: EndpointsDefaultsAndDecorations = ${JSON.stringify(
       sortKeys(newRoutes, { deep: true })
@@ -93,7 +93,7 @@ async function generateRoutes() {
     );
     writeFileSync(
       ADMIN_ENDPOINTS_PATH,
-      prettier.format(
+      await prettier.format(
         `import type { EndpointsDefaultsAndDecorations } from "../types";
     const Endpoints: EndpointsDefaultsAndDecorations = ${JSON.stringify(
       sortKeys({ enterpriseAdmin: newRoutes.enterpriseAdmin }, { deep: true })
@@ -127,7 +127,7 @@ async function generateRoutes() {
     ).join("\n");
     writeFileSync(
       INDEX_PATH,
-      prettier.format(
+      await prettier.format(
         `// THIS FILE IS GENERATED. PLEASE OPEN AN ISSUE IF YOU FIND A PROBLEM
 
         import { Octokit } from "@octokit/core";
@@ -179,7 +179,7 @@ ${Object.keys(newRoutesSorted)
 `;
     writeFileSync(
       README_PATH,
-      prettier.format(content, { parser: "markdown" })
+      await prettier.format(content, { parser: "markdown" })
     );
     console.log(`${README_PATH} written.`);
   }
