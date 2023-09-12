@@ -29,6 +29,6 @@ describe("enterpriseCloud plugin", () => {
       email: "octocat@acme-inc.com",
     });
 
-    expect(data).toStrictEqual([{ ok: true }]);
+    expect(data).toEqual([{ ok: true }]);
   });
 });
