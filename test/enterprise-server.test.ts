@@ -1,7 +1,7 @@
-import fetchMock from "fetch-mock";
 import { Octokit } from "@octokit/core";
-
 import { enterpriseServer38Admin } from "../src";
+
+const fetchMock = require('fetch-mock');
 
 describe("enterpriseCloud plugin", () => {
   it("README example", async () => {
