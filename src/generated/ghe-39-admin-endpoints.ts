@@ -23,9 +23,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /admin/pre-receive-hooks/{pre_receive_hook_id}",
     ],
     deletePublicKey: ["DELETE /admin/keys/{key_ids}"],
-    deleteScimGroupFromEnterprise: ["DELETE /scim/v2/Groups/{scim_group_id}"],
     deleteUser: ["DELETE /admin/users/{username}"],
-    deleteUserFromEnterprise: ["DELETE /scim/v2/Users/{scim_user_id}"],
     demoteSiteAdministrator: ["DELETE /users/{username}/site_admin"],
     enableOrDisableMaintenanceMode: ["POST {origin}/setup/api/maintenance"],
     getAllAuthorizedSshKeys: [
@@ -34,6 +32,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getAllStats: ["GET /enterprise/stats/all"],
     getAnnouncement: ["GET /enterprise/announcement"],
     getCommentStats: ["GET /enterprise/stats/comments"],
+    getConfigNodes: ["GET {origin}/manage/v1/config/nodes"],
     getConfigurationStatus: ["GET {origin}/setup/api/configcheck"],
     getDownloadStatusForPreReceiveEnvironment: [
       "GET /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest",
@@ -57,12 +56,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getPreReceiveHookForRepo: [
       "GET /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
     ],
-    getProvisioningInformationForEnterpriseGroup: [
-      "GET /scim/v2/Groups/{scim_group_id}",
-    ],
-    getProvisioningInformationForEnterpriseUser: [
-      "GET /scim/v2/Users/{scim_user_id}",
-    ],
     getPullRequestStats: ["GET /enterprise/stats/pulls"],
     getReplicationStatus: ["GET {origin}/manage/v1/replication/status"],
     getRepoStats: ["GET /enterprise/stats/repos"],
@@ -75,13 +68,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listPreReceiveHooks: ["GET /admin/pre-receive-hooks"],
     listPreReceiveHooksForOrg: ["GET /orgs/{org}/pre-receive-hooks"],
     listPreReceiveHooksForRepo: ["GET /repos/{owner}/{repo}/pre-receive-hooks"],
-    listProvisionedGroupsEnterprise: ["GET /scim/v2/Groups"],
-    listProvisionedIdentitiesEnterprise: ["GET /scim/v2/Users"],
     listPublicKeys: ["GET /admin/keys"],
     pingGlobalWebhook: ["POST /admin/hooks/{hook_id}/pings"],
     promoteUserToBeSiteAdministrator: ["PUT /users/{username}/site_admin"],
-    provisionEnterpriseGroup: ["POST /scim/v2/Groups"],
-    provisionEnterpriseUser: ["POST /scim/v2/Users"],
     removeAnnouncement: ["DELETE /enterprise/announcement"],
     removeAuthorizedSshKey: [
       "DELETE {origin}/setup/api/settings/authorized-keys",
@@ -93,12 +82,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
     ],
     setAnnouncement: ["PATCH /enterprise/announcement"],
-    setInformationForProvisionedEnterpriseGroup: [
-      "PUT /scim/v2/Groups/{scim_group_id}",
-    ],
-    setInformationForProvisionedEnterpriseUser: [
-      "PUT /scim/v2/Users/{scim_user_id}",
-    ],
     setSettings: ["PUT {origin}/setup/api/settings"],
     startConfigurationProcess: ["POST {origin}/setup/api/configure"],
     startPreReceiveEnvironmentDownload: [
@@ -108,10 +91,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     syncLdapMappingForTeam: ["POST /admin/ldap/teams/{team_id}/sync"],
     syncLdapMappingForUser: ["POST /admin/ldap/users/{username}/sync"],
     unsuspendUser: ["DELETE /users/{username}/suspended"],
-    updateAttributeForEnterpriseGroup: [
-      "PATCH /scim/v2/Groups/{scim_group_id}",
-    ],
-    updateAttributeForEnterpriseUser: ["PATCH /scim/v2/Users/{scim_user_id}"],
     updateGlobalWebhook: ["PATCH /admin/hooks/{hook_id}"],
     updateLdapMappingForTeam: ["PATCH /admin/ldap/teams/{team_id}/mapping"],
     updateLdapMappingForUser: ["PATCH /admin/ldap/users/{username}/mapping"],
