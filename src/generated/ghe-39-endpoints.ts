@@ -13,9 +13,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     addSelectedRepoToOrgVariable: [
       "PUT /orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
     ],
-    addSelectedRepoToRequiredWorkflow: [
-      "PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-    ],
     cancelWorkflowRun: [
       "POST /repos/{owner}/{repo}/actions/runs/{run_id}/cancel",
     ],
@@ -41,7 +38,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /repos/{owner}/{repo}/actions/runners/remove-token",
     ],
     createRepoVariable: ["POST /repos/{owner}/{repo}/actions/variables"],
-    createRequiredWorkflow: ["POST /orgs/{org}/actions/required_workflows"],
     createWorkflowDispatch: [
       "POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches",
     ],
@@ -67,9 +63,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     deleteRepoVariable: [
       "DELETE /repos/{owner}/{repo}/actions/variables/{name}",
-    ],
-    deleteRequiredWorkflow: [
-      "DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}",
     ],
     deleteSelfHostedRunnerFromOrg: [
       "DELETE /orgs/{org}/actions/runners/{runner_id}",
@@ -153,14 +146,8 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
     ],
     getRepoPublicKey: ["GET /repos/{owner}/{repo}/actions/secrets/public-key"],
-    getRepoRequiredWorkflow: [
-      "GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}",
-    ],
     getRepoSecret: ["GET /repos/{owner}/{repo}/actions/secrets/{secret_name}"],
     getRepoVariable: ["GET /repos/{owner}/{repo}/actions/variables/{name}"],
-    getRequiredWorkflow: [
-      "GET /orgs/{org}/actions/required_workflows/{required_workflow_id}",
-    ],
     getReviewsForRun: [
       "GET /repos/{owner}/{repo}/actions/runs/{run_id}/approvals",
     ],
@@ -203,16 +190,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listRepoOrganizationVariables: [
       "GET /repos/{owner}/{repo}/actions/organization-variables",
     ],
-    listRepoRequiredWorkflows: [
-      "GET /repos/{org}/{repo}/actions/required_workflows",
-    ],
     listRepoSecrets: ["GET /repos/{owner}/{repo}/actions/secrets"],
     listRepoVariables: ["GET /repos/{owner}/{repo}/actions/variables"],
     listRepoWorkflows: ["GET /repos/{owner}/{repo}/actions/workflows"],
-    listRequiredWorkflowRuns: [
-      "GET /repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs",
-    ],
-    listRequiredWorkflows: ["GET /orgs/{org}/actions/required_workflows"],
     listRunnerApplicationsForOrg: ["GET /orgs/{org}/actions/runners/downloads"],
     listRunnerApplicationsForRepo: [
       "GET /repos/{owner}/{repo}/actions/runners/downloads",
@@ -225,9 +205,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     listSelectedRepositoriesEnabledGithubActionsOrganization: [
       "GET /orgs/{org}/actions/permissions/repositories",
-    ],
-    listSelectedRepositoriesRequiredWorkflow: [
-      "GET /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories",
     ],
     listSelfHostedRunnersForOrg: ["GET /orgs/{org}/actions/runners"],
     listSelfHostedRunnersForRepo: ["GET /repos/{owner}/{repo}/actions/runners"],
@@ -262,9 +239,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     removeSelectedRepoFromOrgVariable: [
       "DELETE /orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
-    ],
-    removeSelectedRepoFromRequiredWorkflow: [
-      "DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
     ],
     reviewPendingDeploymentsForRun: [
       "POST /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
@@ -305,9 +279,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     setSelectedReposForOrgVariable: [
       "PUT /orgs/{org}/actions/variables/{name}/repositories",
     ],
-    setSelectedReposToRequiredWorkflow: [
-      "PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories",
-    ],
     setSelectedRepositoriesEnabledGithubActionsOrganization: [
       "PUT /orgs/{org}/actions/permissions/repositories",
     ],
@@ -320,9 +291,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     updateOrgVariable: ["PATCH /orgs/{org}/actions/variables/{name}"],
     updateRepoVariable: [
       "PATCH /repos/{owner}/{repo}/actions/variables/{name}",
-    ],
-    updateRequiredWorkflow: [
-      "PATCH /orgs/{org}/actions/required_workflows/{required_workflow_id}",
     ],
   },
   activity: {
@@ -558,9 +526,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /admin/pre-receive-hooks/{pre_receive_hook_id}",
     ],
     deletePublicKey: ["DELETE /admin/keys/{key_ids}"],
-    deleteScimGroupFromEnterprise: ["DELETE /scim/v2/Groups/{scim_group_id}"],
     deleteUser: ["DELETE /admin/users/{username}"],
-    deleteUserFromEnterprise: ["DELETE /scim/v2/Users/{scim_user_id}"],
     demoteSiteAdministrator: ["DELETE /users/{username}/site_admin"],
     enableOrDisableMaintenanceMode: ["POST {origin}/setup/api/maintenance"],
     getAllAuthorizedSshKeys: [
@@ -569,6 +535,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getAllStats: ["GET /enterprise/stats/all"],
     getAnnouncement: ["GET /enterprise/announcement"],
     getCommentStats: ["GET /enterprise/stats/comments"],
+    getConfigNodes: ["GET {origin}/manage/v1/config/nodes"],
     getConfigurationStatus: ["GET {origin}/setup/api/configcheck"],
     getDownloadStatusForPreReceiveEnvironment: [
       "GET /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest",
@@ -592,12 +559,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getPreReceiveHookForRepo: [
       "GET /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
     ],
-    getProvisioningInformationForEnterpriseGroup: [
-      "GET /scim/v2/Groups/{scim_group_id}",
-    ],
-    getProvisioningInformationForEnterpriseUser: [
-      "GET /scim/v2/Users/{scim_user_id}",
-    ],
     getPullRequestStats: ["GET /enterprise/stats/pulls"],
     getReplicationStatus: ["GET {origin}/manage/v1/replication/status"],
     getRepoStats: ["GET /enterprise/stats/repos"],
@@ -610,13 +571,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listPreReceiveHooks: ["GET /admin/pre-receive-hooks"],
     listPreReceiveHooksForOrg: ["GET /orgs/{org}/pre-receive-hooks"],
     listPreReceiveHooksForRepo: ["GET /repos/{owner}/{repo}/pre-receive-hooks"],
-    listProvisionedGroupsEnterprise: ["GET /scim/v2/Groups"],
-    listProvisionedIdentitiesEnterprise: ["GET /scim/v2/Users"],
     listPublicKeys: ["GET /admin/keys"],
     pingGlobalWebhook: ["POST /admin/hooks/{hook_id}/pings"],
     promoteUserToBeSiteAdministrator: ["PUT /users/{username}/site_admin"],
-    provisionEnterpriseGroup: ["POST /scim/v2/Groups"],
-    provisionEnterpriseUser: ["POST /scim/v2/Users"],
     removeAnnouncement: ["DELETE /enterprise/announcement"],
     removeAuthorizedSshKey: [
       "DELETE {origin}/setup/api/settings/authorized-keys",
@@ -628,12 +585,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
     ],
     setAnnouncement: ["PATCH /enterprise/announcement"],
-    setInformationForProvisionedEnterpriseGroup: [
-      "PUT /scim/v2/Groups/{scim_group_id}",
-    ],
-    setInformationForProvisionedEnterpriseUser: [
-      "PUT /scim/v2/Users/{scim_user_id}",
-    ],
     setSettings: ["PUT {origin}/setup/api/settings"],
     startConfigurationProcess: ["POST {origin}/setup/api/configure"],
     startPreReceiveEnvironmentDownload: [
@@ -643,10 +594,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     syncLdapMappingForTeam: ["POST /admin/ldap/teams/{team_id}/sync"],
     syncLdapMappingForUser: ["POST /admin/ldap/users/{username}/sync"],
     unsuspendUser: ["DELETE /users/{username}/suspended"],
-    updateAttributeForEnterpriseGroup: [
-      "PATCH /scim/v2/Groups/{scim_group_id}",
-    ],
-    updateAttributeForEnterpriseUser: ["PATCH /scim/v2/Users/{scim_user_id}"],
     updateGlobalWebhook: ["PATCH /admin/hooks/{hook_id}"],
     updateLdapMappingForTeam: ["PATCH /admin/ldap/teams/{team_id}/mapping"],
     updateLdapMappingForUser: ["PATCH /admin/ldap/users/{username}/mapping"],
@@ -1086,7 +1033,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.createForTeamDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#create-reaction-for-a-team-discussion-comment-legacy",
+          "octokit.scim.createForTeamDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-a-team-discussion-comment-legacy",
       },
     ],
     createForTeamDiscussionInOrg: [
@@ -1097,7 +1044,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.createForTeamDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#create-reaction-for-a-team-discussion-legacy",
+          "octokit.scim.createForTeamDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-a-team-discussion-legacy",
       },
     ],
     deleteForCommitComment: [
@@ -1142,7 +1089,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listForTeamDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#list-reactions-for-a-team-discussion-comment-legacy",
+          "octokit.scim.listForTeamDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-a-team-discussion-comment-legacy",
       },
     ],
     listForTeamDiscussionInOrg: [
@@ -1153,7 +1100,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listForTeamDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#list-reactions-for-a-team-discussion-legacy",
+          "octokit.scim.listForTeamDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-a-team-discussion-legacy",
       },
     ],
   },
@@ -1269,13 +1216,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
     ],
     deleteWebhook: ["DELETE /repos/{owner}/{repo}/hooks/{hook_id}"],
-    disableLfsForRepo: ["DELETE /repos/{owner}/{repo}/lfs"],
     disableVulnerabilityAlerts: [
       "DELETE /repos/{owner}/{repo}/vulnerability-alerts",
     ],
     downloadTarballArchive: ["GET /repos/{owner}/{repo}/tarball/{ref}"],
     downloadZipballArchive: ["GET /repos/{owner}/{repo}/zipball/{ref}"],
-    enableLfsForRepo: ["PUT /repos/{owner}/{repo}/lfs"],
     enableVulnerabilityAlerts: [
       "PUT /repos/{owner}/{repo}/vulnerability-alerts",
     ],
@@ -1508,7 +1453,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.addMemberLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#add-team-member-legacy",
+          "octokit.scim.addMemberLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/members#add-team-member-legacy",
       },
     ],
     addOrUpdateMembershipForUserInOrg: [
@@ -1519,7 +1464,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.addOrUpdateMembershipForUserLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#add-or-update-team-membership-for-a-user-legacy",
+          "octokit.scim.addOrUpdateMembershipForUserLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/members#add-or-update-team-membership-for-a-user-legacy",
       },
     ],
     addOrUpdateProjectPermissionsInOrg: [
@@ -1530,7 +1475,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.addOrUpdateProjectPermissionsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#add-or-update-team-project-permissions-legacy",
+          "octokit.scim.addOrUpdateProjectPermissionsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#add-or-update-team-project-permissions-legacy",
       },
     ],
     addOrUpdateRepoPermissionsInOrg: [
@@ -1541,7 +1486,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.addOrUpdateRepoPermissionsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#add-or-update-team-repository-permissions-legacy",
+          "octokit.scim.addOrUpdateRepoPermissionsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#add-or-update-team-repository-permissions-legacy",
       },
     ],
     checkPermissionsForProjectInOrg: [
@@ -1552,7 +1497,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.checkPermissionsForProjectLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#check-team-permissions-for-a-project-legacy",
+          "octokit.scim.checkPermissionsForProjectLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#check-team-permissions-for-a-project-legacy",
       },
     ],
     checkPermissionsForRepoInOrg: [
@@ -1563,7 +1508,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.checkPermissionsForRepoLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#check-team-permissions-for-a-repository-legacy",
+          "octokit.scim.checkPermissionsForRepoLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#check-team-permissions-for-a-repository-legacy",
       },
     ],
     create: ["POST /orgs/{org}/teams"],
@@ -1575,7 +1520,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.createDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#create-a-discussion-comment-legacy",
+          "octokit.scim.createDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/discussion-comments#create-a-discussion-comment-legacy",
       },
     ],
     createDiscussionInOrg: ["POST /orgs/{org}/teams/{team_slug}/discussions"],
@@ -1584,7 +1529,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.createDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#create-a-discussion-legacy",
+          "octokit.scim.createDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/discussions#create-a-discussion-legacy",
       },
     ],
     deleteDiscussionCommentInOrg: [
@@ -1595,7 +1540,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.deleteDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#delete-a-discussion-comment-legacy",
+          "octokit.scim.deleteDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/discussion-comments#delete-a-discussion-comment-legacy",
       },
     ],
     deleteDiscussionInOrg: [
@@ -1606,7 +1551,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.deleteDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#delete-a-discussion-legacy",
+          "octokit.scim.deleteDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/discussions#delete-a-discussion-legacy",
       },
     ],
     deleteInOrg: ["DELETE /orgs/{org}/teams/{team_slug}"],
@@ -1615,7 +1560,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.deleteLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#delete-a-team-legacy",
+          "octokit.scim.deleteLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#delete-a-team-legacy",
       },
     ],
     getByName: ["GET /orgs/{org}/teams/{team_slug}"],
@@ -1627,7 +1572,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.getDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#get-a-discussion-comment-legacy",
+          "octokit.scim.getDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/discussion-comments#get-a-discussion-comment-legacy",
       },
     ],
     getDiscussionInOrg: [
@@ -1638,7 +1583,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.getDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#get-a-discussion-legacy",
+          "octokit.scim.getDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/discussions#get-a-discussion-legacy",
       },
     ],
     getLegacy: [
@@ -1646,7 +1591,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.getLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#get-a-team-legacy",
+          "octokit.scim.getLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#get-a-team-legacy",
       },
     ],
     getMemberLegacy: [
@@ -1654,7 +1599,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.getMemberLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#get-team-member-legacy",
+          "octokit.scim.getMemberLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/members#get-team-member-legacy",
       },
     ],
     getMembershipForUserInOrg: [
@@ -1665,7 +1610,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.getMembershipForUserLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#get-team-membership-for-a-user-legacy",
+          "octokit.scim.getMembershipForUserLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/members#get-team-membership-for-a-user-legacy",
       },
     ],
     list: ["GET /orgs/{org}/teams"],
@@ -1675,7 +1620,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listChildLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#list-child-teams-legacy",
+          "octokit.scim.listChildLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#list-child-teams-legacy",
       },
     ],
     listDiscussionCommentsInOrg: [
@@ -1686,7 +1631,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listDiscussionCommentsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#list-discussion-comments-legacy",
+          "octokit.scim.listDiscussionCommentsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/discussion-comments#list-discussion-comments-legacy",
       },
     ],
     listDiscussionsInOrg: ["GET /orgs/{org}/teams/{team_slug}/discussions"],
@@ -1695,7 +1640,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listDiscussionsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#list-discussions-legacy",
+          "octokit.scim.listDiscussionsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/discussions#list-discussions-legacy",
       },
     ],
     listForAuthenticatedUser: ["GET /user/teams"],
@@ -1705,7 +1650,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listMembersLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#list-team-members-legacy",
+          "octokit.scim.listMembersLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/members#list-team-members-legacy",
       },
     ],
     listProjectsInOrg: ["GET /orgs/{org}/teams/{team_slug}/projects"],
@@ -1714,7 +1659,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listProjectsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#list-team-projects-legacy",
+          "octokit.scim.listProjectsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#list-team-projects-legacy",
       },
     ],
     listReposInOrg: ["GET /orgs/{org}/teams/{team_slug}/repos"],
@@ -1723,7 +1668,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listReposLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#list-team-repositories-legacy",
+          "octokit.scim.listReposLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#list-team-repositories-legacy",
       },
     ],
     removeMemberLegacy: [
@@ -1731,7 +1676,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.removeMemberLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#remove-team-member-legacy",
+          "octokit.scim.removeMemberLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/members#remove-team-member-legacy",
       },
     ],
     removeMembershipForUserInOrg: [
@@ -1742,7 +1687,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.removeMembershipForUserLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#remove-team-membership-for-a-user-legacy",
+          "octokit.scim.removeMembershipForUserLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/members#remove-team-membership-for-a-user-legacy",
       },
     ],
     removeProjectInOrg: [
@@ -1753,7 +1698,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.removeProjectLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#remove-a-project-from-a-team-legacy",
+          "octokit.scim.removeProjectLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#remove-a-project-from-a-team-legacy",
       },
     ],
     removeRepoInOrg: [
@@ -1764,7 +1709,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.removeRepoLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#remove-a-repository-from-a-team-legacy",
+          "octokit.scim.removeRepoLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#remove-a-repository-from-a-team-legacy",
       },
     ],
     updateDiscussionCommentInOrg: [
@@ -1775,7 +1720,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.updateDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#update-a-discussion-comment-legacy",
+          "octokit.scim.updateDiscussionCommentLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/discussion-comments#update-a-discussion-comment-legacy",
       },
     ],
     updateDiscussionInOrg: [
@@ -1786,7 +1731,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.updateDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams#update-a-discussion-legacy",
+          "octokit.scim.updateDiscussionLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/discussions#update-a-discussion-legacy",
       },
     ],
     updateInOrg: ["PATCH /orgs/{org}/teams/{team_slug}"],
@@ -1795,7 +1740,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.updateLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/reference/teams/#update-a-team-legacy",
+          "octokit.scim.updateLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#update-a-team-legacy",
       },
     ],
   },
