@@ -79,7 +79,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Add custom labels to a self-hosted runner configured in a repository.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
+    "description": "Add custom labels to a self-hosted runner configured in a repository.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#add-custom-labels-to-a-self-hosted-runner-for-a-repository",
     "previews": [],
     "headers": [],
@@ -231,7 +231,7 @@
     "url": "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Cancels a workflow run using its `id`.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `actions:write` permission to use this endpoint.",
+    "description": "Cancels a workflow run using its `id`.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `actions:write` permission to use this endpoint.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/workflow-runs#cancel-a-workflow-run",
     "previews": [],
     "headers": [],
@@ -626,7 +626,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners/registration-token",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Returns a token that you can pass to the `config` script. The token\nexpires after one hour.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.\n\nExample using registration token:\n\nConfigure your self-hosted runner, replacing `TOKEN` with the registration token provided\nby this endpoint.\n\n```config.sh --url https://github.com/octo-org/octo-repo-artifacts --token TOKEN```",
+    "description": "Returns a token that you can pass to the `config` script. The token\nexpires after one hour.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.\n\nExample using registration token: \n\nConfigure your self-hosted runner, replacing `TOKEN` with the registration token provided\nby this endpoint.\n\n```config.sh --url https://github.com/octo-org/octo-repo-artifacts --token TOKEN```",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#create-a-registration-token-for-a-repository",
     "previews": [],
     "headers": [],
@@ -719,7 +719,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners/remove-token",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Returns a token that you can pass to remove a self-hosted runner from\na repository. The token expires after one hour.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.\n\nExample using remove token:\n\nTo remove your self-hosted runner from a repository, replace TOKEN with\nthe remove token provided by this endpoint.\n\n```config.sh remove --token TOKEN```",
+    "description": "Returns a token that you can pass to remove a self-hosted runner from\na repository. The token expires after one hour.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.\n\nExample using remove token:\n\nTo remove your self-hosted runner from a repository, replace TOKEN with\nthe remove token provided by this endpoint.\n\n```config.sh remove --token TOKEN```",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#create-a-remove-token-for-a-repository",
     "previews": [],
     "headers": [],
@@ -1258,7 +1258,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners/{runner_id}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Forces the removal of a self-hosted runner from a repository. You can use this endpoint to completely remove the runner when the machine you were using no longer exists.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
+    "description": "Forces the removal of a self-hosted runner from a repository. You can use this endpoint to completely remove the runner when the machine you were using no longer exists.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#delete-a-self-hosted-runner-from-a-repository",
     "previews": [],
     "headers": [],
@@ -2775,7 +2775,7 @@
         "description": "Response",
         "examples": [
           {
-            "data": "{\"id\":399444496,\"run_id\":29679449,\"run_url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/runs/29679449\",\"node_id\":\"MDEyOldvcmtmbG93IEpvYjM5OTQ0NDQ5Ng==\",\"head_sha\":\"f83a356604ae3c5d03e1b46ef4d1ca77d64a90b0\",\"url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/jobs/399444496\",\"html_url\":\"https://github.com/octo-org/octo-repo/runs/29679449/jobs/399444496\",\"status\":\"completed\",\"conclusion\":\"success\",\"started_at\":\"2020-01-20T17:42:40Z\",\"completed_at\":\"2020-01-20T17:44:39Z\",\"name\":\"build\",\"steps\":[{\"name\":\"Set up job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":1,\"started_at\":\"2020-01-20T09:42:40.000-08:00\",\"completed_at\":\"2020-01-20T09:42:41.000-08:00\"},{\"name\":\"Run actions/checkout@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":2,\"started_at\":\"2020-01-20T09:42:41.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Set up Ruby\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":3,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Run actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":4,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:48.000-08:00\"},{\"name\":\"Install Bundler\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":5,\"started_at\":\"2020-01-20T09:42:48.000-08:00\",\"completed_at\":\"2020-01-20T09:42:52.000-08:00\"},{\"name\":\"Install Gems\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":6,\"started_at\":\"2020-01-20T09:42:52.000-08:00\",\"completed_at\":\"2020-01-20T09:42:53.000-08:00\"},{\"name\":\"Run Tests\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":7,\"started_at\":\"2020-01-20T09:42:53.000-08:00\",\"completed_at\":\"2020-01-20T09:42:59.000-08:00\"},{\"name\":\"Deploy to Heroku\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":8,\"started_at\":\"2020-01-20T09:42:59.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Post actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":16,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Complete job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":17,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"}],\"check_run_url\":\"https://api.github.com/repos/octo-org/octo-repo/check-runs/399444496\",\"labels\":[\"self-hosted\",\"foo\",\"bar\"],\"runner_id\":1,\"runner_name\":\"my runner\",\"runner_group_id\":2,\"runner_group_name\":\"my runner group\"}"
+            "data": "{\"id\":399444496,\"run_id\":29679449,\"run_url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/runs/29679449\",\"node_id\":\"MDEyOldvcmtmbG93IEpvYjM5OTQ0NDQ5Ng==\",\"head_sha\":\"f83a356604ae3c5d03e1b46ef4d1ca77d64a90b0\",\"url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/jobs/399444496\",\"html_url\":\"https://github.com/octo-org/octo-repo/runs/399444496\",\"status\":\"completed\",\"conclusion\":\"success\",\"started_at\":\"2020-01-20T17:42:40Z\",\"completed_at\":\"2020-01-20T17:44:39Z\",\"name\":\"build\",\"steps\":[{\"name\":\"Set up job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":1,\"started_at\":\"2020-01-20T09:42:40.000-08:00\",\"completed_at\":\"2020-01-20T09:42:41.000-08:00\"},{\"name\":\"Run actions/checkout@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":2,\"started_at\":\"2020-01-20T09:42:41.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Set up Ruby\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":3,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Run actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":4,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:48.000-08:00\"},{\"name\":\"Install Bundler\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":5,\"started_at\":\"2020-01-20T09:42:48.000-08:00\",\"completed_at\":\"2020-01-20T09:42:52.000-08:00\"},{\"name\":\"Install Gems\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":6,\"started_at\":\"2020-01-20T09:42:52.000-08:00\",\"completed_at\":\"2020-01-20T09:42:53.000-08:00\"},{\"name\":\"Run Tests\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":7,\"started_at\":\"2020-01-20T09:42:53.000-08:00\",\"completed_at\":\"2020-01-20T09:42:59.000-08:00\"},{\"name\":\"Deploy to Heroku\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":8,\"started_at\":\"2020-01-20T09:42:59.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Post actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":16,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Complete job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":17,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"}],\"check_run_url\":\"https://api.github.com/repos/octo-org/octo-repo/check-runs/399444496\",\"labels\":[\"self-hosted\",\"foo\",\"bar\"],\"runner_id\":1,\"runner_name\":\"my runner\",\"runner_group_id\":2,\"runner_group_name\":\"my runner group\"}"
           }
         ]
       }
@@ -3187,7 +3187,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners/{runner_id}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Gets a specific self-hosted runner configured in a repository.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
+    "description": "Gets a specific self-hosted runner configured in a repository.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#get-a-self-hosted-runner-for-a-repository",
     "previews": [],
     "headers": [],
@@ -3787,7 +3787,7 @@
         "description": "Response",
         "examples": [
           {
-            "data": "{\"total_count\":1,\"jobs\":[{\"id\":399444496,\"run_id\":29679449,\"run_url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/runs/29679449\",\"node_id\":\"MDEyOldvcmtmbG93IEpvYjM5OTQ0NDQ5Ng==\",\"head_sha\":\"f83a356604ae3c5d03e1b46ef4d1ca77d64a90b0\",\"url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/jobs/399444496\",\"html_url\":\"https://github.com/octo-org/octo-repo/runs/29679449/jobs/399444496\",\"status\":\"completed\",\"conclusion\":\"success\",\"started_at\":\"2020-01-20T17:42:40Z\",\"completed_at\":\"2020-01-20T17:44:39Z\",\"name\":\"build\",\"steps\":[{\"name\":\"Set up job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":1,\"started_at\":\"2020-01-20T09:42:40.000-08:00\",\"completed_at\":\"2020-01-20T09:42:41.000-08:00\"},{\"name\":\"Run actions/checkout@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":2,\"started_at\":\"2020-01-20T09:42:41.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Set up Ruby\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":3,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Run actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":4,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:48.000-08:00\"},{\"name\":\"Install Bundler\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":5,\"started_at\":\"2020-01-20T09:42:48.000-08:00\",\"completed_at\":\"2020-01-20T09:42:52.000-08:00\"},{\"name\":\"Install Gems\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":6,\"started_at\":\"2020-01-20T09:42:52.000-08:00\",\"completed_at\":\"2020-01-20T09:42:53.000-08:00\"},{\"name\":\"Run Tests\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":7,\"started_at\":\"2020-01-20T09:42:53.000-08:00\",\"completed_at\":\"2020-01-20T09:42:59.000-08:00\"},{\"name\":\"Deploy to Heroku\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":8,\"started_at\":\"2020-01-20T09:42:59.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Post actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":16,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Complete job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":17,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"}],\"check_run_url\":\"https://api.github.com/repos/octo-org/octo-repo/check-runs/399444496\",\"labels\":[\"self-hosted\",\"foo\",\"bar\"],\"runner_id\":1,\"runner_name\":\"my runner\",\"runner_group_id\":2,\"runner_group_name\":\"my runner group\"}]}"
+            "data": "{\"total_count\":1,\"jobs\":[{\"id\":399444496,\"run_id\":29679449,\"run_url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/runs/29679449\",\"node_id\":\"MDEyOldvcmtmbG93IEpvYjM5OTQ0NDQ5Ng==\",\"head_sha\":\"f83a356604ae3c5d03e1b46ef4d1ca77d64a90b0\",\"url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/jobs/399444496\",\"html_url\":\"https://github.com/octo-org/octo-repo/runs/399444496\",\"status\":\"completed\",\"conclusion\":\"success\",\"started_at\":\"2020-01-20T17:42:40Z\",\"completed_at\":\"2020-01-20T17:44:39Z\",\"name\":\"build\",\"steps\":[{\"name\":\"Set up job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":1,\"started_at\":\"2020-01-20T09:42:40.000-08:00\",\"completed_at\":\"2020-01-20T09:42:41.000-08:00\"},{\"name\":\"Run actions/checkout@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":2,\"started_at\":\"2020-01-20T09:42:41.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Set up Ruby\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":3,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Run actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":4,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:48.000-08:00\"},{\"name\":\"Install Bundler\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":5,\"started_at\":\"2020-01-20T09:42:48.000-08:00\",\"completed_at\":\"2020-01-20T09:42:52.000-08:00\"},{\"name\":\"Install Gems\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":6,\"started_at\":\"2020-01-20T09:42:52.000-08:00\",\"completed_at\":\"2020-01-20T09:42:53.000-08:00\"},{\"name\":\"Run Tests\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":7,\"started_at\":\"2020-01-20T09:42:53.000-08:00\",\"completed_at\":\"2020-01-20T09:42:59.000-08:00\"},{\"name\":\"Deploy to Heroku\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":8,\"started_at\":\"2020-01-20T09:42:59.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Post actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":16,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Complete job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":17,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"}],\"check_run_url\":\"https://api.github.com/repos/octo-org/octo-repo/check-runs/399444496\",\"labels\":[\"self-hosted\",\"foo\",\"bar\"],\"runner_id\":1,\"runner_name\":\"my runner\",\"runner_group_id\":2,\"runner_group_name\":\"my runner group\"}]}"
           }
         ]
       }
@@ -3892,7 +3892,7 @@
         "description": "Response",
         "examples": [
           {
-            "data": "{\"total_count\":1,\"jobs\":[{\"id\":399444496,\"run_id\":29679449,\"run_url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/runs/29679449\",\"node_id\":\"MDEyOldvcmtmbG93IEpvYjM5OTQ0NDQ5Ng==\",\"head_sha\":\"f83a356604ae3c5d03e1b46ef4d1ca77d64a90b0\",\"url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/jobs/399444496\",\"html_url\":\"https://github.com/octo-org/octo-repo/runs/29679449/jobs/399444496\",\"status\":\"completed\",\"conclusion\":\"success\",\"started_at\":\"2020-01-20T17:42:40Z\",\"completed_at\":\"2020-01-20T17:44:39Z\",\"name\":\"build\",\"steps\":[{\"name\":\"Set up job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":1,\"started_at\":\"2020-01-20T09:42:40.000-08:00\",\"completed_at\":\"2020-01-20T09:42:41.000-08:00\"},{\"name\":\"Run actions/checkout@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":2,\"started_at\":\"2020-01-20T09:42:41.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Set up Ruby\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":3,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Run actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":4,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:48.000-08:00\"},{\"name\":\"Install Bundler\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":5,\"started_at\":\"2020-01-20T09:42:48.000-08:00\",\"completed_at\":\"2020-01-20T09:42:52.000-08:00\"},{\"name\":\"Install Gems\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":6,\"started_at\":\"2020-01-20T09:42:52.000-08:00\",\"completed_at\":\"2020-01-20T09:42:53.000-08:00\"},{\"name\":\"Run Tests\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":7,\"started_at\":\"2020-01-20T09:42:53.000-08:00\",\"completed_at\":\"2020-01-20T09:42:59.000-08:00\"},{\"name\":\"Deploy to Heroku\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":8,\"started_at\":\"2020-01-20T09:42:59.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Post actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":16,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Complete job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":17,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"}],\"check_run_url\":\"https://api.github.com/repos/octo-org/octo-repo/check-runs/399444496\",\"labels\":[\"self-hosted\",\"foo\",\"bar\"],\"runner_id\":1,\"runner_name\":\"my runner\",\"runner_group_id\":2,\"runner_group_name\":\"my runner group\"}]}"
+            "data": "{\"total_count\":1,\"jobs\":[{\"id\":399444496,\"run_id\":29679449,\"run_url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/runs/29679449\",\"node_id\":\"MDEyOldvcmtmbG93IEpvYjM5OTQ0NDQ5Ng==\",\"head_sha\":\"f83a356604ae3c5d03e1b46ef4d1ca77d64a90b0\",\"url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/jobs/399444496\",\"html_url\":\"https://github.com/octo-org/octo-repo/runs/399444496\",\"status\":\"completed\",\"conclusion\":\"success\",\"started_at\":\"2020-01-20T17:42:40Z\",\"completed_at\":\"2020-01-20T17:44:39Z\",\"name\":\"build\",\"steps\":[{\"name\":\"Set up job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":1,\"started_at\":\"2020-01-20T09:42:40.000-08:00\",\"completed_at\":\"2020-01-20T09:42:41.000-08:00\"},{\"name\":\"Run actions/checkout@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":2,\"started_at\":\"2020-01-20T09:42:41.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Set up Ruby\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":3,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Run actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":4,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:48.000-08:00\"},{\"name\":\"Install Bundler\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":5,\"started_at\":\"2020-01-20T09:42:48.000-08:00\",\"completed_at\":\"2020-01-20T09:42:52.000-08:00\"},{\"name\":\"Install Gems\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":6,\"started_at\":\"2020-01-20T09:42:52.000-08:00\",\"completed_at\":\"2020-01-20T09:42:53.000-08:00\"},{\"name\":\"Run Tests\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":7,\"started_at\":\"2020-01-20T09:42:53.000-08:00\",\"completed_at\":\"2020-01-20T09:42:59.000-08:00\"},{\"name\":\"Deploy to Heroku\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":8,\"started_at\":\"2020-01-20T09:42:59.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Post actions/cache@v3\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":16,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Complete job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":17,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"}],\"check_run_url\":\"https://api.github.com/repos/octo-org/octo-repo/check-runs/399444496\",\"labels\":[\"self-hosted\",\"foo\",\"bar\"],\"runner_id\":1,\"runner_name\":\"my runner\",\"runner_group_id\":2,\"runner_group_name\":\"my runner group\"}]}"
           }
         ]
       },
@@ -3962,7 +3962,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists all labels for a self-hosted runner configured in a repository.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
+    "description": "Lists all labels for a self-hosted runner configured in a repository.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#list-labels-for-a-self-hosted-runner-for-a-repository",
     "previews": [],
     "headers": [],
@@ -4293,7 +4293,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners/downloads",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists binaries for the runner application that you can download and run.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
+    "description": "Lists binaries for the runner application that you can download and run.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#list-runner-applications-for-a-repository",
     "previews": [],
     "headers": [],
@@ -4557,7 +4557,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists all self-hosted runners configured in a repository.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
+    "description": "Lists all self-hosted runners configured in a repository.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#list-self-hosted-runners-for-a-repository",
     "previews": [],
     "headers": [],
@@ -5150,7 +5150,7 @@
     "url": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Re-run a job and its dependent jobs in a workflow run.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `actions:write` permission to use this endpoint.",
+    "description": "Re-run a job and its dependent jobs in a workflow run.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `actions:write` permission to use this endpoint.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/workflow-runs#re-run-a-job-from-a-workflow-run",
     "previews": [],
     "headers": [],
@@ -5430,7 +5430,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Remove all custom labels from a self-hosted runner configured in a\nrepository. Returns the remaining read-only labels from the runner.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
+    "description": "Remove all custom labels from a self-hosted runner configured in a\nrepository. Returns the remaining read-only labels from the runner.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#remove-all-custom-labels-from-a-self-hosted-runner-for-a-repository",
     "previews": [],
     "headers": [],
@@ -5569,7 +5569,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels/{name}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Remove a custom label from a self-hosted runner configured\nin a repository. Returns the remaining labels from the runner.\n\nThis endpoint returns a `404 Not Found` status if the custom label is not\npresent on the runner.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
+    "description": "Remove a custom label from a self-hosted runner configured\nin a repository. Returns the remaining labels from the runner.\n\nThis endpoint returns a `404 Not Found` status if the custom label is not\npresent on the runner.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#remove-a-custom-label-from-a-self-hosted-runner-for-a-repository",
     "previews": [],
     "headers": [],
@@ -6135,7 +6135,7 @@
     "url": "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Remove all previous custom labels and set the new custom labels for a specific\nself-hosted runner configured in a repository.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
+    "description": "Remove all previous custom labels and set the new custom labels for a specific\nself-hosted runner configured in a repository.\n\nYou must authenticate using an access token with the `repo` scope to use this endpoint.\nIf the repository is private, you must use an access token with the `repo` scope.\nGitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.\nAuthenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/actions/self-hosted-runners#set-custom-labels-for-a-self-hosted-runner-for-a-repository",
     "previews": [],
     "headers": [],
@@ -11954,7 +11954,7 @@
     "url": "/repos/{owner}/{repo}/commits/{ref}/check-runs",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth apps and authenticated users must have the `repo` scope to get check runs in a private repository.\n\n**Note:** The endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.\n\nIf there are more than 1000 check suites on a single git reference, this endpoint will limit check runs to the 1000 most recent check suites. To iterate over all possible check runs, use the [List check suites for a Git reference](https://docs.github.com/enterprise-server@3.7/rest/reference/checks#list-check-suites-for-a-git-reference) endpoint and provide the `check_suite_id` parameter to the [List check runs in a check suite](https://docs.github.com/enterprise-server@3.7/rest/reference/checks#list-check-runs-in-a-check-suite) endpoint.",
+    "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.\n\nLists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth apps and authenticated users must have the `repo` scope to get check runs in a private repository.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/checks/runs#list-check-runs-for-a-git-reference",
     "previews": [],
     "headers": [],
@@ -12098,7 +12098,7 @@
     "url": "/repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists check runs for a check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth apps and authenticated users must have the `repo` scope to get check runs in a private repository.\n\n**Note:** The endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.",
+    "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.\n\nLists check runs for a check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth apps and authenticated users must have the `repo` scope to get check runs in a private repository.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/checks/runs#list-check-runs-in-a-check-suite",
     "previews": [],
     "headers": [],
@@ -12229,7 +12229,7 @@
     "url": "/repos/{owner}/{repo}/commits/{ref}/check-suites",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. OAuth apps and authenticated users must have the `repo` scope to get check suites in a private repository.\n\n**Note:** The endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array and a `null` value for `head_branch`.",
+    "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array and a `null` value for `head_branch`.\n\nLists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. OAuth apps and authenticated users must have the `repo` scope to get check suites in a private repository.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/checks/suites#list-check-suites-for-a-git-reference",
     "previews": [],
     "headers": [],
@@ -12574,7 +12574,7 @@
     "url": "/repos/{owner}/{repo}/check-runs/{check_run_id}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Updates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs.\n\n**Note:** The endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.",
+    "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.\n\nUpdates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/checks/runs#update-a-check-run",
     "previews": [],
     "headers": [],
@@ -16501,7 +16501,7 @@
     "parameters": [
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -17032,7 +17032,7 @@
     "parameters": [
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -18136,7 +18136,7 @@
     "parameters": [
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -18724,7 +18724,7 @@
     "parameters": [
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -27185,7 +27185,7 @@
       },
       {
         "name": "exclude",
-        "description": "Exclude related items from being returned in the response in order to improve performance of the request.",
+        "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
         "in": "BODY",
         "type": "string[]",
         "required": false,
@@ -27711,7 +27711,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -27965,7 +27965,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -28019,7 +28019,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -28072,7 +28072,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -28751,7 +28751,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -28917,7 +28917,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -28963,7 +28963,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -29810,7 +29810,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -29973,7 +29973,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -36454,7 +36454,7 @@
     "url": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "List the reactions to a [pull request review comment](https://docs.github.com/enterprise-server@3.7/rest/pulls/comments#get-a-review-comment-for-a-pull-request).",
+    "description": "List the reactions to a [pull request review comment](https://docs.github.com/enterprise-server@3.7/pulls/comments#get-a-review-comment-for-a-pull-request).",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/reactions/reactions#list-reactions-for-a-pull-request-review-comment",
     "previews": [],
     "headers": [],
@@ -38704,7 +38704,7 @@
       },
       {
         "name": "name",
-        "description": "The name pattern that branches or tags must match in order to deploy to the environment.\n\nWildcard characters will not match `/`. For example, to match branches that begin with `release/` and contain an additional single slash, use `release/*/*`.\nFor more information about pattern matching syntax, see the [Ruby File.fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).",
+        "description": "The name pattern that branches must match in order to deploy to the environment.\n\nWildcard characters will not match `/`. For example, to match branches that begin with `release/` and contain an additional single slash, use `release/*/*`.\nFor more information about pattern matching syntax, see the [Ruby File.fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -42251,7 +42251,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -43989,7 +43989,7 @@
     "url": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Gets a deployment branch policy for an environment.\n\nAnyone with read access to the repository can use this endpoint. If the repository is private, you must use an access token with the `repo` scope. GitHub Apps must have the `administration:read` permission for the repository to use this endpoint.",
+    "description": "Gets a deployment branch policy for an environment.\n\nAnyone with read access to the repository can use this endpoint. If the repository is private, you must use an access token with the `repo` scope. GitHub Apps must have the `actions:read` permission to use this endpoint.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.7/rest/deployments/branch-policies#get-a-deployment-branch-policy",
     "previews": [],
     "headers": [],
@@ -45207,7 +45207,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -45274,7 +45274,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -45340,7 +45340,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -48019,7 +48019,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -48400,7 +48400,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -48459,7 +48459,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -49606,7 +49606,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -51575,7 +51575,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
@@ -51790,7 +51790,7 @@
       },
       {
         "name": "hook_id",
-        "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+        "description": "The unique identifier of the hook.",
         "in": "PATH",
         "type": "integer",
         "required": true,
