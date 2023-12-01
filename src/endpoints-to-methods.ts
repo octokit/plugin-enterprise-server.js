@@ -6,7 +6,7 @@ import type {
   Route,
   Url,
 } from "@octokit/types";
-import type { EndpointsDefaultsAndDecorations } from "./types";
+import type { EndpointsDefaultsAndDecorations } from "./types.js";
 
 type EndpointMethods = {
   [methodName: string]: typeof Octokit.prototype.request;
