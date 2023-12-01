@@ -58,6 +58,9 @@
           "tsconfig": "test/tsconfig.test.json"
         }
       ]
+    },
+    "moduleNameMapper": {
+      "^(.+)\\.jsx?$": "$1"
     }
   },
   "release": {
