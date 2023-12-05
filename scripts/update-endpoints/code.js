@@ -76,7 +76,7 @@ async function generateRoutes() {
     writeFileSync(
       ALL_ENDPOINTS_PATH,
       await prettier.format(
-        `import type { EndpointsDefaultsAndDecorations } from "../types";
+        `import type { EndpointsDefaultsAndDecorations } from "../types.js";
     const Endpoints: EndpointsDefaultsAndDecorations = ${JSON.stringify(
       sortKeys(newRoutes, { deep: true })
     )}
@@ -94,7 +94,7 @@ async function generateRoutes() {
     writeFileSync(
       ADMIN_ENDPOINTS_PATH,
       await prettier.format(
-        `import type { EndpointsDefaultsAndDecorations } from "../types";
+        `import type { EndpointsDefaultsAndDecorations } from "../types.js";
     const Endpoints: EndpointsDefaultsAndDecorations = ${JSON.stringify(
       sortKeys({ enterpriseAdmin: newRoutes.enterpriseAdmin }, { deep: true })
     )}
@@ -108,8 +108,8 @@ async function generateRoutes() {
     const INDEX_PATH = pathResolve(process.cwd(), `src/index.ts`);
     const imports = GHE_VERSIONS.map(
       (version) => `
-        import ENDPOINTS_${version} from "./generated/ghe-${version}-endpoints";
-        import ADMIN_ENDPOINTS_${version} from "./generated/ghe-${version}-admin-endpoints";
+        import ENDPOINTS_${version} from "./generated/ghe-${version}-endpoints.js";
+        import ADMIN_ENDPOINTS_${version} from "./generated/ghe-${version}-admin-endpoints.js";
       `
     ).join("\n");
     const methods = GHE_VERSIONS.map(
@@ -132,8 +132,8 @@ async function generateRoutes() {
 
         import { Octokit } from "@octokit/core";
 
-        import { VERSION } from "./version";
-        import { endpointsToMethods } from "./endpoints-to-methods";
+        import { VERSION } from "./version.js";
+        import { endpointsToMethods } from "./endpoints-to-methods.js";
 
         ${imports}
 

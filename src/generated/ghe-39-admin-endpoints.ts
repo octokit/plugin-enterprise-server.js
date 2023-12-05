@@ -1,4 +1,4 @@
-import type { EndpointsDefaultsAndDecorations } from "../types";
+import type { EndpointsDefaultsAndDecorations } from "../types.js";
 const Endpoints: EndpointsDefaultsAndDecorations = {
   enterpriseAdmin: {
     addAuthorizedSshKey: ["POST {origin}/setup/api/settings/authorized-keys"],

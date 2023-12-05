@@ -1,4 +1,4 @@
-import { enterpriseServer38, enterpriseServer38Admin } from "../src";
+import { enterpriseServer38, enterpriseServer38Admin } from "../src/index.ts";
 
 describe("Smoke test", () => {
   it("enterpriseServer35 is a function", () => {
