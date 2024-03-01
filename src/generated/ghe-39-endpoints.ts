@@ -117,6 +117,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /repos/{owner}/{repo}/actions/permissions/selected-actions",
     ],
     getArtifact: ["GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id}"],
+    getCustomOidcSubClaimForRepo: [
+      "GET /repos/{owner}/{repo}/actions/oidc/customization/sub",
+    ],
     getEnvironmentPublicKey: [
       "GET /repositories/{repository_id}/environments/{environment_name}/secrets/public-key",
     ],
@@ -260,6 +263,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     setCustomLabelsForSelfHostedRunnerForRepo: [
       "PUT /repos/{owner}/{repo}/actions/runners/{runner_id}/labels",
+    ],
+    setCustomOidcSubClaimForRepo: [
+      "PUT /repos/{owner}/{repo}/actions/oidc/customization/sub",
     ],
     setGithubActionsDefaultWorkflowPermissionsOrganization: [
       "PUT /orgs/{org}/actions/permissions/workflow",
@@ -766,6 +772,14 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /orgs/{org}/migrations/{migration_id}/repos/{repo_name}/lock",
     ],
   },
+  oidc: {
+    getOidcCustomSubTemplateForOrg: [
+      "GET /orgs/{org}/actions/oidc/customization/sub",
+    ],
+    updateOidcCustomSubTemplateForOrg: [
+      "PUT /orgs/{org}/actions/oidc/customization/sub",
+    ],
+  },
   orgs: {
     addSecurityManagerTeam: [
       "PUT /orgs/{org}/security-managers/teams/{team_slug}",
@@ -778,6 +792,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     createWebhook: ["POST /orgs/{org}/hooks"],
     delete: ["DELETE /orgs/{org}"],
     deleteWebhook: ["DELETE /orgs/{org}/hooks/{hook_id}"],
+    enableOrDisableSecurityProductOnAllOrgRepos: [
+      "POST /orgs/{org}/{security_product}/{enablement}",
+    ],
     get: ["GET /orgs/{org}"],
     getMembershipForAuthenticatedUser: ["GET /user/memberships/orgs/{org}"],
     getMembershipForUser: ["GET /orgs/{org}/memberships/{username}"],
@@ -923,9 +940,10 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     createForOrg: ["POST /orgs/{org}/projects"],
     createForRepo: ["POST /repos/{owner}/{repo}/projects"],
     delete: ["DELETE /projects/{project_id}"],
-    deleteCard: ["DELETE /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}"],
+    deleteCard: ["DELETE /projects/columns/cards/{card_id}"],
     deleteColumn: ["DELETE /projects/columns/{column_id}"],
     get: ["GET /projects/{project_id}"],
+    getCard: ["GET /projects/columns/cards/{card_id}"],
     getColumn: ["GET /projects/columns/{column_id}"],
     getPermissionForUser: [
       "GET /projects/{project_id}/collaborators/{username}/permission",
@@ -942,6 +960,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /projects/{project_id}/collaborators/{username}",
     ],
     update: ["PATCH /projects/{project_id}"],
+    updateCard: ["PATCH /projects/columns/cards/{card_id}"],
     updateColumn: ["PATCH /projects/columns/{column_id}"],
   },
   pulls: {
@@ -1154,7 +1173,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "PUT /repos/{owner}/{repo}/environments/{environment_name}",
     ],
     createOrUpdateFileContents: ["PUT /repos/{owner}/{repo}/contents/{path}"],
-    createPagesDeployment: ["POST /repos/{owner}/{repo}/pages/deployment"],
+    createPagesDeployment: ["POST /repos/{owner}/{repo}/pages/deployments"],
     createPagesSite: ["POST /repos/{owner}/{repo}/pages"],
     createRelease: ["POST /repos/{owner}/{repo}/releases"],
     createTagProtection: ["POST /repos/{owner}/{repo}/tags/protection"],
@@ -1473,6 +1492,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
           "octokit.scim.addOrUpdateProjectPermissionsLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#add-or-update-team-project-permissions-legacy",
       },
     ],
+    addOrUpdateRepoPermissionsInOrg: [
+      "PUT /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}",
+    ],
     addOrUpdateRepoPermissionsLegacy: [
       "PUT /teams/{team_id}/repos/{owner}/{repo}",
       {},
@@ -1606,6 +1628,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       },
     ],
     list: ["GET /orgs/{org}/teams"],
+    listChildInOrg: ["GET /orgs/{org}/teams/{team_slug}/teams"],
     listChildLegacy: [
       "GET /teams/{team_id}/teams",
       {},
@@ -1691,6 +1714,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
         deprecated:
           "octokit.scim.removeProjectLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.9/rest/teams/teams#remove-a-project-from-a-team-legacy",
       },
+    ],
+    removeRepoInOrg: [
+      "DELETE /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}",
     ],
     removeRepoLegacy: [
       "DELETE /teams/{team_id}/repos/{owner}/{repo}",

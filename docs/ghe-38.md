@@ -289,6 +289,7 @@ octokit.actions.getActionsCacheUsagePolicyForEnterprise({ enterprise });
 octokit.actions.getAllowedActionsOrganization({ org });
 octokit.actions.getAllowedActionsRepository({ owner, repo });
 octokit.actions.getArtifact({ owner, repo, artifact_id });
+octokit.actions.getCustomOidcSubClaimForRepo({ owner, repo });
 octokit.actions.getEnvironmentPublicKey({ repository_id, environment_name });
 octokit.actions.getEnvironmentSecret({
   repository_id,
@@ -499,6 +500,12 @@ octokit.actions.setCustomLabelsForSelfHostedRunnerForRepo({
   repo,
   runner_id,
   labels,
+});
+octokit.actions.setCustomOidcSubClaimForRepo({
+  owner,
+  repo,
+  use_default,
+  include_claim_keys,
 });
 octokit.actions.setGithubActionsDefaultWorkflowPermissionsOrganization({
   org,
@@ -1192,12 +1199,19 @@ octokit.migrations.startForOrg({
   exclude,
 });
 octokit.migrations.unlockRepoForOrg({ org, migration_id, repo_name });
+octokit.oidc.getOidcCustomSubTemplateForOrg({ org });
+octokit.oidc.updateOidcCustomSubTemplateForOrg({ org, include_claim_keys });
 octokit.orgs.addSecurityManagerTeam({ org, team_slug });
 octokit.orgs.checkMembershipForUser({ org, username });
 octokit.orgs.checkPublicMembershipForUser({ org, username });
 octokit.orgs.convertMemberToOutsideCollaborator({ org, username, async });
 octokit.orgs.createWebhook({ org, name, config, events, active });
 octokit.orgs.deleteWebhook({ org, hook_id });
+octokit.orgs.enableOrDisableSecurityProductOnAllOrgRepos({
+  org,
+  security_product,
+  enablement,
+});
 octokit.orgs.get({ org });
 octokit.orgs.getMembershipForAuthenticatedUser({ org });
 octokit.orgs.getMembershipForUser({ org, username });
@@ -1280,6 +1294,7 @@ octokit.projects.delete({ project_id });
 octokit.projects.deleteCard({ card_id });
 octokit.projects.deleteColumn({ column_id });
 octokit.projects.get({ project_id });
+octokit.projects.getCard({ card_id });
 octokit.projects.getColumn({ column_id });
 octokit.projects.getPermissionForUser({ project_id, username });
 octokit.projects.listCards({ column_id, archived_state, per_page, page });
@@ -1299,6 +1314,7 @@ octokit.projects.update({
   organization_permission,
   private,
 });
+octokit.projects.updateCard({ card_id, note, archived });
 octokit.projects.updateColumn({ column_id, name });
 octokit.pulls.checkIfMerged({ owner, repo, pull_number });
 octokit.pulls.create({
@@ -1860,7 +1876,7 @@ octokit.repos.getUsersWithAccessToProtectedBranch({ owner, repo, branch });
 octokit.repos.getWebhook({ owner, repo, hook_id });
 octokit.repos.getWebhookConfigForRepo({ owner, repo, hook_id });
 octokit.repos.getWebhookDelivery({ owner, repo, hook_id, delivery_id });
-octokit.repos.listAutolinks({ owner, repo, page });
+octokit.repos.listAutolinks({ owner, repo });
 octokit.repos.listBranches({ owner, repo, protected, per_page, page });
 octokit.repos.listBranchesForHeadCommit({ owner, repo, commit_sha });
 octokit.repos.listCacheInfo({ owner, repo, per_page, page });
@@ -2178,6 +2194,13 @@ octokit.teams.addOrUpdateProjectPermissionsLegacy({
   project_id,
   permission,
 });
+octokit.teams.addOrUpdateRepoPermissionsInOrg({
+  org,
+  team_slug,
+  owner,
+  repo,
+  permission,
+});
 octokit.teams.addOrUpdateRepoPermissionsLegacy({
   team_id,
   owner,
@@ -2246,6 +2269,7 @@ octokit.teams.getMemberLegacy({ team_id, username });
 octokit.teams.getMembershipForUserInOrg({ org, team_slug, username });
 octokit.teams.getMembershipForUserLegacy({ team_id, username });
 octokit.teams.list({ org, per_page, page });
+octokit.teams.listChildInOrg({ org, team_slug, per_page, page });
 octokit.teams.listChildLegacy({ team_id, per_page, page });
 octokit.teams.listDiscussionCommentsInOrg({
   org,
@@ -2283,6 +2307,7 @@ octokit.teams.removeMembershipForUserInOrg({ org, team_slug, username });
 octokit.teams.removeMembershipForUserLegacy({ team_id, username });
 octokit.teams.removeProjectInOrg({ org, team_slug, project_id });
 octokit.teams.removeProjectLegacy({ team_id, project_id });
+octokit.teams.removeRepoInOrg({ org, team_slug, owner, repo });
 octokit.teams.removeRepoLegacy({ team_id, owner, repo });
 octokit.teams.updateDiscussionCommentInOrg({
   org,
