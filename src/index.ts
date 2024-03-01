@@ -5,9 +5,6 @@ import { Octokit } from "@octokit/core";
 import { VERSION } from "./version.js";
 import { endpointsToMethods } from "./endpoints-to-methods.js";
 
-import ENDPOINTS_37 from "./generated/ghe-37-endpoints.js";
-import ADMIN_ENDPOINTS_37 from "./generated/ghe-37-admin-endpoints.js";
-
 import ENDPOINTS_38 from "./generated/ghe-38-endpoints.js";
 import ADMIN_ENDPOINTS_38 from "./generated/ghe-38-admin-endpoints.js";
 
@@ -17,15 +14,11 @@ import ADMIN_ENDPOINTS_39 from "./generated/ghe-39-admin-endpoints.js";
 import ENDPOINTS_310 from "./generated/ghe-310-endpoints.js";
 import ADMIN_ENDPOINTS_310 from "./generated/ghe-310-admin-endpoints.js";
 
-export function enterpriseServer37Admin(octokit: Octokit) {
-  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_37);
-}
-enterpriseServer37Admin.VERSION = VERSION;
+import ENDPOINTS_311 from "./generated/ghe-311-endpoints.js";
+import ADMIN_ENDPOINTS_311 from "./generated/ghe-311-admin-endpoints.js";
 
-export function enterpriseServer37(octokit: Octokit) {
-  return endpointsToMethods(octokit, ENDPOINTS_37);
-}
-enterpriseServer37.VERSION = VERSION;
+import ENDPOINTS_312 from "./generated/ghe-312-endpoints.js";
+import ADMIN_ENDPOINTS_312 from "./generated/ghe-312-admin-endpoints.js";
 
 export function enterpriseServer38Admin(octokit: Octokit) {
   return endpointsToMethods(octokit, ADMIN_ENDPOINTS_38);
@@ -56,3 +49,23 @@ export function enterpriseServer310(octokit: Octokit) {
   return endpointsToMethods(octokit, ENDPOINTS_310);
 }
 enterpriseServer310.VERSION = VERSION;
+
+export function enterpriseServer311Admin(octokit: Octokit) {
+  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_311);
+}
+enterpriseServer311Admin.VERSION = VERSION;
+
+export function enterpriseServer311(octokit: Octokit) {
+  return endpointsToMethods(octokit, ENDPOINTS_311);
+}
+enterpriseServer311.VERSION = VERSION;
+
+export function enterpriseServer312Admin(octokit: Octokit) {
+  return endpointsToMethods(octokit, ADMIN_ENDPOINTS_312);
+}
+enterpriseServer312Admin.VERSION = VERSION;
+
+export function enterpriseServer312(octokit: Octokit) {
+  return endpointsToMethods(octokit, ENDPOINTS_312);
+}
+enterpriseServer312.VERSION = VERSION;

@@ -40,7 +40,7 @@
     "@types/node": "^20.0.0",
     "esbuild": "^0.20.0",
     "fetch-mock": "npm:@gr2m/fetch-mock@9.11.0-pull-request-644.1",
-    "github-openapi-graphql-query": "^4.2.0",
+    "github-openapi-graphql-query": "^4.4.0",
     "glob": "^10.2.7",
     "jest": "^29.0.0",
     "npm-run-all2": "^6.0.0",
