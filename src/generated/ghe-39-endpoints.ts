@@ -17,10 +17,10 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /repos/{owner}/{repo}/actions/runs/{run_id}/cancel",
     ],
     createEnvironmentVariable: [
-      "POST /repositories/{repository_id}/environments/{environment_name}/variables",
+      "POST /repos/{owner}/{repo}/environments/{environment_name}/variables",
     ],
     createOrUpdateEnvironmentSecret: [
-      "PUT /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+      "PUT /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
     ],
     createOrUpdateOrgSecret: ["PUT /orgs/{org}/actions/secrets/{secret_name}"],
     createOrUpdateRepoSecret: [
@@ -51,10 +51,10 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "DELETE /repos/{owner}/{repo}/actions/artifacts/{artifact_id}",
     ],
     deleteEnvironmentSecret: [
-      "DELETE /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+      "DELETE /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
     ],
     deleteEnvironmentVariable: [
-      "DELETE /repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+      "DELETE /repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
     ],
     deleteOrgSecret: ["DELETE /orgs/{org}/actions/secrets/{secret_name}"],
     deleteOrgVariable: ["DELETE /orgs/{org}/actions/variables/{name}"],
@@ -121,13 +121,13 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /repos/{owner}/{repo}/actions/oidc/customization/sub",
     ],
     getEnvironmentPublicKey: [
-      "GET /repositories/{repository_id}/environments/{environment_name}/secrets/public-key",
+      "GET /repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
     ],
     getEnvironmentSecret: [
-      "GET /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+      "GET /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
     ],
     getEnvironmentVariable: [
-      "GET /repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+      "GET /repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
     ],
     getGithubActionsDefaultWorkflowPermissionsOrganization: [
       "GET /orgs/{org}/actions/permissions/workflow",
@@ -168,10 +168,10 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     listArtifactsForRepo: ["GET /repos/{owner}/{repo}/actions/artifacts"],
     listEnvironmentSecrets: [
-      "GET /repositories/{repository_id}/environments/{environment_name}/secrets",
+      "GET /repos/{owner}/{repo}/environments/{environment_name}/secrets",
     ],
     listEnvironmentVariables: [
-      "GET /repositories/{repository_id}/environments/{environment_name}/variables",
+      "GET /repos/{owner}/{repo}/environments/{environment_name}/variables",
     ],
     listJobsForWorkflowRun: [
       "GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs",
@@ -292,7 +292,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "PUT /repos/{owner}/{repo}/actions/permissions/access",
     ],
     updateEnvironmentVariable: [
-      "PATCH /repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+      "PATCH /repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
     ],
     updateOrgVariable: ["PATCH /orgs/{org}/actions/variables/{name}"],
     updateRepoVariable: [
