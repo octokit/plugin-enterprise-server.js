@@ -2,7 +2,8 @@
   "name": "@octokit/plugin-enterprise-server",
   "version": "0.0.0-development",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "description": "Octokit plugin for GitHub Enterprise Server REST APIs",
   "scripts": {
