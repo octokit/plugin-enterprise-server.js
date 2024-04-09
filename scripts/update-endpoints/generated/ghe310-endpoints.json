@@ -354,7 +354,7 @@
     "scope": "actions",
     "id": "createEnvironmentVariable",
     "method": "POST",
-    "url": "/repositories/{repository_id}/environments/{environment_name}/variables",
+    "url": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Create an environment variable that you can reference in a GitHub Actions workflow.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
@@ -363,10 +363,23 @@
     "headers": [],
     "parameters": [
       {
-        "name": "repository_id",
-        "description": "The unique identifier of the repository.",
+        "name": "owner",
+        "description": "The account owner of the repository. The name is not case sensitive.",
         "in": "PATH",
-        "type": "integer",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+        "in": "PATH",
+        "type": "string",
         "required": true,
         "enum": null,
         "allowNull": false,
@@ -429,7 +442,7 @@
     "scope": "actions",
     "id": "createOrUpdateEnvironmentSecret",
     "method": "PUT",
-    "url": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+    "url": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Creates or updates an environment secret with an encrypted value. Encrypt your secret using\n[LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \"[Encrypting secrets for the REST API](https://docs.github.com/enterprise-server@3.10/rest/guides/encrypting-secrets-for-the-rest-api).\"\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
@@ -438,10 +451,23 @@
     "headers": [],
     "parameters": [
       {
-        "name": "repository_id",
-        "description": "The unique identifier of the repository.",
+        "name": "owner",
+        "description": "The account owner of the repository. The name is not case sensitive.",
         "in": "PATH",
-        "type": "integer",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+        "in": "PATH",
+        "type": "string",
         "required": true,
         "enum": null,
         "allowNull": false,
@@ -1356,7 +1382,7 @@
     "scope": "actions",
     "id": "deleteEnvironmentSecret",
     "method": "DELETE",
-    "url": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+    "url": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Deletes a secret in an environment using the secret name.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
@@ -1365,10 +1391,23 @@
     "headers": [],
     "parameters": [
       {
-        "name": "repository_id",
-        "description": "The unique identifier of the repository.",
+        "name": "owner",
+        "description": "The account owner of the repository. The name is not case sensitive.",
         "in": "PATH",
-        "type": "integer",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+        "in": "PATH",
+        "type": "string",
         "required": true,
         "enum": null,
         "allowNull": false,
@@ -1414,7 +1453,7 @@
     "scope": "actions",
     "id": "deleteEnvironmentVariable",
     "method": "DELETE",
-    "url": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+    "url": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Deletes an environment variable using the variable name.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
@@ -1423,10 +1462,23 @@
     "headers": [],
     "parameters": [
       {
-        "name": "repository_id",
-        "description": "The unique identifier of the repository.",
+        "name": "owner",
+        "description": "The account owner of the repository. The name is not case sensitive.",
         "in": "PATH",
-        "type": "integer",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+        "in": "PATH",
+        "type": "string",
         "required": true,
         "enum": null,
         "allowNull": false,
@@ -3235,7 +3287,7 @@
     "scope": "actions",
     "id": "getEnvironmentPublicKey",
     "method": "GET",
-    "url": "/repositories/{repository_id}/environments/{environment_name}/secrets/public-key",
+    "url": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Get the public key for an environment, which you need to encrypt environment\nsecrets. You need to encrypt a secret before you can create or update secrets.\n\nAnyone with read access to the repository can use this endpoint.\n\nIf the repository is private, OAuth tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
@@ -3244,10 +3296,23 @@
     "headers": [],
     "parameters": [
       {
-        "name": "repository_id",
-        "description": "The unique identifier of the repository.",
+        "name": "owner",
+        "description": "The account owner of the repository. The name is not case sensitive.",
         "in": "PATH",
-        "type": "integer",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+        "in": "PATH",
+        "type": "string",
         "required": true,
         "enum": null,
         "allowNull": false,
@@ -3288,7 +3353,7 @@
     "scope": "actions",
     "id": "getEnvironmentSecret",
     "method": "GET",
-    "url": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+    "url": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Gets a single environment secret without revealing its encrypted value.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
@@ -3297,10 +3362,23 @@
     "headers": [],
     "parameters": [
       {
-        "name": "repository_id",
-        "description": "The unique identifier of the repository.",
+        "name": "owner",
+        "description": "The account owner of the repository. The name is not case sensitive.",
         "in": "PATH",
-        "type": "integer",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+        "in": "PATH",
+        "type": "string",
         "required": true,
         "enum": null,
         "allowNull": false,
@@ -3354,7 +3432,7 @@
     "scope": "actions",
     "id": "getEnvironmentVariable",
     "method": "GET",
-    "url": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+    "url": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Gets a specific variable in an environment.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
@@ -3363,10 +3441,23 @@
     "headers": [],
     "parameters": [
       {
-        "name": "repository_id",
-        "description": "The unique identifier of the repository.",
+        "name": "owner",
+        "description": "The account owner of the repository. The name is not case sensitive.",
         "in": "PATH",
-        "type": "integer",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+        "in": "PATH",
+        "type": "string",
         "required": true,
         "enum": null,
         "allowNull": false,
@@ -4632,7 +4723,7 @@
     "scope": "actions",
     "id": "listEnvironmentSecrets",
     "method": "GET",
-    "url": "/repositories/{repository_id}/environments/{environment_name}/secrets",
+    "url": "/repos/{owner}/{repo}/environments/{environment_name}/secrets",
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Lists all secrets available in an environment without revealing their\nencrypted values.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
@@ -4641,10 +4732,23 @@
     "headers": [],
     "parameters": [
       {
-        "name": "repository_id",
-        "description": "The unique identifier of the repository.",
+        "name": "owner",
+        "description": "The account owner of the repository. The name is not case sensitive.",
         "in": "PATH",
-        "type": "integer",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+        "in": "PATH",
+        "type": "string",
         "required": true,
         "enum": null,
         "allowNull": false,
@@ -4711,7 +4815,7 @@
     "scope": "actions",
     "id": "listEnvironmentVariables",
     "method": "GET",
-    "url": "/repositories/{repository_id}/environments/{environment_name}/variables",
+    "url": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Lists all environment variables.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
@@ -4720,10 +4824,23 @@
     "headers": [],
     "parameters": [
       {
-        "name": "repository_id",
-        "description": "The unique identifier of the repository.",
+        "name": "owner",
+        "description": "The account owner of the repository. The name is not case sensitive.",
         "in": "PATH",
-        "type": "integer",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+        "in": "PATH",
+        "type": "string",
         "required": true,
         "enum": null,
         "allowNull": false,
@@ -6309,7 +6426,7 @@
       },
       {
         "name": "status",
-        "description": "Returns workflow runs with the check run `status` or `conclusion` that you specify. For example, a conclusion can be `success` or a status can be `in_progress`. Only GitHub can set a status of `waiting` or `requested`.",
+        "description": "Returns workflow runs with the check run `status` or `conclusion` that you specify. For example, a conclusion can be `success` or a status can be `in_progress`. Only GitHub Actions can set a status of `waiting`, `pending`, or `requested`.",
         "in": "QUERY",
         "type": "string",
         "required": false,
@@ -6435,7 +6552,7 @@
     "url": "/repos/{owner}/{repo}/actions/runs",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists all workflow runs for a repository. You can use parameters to narrow the list of results. For more information about using parameters, see [Parameters](https://docs.github.com/enterprise-server@3.10/rest/guides/getting-started-with-the-rest-api#parameters).\n\nAnyone with read access to the repository can use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with a private repository.",
+    "description": "Lists all workflow runs for a repository. You can use parameters to narrow the list of results. For more information about using parameters, see [Parameters](https://docs.github.com/enterprise-server@3.10/rest/guides/getting-started-with-the-rest-api#parameters).\n\nAnyone with read access to the repository can use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with a private repository.\n\nThis API will return up to 1,000 results for each search when using the following parameters: `actor`, `branch`, `check_suite_id`, `created`, `event`, `head_sha`, `status`.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/actions/workflow-runs#list-workflow-runs-for-a-repository",
     "previews": [],
     "headers": [],
@@ -6507,7 +6624,7 @@
       },
       {
         "name": "status",
-        "description": "Returns workflow runs with the check run `status` or `conclusion` that you specify. For example, a conclusion can be `success` or a status can be `in_progress`. Only GitHub can set a status of `waiting` or `requested`.",
+        "description": "Returns workflow runs with the check run `status` or `conclusion` that you specify. For example, a conclusion can be `success` or a status can be `in_progress`. Only GitHub Actions can set a status of `waiting`, `pending`, or `requested`.",
         "in": "QUERY",
         "type": "string",
         "required": false,
@@ -8384,7 +8501,7 @@
     "scope": "actions",
     "id": "updateEnvironmentVariable",
     "method": "PATCH",
-    "url": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+    "url": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
     "isDeprecated": false,
     "deprecationDate": null,
     "description": "Updates an environment variable that you can reference in a GitHub Actions workflow.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
@@ -8393,10 +8510,23 @@
     "headers": [],
     "parameters": [
       {
-        "name": "repository_id",
-        "description": "The unique identifier of the repository.",
+        "name": "owner",
+        "description": "The account owner of the repository. The name is not case sensitive.",
         "in": "PATH",
-        "type": "integer",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+        "in": "PATH",
+        "type": "string",
         "required": true,
         "enum": null,
         "allowNull": false,
@@ -8750,7 +8880,7 @@
     "url": "/feeds",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "GitHub Enterprise Server provides several timeline resources in [Atom](http://en.wikipedia.org/wiki/Atom_(standard)) format. The Feeds API lists all the feeds available to the authenticated user:\n\n*   **Timeline**: The GitHub Enterprise Server global public timeline\n*   **User**: The public timeline for any user, using `uri_template`. For more information, see \"[Hypermedia](https://docs.github.com/enterprise-server@3.10/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia).\"\n*   **Current user public**: The public timeline for the authenticated user\n*   **Current user**: The private timeline for the authenticated user\n*   **Current user actor**: The private timeline for activity created by the authenticated user\n*   **Current user organizations**: The private timeline for the organizations the authenticated user is a member of.\n*   **Security advisories**: A collection of public announcements that provide information about security-related vulnerabilities in software on GitHub Enterprise Server.\n\n**Note**: Private feeds are only returned when [authenticating via Basic Auth](https://docs.github.com/enterprise-server@3.10/rest/overview/other-authentication-methods#basic-authentication) since current feed URIs use the older, non revocable auth tokens.",
+    "description": "Lists the feeds available to the authenticated user. The response provides a URL for each feed. You can then get a specific feed by sending a request to one of the feed URLs.\n\n*   **Timeline**: The GitHub Enterprise Server global public timeline\n*   **User**: The public timeline for any user, using `uri_template`. For more information, see \"[Hypermedia](https://docs.github.com/enterprise-server@3.10/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia).\"\n*   **Current user public**: The public timeline for the authenticated user\n*   **Current user**: The private timeline for the authenticated user\n*   **Current user actor**: The private timeline for activity created by the authenticated user\n*   **Current user organizations**: The private timeline for the organizations the authenticated user is a member of.\n*   **Security advisories**: A collection of public announcements that provide information about security-related vulnerabilities in software on GitHub Enterprise Server.\n\nBy default, timeline resources are returned in JSON. You can specify the `application/atom+xml` type in the `Accept` header to return timeline resources in Atom format. For more information, see \"[Media types](https://docs.github.com/enterprise-server@3.10/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\"\n\n**Note**: Private feeds are only returned when [authenticating via Basic Auth](https://docs.github.com/enterprise-server@3.10/rest/overview/other-authentication-methods#basic-authentication) since current feed URIs use the older, non revocable auth tokens.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/activity/feeds#get-feeds",
     "previews": [],
     "headers": [],
@@ -14988,11 +15118,18 @@
       },
       {
         "name": "status",
-        "description": "The current status.",
+        "description": "The current status of the check run. Only GitHub Actions can set a status of `waiting`, `pending`, or `requested`.",
         "in": "BODY",
         "type": "string",
         "required": false,
-        "enum": ["queued", "in_progress", "completed"],
+        "enum": [
+          "queued",
+          "in_progress",
+          "completed",
+          "waiting",
+          "requested",
+          "pending"
+        ],
         "allowNull": false,
         "mapToData": null,
         "validation": null,
@@ -24864,6 +25001,7 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
+      { "code": 409, "description": "Conflict", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -24948,6 +25086,7 @@
           }
         ]
       },
+      { "code": 409, "description": "Conflict", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -25110,6 +25249,7 @@
           }
         ]
       },
+      { "code": 409, "description": "Conflict", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -25261,6 +25401,7 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
+      { "code": 409, "description": "Conflict", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -25277,7 +25418,7 @@
     "url": "/repos/{owner}/{repo}/git/refs/{ref}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "",
+    "description": "Deletes the provided reference.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/git/refs#delete-a-reference",
     "previews": [],
     "headers": [],
@@ -25310,7 +25451,7 @@
       },
       {
         "name": "ref",
-        "description": "The commit reference. Can be a commit SHA, branch name (`heads/BRANCH_NAME`), or tag name (`tags/TAG_NAME`). For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.",
+        "description": "The Git reference. For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.",
         "in": "PATH",
         "type": "string",
         "required": true,
@@ -25324,6 +25465,7 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
+      { "code": 409, "description": "Conflict", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -25397,6 +25539,7 @@
       },
       { "code": 403, "description": "Forbidden", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
+      { "code": 409, "description": "Conflict", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -25468,7 +25611,8 @@
           }
         ]
       },
-      { "code": 404, "description": "Resource not found", "examples": null }
+      { "code": 404, "description": "Resource not found", "examples": null },
+      { "code": 409, "description": "Conflict", "examples": null }
     ],
     "renamed": null
   },
@@ -25513,7 +25657,7 @@
       },
       {
         "name": "ref",
-        "description": "The commit reference. Can be a commit SHA, branch name (`heads/BRANCH_NAME`), or tag name (`tags/TAG_NAME`). For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.",
+        "description": "The Git reference. For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.",
         "in": "PATH",
         "type": "string",
         "required": true,
@@ -25535,7 +25679,8 @@
           }
         ]
       },
-      { "code": 404, "description": "Resource not found", "examples": null }
+      { "code": 404, "description": "Resource not found", "examples": null },
+      { "code": 409, "description": "Conflict", "examples": null }
     ],
     "renamed": null
   },
@@ -25602,7 +25747,8 @@
           }
         ]
       },
-      { "code": 404, "description": "Resource not found", "examples": null }
+      { "code": 404, "description": "Resource not found", "examples": null },
+      { "code": 409, "description": "Conflict", "examples": null }
     ],
     "renamed": null
   },
@@ -25686,6 +25832,7 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
+      { "code": 409, "description": "Conflict", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -25735,7 +25882,7 @@
       },
       {
         "name": "ref",
-        "description": "The commit reference. Can be a commit SHA, branch name (`heads/BRANCH_NAME`), or tag name (`tags/TAG_NAME`). For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.",
+        "description": "The Git reference. For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.",
         "in": "PATH",
         "type": "string",
         "required": true,
@@ -25756,7 +25903,8 @@
             "data": "[{\"ref\":\"refs/heads/feature-a\",\"node_id\":\"MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlLWE=\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs/heads/feature-a\",\"object\":{\"type\":\"commit\",\"sha\":\"aa218f56b14c9653891f9e74264a383fa43fefbd\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd\"}},{\"ref\":\"refs/heads/feature-b\",\"node_id\":\"MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlLWI=\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs/heads/feature-b\",\"object\":{\"type\":\"commit\",\"sha\":\"612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits/612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac\"}}]"
           }
         ]
-      }
+      },
+      { "code": 409, "description": "Conflict", "examples": null }
     ],
     "renamed": null
   },
@@ -25768,7 +25916,7 @@
     "url": "/repos/{owner}/{repo}/git/refs/{ref}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "",
+    "description": "Updates the provided reference to point to a new SHA. For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/git/refs#update-a-reference",
     "previews": [],
     "headers": [],
@@ -25801,7 +25949,7 @@
       },
       {
         "name": "ref",
-        "description": "The name of the reference to update (for example, `heads/featureA`). Can be a branch name (`heads/BRANCH_NAME`) or tag name (`tags/TAG_NAME`). For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.",
+        "description": "The Git reference. For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.",
         "in": "PATH",
         "type": "string",
         "required": true,
@@ -25849,6 +25997,7 @@
           }
         ]
       },
+      { "code": 409, "description": "Conflict", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -31452,7 +31601,7 @@
     "url": "/orgs/{org}/hooks",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Here's how you can create a hook that posts payloads in JSON format:",
+    "description": "Create a hook that posts payloads in JSON format.\n\nYou must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or \nedit webhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#create-an-organization-webhook",
     "previews": [],
     "headers": [],
@@ -31666,7 +31815,7 @@
     "url": "/orgs/{org}/hooks/{hook_id}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "",
+    "description": "You must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or edit \nwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#delete-an-organization-webhook",
     "previews": [],
     "headers": [],
@@ -31921,7 +32070,7 @@
     "url": "/orgs/{org}/hooks/{hook_id}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Returns a webhook configured in an organization. To get only the webhook `config` properties, see \"[Get a webhook configuration for an organization](/rest/orgs/webhooks#get-a-webhook-configuration-for-an-organization).\"",
+    "description": "Returns a webhook configured in an organization. To get only the webhook\n`config` properties, see \"[Get a webhook configuration for an organization](/rest/orgs/webhooks#get-a-webhook-configuration-for-an-organization). \n\nYou must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or edit \nwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#get-an-organization-webhook",
     "previews": [],
     "headers": [],
@@ -31975,7 +32124,7 @@
     "url": "/orgs/{org}/hooks/{hook_id}/config",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Returns the webhook configuration for an organization. To get more information about the webhook, including the `active` state and `events`, use \"[Get an organization webhook ](/rest/orgs/webhooks#get-an-organization-webhook).\"\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org_hook` scope to use this endpoint.",
+    "description": "Returns the webhook configuration for an organization. To get more information about the webhook, including the `active` state and `events`, use \"[Get an organization webhook ](/rest/orgs/webhooks#get-an-organization-webhook).\"\n\nYou must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or edit \nwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#get-a-webhook-configuration-for-an-organization",
     "previews": [],
     "headers": [],
@@ -32028,7 +32177,7 @@
     "url": "/orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Returns a delivery for a webhook configured in an organization.",
+    "description": "Returns a delivery for a webhook configured in an organization.\n\nYou must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or edit \nwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#get-a-webhook-delivery-for-an-organization-webhook",
     "previews": [],
     "headers": [],
@@ -32101,7 +32250,7 @@
     "url": "/organizations",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Lists all organizations, in the order that they were created on GitHub Enterprise Server.\n\n**Note:** Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/enterprise-server@3.10/rest/guides/using-pagination-in-the-rest-api#using-link-headers) to get the URL for the next page of organizations.",
+    "description": "Lists all organizations, in the order that they were created.\n\n**Note:** Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/enterprise-server@3.10/rest/guides/using-pagination-in-the-rest-api#using-link-headers) to get the URL for the next page of organizations.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/orgs#list-organizations",
     "previews": [],
     "headers": [],
@@ -33201,7 +33350,7 @@
     "url": "/orgs/{org}/hooks/{hook_id}/deliveries",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Returns a list of webhook deliveries for a webhook configured in an organization.",
+    "description": "Returns a list of webhook deliveries for a webhook configured in an organization.\n\nYou must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or edit \nwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#list-deliveries-for-an-organization-webhook",
     "previews": [],
     "headers": [],
@@ -33300,7 +33449,7 @@
     "url": "/orgs/{org}/hooks",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "",
+    "description": "You must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or edit \nwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#list-organization-webhooks",
     "previews": [],
     "headers": [],
@@ -33367,7 +33516,7 @@
     "url": "/orgs/{org}/hooks/{hook_id}/pings",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "This will trigger a [ping event](https://docs.github.com/enterprise-server@3.10/webhooks/#ping-event) to be sent to the hook.",
+    "description": "This will trigger a [ping event](https://docs.github.com/enterprise-server@3.10/webhooks/#ping-event)\nto be sent to the hook.\n\nYou must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or edit \nwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#ping-an-organization-webhook",
     "previews": [],
     "headers": [],
@@ -33413,7 +33562,7 @@
     "url": "/orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Redeliver a delivery for a webhook configured in an organization.",
+    "description": "Redeliver a delivery for a webhook configured in an organization.\n\nYou must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or edit \nwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#redeliver-a-delivery-for-an-organization-webhook",
     "previews": [],
     "headers": [],
@@ -34592,7 +34741,7 @@
     "url": "/orgs/{org}/hooks/{hook_id}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Updates a webhook configured in an organization. When you update a webhook, the `secret` will be overwritten. If you previously had a `secret` set, you must provide the same `secret` or set a new `secret` or the secret will be removed. If you are only updating individual webhook `config` properties, use \"[Update a webhook configuration for an organization](/rest/orgs/webhooks#update-a-webhook-configuration-for-an-organization).\"",
+    "description": "Updates a webhook configured in an organization. When you update a webhook,\nthe `secret` will be overwritten. If you previously had a `secret` set, you must\nprovide the same `secret` or set a new `secret` or the secret will be removed. If\nyou are only updating individual webhook `config` properties, use \"[Update a webhook\nconfiguration for an organization](/rest/orgs/webhooks#update-a-webhook-configuration-for-an-organization)\". \n\nYou must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or edit \nwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#update-an-organization-webhook",
     "previews": [],
     "headers": [],
@@ -34755,7 +34904,7 @@
     "url": "/orgs/{org}/hooks/{hook_id}/config",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Updates the webhook configuration for an organization. To update more information about the webhook, including the `active` state and `events`, use \"[Update an organization webhook ](/rest/orgs/webhooks#update-an-organization-webhook).\"\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org_hook` scope to use this endpoint.",
+    "description": "Updates the webhook configuration for an organization. To update more information about the webhook, including the `active` state and `events`, use \"[Update an organization webhook ](/rest/orgs/webhooks#update-an-organization-webhook).\"\n\nYou must be an organization owner to use this endpoint. \n\nOAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or edit \nwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/orgs/webhooks#update-a-webhook-configuration-for-an-organization",
     "previews": [],
     "headers": [],
@@ -39860,6 +40009,7 @@
       },
       { "code": 304, "description": "Not modified", "examples": null },
       { "code": 404, "description": "Resource not found", "examples": null },
+      { "code": 406, "description": "Unacceptable", "examples": null },
       { "code": 500, "description": "Internal Error", "examples": null },
       { "code": 503, "description": "Service unavailable", "examples": null }
     ],
@@ -44986,7 +45136,7 @@
     "url": "/repos/{owner}/{repo}/compare/{basehead}",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Compares two commits against one another. You can compare branches in the same repository, or you can compare branches that exist in different repositories within the same repository network, including fork branches. For more information about how to view a repository's network, see \"[Understanding connections between repositories](https://docs.github.com/enterprise-server@3.10/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).\"\n\nThis endpoint is equivalent to running the `git log BASE..HEAD` command, but it returns commits in a different order. The `git log BASE..HEAD` command returns commits in reverse chronological order, whereas the API returns commits in chronological order.\n\nThis endpoint supports the following custom media types. For more information, see \"[Media types](https://docs.github.com/enterprise-server@3.10/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\"\n\n- **`application/vnd.github.diff`**: Returns the diff of the commit.\n- **`application/vnd.github.patch`**: Returns the patch of the commit. Diffs with binary data will have no `patch` property.\n\nThe API response includes details about the files that were changed between the two commits. This includes the status of the change (if a file was added, removed, modified, or renamed), and details of the change itself. For example, files with a `renamed` status have a `previous_filename` field showing the previous filename of the file, and files with a `modified` status have a `patch` field showing the changes made to the file.\n\nWhen calling this endpoint without any paging parameter (`per_page` or `page`), the returned list is limited to 250 commits, and the last commit in the list is the most recent of the entire comparison.\n\n**Working with large comparisons**\n\nTo process a response with a large number of commits, use a query parameter (`per_page` or `page`) to paginate the results. When using pagination:\n\n- The list of changed files is only shown on the first page of results, but it includes all changed files for the entire comparison.\n- The results are returned in chronological order, but the last commit in the returned list may not be the most recent one in the entire set if there are more pages of results.\n\nFor more information on working with pagination, see \"[Using pagination in the REST API](https://docs.github.com/enterprise-server@3.10/rest/guides/using-pagination-in-the-rest-api).\"\n\n**Signature verification object**\n\nThe response will include a `verification` object that describes the result of verifying the commit's signature. The `verification` object includes the following fields:\n\n| Name | Type | Description |\n| ---- | ---- | ----------- |\n| `verified` | `boolean` | Indicates whether GitHub considers the signature in this commit to be verified. |\n| `reason` | `string` | The reason for verified value. Possible values and their meanings are enumerated in table below. |\n| `signature` | `string` | The signature that was extracted from the commit. |\n| `payload` | `string` | The value that was signed. |\n\nThese are the possible values for `reason` in the `verification` object:\n\n| Value | Description |\n| ----- | ----------- |\n| `expired_key` | The key that made the signature is expired. |\n| `not_signing_key` | The \"signing\" flag is not among the usage flags in the GPG key that made the signature. |\n| `gpgverify_error` | There was an error communicating with the signature verification service. |\n| `gpgverify_unavailable` | The signature verification service is currently unavailable. |\n| `unsigned` | The object does not include a signature. |\n| `unknown_signature_type` | A non-PGP signature was found in the commit. |\n| `no_user` | No user was associated with the `committer` email address in the commit. |\n| `unverified_email` | The `committer` email address in the commit was associated with a user, but the email address is not verified on their account. |\n| `bad_email` | The `committer` email address in the commit is not included in the identities of the PGP key that made the signature. |\n| `unknown_key` | The key that made the signature has not been registered with any user's account. |\n| `malformed_signature` | There was an error parsing the signature. |\n| `invalid` | The signature could not be cryptographically verified using the key whose key-id was found in the signature. |\n| `valid` | None of the above errors applied, so the signature is considered to be verified. |",
+    "description": "Compares two commits against one another. You can compare refs (branches or tags) and commit SHAs in the same repository, or you can compare refs and commit SHAs that exist in different repositories within the same repository network, including fork branches. For more information about how to view a repository's network, see \"[Understanding connections between repositories](https://docs.github.com/enterprise-server@3.10/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).\"\n\nThis endpoint is equivalent to running the `git log BASE..HEAD` command, but it returns commits in a different order. The `git log BASE..HEAD` command returns commits in reverse chronological order, whereas the API returns commits in chronological order.\n\nThis endpoint supports the following custom media types. For more information, see \"[Media types](https://docs.github.com/enterprise-server@3.10/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\"\n\n- **`application/vnd.github.diff`**: Returns the diff of the commit.\n- **`application/vnd.github.patch`**: Returns the patch of the commit. Diffs with binary data will have no `patch` property.\n\nThe API response includes details about the files that were changed between the two commits. This includes the status of the change (if a file was added, removed, modified, or renamed), and details of the change itself. For example, files with a `renamed` status have a `previous_filename` field showing the previous filename of the file, and files with a `modified` status have a `patch` field showing the changes made to the file.\n\nWhen calling this endpoint without any paging parameter (`per_page` or `page`), the returned list is limited to 250 commits, and the last commit in the list is the most recent of the entire comparison.\n\n**Working with large comparisons**\n\nTo process a response with a large number of commits, use a query parameter (`per_page` or `page`) to paginate the results. When using pagination:\n\n- The list of changed files is only shown on the first page of results, but it includes all changed files for the entire comparison.\n- The results are returned in chronological order, but the last commit in the returned list may not be the most recent one in the entire set if there are more pages of results.\n\nFor more information on working with pagination, see \"[Using pagination in the REST API](https://docs.github.com/enterprise-server@3.10/rest/guides/using-pagination-in-the-rest-api).\"\n\n**Signature verification object**\n\nThe response will include a `verification` object that describes the result of verifying the commit's signature. The `verification` object includes the following fields:\n\n| Name | Type | Description |\n| ---- | ---- | ----------- |\n| `verified` | `boolean` | Indicates whether GitHub considers the signature in this commit to be verified. |\n| `reason` | `string` | The reason for verified value. Possible values and their meanings are enumerated in table below. |\n| `signature` | `string` | The signature that was extracted from the commit. |\n| `payload` | `string` | The value that was signed. |\n\nThese are the possible values for `reason` in the `verification` object:\n\n| Value | Description |\n| ----- | ----------- |\n| `expired_key` | The key that made the signature is expired. |\n| `not_signing_key` | The \"signing\" flag is not among the usage flags in the GPG key that made the signature. |\n| `gpgverify_error` | There was an error communicating with the signature verification service. |\n| `gpgverify_unavailable` | The signature verification service is currently unavailable. |\n| `unsigned` | The object does not include a signature. |\n| `unknown_signature_type` | A non-PGP signature was found in the commit. |\n| `no_user` | No user was associated with the `committer` email address in the commit. |\n| `unverified_email` | The `committer` email address in the commit was associated with a user, but the email address is not verified on their account. |\n| `bad_email` | The `committer` email address in the commit is not included in the identities of the PGP key that made the signature. |\n| `unknown_key` | The key that made the signature has not been registered with any user's account. |\n| `malformed_signature` | There was an error parsing the signature. |\n| `invalid` | The signature could not be cryptographically verified using the key whose key-id was found in the signature. |\n| `valid` | None of the above errors applied, so the signature is considered to be verified. |",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/commits/commits#compare-two-commits",
     "previews": [],
     "headers": [],
@@ -46187,6 +46337,7 @@
     ],
     "responses": [
       { "code": 204, "description": "Response", "examples": null },
+      { "code": 404, "description": "Resource not found", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -50876,6 +51027,7 @@
         ]
       },
       { "code": 404, "description": "Resource not found", "examples": null },
+      { "code": 409, "description": "Conflict", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -53075,6 +53227,7 @@
           }
         ]
       },
+      { "code": 409, "description": "Conflict", "examples": null },
       {
         "code": 422,
         "description": "Validation failed, or the endpoint has been spammed.",
@@ -55165,7 +55318,8 @@
             "data": "[{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1347\",\"id\":1,\"node_id\":\"MDExOlB1bGxSZXF1ZXN0MQ==\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1347\",\"diff_url\":\"https://github.com/octocat/Hello-World/pull/1347.diff\",\"patch_url\":\"https://github.com/octocat/Hello-World/pull/1347.patch\",\"issue_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/1347\",\"commits_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1347/commits\",\"review_comments_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1347/comments\",\"review_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}\",\"comments_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/1347/comments\",\"statuses_url\":\"https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"number\":1347,\"state\":\"open\",\"locked\":true,\"title\":\"Amazing new feature\",\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Please pull these awesome changes in!\",\"labels\":[{\"id\":208045946,\"node_id\":\"MDU6TGFiZWwyMDgwNDU5NDY=\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/labels/bug\",\"name\":\"bug\",\"description\":\"Something isn't working\",\"color\":\"f29513\",\"default\":true}],\"milestone\":{\"url\":\"https://api.github.com/repos/octocat/Hello-World/milestones/1\",\"html_url\":\"https://github.com/octocat/Hello-World/milestones/v1.0\",\"labels_url\":\"https://api.github.com/repos/octocat/Hello-World/milestones/1/labels\",\"id\":1002604,\"node_id\":\"MDk6TWlsZXN0b25lMTAwMjYwNA==\",\"number\":1,\"state\":\"open\",\"title\":\"v1.0\",\"description\":\"Tracking milestone for version 1.0\",\"creator\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"open_issues\":4,\"closed_issues\":8,\"created_at\":\"2011-04-10T20:09:31Z\",\"updated_at\":\"2014-03-03T18:58:10Z\",\"closed_at\":\"2013-02-12T13:22:01Z\",\"due_on\":\"2012-10-09T23:39:01Z\"},\"active_lock_reason\":\"too heated\",\"created_at\":\"2011-01-26T19:01:12Z\",\"updated_at\":\"2011-01-26T19:01:12Z\",\"closed_at\":\"2011-01-26T19:01:12Z\",\"merged_at\":\"2011-01-26T19:01:12Z\",\"merge_commit_sha\":\"e5bd3914e2e596debea16f433f57875b5b90bcd6\",\"assignee\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"assignees\":[{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},{\"login\":\"hubot\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/hubot_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/hubot\",\"html_url\":\"https://github.com/hubot\",\"followers_url\":\"https://api.github.com/users/hubot/followers\",\"following_url\":\"https://api.github.com/users/hubot/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/hubot/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/hubot/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/hubot/subscriptions\",\"organizations_url\":\"https://api.github.com/users/hubot/orgs\",\"repos_url\":\"https://api.github.com/users/hubot/repos\",\"events_url\":\"https://api.github.com/users/hubot/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/hubot/received_events\",\"type\":\"User\",\"site_admin\":true}],\"requested_reviewers\":[{\"login\":\"other_user\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/other_user_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/other_user\",\"html_url\":\"https://github.com/other_user\",\"followers_url\":\"https://api.github.com/users/other_user/followers\",\"following_url\":\"https://api.github.com/users/other_user/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/other_user/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/other_user/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/other_user/subscriptions\",\"organizations_url\":\"https://api.github.com/users/other_user/orgs\",\"repos_url\":\"https://api.github.com/users/other_user/repos\",\"events_url\":\"https://api.github.com/users/other_user/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/other_user/received_events\",\"type\":\"User\",\"site_admin\":false}],\"requested_teams\":[{\"id\":1,\"node_id\":\"MDQ6VGVhbTE=\",\"url\":\"https://api.github.com/teams/1\",\"html_url\":\"https://github.com/orgs/github/teams/justice-league\",\"name\":\"Justice League\",\"slug\":\"justice-league\",\"description\":\"A great team.\",\"privacy\":\"closed\",\"permission\":\"admin\",\"notification_setting\":\"notifications_enabled\",\"members_url\":\"https://api.github.com/teams/1/members{/member}\",\"repositories_url\":\"https://api.github.com/teams/1/repos\",\"parent\":null}],\"head\":{\"label\":\"octocat:new-topic\",\"ref\":\"new-topic\",\"sha\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"repo\":{\"id\":1296269,\"node_id\":\"MDEwOlJlcG9zaXRvcnkxMjk2MjY5\",\"name\":\"Hello-World\",\"full_name\":\"octocat/Hello-World\",\"owner\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"private\":false,\"html_url\":\"https://github.com/octocat/Hello-World\",\"description\":\"This your first repo!\",\"fork\":false,\"url\":\"https://api.github.com/repos/octocat/Hello-World\",\"archive_url\":\"https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}\",\"assignees_url\":\"https://api.github.com/repos/octocat/Hello-World/assignees{/user}\",\"blobs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}\",\"branches_url\":\"https://api.github.com/repos/octocat/Hello-World/branches{/branch}\",\"collaborators_url\":\"https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}\",\"comments_url\":\"https://api.github.com/repos/octocat/Hello-World/comments{/number}\",\"commits_url\":\"https://api.github.com/repos/octocat/Hello-World/commits{/sha}\",\"compare_url\":\"https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}\",\"contents_url\":\"https://api.github.com/repos/octocat/Hello-World/contents/{+path}\",\"contributors_url\":\"https://api.github.com/repos/octocat/Hello-World/contributors\",\"deployments_url\":\"https://api.github.com/repos/octocat/Hello-World/deployments\",\"downloads_url\":\"https://api.github.com/repos/octocat/Hello-World/downloads\",\"events_url\":\"https://api.github.com/repos/octocat/Hello-World/events\",\"forks_url\":\"https://api.github.com/repos/octocat/Hello-World/forks\",\"git_commits_url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}\",\"git_url\":\"git:github.com/octocat/Hello-World.git\",\"issue_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}\",\"issue_events_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/events{/number}\",\"issues_url\":\"https://api.github.com/repos/octocat/Hello-World/issues{/number}\",\"keys_url\":\"https://api.github.com/repos/octocat/Hello-World/keys{/key_id}\",\"labels_url\":\"https://api.github.com/repos/octocat/Hello-World/labels{/name}\",\"languages_url\":\"https://api.github.com/repos/octocat/Hello-World/languages\",\"merges_url\":\"https://api.github.com/repos/octocat/Hello-World/merges\",\"milestones_url\":\"https://api.github.com/repos/octocat/Hello-World/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}\",\"pulls_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls{/number}\",\"releases_url\":\"https://api.github.com/repos/octocat/Hello-World/releases{/id}\",\"ssh_url\":\"git@github.com:octocat/Hello-World.git\",\"stargazers_url\":\"https://api.github.com/repos/octocat/Hello-World/stargazers\",\"statuses_url\":\"https://api.github.com/repos/octocat/Hello-World/statuses/{sha}\",\"subscribers_url\":\"https://api.github.com/repos/octocat/Hello-World/subscribers\",\"subscription_url\":\"https://api.github.com/repos/octocat/Hello-World/subscription\",\"tags_url\":\"https://api.github.com/repos/octocat/Hello-World/tags\",\"teams_url\":\"https://api.github.com/repos/octocat/Hello-World/teams\",\"trees_url\":\"https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}\",\"clone_url\":\"https://github.com/octocat/Hello-World.git\",\"mirror_url\":\"git:git.example.com/octocat/Hello-World\",\"hooks_url\":\"https://api.github.com/repos/octocat/Hello-World/hooks\",\"svn_url\":\"https://svn.github.com/octocat/Hello-World\",\"homepage\":\"https://github.com\",\"language\":null,\"forks_count\":9,\"stargazers_count\":80,\"watchers_count\":80,\"size\":108,\"default_branch\":\"master\",\"open_issues_count\":0,\"is_template\":true,\"topics\":[\"octocat\",\"atom\",\"electron\",\"api\"],\"has_issues\":true,\"has_projects\":true,\"has_wiki\":true,\"has_pages\":false,\"has_downloads\":true,\"archived\":false,\"disabled\":false,\"visibility\":\"public\",\"pushed_at\":\"2011-01-26T19:06:43Z\",\"created_at\":\"2011-01-26T19:01:12Z\",\"updated_at\":\"2011-01-26T19:14:43Z\",\"permissions\":{\"admin\":false,\"push\":false,\"pull\":true},\"allow_rebase_merge\":true,\"template_repository\":null,\"temp_clone_token\":\"ABTLWHOULUVAXGTRYU7OC2876QJ2O\",\"allow_squash_merge\":true,\"allow_auto_merge\":false,\"delete_branch_on_merge\":true,\"allow_merge_commit\":true,\"subscribers_count\":42,\"network_count\":0,\"license\":{\"key\":\"mit\",\"name\":\"MIT License\",\"url\":\"https://api.github.com/licenses/mit\",\"spdx_id\":\"MIT\",\"node_id\":\"MDc6TGljZW5zZW1pdA==\",\"html_url\":\"https://github.com/licenses/mit\"},\"forks\":1,\"open_issues\":1,\"watchers\":1}},\"base\":{\"label\":\"octocat:master\",\"ref\":\"master\",\"sha\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"repo\":{\"id\":1296269,\"node_id\":\"MDEwOlJlcG9zaXRvcnkxMjk2MjY5\",\"name\":\"Hello-World\",\"full_name\":\"octocat/Hello-World\",\"owner\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"private\":false,\"html_url\":\"https://github.com/octocat/Hello-World\",\"description\":\"This your first repo!\",\"fork\":false,\"url\":\"https://api.github.com/repos/octocat/Hello-World\",\"archive_url\":\"https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}\",\"assignees_url\":\"https://api.github.com/repos/octocat/Hello-World/assignees{/user}\",\"blobs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}\",\"branches_url\":\"https://api.github.com/repos/octocat/Hello-World/branches{/branch}\",\"collaborators_url\":\"https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}\",\"comments_url\":\"https://api.github.com/repos/octocat/Hello-World/comments{/number}\",\"commits_url\":\"https://api.github.com/repos/octocat/Hello-World/commits{/sha}\",\"compare_url\":\"https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}\",\"contents_url\":\"https://api.github.com/repos/octocat/Hello-World/contents/{+path}\",\"contributors_url\":\"https://api.github.com/repos/octocat/Hello-World/contributors\",\"deployments_url\":\"https://api.github.com/repos/octocat/Hello-World/deployments\",\"downloads_url\":\"https://api.github.com/repos/octocat/Hello-World/downloads\",\"events_url\":\"https://api.github.com/repos/octocat/Hello-World/events\",\"forks_url\":\"https://api.github.com/repos/octocat/Hello-World/forks\",\"git_commits_url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}\",\"git_url\":\"git:github.com/octocat/Hello-World.git\",\"issue_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}\",\"issue_events_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/events{/number}\",\"issues_url\":\"https://api.github.com/repos/octocat/Hello-World/issues{/number}\",\"keys_url\":\"https://api.github.com/repos/octocat/Hello-World/keys{/key_id}\",\"labels_url\":\"https://api.github.com/repos/octocat/Hello-World/labels{/name}\",\"languages_url\":\"https://api.github.com/repos/octocat/Hello-World/languages\",\"merges_url\":\"https://api.github.com/repos/octocat/Hello-World/merges\",\"milestones_url\":\"https://api.github.com/repos/octocat/Hello-World/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}\",\"pulls_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls{/number}\",\"releases_url\":\"https://api.github.com/repos/octocat/Hello-World/releases{/id}\",\"ssh_url\":\"git@github.com:octocat/Hello-World.git\",\"stargazers_url\":\"https://api.github.com/repos/octocat/Hello-World/stargazers\",\"statuses_url\":\"https://api.github.com/repos/octocat/Hello-World/statuses/{sha}\",\"subscribers_url\":\"https://api.github.com/repos/octocat/Hello-World/subscribers\",\"subscription_url\":\"https://api.github.com/repos/octocat/Hello-World/subscription\",\"tags_url\":\"https://api.github.com/repos/octocat/Hello-World/tags\",\"teams_url\":\"https://api.github.com/repos/octocat/Hello-World/teams\",\"trees_url\":\"https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}\",\"clone_url\":\"https://github.com/octocat/Hello-World.git\",\"mirror_url\":\"git:git.example.com/octocat/Hello-World\",\"hooks_url\":\"https://api.github.com/repos/octocat/Hello-World/hooks\",\"svn_url\":\"https://svn.github.com/octocat/Hello-World\",\"homepage\":\"https://github.com\",\"language\":null,\"forks_count\":9,\"stargazers_count\":80,\"watchers_count\":80,\"size\":108,\"default_branch\":\"master\",\"open_issues_count\":0,\"is_template\":true,\"topics\":[\"octocat\",\"atom\",\"electron\",\"api\"],\"has_issues\":true,\"has_projects\":true,\"has_wiki\":true,\"has_pages\":false,\"has_downloads\":true,\"archived\":false,\"disabled\":false,\"visibility\":\"public\",\"pushed_at\":\"2011-01-26T19:06:43Z\",\"created_at\":\"2011-01-26T19:01:12Z\",\"updated_at\":\"2011-01-26T19:14:43Z\",\"permissions\":{\"admin\":false,\"push\":false,\"pull\":true},\"allow_rebase_merge\":true,\"template_repository\":null,\"temp_clone_token\":\"ABTLWHOULUVAXGTRYU7OC2876QJ2O\",\"allow_squash_merge\":true,\"allow_auto_merge\":false,\"delete_branch_on_merge\":true,\"allow_merge_commit\":true,\"subscribers_count\":42,\"network_count\":0,\"license\":{\"key\":\"mit\",\"name\":\"MIT License\",\"url\":\"https://api.github.com/licenses/mit\",\"spdx_id\":\"MIT\",\"node_id\":\"MDc6TGljZW5zZW1pdA==\",\"html_url\":\"https://github.com/licenses/mit\"},\"forks\":1,\"open_issues\":1,\"watchers\":1}},\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1347\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1347\"},\"issue\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/issues/1347\"},\"comments\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/issues/1347/comments\"},\"review_comments\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1347/comments\"},\"review_comment\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}\"},\"commits\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1347/commits\"},\"statuses\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e\"}},\"author_association\":\"OWNER\",\"auto_merge\":null,\"draft\":false}]"
           }
         ]
-      }
+      },
+      { "code": 409, "description": "Conflict", "examples": null }
     ],
     "renamed": null
   },
@@ -60950,7 +61104,7 @@
         "description": "Response",
         "examples": [
           {
-            "data": "[{\"type\":\"commit\",\"details\":{\"path\":\"/example/secrets.txt\",\"start_line\":1,\"end_line\":1,\"start_column\":1,\"end_column\":64,\"blob_sha\":\"af5626b4a114abcb82d63db7c8082c3c4756e51b\",\"blob_url\":\"https://api.github.com/repos/octocat/hello-world/git/blobs/af5626b4a114abcb82d63db7c8082c3c4756e51b\",\"commit_sha\":\"f14d7debf9775f957cf4f1e8176da0786431f72b\",\"commit_url\":\"https://api.github.com/repos/octocat/hello-world/git/commits/f14d7debf9775f957cf4f1e8176da0786431f72b\"}},{\"type\":\"issue_title\",\"details\":{\"issue_title_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/1347\"}},{\"type\":\"issue_body\",\"details\":{\"issue_body_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/1347\"}},{\"type\":\"issue_comment\",\"details\":{\"issue_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/comments/1081119451\"}},{\"type\":\"discussion_title\",\"details\":{\"discussion_title_url\":\"https://github.com/community/community/discussions/39082\"}},{\"type\":\"discussion_body\",\"details\":{\"discussion_body_url\":\"https://github.com/community/community/discussions/39082#discussion-4566270\"}},{\"type\":\"discussion_comment\",\"details\":{\"discussion_comment_url\":\"https://github.com/community/community/discussions/39082#discussioncomment-4158232\"}},{\"type\":\"pull_request_title\",\"details\":{\"pull_request_title_url\":\"https://api.github.com/repos/octocat/Hello-World/pull/2846\"}},{\"type\":\"pull_request_body\",\"details\":{\"pull_request_body_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/2846\"}},{\"type\":\"pull_request_comment\",\"details\":{\"pull_request_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/comments/1825855898\"}},{\"type\":\"pull_request_review\",\"details\":{\"pull_request_review_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/2846/reviews/80\"}},{\"type\":\"pull_request_review_comment\",\"details\":{\"pull_request_review_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/12\"}}]"
+            "data": "[{\"type\":\"commit\",\"details\":{\"path\":\"/example/secrets.txt\",\"start_line\":1,\"end_line\":1,\"start_column\":1,\"end_column\":64,\"blob_sha\":\"af5626b4a114abcb82d63db7c8082c3c4756e51b\",\"blob_url\":\"https://api.github.com/repos/octocat/hello-world/git/blobs/af5626b4a114abcb82d63db7c8082c3c4756e51b\",\"commit_sha\":\"f14d7debf9775f957cf4f1e8176da0786431f72b\",\"commit_url\":\"https://api.github.com/repos/octocat/hello-world/git/commits/f14d7debf9775f957cf4f1e8176da0786431f72b\"}},{\"type\":\"wiki_commit\",\"details\":{\"path\":\"/example/Home.md\",\"start_line\":1,\"end_line\":1,\"start_column\":1,\"end_column\":64,\"blob_sha\":\"af5626b4a114abcb82d63db7c8082c3c4756e51b\",\"page_url\":\"https://github.com/octocat/Hello-World/wiki/Home/302c0b7e200761c9dd9b57e57db540ee0b4293a5\",\"commit_sha\":\"302c0b7e200761c9dd9b57e57db540ee0b4293a5\",\"commit_url\":\"https://github.com/octocat/Hello-World/wiki/_compare/302c0b7e200761c9dd9b57e57db540ee0b4293a5\"}},{\"type\":\"issue_title\",\"details\":{\"issue_title_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/1347\"}},{\"type\":\"issue_body\",\"details\":{\"issue_body_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/1347\"}},{\"type\":\"issue_comment\",\"details\":{\"issue_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/comments/1081119451\"}},{\"type\":\"discussion_title\",\"details\":{\"discussion_title_url\":\"https://github.com/community/community/discussions/39082\"}},{\"type\":\"discussion_body\",\"details\":{\"discussion_body_url\":\"https://github.com/community/community/discussions/39082#discussion-4566270\"}},{\"type\":\"discussion_comment\",\"details\":{\"discussion_comment_url\":\"https://github.com/community/community/discussions/39082#discussioncomment-4158232\"}},{\"type\":\"pull_request_title\",\"details\":{\"pull_request_title_url\":\"https://api.github.com/repos/octocat/Hello-World/pull/2846\"}},{\"type\":\"pull_request_body\",\"details\":{\"pull_request_body_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/2846\"}},{\"type\":\"pull_request_comment\",\"details\":{\"pull_request_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/issues/comments/1825855898\"}},{\"type\":\"pull_request_review\",\"details\":{\"pull_request_review_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/2846/reviews/80\"}},{\"type\":\"pull_request_review_comment\",\"details\":{\"pull_request_review_comment_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/12\"}}]"
           }
         ]
       },
@@ -66474,7 +66628,7 @@
     "url": "/users/{username}/hovercard",
     "isDeprecated": false,
     "deprecationDate": null,
-    "description": "Provides hovercard information. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.\n\nThe `subject_type` and `subject_id` parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about `octocat` who owns the `Spoon-Knife` repository via cURL, it would look like this:\n\n```shell\n curl -u username:token\n  https://api.github.com/users/octocat/hovercard?subject_type=repository&subject_id=1300192\n```\n\nOAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
+    "description": "Provides hovercard information. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.\n\n  The `subject_type` and `subject_id` parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about `octocat` who owns the `Spoon-Knife` repository, you would use a `subject_type` value of `repository` and a `subject_id` value of `1300192` (the ID of the `Spoon-Knife` repository).\n\nOAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
     "documentationUrl": "https://docs.github.com/enterprise-server@3.10/rest/users/users#get-contextual-information-for-a-user",
     "previews": [],
     "headers": [],
