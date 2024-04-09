@@ -73,7 +73,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     initializeInstanceConfiguration: ["POST {origin}/manage/v1/config/init"],
     licenseCheck: ["GET {origin}/manage/v1/config/license/check"],
     licenseInfo: ["GET {origin}/manage/v1/config/license"],
-    licenseUpload: ["PUT {origin}/manage/v1/config/license"],
+    licenseUpload: ["PUT {origin}/manage/v1/config/license{?apply}"],
     listGlobalWebhooks: ["GET /admin/hooks"],
     listPersonalAccessTokens: ["GET /admin/tokens"],
     listPreReceiveEnvironments: ["GET /admin/pre-receive-environments"],
