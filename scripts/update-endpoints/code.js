@@ -1,17 +1,18 @@
 import { writeFileSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { resolve as pathResolve } from "node:path";
-
+import { getCurrentVersions } from "github-enterprise-server-versions";
 import prettier from "prettier";
 import sortKeys from "sort-keys";
 
-import GHE_VERSIONS from "./ghe-versions.js";
 const newRoutes = {};
 const params = {};
 
 generateRoutes();
 
 async function generateRoutes() {
+  const GHE_VERSIONS = (await getCurrentVersions()).map(e => e.replace(".", ""));
+
   for (const version of GHE_VERSIONS) {
     const endpoints = JSON.parse(
       await readFile(

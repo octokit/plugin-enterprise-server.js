@@ -1,5 +1,6 @@
 import { writeFileSync } from "node:fs";
 
+import { getCurrentVersions } from "github-enterprise-server-versions";
 import graphql from "github-openapi-graphql-query";
 import { format } from "prettier";
 
@@ -8,7 +9,6 @@ if (!process.env.VERSION) {
 }
 
 const version = process.env.VERSION.replace(/^v/, "");
-import GHE_VERSIONS from "./ghe-versions.js";
 
 const QUERY = `
   query ($version: String, $ignoreChangesBefore: String!, $ghe: GitHubEnterpriseVersion!) {
@@ -68,6 +68,8 @@ const QUERY = `
 main();
 
 async function main() {
+  const GHE_VERSIONS = (await getCurrentVersions()).map(e => e.replace(".", ""));
+
   for (const ghe of GHE_VERSIONS) {
     console.log(
       "Loading endpoints for GHE %s.%s",
