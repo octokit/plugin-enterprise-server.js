@@ -47,7 +47,7 @@
     "npm-run-all2": "^6.0.0",
     "prettier": "3.3.3",
     "semantic-release-plugin-update-version-in-files": "^1.0.0",
-    "sort-keys": "^4.2.0",
+    "sort-keys": "^5.0.0",
     "ts-jest": "^29.0.0",
     "typescript": "^5.0.0"
   },
