@@ -31,6 +31,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     getAllStats: ["GET /enterprise/stats/all"],
     getAnnouncement: ["GET /enterprise/announcement"],
+    getClusterStatus: ["GET {origin}/manage/v1/cluster/status"],
     getCommentStats: ["GET /enterprise/stats/comments"],
     getConfigNodes: ["GET {origin}/manage/v1/config/nodes"],
     getConfigurationStatus: ["GET {origin}/setup/api/configcheck"],

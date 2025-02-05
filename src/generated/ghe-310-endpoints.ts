@@ -7,6 +7,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     addCustomLabelsToSelfHostedRunnerForRepo: [
       "POST /repos/{owner}/{repo}/actions/runners/{runner_id}/labels",
     ],
+    addRepoAccessToSelfHostedRunnerGroupInOrg: [
+      "PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+    ],
     addSelectedRepoToOrgSecret: [
       "PUT /orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}",
     ],
@@ -97,9 +100,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     enableWorkflow: [
       "PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable",
-    ],
-    generateRunnerJitconfigForEnterprise: [
-      "POST /enterprises/{enterprise}/actions/runners/generate-jitconfig",
     ],
     generateRunnerJitconfigForOrg: [
       "POST /orgs/{org}/actions/runners/generate-jitconfig",
@@ -824,6 +824,9 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listForUser: ["GET /users/{username}/orgs"],
     listMembers: ["GET /orgs/{org}/members"],
     listMembershipsForAuthenticatedUser: ["GET /user/memberships/orgs"],
+    listOrganizationFineGrainedPermissions: [
+      "GET /orgs/{org}/organization-fine-grained-permissions",
+    ],
     listOutsideCollaborators: ["GET /orgs/{org}/outside_collaborators"],
     listPatGrantRepositories: [
       "GET /orgs/{org}/personal-access-tokens/{pat_id}/repositories",
@@ -1213,7 +1216,14 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     createPagesDeployment: ["POST /repos/{owner}/{repo}/pages/deployments"],
     createPagesSite: ["POST /repos/{owner}/{repo}/pages"],
     createRelease: ["POST /repos/{owner}/{repo}/releases"],
-    createTagProtection: ["POST /repos/{owner}/{repo}/tags/protection"],
+    createTagProtection: [
+      "POST /repos/{owner}/{repo}/tags/protection",
+      {},
+      {
+        deprecated:
+          "octokit.scim.createTagProtection() is deprecated, see https://docs.github.com/enterprise-server@3.10/rest/repos/tags#closing-down---create-a-tag-protection-state-for-a-repository",
+      },
+    ],
     createUsingTemplate: [
       "POST /repos/{template_owner}/{template_repo}/generate",
     ],
@@ -1265,6 +1275,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     deleteTagProtection: [
       "DELETE /repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.deleteTagProtection() is deprecated, see https://docs.github.com/enterprise-server@3.10/rest/repos/tags#closing-down---delete-a-tag-protection-state-for-a-repository",
+      },
     ],
     deleteWebhook: ["DELETE /repos/{owner}/{repo}/hooks/{hook_id}"],
     disableDeploymentProtectionRule: [
@@ -1404,7 +1419,14 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "GET /repos/{owner}/{repo}/releases/{release_id}/assets",
     ],
     listReleases: ["GET /repos/{owner}/{repo}/releases"],
-    listTagProtection: ["GET /repos/{owner}/{repo}/tags/protection"],
+    listTagProtection: [
+      "GET /repos/{owner}/{repo}/tags/protection",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listTagProtection() is deprecated, see https://docs.github.com/enterprise-server@3.10/rest/repos/tags#closing-down---list-tag-protection-states-for-a-repository",
+      },
+    ],
     listTags: ["GET /repos/{owner}/{repo}/tags"],
     listTeams: ["GET /repos/{owner}/{repo}/teams"],
     listWebhookDeliveries: [
@@ -1854,6 +1876,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     follow: ["PUT /user/following/{username}"],
     getAuthenticated: ["GET /user"],
+    getById: ["GET /user/{account_id}"],
     getByUsername: ["GET /users/{username}"],
     getContextForUser: ["GET /users/{username}/hovercard"],
     getGpgKeyForAuthenticated: [
