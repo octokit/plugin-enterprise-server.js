@@ -71,7 +71,7 @@ async function main() {
             default: "./dist-bundle/index.js",
           },
           "./types": {
-            types: "./dist-types/.d.ts",
+            types: "./dist-types/types.d.ts",
           },
         },
         sideEffects: false,
