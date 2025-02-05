@@ -68,7 +68,9 @@ const QUERY = `
 main();
 
 async function main() {
-  const GHE_VERSIONS = (await getCurrentVersions()).map(e => e.replace(".", ""));
+  const GHE_VERSIONS = (await getCurrentVersions()).map((e) =>
+    e.replace(".", ""),
+  );
 
   for (const ghe of GHE_VERSIONS) {
     console.log(
