@@ -12,7 +12,7 @@
     "lint": "prettier --check '{src,test,scripts}/**' '!scripts/update-endpoints/generated/*' README.md package.json",
     "lint:fix": "prettier --write '{src,test,scripts}/**' '!scripts/update-endpoints/generated/*' README.md package.json",
     "pretest": "npm run -s lint",
-    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" npx jest --coverage",
+    "test": "vitest run",
     "update-endpoints": "npm-run-all update-endpoints:*",
     "update-endpoints:fetch-json": "node scripts/update-endpoints/fetch-json.js",
     "update-endpoints:code": "node scripts/update-endpoints/code.js"
@@ -37,37 +37,19 @@
   "devDependencies": {
     "@octokit/core": "^6.0.0",
     "@octokit/tsconfig": "^3.0.0",
-    "@types/jest": "^29.0.0",
     "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^3.0.5",
     "esbuild": "^0.24.0",
     "fetch-mock": "^11.0.0",
     "github-enterprise-server-versions": "^2.0.1",
     "github-openapi-graphql-query": "^4.5.0",
     "glob": "^10.2.7",
-    "jest": "^29.0.0",
     "npm-run-all2": "^7.0.0",
     "prettier": "3.3.3",
     "semantic-release-plugin-update-version-in-files": "^1.0.0",
     "sort-keys": "^5.1.0",
-    "ts-jest": "^29.0.0",
-    "typescript": "^5.0.0"
-  },
-  "jest": {
-    "extensionsToTreatAsEsm": [
-      ".ts"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": [
-        "ts-jest",
-        {
-          "tsconfig": "test/tsconfig.test.json",
-          "useESM": true
-        }
-      ]
-    },
-    "moduleNameMapper": {
-      "^(.+)\\.jsx?$": "$1"
-    }
+    "typescript": "^5.0.0",
+    "vitest": "^3.0.5"
   },
   "release": {
     "branches": [
