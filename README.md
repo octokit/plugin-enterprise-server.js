@@ -34,10 +34,8 @@ Node
 Install with `npm install @octokit/core @octokit/plugin-enterprise-server`. Optionally replace `@octokit/core` with a core-compatible module
 
 ```js
-const { Octokit } = require("@octokit/core");
-const {
-  enterpriseServer36Admin,
-} = require("@octokit/plugin-enterprise-server");
+import { Octokit } from "@octokit/core";
+import { enterpriseServer312Admin } from "@octokit/plugin-enterprise-server";
 ```
 
 </td></tr>
