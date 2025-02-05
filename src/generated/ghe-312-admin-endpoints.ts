@@ -35,6 +35,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getChecksSystemRequirements: [
       "GET {origin}/manage/v1/checks/system-requirements",
     ],
+    getClusterStatus: ["GET {origin}/manage/v1/cluster/status"],
     getCommentStats: ["GET /enterprise/stats/comments"],
     getConfigNodes: ["GET {origin}/manage/v1/config/nodes"],
     getConfigurationStatus: ["GET {origin}/setup/api/configcheck"],
@@ -47,6 +48,8 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getIssueStats: ["GET /enterprise/stats/issues"],
     getLicenseInformation: ["GET /enterprise/settings/license"],
     getMaintenanceStatus: ["GET {origin}/setup/api/maintenance"],
+    getManageConfigApplyEvents: ["GET {origin}/manage/v1/config/apply/events"],
+    getManageConfigApplyStatus: ["GET {origin}/manage/v1/config/apply"],
     getManageMaintenance: ["GET {origin}/manage/v1/maintenance"],
     getManageSettings: ["GET {origin}/manage/v1/config/settings"],
     getManageSsh: ["GET {origin}/manage/v1/access/ssh"],
@@ -73,7 +76,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     initializeInstanceConfiguration: ["POST {origin}/manage/v1/config/init"],
     licenseCheck: ["GET {origin}/manage/v1/config/license/check"],
     licenseInfo: ["GET {origin}/manage/v1/config/license"],
-    licenseUpload: ["PUT {origin}/manage/v1/config/license{?apply}"],
+    licenseUpload: ["PUT {origin}/manage/v1/config/license"],
     listGlobalWebhooks: ["GET /admin/hooks"],
     listPersonalAccessTokens: ["GET /admin/tokens"],
     listPreReceiveEnvironments: ["GET /admin/pre-receive-environments"],
@@ -82,6 +85,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listPreReceiveHooksForRepo: ["GET /repos/{owner}/{repo}/pre-receive-hooks"],
     listPublicKeys: ["GET /admin/keys"],
     pingGlobalWebhook: ["POST /admin/hooks/{hook_id}/pings"],
+    postManageRunConfigApply: ["POST {origin}/manage/v1/config/apply"],
     promoteUserToBeSiteAdministrator: ["PUT /users/{username}/site_admin"],
     removeAnnouncement: ["DELETE /enterprise/announcement"],
     removeAuthorizedSshKey: [
