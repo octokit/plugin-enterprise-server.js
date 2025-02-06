@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { enterpriseServer312, enterpriseServer312Admin } from "../src/index.ts";
 
 describe("Smoke test", () => {

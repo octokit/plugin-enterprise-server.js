@@ -1,18 +1,27 @@
-const { writeFileSync } = require("fs");
-const { resolve: pathResolve } = require("path");
+import { writeFileSync } from "node:fs";
+import { readFile } from "node:fs/promises";
+import { resolve as pathResolve } from "node:path";
+import { getCurrentVersions } from "github-enterprise-server-versions";
+import prettier from "prettier";
+import sortKeys from "sort-keys";
 
-const prettier = require("prettier");
-const sortKeys = require("sort-keys");
-
-const GHE_VERSIONS = require("./ghe-versions");
 const newRoutes = {};
 const params = {};
 
 generateRoutes();
 
 async function generateRoutes() {
+  const GHE_VERSIONS = (await getCurrentVersions()).map((e) =>
+    e.replace(".", ""),
+  );
+
   for (const version of GHE_VERSIONS) {
-    const endpoints = require(`./generated/ghe${version}-endpoints.json`);
+    const endpoints = JSON.parse(
+      await readFile(
+        new URL(`./generated/ghe${version}-endpoints.json`, import.meta.url),
+        "utf8",
+      ),
+    );
     endpoints.forEach((endpoint) => {
       const scope = endpoint.scope;
 
@@ -70,7 +79,7 @@ async function generateRoutes() {
 
     const ALL_ENDPOINTS_PATH = pathResolve(
       process.cwd(),
-      `src/generated/ghe-${version}-endpoints.ts`
+      `src/generated/ghe-${version}-endpoints.ts`,
     );
 
     writeFileSync(
@@ -78,30 +87,30 @@ async function generateRoutes() {
       await prettier.format(
         `import type { EndpointsDefaultsAndDecorations } from "../types.js";
     const Endpoints: EndpointsDefaultsAndDecorations = ${JSON.stringify(
-      sortKeys(newRoutes, { deep: true })
+      sortKeys(newRoutes, { deep: true }),
     )}
 
     export default Endpoints`,
-        { parser: "typescript" }
-      )
+        { parser: "typescript" },
+      ),
     );
     console.log(`${ALL_ENDPOINTS_PATH} written.`);
 
     const ADMIN_ENDPOINTS_PATH = pathResolve(
       process.cwd(),
-      `src/generated/ghe-${version}-admin-endpoints.ts`
+      `src/generated/ghe-${version}-admin-endpoints.ts`,
     );
     writeFileSync(
       ADMIN_ENDPOINTS_PATH,
       await prettier.format(
         `import type { EndpointsDefaultsAndDecorations } from "../types.js";
     const Endpoints: EndpointsDefaultsAndDecorations = ${JSON.stringify(
-      sortKeys({ enterpriseAdmin: newRoutes.enterpriseAdmin }, { deep: true })
+      sortKeys({ enterpriseAdmin: newRoutes.enterpriseAdmin }, { deep: true }),
     )}
 
     export default Endpoints`,
-        { parser: "typescript" }
-      )
+        { parser: "typescript" },
+      ),
     );
     console.log(`${ADMIN_ENDPOINTS_PATH} written.`);
 
@@ -110,7 +119,7 @@ async function generateRoutes() {
       (version) => `
         import ENDPOINTS_${version} from "./generated/ghe-${version}-endpoints.js";
         import ADMIN_ENDPOINTS_${version} from "./generated/ghe-${version}-admin-endpoints.js";
-      `
+      `,
     ).join("\n");
     const methods = GHE_VERSIONS.map(
       (version) => `
@@ -123,7 +132,7 @@ async function generateRoutes() {
           return endpointsToMethods(octokit, ENDPOINTS_${version});
         }
         enterpriseServer${version}.VERSION = VERSION;
-      `
+      `,
     ).join("\n");
     writeFileSync(
       INDEX_PATH,
@@ -138,8 +147,8 @@ async function generateRoutes() {
         ${imports}
 
         ${methods}`,
-        { parser: "typescript" }
-      )
+        { parser: "typescript" },
+      ),
     );
     console.log(`${INDEX_PATH} written.`);
 
@@ -155,8 +164,8 @@ ${Object.keys(newRoutesSorted.enterpriseAdmin)
     endpointToMethod(
       "enterpriseAdmin",
       methodName,
-      params.enterpriseAdmin[methodName]
-    )
+      params.enterpriseAdmin[methodName],
+    ),
   )
   .join("\n")}
 \`\`\`
@@ -170,16 +179,16 @@ ${Object.keys(newRoutesSorted)
   .map((scope) =>
     Object.keys(newRoutesSorted[scope])
       .map((methodName) =>
-        endpointToMethod(scope, methodName, params[scope][methodName])
+        endpointToMethod(scope, methodName, params[scope][methodName]),
       )
-      .join("\n")
+      .join("\n"),
   )
   .join("\n")}
 \`\`\`
 `;
     writeFileSync(
       README_PATH,
-      await prettier.format(content, { parser: "markdown" })
+      await prettier.format(content, { parser: "markdown" }),
     );
     console.log(`${README_PATH} written.`);
   }

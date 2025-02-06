@@ -1,15 +1,14 @@
-const { writeFileSync } = require("fs");
-const path = require("path");
+import { writeFileSync } from "node:fs";
 
-const graphql = require("github-openapi-graphql-query");
-const prettier = require("prettier");
+import { getCurrentVersions } from "github-enterprise-server-versions";
+import graphql from "github-openapi-graphql-query";
+import { format } from "prettier";
 
 if (!process.env.VERSION) {
   throw new Error(`VERSION environment variable must be set`);
 }
 
 const version = process.env.VERSION.replace(/^v/, "");
-const GHE_VERSIONS = require("./ghe-versions");
 
 const QUERY = `
   query ($version: String, $ignoreChangesBefore: String!, $ghe: GitHubEnterpriseVersion!) {
@@ -69,11 +68,15 @@ const QUERY = `
 main();
 
 async function main() {
+  const GHE_VERSIONS = (await getCurrentVersions()).map((e) =>
+    e.replace(".", ""),
+  );
+
   for (const ghe of GHE_VERSIONS) {
     console.log(
       "Loading endpoints for GHE %s.%s",
       ghe.substr(0, 1),
-      ghe.substr(1)
+      ghe.substr(1),
     );
     const {
       data: { endpoints },
@@ -84,10 +87,10 @@ async function main() {
     });
 
     writeFileSync(
-      path.resolve(__dirname, "generated", `ghe${ghe}-endpoints.json`),
-      await prettier.format(JSON.stringify(endpoints), {
+      new URL(`./generated/ghe${ghe}-endpoints.json`, import.meta.url),
+      await format(JSON.stringify(endpoints), {
         parser: "json",
-      })
+      }),
     );
   }
 }
