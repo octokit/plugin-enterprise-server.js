@@ -35,7 +35,7 @@ Install with `npm install @octokit/core @octokit/plugin-enterprise-server`. Opti
 
 ```js
 import { Octokit } from "@octokit/core";
-import { enterpriseServer312Admin } from "@octokit/plugin-enterprise-server";
+import { enterpriseServer316Admin } from "@octokit/plugin-enterprise-server";
 ```
 
 </td></tr>
@@ -43,8 +43,8 @@ import { enterpriseServer312Admin } from "@octokit/plugin-enterprise-server";
 </table>
 
 ```js
-const OctokitEnterprise12 = Octokit.plugin(enterpriseServer312Admin);
-const octokit = new OctokitEnterprise312({
+const OctokitEnterprise12 = Octokit.plugin(enterpriseServer316Admin);
+const octokit = new OctokitEnterprise316({
   auth: "secret123",
   baseUrl: "https://github.acme-inc.com/api/v3",
 });
@@ -57,14 +57,14 @@ octokit.enterpriseAdmin.createUser({
 
 The list of currently exported plugins are
 
-- [`enterpriseServer312Admin`](docs/ghe-312.md#admin)
-- [`enterpriseServer312`](docs/ghe-312.md#others)
 - [`enterpriseServer313Admin`](docs/ghe-313.md#admin)
 - [`enterpriseServer313`](docs/ghe-313.md#others)
 - [`enterpriseServer314Admin`](docs/ghe-314.md#admin)
 - [`enterpriseServer314`](docs/ghe-314.md#others)
 - [`enterpriseServer315Admin`](docs/ghe-315.md#admin)
 - [`enterpriseServer315`](docs/ghe-315.md#others)
+- [`enterpriseServer316Admin`](docs/ghe-315.md#admin)
+- [`enterpriseServer316`](docs/ghe-315.md#others)
 
 ## How it works
 
