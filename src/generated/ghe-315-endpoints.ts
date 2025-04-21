@@ -1060,35 +1060,206 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
   },
   projects: {
-    addCollaborator: ["PUT /projects/{project_id}/collaborators/{username}"],
-    createCard: ["POST /projects/columns/{column_id}/cards"],
-    createColumn: ["POST /projects/{project_id}/columns"],
-    createForAuthenticatedUser: ["POST /user/projects"],
-    createForOrg: ["POST /orgs/{org}/projects"],
-    createForRepo: ["POST /repos/{owner}/{repo}/projects"],
-    delete: ["DELETE /projects/{project_id}"],
-    deleteCard: ["DELETE /projects/columns/cards/{card_id}"],
-    deleteColumn: ["DELETE /projects/columns/{column_id}"],
-    get: ["GET /projects/{project_id}"],
-    getCard: ["GET /projects/columns/cards/{card_id}"],
-    getColumn: ["GET /projects/columns/{column_id}"],
+    addCollaborator: [
+      "PUT /projects/{project_id}/collaborators/{username}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.addCollaborator() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/collaborators#add-project-collaborator",
+      },
+    ],
+    createCard: [
+      "POST /projects/columns/{column_id}/cards",
+      {},
+      {
+        deprecated:
+          "octokit.scim.createCard() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#create-a-project-card",
+      },
+    ],
+    createColumn: [
+      "POST /projects/{project_id}/columns",
+      {},
+      {
+        deprecated:
+          "octokit.scim.createColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#create-a-project-column",
+      },
+    ],
+    createForAuthenticatedUser: [
+      "POST /user/projects",
+      {},
+      {
+        deprecated:
+          "octokit.scim.createForAuthenticatedUser() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#create-a-user-project",
+      },
+    ],
+    createForOrg: [
+      "POST /orgs/{org}/projects",
+      {},
+      {
+        deprecated:
+          "octokit.scim.createForOrg() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#create-an-organization-project",
+      },
+    ],
+    createForRepo: [
+      "POST /repos/{owner}/{repo}/projects",
+      {},
+      {
+        deprecated:
+          "octokit.scim.createForRepo() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#create-a-repository-project",
+      },
+    ],
+    delete: [
+      "DELETE /projects/{project_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.delete() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#delete-a-project",
+      },
+    ],
+    deleteCard: [
+      "DELETE /projects/columns/cards/{card_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.deleteCard() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#delete-a-project-card",
+      },
+    ],
+    deleteColumn: [
+      "DELETE /projects/columns/{column_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.deleteColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#delete-a-project-column",
+      },
+    ],
+    get: [
+      "GET /projects/{project_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.get() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#get-a-project",
+      },
+    ],
+    getCard: [
+      "GET /projects/columns/cards/{card_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.getCard() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#get-a-project-card",
+      },
+    ],
+    getColumn: [
+      "GET /projects/columns/{column_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.getColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#get-a-project-column",
+      },
+    ],
     getPermissionForUser: [
       "GET /projects/{project_id}/collaborators/{username}/permission",
+      {},
+      {
+        deprecated:
+          "octokit.scim.getPermissionForUser() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/collaborators#get-project-permission-for-a-user",
+      },
     ],
-    listCards: ["GET /projects/columns/{column_id}/cards"],
-    listCollaborators: ["GET /projects/{project_id}/collaborators"],
-    listColumns: ["GET /projects/{project_id}/columns"],
-    listForOrg: ["GET /orgs/{org}/projects"],
-    listForRepo: ["GET /repos/{owner}/{repo}/projects"],
-    listForUser: ["GET /users/{username}/projects"],
-    moveCard: ["POST /projects/columns/cards/{card_id}/moves"],
-    moveColumn: ["POST /projects/columns/{column_id}/moves"],
+    listCards: [
+      "GET /projects/columns/{column_id}/cards",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listCards() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#list-project-cards",
+      },
+    ],
+    listCollaborators: [
+      "GET /projects/{project_id}/collaborators",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listCollaborators() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/collaborators#list-project-collaborators",
+      },
+    ],
+    listColumns: [
+      "GET /projects/{project_id}/columns",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listColumns() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#list-project-columns",
+      },
+    ],
+    listForOrg: [
+      "GET /orgs/{org}/projects",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listForOrg() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#list-organization-projects",
+      },
+    ],
+    listForRepo: [
+      "GET /repos/{owner}/{repo}/projects",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listForRepo() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#list-repository-projects",
+      },
+    ],
+    listForUser: [
+      "GET /users/{username}/projects",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listForUser() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#list-user-projects",
+      },
+    ],
+    moveCard: [
+      "POST /projects/columns/cards/{card_id}/moves",
+      {},
+      {
+        deprecated:
+          "octokit.scim.moveCard() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#move-a-project-card",
+      },
+    ],
+    moveColumn: [
+      "POST /projects/columns/{column_id}/moves",
+      {},
+      {
+        deprecated:
+          "octokit.scim.moveColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#move-a-project-column",
+      },
+    ],
     removeCollaborator: [
       "DELETE /projects/{project_id}/collaborators/{username}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.removeCollaborator() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/collaborators#remove-user-as-a-collaborator",
+      },
     ],
-    update: ["PATCH /projects/{project_id}"],
-    updateCard: ["PATCH /projects/columns/cards/{card_id}"],
-    updateColumn: ["PATCH /projects/columns/{column_id}"],
+    update: [
+      "PATCH /projects/{project_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.update() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#update-a-project",
+      },
+    ],
+    updateCard: [
+      "PATCH /projects/columns/cards/{card_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.updateCard() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#update-an-existing-project-card",
+      },
+    ],
+    updateColumn: [
+      "PATCH /projects/columns/{column_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.updateColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#update-an-existing-project-column",
+      },
+    ],
   },
   pulls: {
     checkIfMerged: ["GET /repos/{owner}/{repo}/pulls/{pull_number}/merge"],
@@ -1682,6 +1853,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     addOrUpdateProjectPermissionsInOrg: [
       "PUT /orgs/{org}/teams/{team_slug}/projects/{project_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.addOrUpdateProjectPermissionsInOrg() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/teams/teams#add-or-update-team-project-permissions",
+      },
     ],
     addOrUpdateProjectPermissionsLegacy: [
       "PUT /teams/{team_id}/projects/{project_id}",
@@ -1704,6 +1880,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     checkPermissionsForProjectInOrg: [
       "GET /orgs/{org}/teams/{team_slug}/projects/{project_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.checkPermissionsForProjectInOrg() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/teams/teams#check-team-permissions-for-a-project",
+      },
     ],
     checkPermissionsForProjectLegacy: [
       "GET /teams/{team_id}/projects/{project_id}",
@@ -1866,7 +2047,14 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
           "octokit.scim.listMembersLegacy() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/teams/members#list-team-members-legacy",
       },
     ],
-    listProjectsInOrg: ["GET /orgs/{org}/teams/{team_slug}/projects"],
+    listProjectsInOrg: [
+      "GET /orgs/{org}/teams/{team_slug}/projects",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listProjectsInOrg() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/teams/teams#list-team-projects",
+      },
+    ],
     listProjectsLegacy: [
       "GET /teams/{team_id}/projects",
       {},
@@ -1905,6 +2093,11 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     removeProjectInOrg: [
       "DELETE /orgs/{org}/teams/{team_slug}/projects/{project_id}",
+      {},
+      {
+        deprecated:
+          "octokit.scim.removeProjectInOrg() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/teams/teams#remove-a-project-from-a-team",
+      },
     ],
     removeProjectLegacy: [
       "DELETE /teams/{team_id}/projects/{project_id}",

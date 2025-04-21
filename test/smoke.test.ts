@@ -1,20 +1,20 @@
 import { describe, expect, it } from "vitest";
-import { enterpriseServer312, enterpriseServer312Admin } from "../src/index.ts";
+import { enterpriseServer316, enterpriseServer316Admin } from "../src/index.ts";
 
 describe("Smoke test", () => {
-  it("enterpriseServer312 is a function", () => {
-    expect(enterpriseServer312).toBeInstanceOf(Function);
+  it("enterpriseServer316 is a function", () => {
+    expect(enterpriseServer316).toBeInstanceOf(Function);
   });
 
-  it("enterpriseServer312Admin is a function", () => {
-    expect(enterpriseServer312Admin).toBeInstanceOf(Function);
+  it("enterpriseServer316Admin is a function", () => {
+    expect(enterpriseServer316Admin).toBeInstanceOf(Function);
   });
 
-  it("enterpriseServer312.VERSION is set", () => {
-    expect(enterpriseServer312.VERSION).toEqual("0.0.0-development");
+  it("enterpriseServer316.VERSION is set", () => {
+    expect(enterpriseServer316.VERSION).toEqual("0.0.0-development");
   });
 
-  it("enterpriseServer312Admin.VERSION is set", () => {
-    expect(enterpriseServer312Admin.VERSION).toEqual("0.0.0-development");
+  it("enterpriseServer316Admin.VERSION is set", () => {
+    expect(enterpriseServer316Admin.VERSION).toEqual("0.0.0-development");
   });
 });
