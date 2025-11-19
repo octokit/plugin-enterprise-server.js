@@ -13,7 +13,7 @@ generateRoutes();
 async function generateRoutes() {
   const GHE_VERSIONS = (await getCurrentVersions()).map((e) =>
     e.replace(".", ""),
-  );
+  ).filter(e => e !== "319");
 
   for (const version of GHE_VERSIONS) {
     const endpoints = JSON.parse(

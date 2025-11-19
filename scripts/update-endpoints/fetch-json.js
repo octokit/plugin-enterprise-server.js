@@ -70,7 +70,7 @@ main();
 async function main() {
   const GHE_VERSIONS = (await getCurrentVersions()).map((e) =>
     e.replace(".", ""),
-  );
+  ).filter(e => e !== "319"); // Exclude GHE 3.19 as it is not yet supported in the GraphQL schema
 
   for (const ghe of GHE_VERSIONS) {
     console.log(
