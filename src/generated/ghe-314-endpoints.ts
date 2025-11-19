@@ -830,14 +830,28 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     convertMemberToOutsideCollaborator: [
       "PUT /orgs/{org}/outside_collaborators/{username}",
     ],
-    createOrUpdateCustomProperties: ["PATCH /orgs/{org}/properties/schema"],
-    createOrUpdateCustomPropertiesValuesForRepos: [
-      "PATCH /orgs/{org}/properties/values",
-    ],
-    createOrUpdateCustomProperty: [
+    createWebhook: ["POST /orgs/{org}/hooks"],
+    customPropertiesForReposCreateOrUpdateOrganizationDefinition: [
       "PUT /orgs/{org}/properties/schema/{custom_property_name}",
     ],
-    createWebhook: ["POST /orgs/{org}/hooks"],
+    customPropertiesForReposCreateOrUpdateOrganizationDefinitions: [
+      "PATCH /orgs/{org}/properties/schema",
+    ],
+    customPropertiesForReposCreateOrUpdateOrganizationValues: [
+      "PATCH /orgs/{org}/properties/values",
+    ],
+    customPropertiesForReposDeleteOrganizationDefinition: [
+      "DELETE /orgs/{org}/properties/schema/{custom_property_name}",
+    ],
+    customPropertiesForReposGetOrganizationDefinition: [
+      "GET /orgs/{org}/properties/schema/{custom_property_name}",
+    ],
+    customPropertiesForReposGetOrganizationDefinitions: [
+      "GET /orgs/{org}/properties/schema",
+    ],
+    customPropertiesForReposGetOrganizationValues: [
+      "GET /orgs/{org}/properties/values",
+    ],
     delete: ["DELETE /orgs/{org}"],
     deleteWebhook: ["DELETE /orgs/{org}/hooks/{hook_id}"],
     enableOrDisableSecurityProductOnAllOrgRepos: [
@@ -849,10 +863,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       },
     ],
     get: ["GET /orgs/{org}"],
-    getAllCustomProperties: ["GET /orgs/{org}/properties/schema"],
-    getCustomProperty: [
-      "GET /orgs/{org}/properties/schema/{custom_property_name}",
-    ],
     getMembershipForAuthenticatedUser: ["GET /user/memberships/orgs/{org}"],
     getMembershipForUser: ["GET /orgs/{org}/memberships/{username}"],
     getOrgRole: ["GET /orgs/{org}/organization-roles/{role_id}"],
@@ -863,7 +873,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     list: ["GET /organizations"],
     listAppInstallations: ["GET /orgs/{org}/installations"],
-    listCustomPropertiesValuesForRepos: ["GET /orgs/{org}/properties/values"],
     listForAuthenticatedUser: ["GET /user/orgs"],
     listForUser: ["GET /users/{username}/orgs"],
     listMembers: ["GET /orgs/{org}/members"],
@@ -871,9 +880,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listOrgRoleTeams: ["GET /orgs/{org}/organization-roles/{role_id}/teams"],
     listOrgRoleUsers: ["GET /orgs/{org}/organization-roles/{role_id}/users"],
     listOrgRoles: ["GET /orgs/{org}/organization-roles"],
-    listOrganizationFineGrainedPermissions: [
-      "GET /orgs/{org}/organization-fine-grained-permissions",
-    ],
     listOutsideCollaborators: ["GET /orgs/{org}/outside_collaborators"],
     listPatGrantRepositories: [
       "GET /orgs/{org}/personal-access-tokens/{pat_id}/repositories",
@@ -890,9 +896,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     pingWebhook: ["POST /orgs/{org}/hooks/{hook_id}/pings"],
     redeliverWebhookDelivery: [
       "POST /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts",
-    ],
-    removeCustomProperty: [
-      "DELETE /orgs/{org}/properties/schema/{custom_property_name}",
     ],
     removeMember: ["DELETE /orgs/{org}/members/{username}"],
     removeMembershipForUser: ["DELETE /orgs/{org}/memberships/{username}"],
@@ -1028,35 +1031,43 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}/restore",
     ],
   },
-  projects: {
+  projectsClassic: {
     addCollaborator: ["PUT /projects/{project_id}/collaborators/{username}"],
-    createCard: ["POST /projects/columns/{column_id}/cards"],
-    createColumn: ["POST /projects/{project_id}/columns"],
+    createColumn: [
+      "POST /projects/{project_id}/columns",
+      {},
+      {
+        deprecated:
+          "octokit.scim.createColumn() is deprecated, see https://docs.github.com/enterprise-server@3.14/rest/projects-classic/columns#create-a-project-column",
+      },
+    ],
     createForAuthenticatedUser: ["POST /user/projects"],
     createForOrg: ["POST /orgs/{org}/projects"],
     createForRepo: ["POST /repos/{owner}/{repo}/projects"],
     delete: ["DELETE /projects/{project_id}"],
-    deleteCard: ["DELETE /projects/columns/cards/{card_id}"],
     deleteColumn: ["DELETE /projects/columns/{column_id}"],
     get: ["GET /projects/{project_id}"],
-    getCard: ["GET /projects/columns/cards/{card_id}"],
     getColumn: ["GET /projects/columns/{column_id}"],
     getPermissionForUser: [
       "GET /projects/{project_id}/collaborators/{username}/permission",
     ],
-    listCards: ["GET /projects/columns/{column_id}/cards"],
     listCollaborators: ["GET /projects/{project_id}/collaborators"],
-    listColumns: ["GET /projects/{project_id}/columns"],
+    listColumns: [
+      "GET /projects/{project_id}/columns",
+      {},
+      {
+        deprecated:
+          "octokit.scim.listColumns() is deprecated, see https://docs.github.com/enterprise-server@3.14/rest/projects-classic/columns#list-project-columns",
+      },
+    ],
     listForOrg: ["GET /orgs/{org}/projects"],
     listForRepo: ["GET /repos/{owner}/{repo}/projects"],
     listForUser: ["GET /users/{username}/projects"],
-    moveCard: ["POST /projects/columns/cards/{card_id}/moves"],
     moveColumn: ["POST /projects/columns/{column_id}/moves"],
     removeCollaborator: [
       "DELETE /projects/{project_id}/collaborators/{username}",
     ],
     update: ["PATCH /projects/{project_id}"],
-    updateCard: ["PATCH /projects/columns/cards/{card_id}"],
     updateColumn: ["PATCH /projects/columns/{column_id}"],
   },
   pulls: {
@@ -1274,9 +1285,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     createForAuthenticatedUser: ["POST /user/repos"],
     createFork: ["POST /repos/{owner}/{repo}/forks"],
     createInOrg: ["POST /orgs/{org}/repos"],
-    createOrUpdateCustomPropertiesValues: [
-      "PATCH /repos/{owner}/{repo}/properties/values",
-    ],
     createOrUpdateEnvironment: [
       "PUT /repos/{owner}/{repo}/environments/{environment_name}",
     ],
@@ -1298,6 +1306,12 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /repos/{template_owner}/{template_repo}/generate",
     ],
     createWebhook: ["POST /repos/{owner}/{repo}/hooks"],
+    customPropertiesForReposCreateOrUpdateRepositoryValues: [
+      "PATCH /repos/{owner}/{repo}/properties/values",
+    ],
+    customPropertiesForReposGetRepositoryValues: [
+      "GET /repos/{owner}/{repo}/properties/values",
+    ],
     declineInvitation: [
       "DELETE /user/repository_invitations/{invitation_id}",
       {},
@@ -1408,7 +1422,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getCustomDeploymentProtectionRule: [
       "GET /repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}",
     ],
-    getCustomPropertiesValues: ["GET /repos/{owner}/{repo}/properties/values"],
     getDeployKey: ["GET /repos/{owner}/{repo}/keys/{key_id}"],
     getDeployment: ["GET /repos/{owner}/{repo}/deployments/{deployment_id}"],
     getDeploymentBranchPolicy: [
@@ -1609,9 +1622,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
   secretScanning: {
     getAlert: [
       "GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}",
-    ],
-    listAlertsForEnterprise: [
-      "GET /enterprises/{enterprise}/secret-scanning/alerts",
     ],
     listAlertsForOrg: ["GET /orgs/{org}/secret-scanning/alerts"],
     listAlertsForRepo: ["GET /repos/{owner}/{repo}/secret-scanning/alerts"],

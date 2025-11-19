@@ -861,14 +861,28 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     convertMemberToOutsideCollaborator: [
       "PUT /orgs/{org}/outside_collaborators/{username}",
     ],
-    createOrUpdateCustomProperties: ["PATCH /orgs/{org}/properties/schema"],
-    createOrUpdateCustomPropertiesValuesForRepos: [
-      "PATCH /orgs/{org}/properties/values",
-    ],
-    createOrUpdateCustomProperty: [
+    createWebhook: ["POST /orgs/{org}/hooks"],
+    customPropertiesForReposCreateOrUpdateOrganizationDefinition: [
       "PUT /orgs/{org}/properties/schema/{custom_property_name}",
     ],
-    createWebhook: ["POST /orgs/{org}/hooks"],
+    customPropertiesForReposCreateOrUpdateOrganizationDefinitions: [
+      "PATCH /orgs/{org}/properties/schema",
+    ],
+    customPropertiesForReposCreateOrUpdateOrganizationValues: [
+      "PATCH /orgs/{org}/properties/values",
+    ],
+    customPropertiesForReposDeleteOrganizationDefinition: [
+      "DELETE /orgs/{org}/properties/schema/{custom_property_name}",
+    ],
+    customPropertiesForReposGetOrganizationDefinition: [
+      "GET /orgs/{org}/properties/schema/{custom_property_name}",
+    ],
+    customPropertiesForReposGetOrganizationDefinitions: [
+      "GET /orgs/{org}/properties/schema",
+    ],
+    customPropertiesForReposGetOrganizationValues: [
+      "GET /orgs/{org}/properties/values",
+    ],
     delete: ["DELETE /orgs/{org}"],
     deleteWebhook: ["DELETE /orgs/{org}/hooks/{hook_id}"],
     enableOrDisableSecurityProductOnAllOrgRepos: [
@@ -880,10 +894,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       },
     ],
     get: ["GET /orgs/{org}"],
-    getAllCustomProperties: ["GET /orgs/{org}/properties/schema"],
-    getCustomProperty: [
-      "GET /orgs/{org}/properties/schema/{custom_property_name}",
-    ],
     getMembershipForAuthenticatedUser: ["GET /user/memberships/orgs/{org}"],
     getMembershipForUser: ["GET /orgs/{org}/memberships/{username}"],
     getOrgRole: ["GET /orgs/{org}/organization-roles/{role_id}"],
@@ -894,7 +904,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     list: ["GET /organizations"],
     listAppInstallations: ["GET /orgs/{org}/installations"],
-    listCustomPropertiesValuesForRepos: ["GET /orgs/{org}/properties/values"],
     listForAuthenticatedUser: ["GET /user/orgs"],
     listForUser: ["GET /users/{username}/orgs"],
     listMembers: ["GET /orgs/{org}/members"],
@@ -902,9 +911,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     listOrgRoleTeams: ["GET /orgs/{org}/organization-roles/{role_id}/teams"],
     listOrgRoleUsers: ["GET /orgs/{org}/organization-roles/{role_id}/users"],
     listOrgRoles: ["GET /orgs/{org}/organization-roles"],
-    listOrganizationFineGrainedPermissions: [
-      "GET /orgs/{org}/organization-fine-grained-permissions",
-    ],
     listOutsideCollaborators: ["GET /orgs/{org}/outside_collaborators"],
     listPatGrantRepositories: [
       "GET /orgs/{org}/personal-access-tokens/{pat_id}/repositories",
@@ -921,9 +927,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     pingWebhook: ["POST /orgs/{org}/hooks/{hook_id}/pings"],
     redeliverWebhookDelivery: [
       "POST /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts",
-    ],
-    removeCustomProperty: [
-      "DELETE /orgs/{org}/properties/schema/{custom_property_name}",
     ],
     removeMember: ["DELETE /orgs/{org}/members/{username}"],
     removeMembershipForUser: ["DELETE /orgs/{org}/memberships/{username}"],
@@ -1059,21 +1062,13 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}/restore",
     ],
   },
-  projects: {
+  projectsClassic: {
     addCollaborator: [
       "PUT /projects/{project_id}/collaborators/{username}",
       {},
       {
         deprecated:
-          "octokit.scim.addCollaborator() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/collaborators#add-project-collaborator",
-      },
-    ],
-    createCard: [
-      "POST /projects/columns/{column_id}/cards",
-      {},
-      {
-        deprecated:
-          "octokit.scim.createCard() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#create-a-project-card",
+          "octokit.scim.addCollaborator() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/collaborators#add-project-collaborator",
       },
     ],
     createColumn: [
@@ -1081,7 +1076,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.createColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#create-a-project-column",
+          "octokit.scim.createColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/columns#create-a-project-column",
       },
     ],
     createForAuthenticatedUser: [
@@ -1089,7 +1084,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.createForAuthenticatedUser() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#create-a-user-project",
+          "octokit.scim.createForAuthenticatedUser() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/projects#create-a-user-project",
       },
     ],
     createForOrg: [
@@ -1097,7 +1092,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.createForOrg() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#create-an-organization-project",
+          "octokit.scim.createForOrg() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/projects#create-an-organization-project",
       },
     ],
     createForRepo: [
@@ -1105,7 +1100,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.createForRepo() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#create-a-repository-project",
+          "octokit.scim.createForRepo() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/projects#create-a-repository-project",
       },
     ],
     delete: [
@@ -1113,15 +1108,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.delete() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#delete-a-project",
-      },
-    ],
-    deleteCard: [
-      "DELETE /projects/columns/cards/{card_id}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.deleteCard() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#delete-a-project-card",
+          "octokit.scim.delete() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/projects#delete-a-project",
       },
     ],
     deleteColumn: [
@@ -1129,7 +1116,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.deleteColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#delete-a-project-column",
+          "octokit.scim.deleteColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/columns#delete-a-project-column",
       },
     ],
     get: [
@@ -1137,15 +1124,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.get() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#get-a-project",
-      },
-    ],
-    getCard: [
-      "GET /projects/columns/cards/{card_id}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.getCard() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#get-a-project-card",
+          "octokit.scim.get() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/projects#get-a-project",
       },
     ],
     getColumn: [
@@ -1153,7 +1132,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.getColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#get-a-project-column",
+          "octokit.scim.getColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/columns#get-a-project-column",
       },
     ],
     getPermissionForUser: [
@@ -1161,15 +1140,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.getPermissionForUser() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/collaborators#get-project-permission-for-a-user",
-      },
-    ],
-    listCards: [
-      "GET /projects/columns/{column_id}/cards",
-      {},
-      {
-        deprecated:
-          "octokit.scim.listCards() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#list-project-cards",
+          "octokit.scim.getPermissionForUser() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/collaborators#get-project-permission-for-a-user",
       },
     ],
     listCollaborators: [
@@ -1177,7 +1148,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listCollaborators() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/collaborators#list-project-collaborators",
+          "octokit.scim.listCollaborators() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/collaborators#list-project-collaborators",
       },
     ],
     listColumns: [
@@ -1185,7 +1156,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listColumns() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#list-project-columns",
+          "octokit.scim.listColumns() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/columns#list-project-columns",
       },
     ],
     listForOrg: [
@@ -1193,7 +1164,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listForOrg() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#list-organization-projects",
+          "octokit.scim.listForOrg() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/projects#list-organization-projects",
       },
     ],
     listForRepo: [
@@ -1201,7 +1172,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listForRepo() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#list-repository-projects",
+          "octokit.scim.listForRepo() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/projects#list-repository-projects",
       },
     ],
     listForUser: [
@@ -1209,15 +1180,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.listForUser() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#list-user-projects",
-      },
-    ],
-    moveCard: [
-      "POST /projects/columns/cards/{card_id}/moves",
-      {},
-      {
-        deprecated:
-          "octokit.scim.moveCard() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#move-a-project-card",
+          "octokit.scim.listForUser() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/projects#list-user-projects",
       },
     ],
     moveColumn: [
@@ -1225,7 +1188,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.moveColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#move-a-project-column",
+          "octokit.scim.moveColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/columns#move-a-project-column",
       },
     ],
     removeCollaborator: [
@@ -1233,7 +1196,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.removeCollaborator() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/collaborators#remove-user-as-a-collaborator",
+          "octokit.scim.removeCollaborator() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/collaborators#remove-user-as-a-collaborator",
       },
     ],
     update: [
@@ -1241,15 +1204,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.update() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/projects#update-a-project",
-      },
-    ],
-    updateCard: [
-      "PATCH /projects/columns/cards/{card_id}",
-      {},
-      {
-        deprecated:
-          "octokit.scim.updateCard() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/cards#update-an-existing-project-card",
+          "octokit.scim.update() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/projects#update-a-project",
       },
     ],
     updateColumn: [
@@ -1257,7 +1212,7 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       {},
       {
         deprecated:
-          "octokit.scim.updateColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects/columns#update-an-existing-project-column",
+          "octokit.scim.updateColumn() is deprecated, see https://docs.github.com/enterprise-server@3.15/rest/projects-classic/columns#update-an-existing-project-column",
       },
     ],
   },
@@ -1476,9 +1431,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     createForAuthenticatedUser: ["POST /user/repos"],
     createFork: ["POST /repos/{owner}/{repo}/forks"],
     createInOrg: ["POST /orgs/{org}/repos"],
-    createOrUpdateCustomPropertiesValues: [
-      "PATCH /repos/{owner}/{repo}/properties/values",
-    ],
     createOrUpdateEnvironment: [
       "PUT /repos/{owner}/{repo}/environments/{environment_name}",
     ],
@@ -1500,6 +1452,12 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
       "POST /repos/{template_owner}/{template_repo}/generate",
     ],
     createWebhook: ["POST /repos/{owner}/{repo}/hooks"],
+    customPropertiesForReposCreateOrUpdateRepositoryValues: [
+      "PATCH /repos/{owner}/{repo}/properties/values",
+    ],
+    customPropertiesForReposGetRepositoryValues: [
+      "GET /repos/{owner}/{repo}/properties/values",
+    ],
     declineInvitation: [
       "DELETE /user/repository_invitations/{invitation_id}",
       {},
@@ -1610,7 +1568,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     getCustomDeploymentProtectionRule: [
       "GET /repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}",
     ],
-    getCustomPropertiesValues: ["GET /repos/{owner}/{repo}/properties/values"],
     getDeployKey: ["GET /repos/{owner}/{repo}/keys/{key_id}"],
     getDeployment: ["GET /repos/{owner}/{repo}/deployments/{deployment_id}"],
     getDeploymentBranchPolicy: [
@@ -1814,9 +1771,6 @@ const Endpoints: EndpointsDefaultsAndDecorations = {
     ],
     getAlert: [
       "GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}",
-    ],
-    listAlertsForEnterprise: [
-      "GET /enterprises/{enterprise}/secret-scanning/alerts",
     ],
     listAlertsForOrg: ["GET /orgs/{org}/secret-scanning/alerts"],
     listAlertsForRepo: ["GET /repos/{owner}/{repo}/secret-scanning/alerts"],
