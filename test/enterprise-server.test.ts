@@ -6,21 +6,23 @@ import { enterpriseServer316Admin } from "../src/index.ts";
 
 describe("enterpriseCloud plugin", () => {
   it("README example", async () => {
-    const mock = fetchMock
-      .sandbox()
-      .post("https://github.acme-inc.com/api/v3/admin/users", [{ ok: true }], {
+    const mock = fetchMock.post(
+      "https://github.acme-inc.com/api/v3/admin/users",
+      [{ ok: true }],
+      {
         body: {
           username: "octocat",
           email: "octocat@acme-inc.com",
         },
-      });
+      },
+    );
 
     const MyOctokit = Octokit.plugin(enterpriseServer316Admin);
     const octokit = new MyOctokit({
       auth: "secret123",
       baseUrl: "https://github.acme-inc.com/api/v3",
       request: {
-        fetch: mock,
+        fetch: mock.fetchHandler,
       },
     });
 
