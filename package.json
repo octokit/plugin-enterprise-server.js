@@ -48,7 +48,7 @@
     "prettier": "3.8.1",
     "semantic-release-plugin-update-version-in-files": "^2.0.0",
     "sort-keys": "^6.0.0",
-    "typescript": "^5.0.0",
+    "typescript": "^6.0.0",
     "vitest": "^3.0.5"
   },
   "release": {
